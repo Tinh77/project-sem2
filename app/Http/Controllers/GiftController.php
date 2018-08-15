@@ -29,7 +29,7 @@ class GiftController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
