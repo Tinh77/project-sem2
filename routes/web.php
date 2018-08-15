@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return 'something.';
+    return view('layouts.app');
+});
+Route::get('/list', function () {
+    return view('admin.product.list');
+});
+
+Route::get('/form', function () {
+    return view('admin.product.form');
+});
+
+
+Route::get('/category/list', function () {
+    return view('admin.category.list');
 });
