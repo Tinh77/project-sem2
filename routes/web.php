@@ -11,18 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
+Route::get('/admin', function () {
+    return view('admin.layout.app');
 });
-Route::get('/list', function () {
+Route::get('/admin/demo-list', function () {
     return view('admin.product.list');
 });
 
-Route::get('/form', function () {
+Route::get('/admin/demo-form', function () {
     return view('admin.product.form');
 });
 
 
-Route::get('/category/list', function () {
+Route::get('/admin/demo-list-category', function () {
     return view('admin.category.list');
+});
+
+Route::get('/client', function () {
+    return view('client.pages.home');
+});
+
+Route::get('/client/list', function () {
+    return view('client.pages.list');
 });

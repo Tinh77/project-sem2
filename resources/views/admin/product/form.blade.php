@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layout.app')
 @section('content')
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
