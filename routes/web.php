@@ -12,19 +12,14 @@
 */
 
 Route::get('/admin', function () {
-    return view('admin.layout.app');
+    return view('admin.layout.master-v2');
 });
-Route::get('/admin/demo-list', function () {
-    return view('admin.product.list');
-});
-
 Route::get('/admin/demo-form', function () {
-    return view('admin.product.form');
+    return view('admin.pages.form');
 });
 
-
-Route::get('/admin/demo-list-category', function () {
-    return view('admin.category.list');
+Route::get('/admin/demo-list', function () {
+    return view('admin.pages.table');
 });
 
 Route::get('/client', function () {
