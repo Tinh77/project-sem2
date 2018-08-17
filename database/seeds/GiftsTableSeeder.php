@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class Gifts_table_seeder extends Seeder
+class GiftsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +12,8 @@ class Gifts_table_seeder extends Seeder
      */
     public function run()
     {
-        //
-        \Illuminate\Support\Facades\DB::table('gifts')->truncate();
-        \Illuminate\Support\Facades\DB::table('gifts')->insert([
+        DB::table('gifts')->truncate();
+        DB::table('gifts')->insert([
             [
                 'account_id'=>1,
                 'category_id'=>1,
