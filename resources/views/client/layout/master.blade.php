@@ -38,6 +38,14 @@
     <link rel="stylesheet" href="{{asset('client-css/list.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/dropdown.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('client-css/product-detail.css')}}">
+
 </head>
 
 <body>
