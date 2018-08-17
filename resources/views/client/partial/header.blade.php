@@ -1,18 +1,11 @@
-<style>
-    .item-menu {
-        overflow: auto;
-        white-space: nowrap;
-    }
-
-</style>
 <header>
     <div class="header">
-        <div class="bg-white">
+        <div>
             <div class="logo">
-                <img class="mb-0 mt-5" src="{{URL::asset('/client-image/Logo1.png')}}"/>
+                <a href="/client"><img class="mb-0 mt-5 w-50" src="{{URL::asset('img/brand/logo.png')}}"/></a>
             </div>
             <nav class="scroll-menu text-center mb-3 ml-3">
-                <a class=" text-dark mr-5 item-menu font-text" href="#">Trang chủ</a>
+                <a class=" text-dark mr-5 item-menu font-text" href="/client">Trang chủ</a>
                 <a class=" text-dark mr-5 item-menu font-text" href="#">Trang chủ</a>
                 <a class=" text-dark mr-5 item-menu font-text" href="#">Trang chủ</a>
                 <a class=" text-dark mr-5 item-menu font-text" href="#">Trang chủ</a>

@@ -44,6 +44,79 @@
     font-family: 'Lato', sans-serif;
 }
 
+header {
+    background-color: #FDEAEC;
+}
+
+/**/
+
+.section_card {
+    height: 400px;
+}
+
+@media only screen and (max-width: 768px) {
+     .section_card .card-body .card-title {
+        font-size: 17px;
+    }
+    .section_card .card-body .card-text{
+        font-size: 13px ;
+    }
+    .section_card .card-body a>h5{
+        font-size: 10px;
+    }
+    .section_card{
+        height: 260px;
+    }
+    footer{
+        font-size: 15px;
+    }
+}
+
+.section_card .card-body
+.section_card .card {
+    position: relative;
+    float: left;
+    width: 100%;
+
+    text-align: center;
+}
+
+.section_card .card__front,
+.section_card .card__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.section_card .card__front,
+.section_card .card__back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.section_card .card__front {
+    /*background-color: #ff5078;*/
+}
+
+.section_card .card__back {
+    /*background-color: #1e1e1e;*/
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.section_card .card.effect__click.flipped .card__front {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.section_card .card.effect__click.flipped .card__back {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+}
 
 /*login*/
 

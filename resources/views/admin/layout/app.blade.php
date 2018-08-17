@@ -19,18 +19,17 @@
     <link href="/css/pace.min.css" rel="stylesheet">
 </head>
 <body class="pace-done sidebar-lg-show">
-@include('../elements/header')
+@include('admin.elements.header')
 <div class="app-body">
     <div class="sidebar">
-        @include('../elements/siderbar')
+        @include('admin.elements.siderbar')
     </div>
     <main class="main">
-        {{--@include('../admin.product.list')--}}
         @section('content')
         @show
     </main>
 </div>
-@include('../elements/footer')
+@include('admin.elements.footer')
 <script src="/js/jquery.min.js"></script>
 <script src="/js/popper.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>

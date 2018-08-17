@@ -20,14 +20,14 @@
                 </div>
                 <div class="col-md-6 item text">
                     <h3>Tên công ty</h3>
-                    <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula
+                    <p class="text-light">Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula
                         rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel
                         in justo.</p>
                 </div>
-                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
-                                class="icon ion-social-twitter"></i></a><a href="#"><i
-                                class="icon ion-social-snapchat"></i></a><a href="#"><i
-                                class="icon ion-social-instagram"></i></a></div>
+                <div class="col item social"><a href="#"><i class="fa fa-youtube-play"></i></a><a href="#"><i
+                                class="fa fa-twitter"></i></a><a href="#"><i
+                                class="fa fa-facebook-square"></i></a><a href="#"><i
+                                class="fa fa-instagram"></i></a></div>
             </div>
             <p class="copyright">Copyright © 2018</p>
         </div>
