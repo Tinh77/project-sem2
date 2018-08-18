@@ -10,7 +10,7 @@
 
 
 
-.gallery{
+.list-page .gallery{
     width: 940px;
 
     margin: 0 auto;
@@ -19,7 +19,7 @@
     flex-wrap: wrap;
 }
 
-.image{
+.list-page .image{
     width: 100%;
     border: 1.5px solid #ccc;
     padding: 10px;
@@ -28,13 +28,13 @@
     background-color: #ecf0f1;
 }
 
-.image img{
+.list-page .image img{
     max-width: 100%;
     margin: 0 auto;
 }
 
 
-.image:hover{
+.list-page .image:hover{
     box-shadow: 0 1px 30px rgba(0,0,0,.3);
     transform: scale(1.10);
     border: none;
@@ -42,11 +42,11 @@
     z-index: 1;
 }
 
-.image p{
+.list-page .image p{
     padding-top: 10px;
     color: #1f6fb2;
 }
-.image i{
+.list-page .image i{
   color: red;
     padding-left: 20px;
 }

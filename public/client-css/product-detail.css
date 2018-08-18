@@ -1,9 +1,9 @@
 
-img {
+.product-detail img {
     max-width: 100%;
 }
 
-.preview {
+.product-detail .preview {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -16,48 +16,48 @@ img {
 }
 
 @media screen and (max-width: 996px) {
-    .preview {
+    .product-detail .preview {
         margin-bottom: 20px;
     }
 }
 
-.preview-pic {
+.product-detail .preview-pic {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
 }
 
-.preview-thumbnail.nav-tabs {
+.product-detail .preview-thumbnail.nav-tabs {
     border: none;
     margin-top: 15px;
 }
 
-.preview-thumbnail.nav-tabs li {
+.product-detail .preview-thumbnail.nav-tabs li {
     width: 18%;
     margin-right: 2.5%;
 }
 
-.preview-thumbnail.nav-tabs li img {
+.product-detail .preview-thumbnail.nav-tabs li img {
     max-width: 100%;
     display: block;
 }
 
-.preview-thumbnail.nav-tabs li a {
+.product-detail .preview-thumbnail.nav-tabs li a {
     padding: 0;
     margin: 0;
     cursor:pointer;
 }
 
-.preview-thumbnail.nav-tabs li:last-of-type {
+.product-detail .preview-thumbnail.nav-tabs li:last-of-type {
     margin-right: 0;
 }
 
-.tab-content {
+.product-detail .tab-content {
     overflow: hidden;
 }
 
-.tab-content img {
+.product-detail .tab-content img {
     width: 100%;
     -webkit-animation-name: opacity;
     animation-name: opacity;
@@ -65,7 +65,7 @@ img {
     animation-duration: .3s;
 }
 
-.card {
+.product-detail .card {
     margin-top: 0px;
     background: #eee;
     padding: 3em;
@@ -73,7 +73,7 @@ img {
 }
 
 @media screen and (min-width: 997px) {
-    .wrapper {
+    .product-detail .wrapper {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -81,7 +81,7 @@ img {
     }
 }
 
-.details {
+.product-detail .details {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -93,39 +93,39 @@ img {
     flex-direction: column;
 }
 
-.colors {
+.product-detail .colors {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
 }
 
-.product-title, .price, .sizes, .colors {
+.product-detail .product-title, .price, .sizes, .colors {
     text-transform: UPPERCASE;
     font-weight: bold;
 }
 
-.checked, .price span {
+.product-detail .checked, .price span {
     color: #ff9f1a;
 }
 
-.product-title, .rating, .product-description, .price, .vote, .sizes {
+.product-detail .product-title, .rating, .product-description, .price, .vote, .sizes {
     margin-bottom: 15px;
 }
 
-.product-title {
+.product-detail .product-title {
     margin-top: 0;
 }
 
-.size {
+.product-detail .size {
     margin-right: 10px;
 }
 
-.size:first-of-type {
+.product-detail .size:first-of-type {
     margin-left: 40px;
 }
 
-.color {
+.product-detail .color {
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
@@ -134,11 +134,11 @@ img {
     border-radius: 2px;
 }
 
-.color:first-of-type {
+.product-detail .color:first-of-type {
     margin-left: 20px;
 }
 
-.add-to-cart, .like {
+.product-detail .add-to-cart, .like {
     background: #ff9f1a;
     padding: 1.2em 1.5em;
     border: none;
@@ -149,41 +149,36 @@ img {
     -webkit-transition: background .3s ease;
     transition: background .3s ease;
 }
-
-body {
-    font-size:16px;
-}
-
-.add-to-cart:hover, .like:hover {
+.product-detail .add-to-cart:hover, .like:hover {
     background: #4879ce;
     color: #fff;
     text-decoration:none;
 }
 
-.not-available {
+.product-detail .not-available {
     text-align: center;
     line-height: 2em;
 }
 
-.not-available:before {
+.product-detail .not-available:before {
     font-family: fontawesome;
     content: "\f00d";
     color: #fff;
 }
 
-.orange {
+.product-detail .orange {
     background: #ff9f1a;
 }
 
-.green {
+.product-detail .green {
     background: #85ad00;
 }
 
-.blue {
+.product-detail .blue {
     background: #0076ad;
 }
 
-.tooltip-inner {
+.product-detail .tooltip-inner {
     padding: 1.3em;
 }
 
@@ -196,7 +191,7 @@ body {
     0% { opacity: 0; -webkit-transform: scale(3); transform: scale(3);}
     100% { opacity: 1; -webkit-transform: scale(1); transform: scale(1);}
 }
-.contact{
+.product-detail .contact{
     padding-top: 30px;
 }
 
