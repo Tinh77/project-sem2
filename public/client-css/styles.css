@@ -49,6 +49,9 @@ header {
 }
 
 /**/
+body p{
+    font-size: 16px;
+}
 
 .section_card {
     height: 300px;
