@@ -4,28 +4,29 @@
 
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:29:18 GMT -->
 <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/apple-icon.png')}}" />
-    <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/apple-icon.png')}}"/>
+    <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>MEANING GIFT</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
 
     <!-- Bootstrap core CSS     -->
-    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
     <!--  Material Dashboard CSS    -->
-    <link href="{{asset('assets/css/material-dashboard.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/material-dashboard.css')}}" rel="stylesheet"/>
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="{{asset('assets/css/demo.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/demo.css')}}" rel="stylesheet"/>
     <!--     Fonts and icons     -->
-    <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet" />
-    <link href="{{asset('assets/css/google-roboto-300-700.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet"/>
+    <link href="{{asset('assets/css/google-roboto-300-700.css')}}" rel="stylesheet"/>
 </head>
 
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="{{asset('assets/img/sidebar-1.jpg')}}">
+    <div class="sidebar" data-active-color="rose" data-background-color="black"
+         data-image="{{asset('assets/img/sidebar-1.jpg')}}">
         <!--
     Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
     Tip 2: you can also add an image using data-image tag
@@ -33,7 +34,7 @@
 -->
         <div class="logo">
             <a href="http://www.creative-tim.com/" class="simple-text">
-                MeaningGift
+                <img style="width: 100%" src="{{asset('img/brand/logo.png')}}" alt="">
             </a>
         </div>
         <div class="logo logo-mini">
@@ -44,7 +45,7 @@
         <div class="sidebar-wrapper">
             <div class="user">
                 <div class="photo">
-                    <img src="{{asset('img/avatars/admin.jpg')}}" />
+                    <img src="{{asset('img/avatars/admin.jpg')}}"/>
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
@@ -145,7 +146,7 @@
             </div>
         </nav>
         @section('content')
-            @show()
+        @show()
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">

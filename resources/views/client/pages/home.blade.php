@@ -33,7 +33,7 @@
         <form class="form-inline my-2 my-lg-0 justify-content-center">
             <input class="form-control mr-sm-2 w-50" type="search" placeholder="Tìm kiếm sản phẩm mà bạn cần..."
                    aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search "></i></button>
+            <button type="button" class="btn btn-outline-success" style="width: 34px;height: 34px"><i class="fa fa-search"></i></button>
         </form>
         <div class="row mt-5">
 

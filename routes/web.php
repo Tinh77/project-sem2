@@ -22,14 +22,14 @@ Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
 
-Route::get('/client', function () {
+Route::get('/client/demo-home', function () {
     return view('client.pages.home');
 });
 
-Route::get('/client/list', function () {
+Route::get('/client/demo-list', function () {
     return view('client.pages.list');
 });
 
-Route::get('/client/product-detail', function () {
+Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
 });
