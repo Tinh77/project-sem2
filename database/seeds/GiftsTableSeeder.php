@@ -12,7 +12,6 @@ class GiftsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('gifts')->truncate();
         DB::table('gifts')->insert([
             [
                 'account_id'=>1,
@@ -195,16 +194,16 @@ class GiftsTableSeeder extends Seeder
                 'gender'=>1
             ],
             [
-                'account_id'=>'19',
-                'category_id'=>'5',
+                'account_id'=>21,
+                'category_id'=>5,
                 'name'=>'Đồ chơi',
                 'description'=>'',
                 'images'=>'https://s3-ap-southeast-1.amazonaws.com/chanhtuoi/uploads/2016/08/kinh-nghiem-mua-do-choi-cho-be-2.jpg',
                 'age_range'=>1,
-                'gender'=>'2'
+                'gender'=>2
             ],
             [
-                'account_id'=>19,
+                'account_id'=>22,
                 'category_id'=>5,
                 'name'=>'Đồ chơi',
                 'description'=>'',
@@ -213,7 +212,7 @@ class GiftsTableSeeder extends Seeder
                 'gender'=>1
             ],
             [
-                'account_id'=>19,
+                'account_id'=>23,
                 'category_id'=>5,
                 'name'=>'Đồ chơi',
                 'description'=>'',
@@ -222,7 +221,7 @@ class GiftsTableSeeder extends Seeder
                 'gender'=>2
             ],
             [
-                'account_id'=>19,
+                'account_id'=>24,
                 'category_id'=>5,
                 'name'=>'Đồ chơi',
                 'description'=>'',
