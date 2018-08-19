@@ -33,7 +33,8 @@
         <form class="form-inline my-2 my-lg-0 justify-content-center">
             <input class="form-control mr-sm-2 w-50" type="search" placeholder="Tìm kiếm sản phẩm mà bạn cần..."
                    aria-label="Search">
-            <button type="button" class="btn btn-outline-success" style="width: 34px;height: 34px"><i class="fa fa-search"></i></button>
+            <button type="button" class="btn btn-outline-success" style="width: 34px;height: 34px"><i
+                        class="fa fa-search"></i></button>
         </form>
         <div class="row mt-5">
 
@@ -53,7 +54,47 @@
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">Card title</h4>
+                                        <a href="#"><h4 class="card-title">Card title</h4></a>
+                                        <hr>
+                                        <p class="card-text">Some quick up the bulk of the card's content.</p>
+                                        <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
+                                                        class="fa fa-angle-double-right"></i></h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__back">
+                                <div class="card" style="width: 100%;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Thông tin sản phẩm</h5>
+                                        <hr>
+                                        <p class="card-text">Some quick up the bulk of the card's content.</p>
+                                        <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
+                                                        class="fa fa-angle-double-right"></i></h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3 col-6">
+                <div class="section_card">
+                    <div class="section__content clearfix">
+                        <div class="card effect__click">
+                            <div class="card__front">
+                                {{--card--}}
+                                <div class="card">
+                                    <div class="view overlay">
+                                        <img class="card-img-top"
+                                             src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg"
+                                             alt="Card image cap">
+                                        <a>
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#"><h4 class="card-title">Card title</h4></a>
                                         <hr>
                                         <p class="card-text">Some quick up the bulk of the card's content.</p>
                                         <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
@@ -93,7 +134,7 @@
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">Card title</h4>
+                                        <a href="#"><h4 class="card-title">Card title</h4></a>
                                         <hr>
                                         <p class="card-text">Some quick up the bulk of the card's content.</p>
                                         <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
@@ -133,47 +174,7 @@
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">Card title</h4>
-                                        <hr>
-                                        <p class="card-text">Some quick up the bulk of the card's content.</p>
-                                        <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
-                                                        class="fa fa-angle-double-right"></i></h5></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card__back">
-                                <div class="card" style="width: 100%;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Thông tin sản phẩm</h5>
-                                        <hr>
-                                        <p class="card-text">Some quick up the bulk of the card's content.</p>
-                                        <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
-                                                        class="fa fa-angle-double-right"></i></h5></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-3 col-6">
-                <div class="section_card ">
-                    <div class="section__content clearfix">
-                        <div class="card effect__click">
-                            <div class="card__front">
-                                {{--card--}}
-                                <div class="card">
-                                    <div class="view overlay">
-                                        <img class="card-img-top"
-                                             src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg"
-                                             alt="Card image cap">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Card title</h4>
+                                        <a href="#"><h4 class="card-title">Card title</h4></a>
                                         <hr>
                                         <p class="card-text">Some quick up the bulk of the card's content.</p>
                                         <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
@@ -218,7 +219,7 @@
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">Card title</h4>
+                                        <a href="#"><h4 class="card-title">Card title</h4></a>
                                         <hr>
                                         <p class="card-text">Some quick up the bulk of the card's content.</p>
                                         <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
@@ -258,7 +259,7 @@
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">Card title</h4>
+                                        <a href="#"><h4 class="card-title">Card title</h4></a>
                                         <hr>
                                         <p class="card-text">Some quick up the bulk of the card's content.</p>
                                         <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
@@ -298,7 +299,7 @@
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">Card title</h4>
+                                        <a href="#"><h4 class="card-title">Card title</h4></a>
                                         <hr>
                                         <p class="card-text">Some quick up the bulk of the card's content.</p>
                                         <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
@@ -338,7 +339,7 @@
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">Card title</h4>
+                                        <a href="#"><h4 class="card-title">Card title</h4></a>
                                         <hr>
                                         <p class="card-text">Some quick up the bulk of the card's content.</p>
                                         <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i
