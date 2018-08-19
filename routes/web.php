@@ -26,10 +26,8 @@ Route::get('/client/demo-home', function () {
     return view('client.pages.home');
 });
 
-Route::get('/client/demo-list', function () {
-    return view('client.pages.list');
-});
-
+//Route::resource('/client/pages',"GiftController");
+Route::get('/client/pages/{id}',"GiftController@listCategory");
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
 });

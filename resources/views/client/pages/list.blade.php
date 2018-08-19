@@ -25,93 +25,23 @@
                         <div class="dropdown">
                             <button class="dropbtn">Lọc theo sản phẩm</button>
                             <div class="dropdown-content">
-                                <a href="#">Quần áo</a>
-                                <a href="#">Giầy dép</a>
-                                <a href="#">Đồ chơi</a>
-                                <a href="#">Mũ</a>
-                                <a href="#">Đồ dùng</a>
+                                <a href="#">All</a>
+                                @foreach($list_obj as $key => $item)
+                                    <a href="/client/pages/{{$key}}">{{$item}}</a>
+                                @endforeach
                             </div>
                         </div>
 
                     </div>
                     <div class="col-md-9">
                         <div class="gallery ">
+                            @foreach($obj as $item)
                             <article class="image col-md-3 ">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
+                                <img src="{{$item->images}}"/>
+                                <p>{{$item->name}}</p>
                                 <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
                             </article>
-
-                            <article class="image col-md-3">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
-
-                            <article class="image col-md-3">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
-                        </div>
-
-                        <div class="gallery ">
-                            <article class="image col-md-3 ">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
-
-                            <article class="image col-md-3">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
-
-                            <article class="image col-md-3">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
-                        </div>
-
-                        <div class="gallery ">
-                            <article class="image col-md-3 ">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
-                            <article class="image col-md-3">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
-
-                            <article class="image col-md-3">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
-                        </div>
-
-                        <div class="gallery ">
-                            <article class="image col-md-3 ">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
-
-                            <article class="image col-md-3">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
-
-                            <article class="image col-md-3">
-                                <img src="http://pic.trangvangvietnam.com/395716889/do%20so%20sinh%20(2).jpg"/>
-                                <p>Tên sản phẩm</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
+                            @endforeach
                         </div>
                     </div>
                 </div>
