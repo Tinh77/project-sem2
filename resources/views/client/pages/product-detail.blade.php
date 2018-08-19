@@ -9,9 +9,9 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <div class="product-detail">
+    <div class="product-detail mt-5">
         <div class="container">
-            <div class="card">
+            <div class="card content-card">
                 <div class="container-fliud">
                     <div class="wrapper row">
                         <div class="preview col-md-6">
@@ -61,6 +61,11 @@
                             <p class="vote"><strong>91%</strong> of người mua hài lòng với sản phẩm này <strong>(87 bình
                                     chọn)</strong>
                             </p>
+                            <div class="fb-comments"
+                                 data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
+                                 data-width="500px"
+                                 data-numposts="1">
+                            </div>
                             <div class="action">
                                 <a href="http://hocwebgiare.com/" target="_blank">
                                     <button class="add-to-cart btn btn-default" type="button">QUAN TÂM</button>
@@ -71,15 +76,177 @@
                     </div>
                 </div>
             </div>
-            <div class="row contact">
-                <div class="col-md-5 comment-face">
-                    <div class="fb-comments"
-                         data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
-                         data-width="400px"
-                         data-numposts="1">
+            <div class="pro-lq">
+                <h4 class="text-center mt-5"><strong>Những sản phẩm liên quan</strong></h4>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="card-deck">
+                                <div class="card mb-4">
+                                    <div class="view overlay">
+                                        <img class="card-img-top"
+                                             src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                             alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <button type="button" class="btn btn-light-blue btn-md">Read more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card mb-4">
+                                    <div class="view overlay">
+                                        <img class="card-img-top"
+                                             src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg"
+                                             alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <button type="button" class="btn btn-light-blue btn-md">Read more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card mb-4">
+                                    <div class="view overlay">
+                                        <img class="card-img-top"
+                                             src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                             alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <button type="button" class="btn btn-light-blue btn-md">Read more
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card-deck">
+                                <div class="card mb-4">
+                                    <div class="view overlay">
+                                        <img class="card-img-top"
+                                             src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                             alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <button type="button" class="btn btn-light-blue btn-md">Read more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card mb-4">
+                                    <div class="view overlay">
+                                        <img class="card-img-top"
+                                             src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg"
+                                             alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <button type="button" class="btn btn-light-blue btn-md">Read more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card mb-4">
+                                    <div class="view overlay">
+                                        <img class="card-img-top"
+                                             src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                             alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <button type="button" class="btn btn-light-blue btn-md">Read more
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card-deck">
+                                <div class="card mb-4">
+                                    <div class="view overlay">
+                                        <img class="card-img-top"
+                                             src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                             alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <button type="button" class="btn btn-light-blue btn-md">Read more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card mb-4">
+                                    <div class="view overlay">
+                                        <img class="card-img-top"
+                                             src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg"
+                                             alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <button type="button" class="btn btn-light-blue btn-md">Read more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card mb-4">
+                                    <div class="view overlay">
+                                        <img class="card-img-top"
+                                             src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                             alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <button type="button" class="btn btn-light-blue btn-md">Read more
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                       data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                       data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-                <div class="col-md-7 w-100 google-map">
+            </div>
+            <div class="row contact">
+                <div class="col-md w-100 google-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2646.216225729443!2d-89.2391164!3d48.45238070000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d5921616d61c26b%3A0x15e5407d2071c8dd!2s109+Hogarth+St%2C+Thunder+Bay%2C+ON+P7A+7G8!5e0!3m2!1sen!2sca!4v1424371524427"
                             width="100%" height="450" frameborder="0" style="border:0"></iframe>
                 </div>
