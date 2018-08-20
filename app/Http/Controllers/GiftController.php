@@ -67,7 +67,12 @@ class GiftController extends Controller
      */
     public function show($id)
     {
-        //
+        $obj = Gift::find($id);
+//        dd($obj);
+        if ($obj == null){
+            return view('404');
+        }
+        return view('client.pages.product-detail')->with('obj', $obj);
     }
 
     /**
@@ -101,6 +106,12 @@ class GiftController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obj = Category::find($id);
+        if ($obj == null) {
+            return response()->json(['message' => 'Gift không tồn tại hoặc đã bị xoá!'], 404);
+        }
+        $obj->status = 0;
+        $obj->save();
+        return response()->json(['message' => 'Đã xoá thông tin danh mục'], 200);
     }
 }

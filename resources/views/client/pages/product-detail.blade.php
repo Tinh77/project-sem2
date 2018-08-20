@@ -17,7 +17,7 @@
                         <div class="preview col-md-6">
                             <div class="preview-pic tab-content">
                                 <div class="tab-pane active" id="pic-1"><img
-                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV_4dpDPOXeLM0gbu_uuvCErVkLRzNZWfeSdOz72XU45xspdFr"
+                                            src="{{ $obj->images }}"
                                             alt="">
                                 </div>
                                 <div class="tab-pane" id="pic-2"><img
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="details col-md-6">
-                            <h3 class="product-title">Thời trang cho bé nhiều màu sắc ngộ nghĩnh</h3>
+                            <h3 class="product-title">{{ $obj->name }}</h3>
                             <div class="rating">
                                 <div class="stars"><span class="fa fa-star checked"></span> <span
                                             class="fa fa-star checked"></span> <span class="fa fa-star checked"></span>
@@ -57,8 +57,7 @@
                                 </div>
                                 <span class="review-no">123 đánh giá</span>
                             </div>
-                            <p class="product-description">Chúc con yêu của bạn có thêm những bộ đồ thời trang cho bé
-                                trai theo phong cách đa màu sắc cực xinh xắn và đáng yêu!</p>
+                            <p class="product-description">{{ $obj->description }}</p>
                             <p class="vote"><strong>91%</strong> of người mua hài lòng với sản phẩm này <strong>(87 bình
                                     chọn)</strong>
                             </p>

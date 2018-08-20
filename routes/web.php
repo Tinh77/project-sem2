@@ -25,10 +25,16 @@ Route::get('/admin/demo-list', function () {
 Route::get('/client/demo-home','GiftController@indexHome');
 
 //Route::resource('/client/pages',"GiftController");
-Route::get('/client/pages/{id}', "GiftController@listCategory");
+Route::get('/client/pages/list/{id}', "GiftController@listCategory");
+Route::get('/client/pages/{id}', "GiftController@show");
+
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
 });
-Route::get('/client/demo-gitf-form', function () {
-    return view('client.pages.gitfForm');
+Route::get('/client/gift/form', function () {
+    return view('client.pages.gift.form');
+});
+
+Route::get('/client/gift/list', function () {
+    return view('client.pages.gift.list');
 });
