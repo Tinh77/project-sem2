@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class CategoryController extends Controller
 {
@@ -15,6 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        return "sub";
     }
 
     /**
@@ -24,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+      return view('admin.category.form1');
     }
 
     /**
@@ -33,9 +35,16 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreGiftPost $request)
     {
-        //
+       // $request->validated();
+
+        $obj = new Category();
+        $obj -> name = Input::get('name');
+        $obj -> description = Input::get('description');
+        $obj -> thumbnail = Input::get('thumbnail');
+        $obj -> save();
+        return redirect('/admin/category');
     }
 
     /**
@@ -57,7 +66,12 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $obj = Category::find($id);
+        if ($obj == null) {
+            return view('404');
+        }
+        return view('admin.pages.edit')
+            ->with('obj', $obj);
     }
 
     /**
