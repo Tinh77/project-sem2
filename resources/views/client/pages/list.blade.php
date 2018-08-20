@@ -21,7 +21,7 @@
                             @foreach($list_obj as $key => $item)
                                 <tr>
                                     <td>
-                                        <a href="/client/pages/{{$key}}">{{$item}}</a>
+                                        <a href="/client/pages/list/{{$key}}">{{$item}}</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -53,20 +53,19 @@
                             </tr>
                             </tbody>
                         </table>
-
                     </div>
-
-
                     <div class="col-md-9">
                         @include('client.partial.slideList')
                         <div class="gallery">
                             @foreach($obj as $item)
-                                <article class="image col-md-3 ">
-                                    <div class="bg-slide-list"
-                                         style="background-image: url({{$item->images}}) ;background-size: cover;background-position: center;background-repeat: no-repeat;width: 200px;height: 200px"></div>
-                                    <p>{{$item->name}}</p>
-                                    <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                                </article>
+                                <a href="/client/pages/{{$item->id}}">
+                                    <article class="image col-md-3 ">
+                                        <div class="bg-slide-list"
+                                             style="background-image: url({{$item->images}}) ;background-size: cover;background-position: center;background-repeat: no-repeat;width: 200px;height: 200px"></div>
+                                        <p>{{$item->name}}</p>
+                                        <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
+                                    </article>
+                                </a>
                             @endforeach
                         </div>
                     </div>
