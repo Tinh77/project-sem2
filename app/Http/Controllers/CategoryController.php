@@ -39,7 +39,7 @@ class CategoryController extends Controller
      */
     public function store(StoreGiftPost $request)
     {
-       // $request->validated();
+       $request->validated();
 
         $obj = new Category();
         $obj -> name = Input::get('name');
@@ -83,9 +83,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-
+        $obj = Category::find($id);
+        if ($obj == null) {
+            return view('404');
+        }
+        $obj->name = Input::get('name');
+        $obj->description = Input::get('description');
+        $obj->thumbnail = Input::get('thumbnail');
+        $obj->save();
+        return redirect('/admin/category');
     }
 
     /**

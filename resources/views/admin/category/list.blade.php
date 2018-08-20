@@ -95,7 +95,7 @@
                                                         <td>{{$obj ->description}}</td>
                                                         <td>{{$obj ->created_at}}</td>
                                                         <td class="text-right">
-                                                            <a href="/admin/demo/{{$obj->id}}/edit" class="btn btn-simple btn-warning btn-icon edit"><i
+                                                            <a href="/admin/category/{{$obj->id}}/edit" class="btn btn-simple btn-warning btn-icon edit"><i
                                                                     class="material-icons">edit</i></a>
                                                             <a href="{{$obj->id}}" class="btn btn-simple btn-danger btn-icon remove btn-delete"><i
                                                                     class="material-icons">close</i></a>
