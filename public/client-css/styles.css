@@ -33,6 +33,14 @@
     background-color: #FDEAEC;
 }
 
+.home-page .product-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 250px;
+    width: 348px;
+}
+
 .text-slide {
     color: #575757;
     font-size: 30px;
@@ -49,80 +57,42 @@ header {
 }
 
 /**/
-body p{
-    font-size: 16px;
+
+.home-page {
+    background: #FAFAFA;
 }
 
-.section_card {
-    height: 300px;
+.home-page .card_effect:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
 
 @media only screen and (max-width: 768px) {
-     .section_card .card-body .card-title {
+    .home-page .card-body .card-title {
         font-size: 17px;
     }
-    .section_card .card-body .card-text{
-        font-size: 13px ;
+
+    .home-page .card-body .card-text {
+        font-size: 13px;
     }
-    .section_card .card-body a>h5{
+
+    .home-page .card-body a > h5 {
         font-size: 10px;
     }
-    .section_card{
-        height: 260px;
-    }
-    footer{
+
+    footer {
         font-size: 15px;
     }
 }
 
-.section_card .card-body
-.section_card .card {
-    position: relative;
-    float: left;
+.gitf-form .image-form {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     width: 100%;
-
-    text-align: center;
-}
-
-.section_card .card__front,
-.section_card .card__back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.section_card .card__front,
-.section_card .card__back {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition: -webkit-transform 0.3s;
-    transition: transform 0.3s;
-}
-
-.section_card .card__front {
-    /*background-color: #ff5078;*/
-}
-
-.section_card .card__back {
-    /*background-color: #1e1e1e;*/
-    -webkit-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
-}
-
-.section_card .card.effect__click.flipped .card__front {
-    -webkit-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
-}
-
-.section_card .card.effect__click.flipped .card__back {
-    -webkit-transform: rotateY(0);
-    transform: rotateY(0);
+    height: 40vh
 }
 
 /*login*/
-
 *, :after, :before {
     box-sizing: border-box
 }
