@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <form method="POST" action="admin/demo/{{$obj->id}}" class="form-horizontal">
+                        <form method="post" action="/admin/category/{{$obj -> id}}" class="form-horizontal">
                             @method('PUT')
                             {{csrf_field()}}
                             <div class="card-header card-header-text" data-background-color="rose">

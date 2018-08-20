@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <form method="POST" action="admin/demo" class="form-horizontal">
+                        <form method="POST" action="admin/category" class="form-horizontal">
                             {{csrf_field()}}
                             <div class="card-header card-header-text" data-background-color="rose">
                                 <h4 class="card-title">Thêm danh mục</h4>
