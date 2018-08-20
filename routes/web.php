@@ -32,7 +32,7 @@ Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
 });
 Route::get('/client/demo-gitf-form', function () {
-    return view('client.pages.gitfForm');
+    return view('client.pages.gitf.gitfForm');
 });
 Route::get('/client/404', function () {
     return view('client.404client.404');
