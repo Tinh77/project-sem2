@@ -6,6 +6,7 @@ use App\Category;
 use App\Gift;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class GiftController extends Controller
 {
@@ -45,7 +46,8 @@ class GiftController extends Controller
 
     public function create()
     {
-        //
+        $obj = Gift::all();
+        return view('client.pages.gift.gitfForm.blade')->with('obj', $obj);
     }
 
     /**
@@ -56,7 +58,14 @@ class GiftController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $obj = new Gift();
+        $obj->name = Input::get('name');
+        $obj->description = Input::get('description');
+        $obj->images = Input::get('images');
+        $obj->age_range = Input::get('age_range');
+        $obj->gender = Input::get('gender');
+        $obj->save();
+        return redirect('');
     }
 
     /**

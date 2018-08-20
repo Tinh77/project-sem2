@@ -51,14 +51,11 @@
                                 <hr>
                                 <p class="card-text">{{$item-> description}}</p>
                                 <a href="#!" class="black-text d-flex justify-content-end">
-                                    <button class="btn btn-warning">Quan tâm</button>
+                                    <button class="btn btn-amber">Quan tâm</button>
                                 </a>
                             </div>
                         </div>
                     </div>
-
-
-
                 @endforeach
             </div>
             <h4 class="text-center font-text mt-5 mb-5"><strong>Lorem Ipsum is simply dummy text </strong></h4>

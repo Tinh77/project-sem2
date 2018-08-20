@@ -1,46 +1,72 @@
 @extends('client.layout.master')
 @section('content')
-    <div class="list-page">
+
+    <div class="container">
+
+    </div>
+    <div class="list-page font-text bg-light" style="padding-top: 50px">
         <div class="news-block">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <h1 class="newsblock-title">List Product</h1>
-                        <nav class="navbar navbar-light bg-light">
-                            <form class="form-inline">
-                                <div class="input-group ml-5">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-                                           aria-describedby="basic-addon1">
-                                </div>
-                            </form>
-                        </nav>
-                        <p class="newsblock-link"><i class="la la-headphones"></i>Tìm kiếm theo độ tuổi</p>
-                        <div class="slidecontainer">
-                            <input type="range" min="1" max="100" value="10" class="slider" id="myRange">
-                        </div>
+                        <h4 class="newsblock-title text-center">Danh mục </h4>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control w-75" type="search" placeholder="Search"
+                                   aria-label="Search">
+                            <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                        <h5 class="mt-5">Chọn danh sản phẩm</h5>
+                        <table class="table table-borderless border-top">
+                            <tbody>
+                            @foreach($list_obj as $key => $item)
+                                <tr>
+                                    <td>
+                                        <a href="/client/pages/{{$key}}">{{$item}}</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
 
-                        <div class="dropdown">
-                            <button class="dropbtn">Lọc theo sản phẩm</button>
-                            <div class="dropdown-content">
-                                <a href="#">All</a>
-                                @foreach($list_obj as $key => $item)
-                                    <a href="/client/pages/{{$key}}">{{$item}}</a>
-                                @endforeach
-                            </div>
-                        </div>
+                        <h5 class="mt-5">Chọn theo độ tuổi</h5>
+                        <table class="table table-borderless border-top">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <a href=""> 0 tháng - 6 tháng</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href=""> 6 tháng - 12 tháng</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href=""> 12 tháng - 24 tháng</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href=""> Trên 24 tháng</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
 
                     </div>
+
+
                     <div class="col-md-9">
-                        <div class="gallery ">
+                        @include('client.partial.slideList')
+                        <div class="gallery">
                             @foreach($obj as $item)
-                            <article class="image col-md-3 ">
-                                <img src="{{$item->images}}"/>
-                                <p>{{$item->name}}</p>
-                                <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
-                            </article>
+                                <article class="image col-md-3 ">
+                                    <div class="bg-slide-list"
+                                         style="background-image: url({{$item->images}}) ;background-size: cover;background-position: center;background-repeat: no-repeat;width: 200px;height: 200px"></div>
+                                    <p>{{$item->name}}</p>
+                                    <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
+                                </article>
                             @endforeach
                         </div>
                     </div>
