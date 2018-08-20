@@ -1,5 +1,5 @@
 <div class="footer-dark mt-5 ">
-    <footer>
+    <footer class="font-text">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-3 item">

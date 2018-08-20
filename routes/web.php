@@ -22,12 +22,13 @@ Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
 
-Route::get('/client/demo-home', function () {
-    return view('client.pages.home');
-});
+Route::get('/client/demo-home','GiftController@indexHome');
 
 //Route::resource('/client/pages',"GiftController");
-Route::get('/client/pages/{id}',"GiftController@listCategory");
+Route::get('/client/pages/{id}', "GiftController@listCategory");
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
+});
+Route::get('/client/demo-gitf-form', function () {
+    return view('client.pages.gitfForm');
 });

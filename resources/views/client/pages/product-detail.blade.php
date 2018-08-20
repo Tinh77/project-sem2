@@ -28,23 +28,24 @@
                                             src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_5.jpg"
                                             alt="">
                                 </div>
+                                <ul class="preview-thumbnail nav nav_tabs">
+                                    <div class="logo_menuchinh"
+                                         style="float:left; padding-top:5px; padding-left:10px; color:#fff; margin-left:auto; margin-right:auto; text-align:center; line-height:40px; font-size:16px;font-weight:bold;font-family:Arial"></div>
+                                    <li class="active"><a data-target="#pic-1" data-toggle="tab"><img
+                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV_4dpDPOXeLM0gbu_uuvCErVkLRzNZWfeSdOz72XU45xspdFr"
+                                                    alt=""></a>
+                                    </li>
+                                    <li><a data-target="#pic-2" data-toggle="tab"><img
+                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx_Y3fukPJq4oMHJ_o7phVvzHeMflTbmBGsOxAN3w4Y-KSV8wI"
+                                                    alt=""></a>
+                                    </li>
+                                    <li><a data-target="#pic-3" data-toggle="tab"><img
+                                                    src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_5.jpg"
+                                                    alt=""></a>
+                                    </li>
+                                </ul>
                             </div>
-                            <ul class="preview-thumbnail nav nav-tabs">
-                                <div class="logo_menuchinh"
-                                     style="float:left; padding-top:5px; padding-left:10px; color:#fff; margin-left:auto; margin-right:auto; text-align:center; line-height:40px; font-size:16px;font-weight:bold;font-family:Arial"></div>
-                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img
-                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV_4dpDPOXeLM0gbu_uuvCErVkLRzNZWfeSdOz72XU45xspdFr"
-                                                alt=""></a>
-                                </li>
-                                <li><a data-target="#pic-2" data-toggle="tab"><img
-                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx_Y3fukPJq4oMHJ_o7phVvzHeMflTbmBGsOxAN3w4Y-KSV8wI"
-                                                alt=""></a>
-                                </li>
-                                <li><a data-target="#pic-3" data-toggle="tab"><img
-                                                src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_5.jpg"
-                                                alt=""></a>
-                                </li>
-                            </ul>
+
                         </div>
 
                         <div class="details col-md-6">
@@ -68,12 +69,18 @@
                             </div>
                             <div class="action">
                                 <a href="http://hocwebgiare.com/" target="_blank">
-                                    <button class="add-to-cart btn btn-default" type="button">QUAN TÂM</button>
+                                    <button class="add-to-cart btn font-text" type="button">QUAN TÂM</button>
                                 </a>
                                 <a href="https://babypage.com/" target="_blank"></a>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row contact">
+                <div class="col-md w-100 google-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2646.216225729443!2d-89.2391164!3d48.45238070000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d5921616d61c26b%3A0x15e5407d2071c8dd!2s109+Hogarth+St%2C+Thunder+Bay%2C+ON+P7A+7G8!5e0!3m2!1sen!2sca!4v1424371524427"
+                            width="100%" height="450" frameborder="0" style="border:0"></iframe>
                 </div>
             </div>
             <div class="pro-lq">
@@ -245,12 +252,7 @@
                     </a>
                 </div>
             </div>
-            <div class="row contact">
-                <div class="col-md w-100 google-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2646.216225729443!2d-89.2391164!3d48.45238070000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d5921616d61c26b%3A0x15e5407d2071c8dd!2s109+Hogarth+St%2C+Thunder+Bay%2C+ON+P7A+7G8!5e0!3m2!1sen!2sca!4v1424371524427"
-                            width="100%" height="450" frameborder="0" style="border:0"></iframe>
-                </div>
-            </div>
+
         </div>
     </div>
 @endsection
