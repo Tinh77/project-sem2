@@ -18,13 +18,15 @@ Route::get('/admin/demo-form', function () {
     return view('admin.pages.form');
 });
 
+Route::resource('admin/category', 'CategoryController');
+
 Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
 
 Route::get('/client/demo-home','GiftController@indexHome');
 
-//Route::resource('/client/pages',"GiftController");
+Route::get('/client/pages/list',"GiftController@index");
 Route::get('/client/pages/list/{id}', "GiftController@listCategory");
 Route::get('/client/pages/{id}', "GiftController@show");
 
@@ -37,4 +39,12 @@ Route::get('/client/gift/form', function () {
 
 Route::get('/client/gift/list', function () {
     return view('client.pages.gift.list');
+});
+
+Route::get('/client/404', function () {
+    return view('client.404client.404');
+});
+
+Route::get('/admin/404', function () {
+    return view('admin.404admin.404');
 });

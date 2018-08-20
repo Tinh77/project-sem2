@@ -1,4 +1,4 @@
-<header class="mb-5">
+<header>
     <div class="header">
         <div>
             <div class="logo">
