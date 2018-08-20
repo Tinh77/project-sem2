@@ -15,8 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
-        return "sub";
+        $list_obj = Category::orderBy('created_at', 'desc')->paginate(1);
+
+        return view('admin.category.list')->with('list_obj', $list_obj);
+
     }
 
     /**
