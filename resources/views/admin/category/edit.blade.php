@@ -5,10 +5,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <form method="POST" action="admin/demo" class="form-horizontal">
+                        <form method="POST" action="admin/demo/{{$obj->id}}" class="form-horizontal">
+                            @method('PUT')
                             {{csrf_field()}}
                             <div class="card-header card-header-text" data-background-color="rose">
-                                <h4 class="card-title">Thêm danh mục</h4>
+                                <h4 class="card-title">Sửa danh mục</h4>
                             </div>
                             <div class="card-content">
                                 <div class="row">
@@ -16,8 +17,7 @@
                                     <div class="col-sm-10">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control" value="" name="name">
-                                            <span class="help-block">Vui lòng nhập tên.</span>
+                                            <input type="text" class="form-control" value="{{$obj -> name}}" name="name">
                                             <span class="material-input"></span></div>
                                     </div>
                                 </div>
@@ -28,7 +28,7 @@
                                 <div class="col-sm-10">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <input type="text" class="form-control" value="" name="description">
+                                        <input type="text" class="form-control" value="{{$obj -> description}}" name="description">
                                         <span class="material-input"></span></div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                 <div class="col-sm-10">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <input type="text" class="form-control" value="" name="thumbnail">
+                                        <input type="text" class="form-control" value="{{$obj -> thumbnail}}" name="thumbnail">
                                         <span class="material-input"></span></div>
                                 </div>
                             </div>

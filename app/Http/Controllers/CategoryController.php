@@ -70,7 +70,7 @@ class CategoryController extends Controller
         if ($obj == null) {
             return view('404');
         }
-        return view('admin.pages.edit')
+        return view('admin.category.edit')
             ->with('obj', $obj);
     }
 
