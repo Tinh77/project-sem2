@@ -15,8 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
-        return "sub";
+        $list_obj = Category::orderBy('created_at', 'desc')->paginate(1);
+
+        return view('admin.category.list')->with('list_obj', $list_obj);
+
     }
 
     /**
@@ -70,7 +72,7 @@ class CategoryController extends Controller
         if ($obj == null) {
             return view('404');
         }
-        return view('admin.pages.edit')
+        return view('admin.category.edit')
             ->with('obj', $obj);
     }
 
@@ -83,7 +85,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
