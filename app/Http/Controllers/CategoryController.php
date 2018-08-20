@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -79,6 +80,12 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obj = Category::find($id);
+        if ($obj == null) {
+            return response()->json(['message' => 'Category không tồn tại hoặc đã bị xoá!'], 404);
+        }
+        $obj->status = 0;
+        $obj->save();
+        return response()->json(['message' => 'Đã xoá thông tin danh mục'], 200);
     }
 }
