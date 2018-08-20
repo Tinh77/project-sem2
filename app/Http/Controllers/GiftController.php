@@ -15,6 +15,12 @@ class GiftController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function indexHome()
+    {
+        $obj = Gift::orderBy('created_at', 'desc')->paginate(6);
+        return view('client.pages.home')->with('obj_home', $obj);
+    }
+
     public function index()
     {
         $list_obj = DB::table('gifts')->pluck("name", "category_id");
@@ -27,14 +33,15 @@ class GiftController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function listCategory($id = null){
+    public function listCategory($id = null)
+    {
         $obj = DB::table('gifts')
-                ->where('category_id','=', $id)
-                ->paginate(10);
+            ->where('category_id', '=', $id)
+            ->paginate(10);
 //        dd($obj);
         $gift = Gift::all();
         $list_obj = DB::table('gifts')->pluck("name", "category_id");
-        return view('client.pages.list')->with('obj',$obj)->with('gift',$gift)->with('list_obj', $list_obj);
+        return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
     }
 
     public function create()

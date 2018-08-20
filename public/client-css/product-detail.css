@@ -28,28 +28,28 @@
     flex-grow: 1;
 }
 
-.product-detail .preview-thumbnail.nav-tabs {
+.product-detail .preview-thumbnail.nav_tabs {
     border: none;
     margin-top: 15px;
 }
 
-.product-detail .preview-thumbnail.nav-tabs li {
+.product-detail .preview-thumbnail.nav_tabs li {
     width: 18%;
     margin-right: 2.5%;
 }
 
-.product-detail .preview-thumbnail.nav-tabs li img {
+.product-detail .preview-thumbnail.nav_tabs li img {
     max-width: 100%;
     display: block;
 }
 
-.product-detail .preview-thumbnail.nav-tabs li a {
+.product-detail .preview-thumbnail.nav_tabs li a {
     padding: 0;
     margin: 0;
     cursor: pointer;
 }
 
-.product-detail .preview-thumbnail.nav-tabs li:last-of-type {
+.product-detail .preview-thumbnail.nav_tabs li:last-of-type {
     margin-right: 0;
 }
 

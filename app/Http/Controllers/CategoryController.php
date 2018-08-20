@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -95,6 +94,12 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obj = Category::find($id);
+        if ($obj == null) {
+            return response()->json(['message' => 'Category không tồn tại hoặc đã bị xoá!'], 404);
+        }
+        $obj->status = 0;
+        $obj->save();
+        return response()->json(['message' => 'Đã xoá thông tin danh mục'], 200);
     }
 }
