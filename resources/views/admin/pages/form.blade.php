@@ -7,7 +7,7 @@
                 <div class="card">
                     <form method="get" action="#" class="form-horizontal">
                         <div class="card-header card-header-text" data-background-color="rose">
-                            <h4 class="card-title">Form Elements</h4>
+                            <h4 class="card-title">Thêm danh mục</h4>
                         </div>
                         <div class="card-content">
                             <div class="row">
