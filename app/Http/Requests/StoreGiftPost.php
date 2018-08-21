@@ -35,7 +35,7 @@ class StoreGiftPost extends FormRequest
         return [
             'name.required' => 'Vui lòng nhập tên sản phẩm.',
             'description.required' => 'Vui lòng mô tả sản phẩm của bạn.',
-            'thumbnail. required' => 'Vui lòng thêm ảnh sản phẩm.',
+            'thumbnail.required' => 'Vui lòng thêm ảnh sản phẩm.',
         ];
     }
 
