@@ -41,7 +41,7 @@ class GiftController extends Controller
             ->paginate(10);
 //        dd($obj);
         $gift = Gift::all();
-        $list_obj = DB::table('gifts')->pluck("name", "category_id");
+        $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
     }
 
