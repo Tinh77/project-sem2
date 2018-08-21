@@ -19,6 +19,7 @@ Route::get('/admin/demo-form', function () {
 });
 
 Route::resource('admin/category', 'CategoryController');
+Route::resource('client/gift', 'TransactionController');
 
 Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
