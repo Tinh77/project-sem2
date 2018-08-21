@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use Illuminate\Http\Request;
+use http\Env\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class CategoryController extends Controller
@@ -15,10 +16,19 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $list_obj = Category::orderBy('created_at', 'desc')->paginate(1);
-
-        return view('admin.category.list')->with('list_obj', $list_obj);
-
+        $keyword = Input::get('key');
+        $data = Input::get();
+        $list_obj = Category::orderBy('created_at', 'desc');
+        if (isset($keyword) && Input::get('key')) {
+            $list_obj = $list_obj->where('name', 'like', '%' . $keyword . '%')
+                ->orWhere('description', 'like', '%' . $keyword . '%');
+        } else {
+            $data['key'] = '';
+        }
+        $list_obj = $list_obj->paginate(5);
+        return view('admin.category.list')
+            ->with('list_obj', $list_obj)
+            ->with('data', $data);
     }
 
     /**

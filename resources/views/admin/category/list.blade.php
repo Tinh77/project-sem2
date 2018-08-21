@@ -16,23 +16,26 @@
                             <div class="material-datatables">
                                 <div id="datatables_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                                     <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="dataTables_length" id="datatables_length"><label
-                                                    class="form-group">Show <select name="datatables_length"
-                                                                                    aria-controls="datatables"
-                                                                                    class="form-control input-sm">
-                                                        <option value="10">10</option>
-                                                        <option value="25">25</option>
-                                                        <option value="50">50</option>
-                                                        <option value="-1">All</option>
-                                                    </select> entries</label></div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div id="datatables_filter" class="dataTables_filter"><label
-                                                    class="form-group"><input type="search"
-                                                                              class="form-control input-sm"
-                                                                              placeholder="Search records"
-                                                                              aria-controls="datatables"></label>
+                                        {{--<div class="col-sm-6">--}}
+                                        {{--<div class="dataTables_length" id="datatables_length"><label--}}
+                                        {{--class="form-group">Show <select name="datatables_length"--}}
+                                        {{--aria-controls="datatables"--}}
+                                        {{--class="form-control input-sm">--}}
+                                        {{--<option value="10">10</option>--}}
+                                        {{--<option value="25">25</option>--}}
+                                        {{--<option value="50">50</option>--}}
+                                        {{--<option value="-1">All</option>--}}
+                                        {{--</select> entries</label></div>--}}
+                                        {{--</div>--}}
+                                        <div class="float-right">
+                                            <div id="datatables_filter" class="dataTables_filter">
+                                                <form class="" role="search">
+                                                    <div class="form-search is-empty magin-right">
+                                                        <input type="text" name="key" value="{{$data['key']}}"
+                                                               class="form-control" placeholder="Search">
+                                                        <span class="material-input"></span>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -73,31 +76,25 @@
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tfoot>
-                                                <tr>
-                                                    <th rowspan="1" colspan="1">Id</th>
-                                                    <th rowspan="1" colspan="1">Name</th>
-                                                    <th rowspan="1" colspan="1">Thumbnail</th>
-                                                    <th rowspan="1" colspan="1">Description</th>
-                                                    <th rowspan="1" colspan="1">Start_Date</th>
-                                                    <th class="text-right" rowspan="1" colspan="1">Actions</th>
-                                                </tr>
-                                                </tfoot>
                                                 <tbody>
                                                 @foreach($list_obj as $obj)
                                                     <tr role="row" class="even">
                                                         <td>{{$obj ->id}}</td>
                                                         <td>{{$obj ->name}}</td>
-                                                        <td><div class="card"
+                                                        <td>
+                                                            <div class="card"
                                                                  style="width: 100px;height: 80px;background-image: url('{{$obj->thumbnail}}'); background-size: cover">
-                                                            </div></td>
+                                                            </div>
+                                                        </td>
                                                         <td>{{$obj ->description}}</td>
                                                         <td>{{$obj ->created_at}}</td>
                                                         <td class="text-right">
-                                                            <a href="/admin/category/{{$obj->id}}/edit" class="btn btn-simple btn-warning btn-icon edit"><i
-                                                                    class="material-icons">edit</i></a>
-                                                            <a href="#/{{$obj->id}}"  id="{{$obj->id}}" class="btn btn-simple btn-danger btn-icon remove btn-delete"><i
-                                                                    class="material-icons">close</i></a>
+                                                            <a href="/admin/category/{{$obj->id}}/edit"
+                                                               class="btn btn-simple btn-warning btn-icon edit"><i
+                                                                        class="material-icons">edit</i></a>
+                                                            <a href="#/{{$obj->id}}" id="{{$obj->id}}"
+                                                               class="btn btn-simple btn-danger btn-icon remove btn-delete"><i
+                                                                        class="material-icons">close</i></a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

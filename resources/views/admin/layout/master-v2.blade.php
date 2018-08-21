@@ -21,6 +21,7 @@
     <!--     Fonts and icons     -->
     <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet"/>
     <link href="{{asset('assets/css/google-roboto-300-700.css')}}" rel="stylesheet"/>
+
 </head>
 
 <body>
