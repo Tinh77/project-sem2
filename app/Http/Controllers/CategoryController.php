@@ -15,8 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
-        return "sub";
+        $list_obj = Category::orderBy('created_at', 'desc')->paginate(1);
+
+        return view('admin.category.list')->with('list_obj', $list_obj);
+
     }
 
     /**
@@ -37,7 +39,7 @@ class CategoryController extends Controller
      */
     public function store(StoreGiftPost $request)
     {
-       // $request->validated();
+       $request->validated();
 
         $obj = new Category();
         $obj -> name = Input::get('name');
@@ -70,7 +72,7 @@ class CategoryController extends Controller
         if ($obj == null) {
             return view('404');
         }
-        return view('admin.pages.edit')
+        return view('admin.category.edit')
             ->with('obj', $obj);
     }
 
@@ -81,9 +83,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $obj = Category::find($id);
+        if ($obj == null) {
+            return view('404');
+        }
+        $obj->name = Input::get('name');
+        $obj->description = Input::get('description');
+        $obj->thumbnail = Input::get('thumbnail');
+        $obj->save();
+        return redirect('/admin/category');
     }
 
     /**

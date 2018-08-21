@@ -21,6 +21,10 @@
     white-space: nowrap;
 }
 
+.home-page {
+    padding-top: 50px;
+}
+
 .home-page .avatar-image {
     vertical-align: middle;
     width: 50px;

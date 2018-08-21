@@ -7,7 +7,7 @@
     <title>Trang chủ</title>
 
     <link rel="stylesheet" href="{{asset('client-css/styles.css')}}">
-    <link rel="stylesheet" href="{{asset('client-css/mdb.min.css')}}">
+    {{--<link rel="stylesheet" href="{{asset('client-css/mdb.min.css')}}">--}}
     <link rel="stylesheet" href="{{asset('client-css/app.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/product-detail.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/price.css')}}">
@@ -37,7 +37,7 @@
     {{--<link rel="stylesheet" href="{{asset('client-css/Animated-Testimomial.css')}}">--}}
     {{--<link rel="stylesheet" href="{{asset('client-css/News-article-for-homepage-by-Ikbendiederiknl.css')}}">--}}
     {{--<link rel="stylesheet" href="{{asset('client-css/styles.css')}}">--}}
-    {{--<link rel="stylesheet" href="{{asset('client-css/dropdown.css')}}">--}}
+    <link rel="stylesheet" href="{{asset('client-css/dropdown.css')}}">
     {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
     {{--<link rel="stylesheet" href="{{asset('client-css/Simple-Header-y-Navbar-adaptativo-1.css')}}">--}}
     {{--<link rel="stylesheet" href="{{asset('client-css/Simple-Header-y-Navbar-adaptativo.css')}}">--}}

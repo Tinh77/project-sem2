@@ -7,6 +7,7 @@ use App\Gift;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class GiftController extends Controller
 {
@@ -46,7 +47,8 @@ class GiftController extends Controller
 
     public function create()
     {
-        //
+        $obj = Gift::all();
+        return view('client.pages.gift.gitfForm.blade')->with('obj', $obj);
     }
 
     /**
@@ -58,6 +60,14 @@ class GiftController extends Controller
     public function store(StoreGiftPost $request)
     {
         $request->validated();
+        $obj = new Gift();
+        $obj->name = Input::get('name');
+        $obj->description = Input::get('description');
+        $obj->images = Input::get('images');
+        $obj->age_range = Input::get('age_range');
+        $obj->gender = Input::get('gender');
+        $obj->save();
+//        return redirect('');
     }
 
     /**
@@ -68,7 +78,12 @@ class GiftController extends Controller
      */
     public function show($id)
     {
-        //
+        $obj = Gift::find($id);
+//        dd($obj);
+        if ($obj == null){
+            return view('404');
+        }
+        return view('client.pages.product-detail')->with('obj', $obj);
     }
 
     /**
@@ -102,6 +117,12 @@ class GiftController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obj = Category::find($id);
+        if ($obj == null) {
+            return response()->json(['message' => 'Gift không tồn tại hoặc đã bị xoá!'], 404);
+        }
+        $obj->status = 0;
+        $obj->save();
+        return response()->json(['message' => 'Đã xoá thông tin danh mục'], 200);
     }
 }
