@@ -13,7 +13,6 @@ class GiftsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('gifts')->truncate();
         DB::table('gifts')->insert([
             [
                 'account_id'=>1,

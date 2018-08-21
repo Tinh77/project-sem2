@@ -17,7 +17,6 @@
                                 <td>Chọn danh mục</td>
                                 <td>
                                     <select class="browser-default custom-select mb-4">
-                                        <option value="" disabled>Choose option</option>
                                         <option value="1" selected>--Chọn danh mục sản phẩm--</option>
                                         <option value="2">Report a bug</option>
                                         <option value="3">Feature request</option>
@@ -53,7 +52,6 @@
                             <td>Chọn độ tuổi sản phẩm</td>
                             <td>
                                 <select class="browser-default custom-select mb-4">
-                                    <option value="" disabled>Choose option</option>
                                     <option value="1" selected>--Lựa chọn độ tuổi món quà của bạn--</option>
                                     <option value="2">Report a bug</option>
                                     <option value="3">Feature request</option>
@@ -94,6 +92,6 @@
                 </div>
             </div>
 
-        </div>
+    </div>
     </div>
 @endsection

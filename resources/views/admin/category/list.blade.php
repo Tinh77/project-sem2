@@ -1,6 +1,5 @@
 @extends('admin.layout.master-v2')
 @section('content')
-
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -97,7 +96,7 @@
                                                         <td class="text-right">
                                                             <a href="/admin/category/{{$obj->id}}/edit" class="btn btn-simple btn-warning btn-icon edit"><i
                                                                     class="material-icons">edit</i></a>
-                                                            <a href="{{$obj->id}}" class="btn btn-simple btn-danger btn-icon remove btn-delete"><i
+                                                            <a href="#/{{$obj->id}}"  id="{{$obj->id}}" class="btn btn-simple btn-danger btn-icon remove btn-delete"><i
                                                                     class="material-icons">close</i></a>
                                                         </td>
                                                     </tr>
@@ -134,7 +133,7 @@
                 cancelButtonText: 'Huỷ bỏ',
                 buttonsStyling: false
             }).then(function () {
-                var id = thisButton.attr('href');
+                var id = thisButton.attr('id');
                 $.ajax({
                     'url': '/admin/category/' + id,
                     'method': 'DELETE',

@@ -15,11 +15,18 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->unsignedInteger('account_id');
+            $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
+            // $table->unsignedInteger('logger_account_id');
+            // $table->foreign('logger_account_id')->references('id')->on('logger_account_ips'); // logging
+            $table->string('username')->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('activated')->default(true); // sẽ trở thành false trong tương lai khi implement hệ thống validate 2-step
+            $table->boolean('status')->default(true);
+            // $table->string('token'); // 2-step
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
