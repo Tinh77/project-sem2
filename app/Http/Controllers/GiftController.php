@@ -48,7 +48,7 @@ class GiftController extends Controller
     public function create()
     {
         $obj = Gift::all();
-        return view('client.pages.gift.gitfForm.blade')->with('obj', $obj);
+        return view('client.pages.gift.form')->with('obj', $obj);
     }
 
     /**
@@ -79,7 +79,6 @@ class GiftController extends Controller
     public function show($id)
     {
         $obj = Gift::find($id);
-//        dd($obj);
         if ($obj == null){
             return view('404');
         }
@@ -94,7 +93,7 @@ class GiftController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**

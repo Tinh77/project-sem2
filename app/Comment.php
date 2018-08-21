@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: GIANG TINH
@@ -9,9 +8,10 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Comment extends Model
 {
 
 }

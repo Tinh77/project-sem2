@@ -1,17 +1,17 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: GIANG TINH
  * Date: 21/08/2018
- * Time: 10:01 SA
+ * Time: 10:04 SA
  */
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class LoggerAccountIp extends Model
 {
 
 }
