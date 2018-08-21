@@ -24,11 +24,13 @@ Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
 
-Route::get('/client/demo-home','GiftController@indexHome');
+Route::get('/client/gift','GiftController@indexHome');
 
-Route::get('/client/pages/list',"GiftController@index");
-Route::get('/client/pages/list/{id}', "GiftController@listCategory");
-Route::get('/client/pages/{id}', "GiftController@show");
+Route::get('/client/gift/list',"GiftController@index");
+Route::get('/client/gift/create', "GiftController@create");
+Route::get('/client/gift/list/{id}', "GiftController@listCategory");
+Route::get('/client/gift/{id}', "GiftController@show");
+
 
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
