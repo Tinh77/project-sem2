@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use http\Env\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StoreGiftPost;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -56,6 +56,8 @@ class CategoryController extends Controller
         $obj -> description = Input::get('description');
         $obj -> thumbnail = Input::get('thumbnail');
         $obj -> save();
+        Session::flash('message', 'Thêm mới thành công');
+        Session::flash('message-class', 'alert-success');
         return redirect('/admin/category');
     }
 
@@ -80,7 +82,7 @@ class CategoryController extends Controller
     {
         $obj = Category::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404admin.404');
         }
         return view('admin.category.edit')
             ->with('obj', $obj);
@@ -97,12 +99,14 @@ class CategoryController extends Controller
     {
         $obj = Category::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404admin.404');
         }
         $obj->name = Input::get('name');
         $obj->description = Input::get('description');
         $obj->thumbnail = Input::get('thumbnail');
         $obj->save();
+        Session::flash('message', 'Sửa thành công');
+        Session::flash('message-class', 'alert-success');
         return redirect('/admin/category');
     }
 
