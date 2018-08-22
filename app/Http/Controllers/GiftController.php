@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Gift;
+use App\Account;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use JD\Cloudder\Facades\Cloudder;
 
 class GiftController extends Controller
 {
@@ -93,10 +95,13 @@ class GiftController extends Controller
     public function show($id)
     {
         $obj = Gift::find($id);
+//        $info = Account::find($obj->account_id);
         if ($obj == null || $obj->status != 1) {
+
             return view('client.404client.404');
         }
         return view('client.pages.product-detail')->with('obj', $obj);
+//            ->with('info', $info)
     }
 
     /**
