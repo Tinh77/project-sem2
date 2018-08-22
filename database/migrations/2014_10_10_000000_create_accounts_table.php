@@ -20,8 +20,8 @@ class CreateAccountsTable extends Migration
             $table->string('email');
             $table->string('phone')->unique();
             $table->string('address');
-            $table->boolean('gender');
-            $table->smallInteger('age');
+            $table->boolean('gender')->nullable();
+            $table->smallInteger('age')->nullable();
             $table->string('intro')->nullable();
             // $table->json('config')->nullable(); // bị disable vì xampp không hỗ trợ kiểu json, trong khi bản mysql mới nhất đã có kiểu này
             $table->timestamps();
