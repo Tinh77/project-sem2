@@ -20,6 +20,10 @@ Route::get('/admin/demo-form', function () {
 
 Route::resource('admin/category', 'CategoryController');
 
+Route::get('/client/demo-list', function () {
+    return view('client.pages.gift.list1');
+});
+
 Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
@@ -40,10 +44,6 @@ Route::get('/client/gift/form', function () {
     return view('client.pages.gift.form');
 });
 
-Route::get('/client/gift/list', function () {
-    return view('client.pages.gift.list');
-});
-
 Route::get('/client/404', function () {
     return view('client.404client.404');
 });
@@ -51,9 +51,11 @@ Route::get('/client/404', function () {
 Route::get('/admin/404', function () {
     return view('admin.404admin.404');
 });
+
 Auth::routes();
 
 Route::group(['middleware' => ['twostep']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', 'HomeController@index')->name('home');
 });
+
