@@ -43,7 +43,7 @@ class GiftController extends Controller
             ->paginate(10);
 //        dd($obj);
         $gift = Gift::all();
-        $list_obj = DB::table('gifts')->pluck("name", "category_id");
+        $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
     }
 
@@ -89,8 +89,8 @@ class GiftController extends Controller
     public function show($id)
     {
         $obj = Gift::find($id);
-        if ($obj == null) {
-            return view('404');
+        if ($obj == null || $obj->status != 1){
+            return view('client.404client.404');
         }
         return view('client.pages.product-detail')->with('obj', $obj);
     }
@@ -103,7 +103,11 @@ class GiftController extends Controller
      */
     public function edit($id)
     {
-
+        $obj = Gift::find($id);
+        if ($obj == null){
+            return view('client.404client.404');
+        }
+        return view('client.pages.gift.edit');
     }
 
     /**
@@ -115,7 +119,18 @@ class GiftController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $obj = Gift::find($id);
+        if ($obj == null){
+            return view('client.404client.404');
+        }
+        $obj = new Gift();
+        $obj->name = Input::get('name');
+        $obj->description = Input::get('description');
+        $obj->images = Input::get('images');
+        $obj->age_range = Input::get('age_range');
+        $obj->gender = Input::get('gender');
+        $obj->save();
+        return redirect('');
     }
 
     /**
