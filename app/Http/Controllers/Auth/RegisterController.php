@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Account;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Exception;
+use phpDocumentor\Reflection\Types\Null_;
+use SebastianBergmann\Environment\Console;
 
 class RegisterController extends Controller
 {
@@ -37,7 +41,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except('logout');
     }
 
     /**
@@ -49,9 +53,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'username' => 'required|string|between:6,20|unique:users,username',
+            'email' => 'required|string|email|unique:accounts,email|max:191',
+            'password' => 'required|string|between:6,191|confirmed|different:username',
+            'first_name' => 'required|string|max:30',
+            'last_name' => 'required|string|max:30',
+            'address' => 'required|string',
+            'phone' => 'required|numeric|digits_between:8,11|unique:accounts,phone',
+            'gender' => 'required|boolean',
+            'age' => 'required|min:1|max:99',
+            'intro' => 'required|string|max:191',
         ]);
     }
 
@@ -63,10 +74,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+
+            $account = Account::create([
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
+                'email' => $data['email'],
+                'phone' => $data['phone'],
+                'address' => $data['address'],
+                'gender' => $data['gender'],
+                'age' => $data['age'],
+                'intro' => $data['intro'],
+            ]);
+            return User::create([
+                'account_id' => $account->id,
+                'username' => $data['username'],
+                'password' => sha1(Hash::make($data['password'])),
+            ]);
     }
 }
