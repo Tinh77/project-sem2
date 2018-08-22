@@ -37,6 +37,8 @@
                             Cố gắng tìm thật nhanh một lối thoát nhưng dường như hơi thở của hắn đã sán đến lại gần<br />
                             Những vết cứa trên da vết tím bầm nói lên điều nhắc nhở về sự thật tàn nhẫn<br />
                             Em bây giờ chỉ còn là chiến lợi phẩm trong một kiếp đời hoang dâm</p>
+
+
                 </div>
             </div>
         </div>
