@@ -8,9 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Exception;
-use phpDocumentor\Reflection\Types\Null_;
-use SebastianBergmann\Environment\Console;
+use jeremykenedy\LaravelRoles\Models\Role;
+use jeremykenedy\LaravelRoles\Models\Permission;
 
 class RegisterController extends Controller
 {
@@ -61,7 +60,7 @@ class RegisterController extends Controller
             'address' => 'required|string',
             'phone' => 'required|numeric|digits_between:8,11|unique:accounts,phone',
             'gender' => 'required|boolean',
-            'age' => 'required|min:1|max:99',
+            'age' => 'required|integer|min:1|max:99',
             'intro' => 'required|string|max:191',
         ]);
     }
@@ -75,20 +74,23 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-            $account = Account::create([
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'email' => $data['email'],
-                'phone' => $data['phone'],
-                'address' => $data['address'],
-                'gender' => $data['gender'],
-                'age' => $data['age'],
-                'intro' => $data['intro'],
-            ]);
-            return User::create([
-                'account_id' => $account->id,
-                'username' => $data['username'],
-                'password' => sha1(Hash::make($data['password'])),
-            ]);
+        $account = Account::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'address' => $data['address'],
+            'gender' => $data['gender'],
+            'age' => $data['age'],
+            'intro' => $data['intro'],
+        ]);
+        $user = User::create([
+            'account_id' => $account->id,
+            'username' => $data['username'],
+            'password' => sha1(Hash::make($data['password'])),
+        ]);
+        $role = Role::where('name', '=', 'User')->first();  //choose the default role upon user creation.
+        $user->attachRole($role);
+        return $user;
     }
 }
