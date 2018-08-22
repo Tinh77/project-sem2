@@ -8,4 +8,5 @@ class Gift extends Model
 {
     protected $table = 'gifts';
     public $timestamps = true;
+
 }

@@ -84,6 +84,7 @@ class GiftController extends Controller
         }
 
 
+
     }
 
     /**
@@ -102,6 +103,7 @@ class GiftController extends Controller
         }
         return view('client.pages.product-detail')->with('obj', $obj);
 //            ->with('info', $info)
+
     }
 
     /**

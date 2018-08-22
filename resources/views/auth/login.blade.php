@@ -7,12 +7,12 @@
                     <div class="card-header text-center">Đăng nhập</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ url('/login-user') }}" aria-label="{{ __('Login') }}">
+                        <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                             @csrf
 
                             <div class="form-group row">
-                                <label for="email"
-                                       class="col-sm-4 col-form-label text-md-right">Tên tài khoản</label>
+                                <label for="username"
+                                       class="col-sm-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="username" type="text"
