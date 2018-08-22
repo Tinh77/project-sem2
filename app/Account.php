@@ -16,4 +16,8 @@ class Account extends Model
     protected $fillable = [
         'first_name','last_name','email','phone','address','gender','age','intro'
     ];
+
+    protected $hidden = [
+        'created_at', 'updated_at', 'deleted_at'
+    ];
 }

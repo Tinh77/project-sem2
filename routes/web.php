@@ -57,3 +57,11 @@ Route::group(['middleware' => ['twostep']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', 'HomeController@index')->name('home');
 });
+
+///// Profile /////
+Route::get('/profile', 'ProfileController@index')->middleware('role:admin'); // admin
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/profile/{id}', 'ProfileController@show');
+    Route::get('/profile/user/{id}', 'ProfileController@showUser');
+});
+///////////////////
