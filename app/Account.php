@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-    protected $table = 'accounts';
-    public $timestamps = true;
-
+    protected $fillable = [
+        'first_name','last_name','email','phone','address','gender','age','intro'
+    ];
 }
