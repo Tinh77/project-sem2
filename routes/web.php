@@ -19,7 +19,10 @@ Route::get('/admin/demo-form', function () {
 });
 
 Route::resource('admin/category', 'CategoryController');
-Route::resource('client/gift', 'TransactionController');
+
+Route::get('/client/demo-list', function () {
+    return view('client.pages.gift.list1');
+});
 
 Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
@@ -38,10 +41,6 @@ Route::get('/client/demo-product-detail', function () {
 });
 Route::get('/client/gift/form', function () {
     return view('client.pages.gift.form');
-});
-
-Route::get('/client/gift/list', function () {
-    return view('client.pages.gift.list');
 });
 
 Route::get('/client/404', function () {

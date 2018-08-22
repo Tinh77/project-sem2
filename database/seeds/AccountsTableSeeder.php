@@ -12,6 +12,8 @@ class AccountsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('accounts')->truncate();
         DB::table('accounts')->insert([
             [
                 'first_name' => 'ahihi',
@@ -44,5 +46,6 @@ class AccountsTableSeeder extends Seeder
                 'intro' => 'T càng k biết t ở đâu ra ?'
             ]
         ]);
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

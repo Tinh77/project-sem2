@@ -12,6 +12,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('users')->truncate();
         DB::table('users')->insert([
             [
                 'account_id' => 1,
@@ -29,5 +31,6 @@ class UsersTableSeeder extends Seeder
                 'password' => \Illuminate\Support\Facades\Hash::make('taolanguyenvana')
             ]
         ]);
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
