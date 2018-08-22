@@ -1,4 +1,8 @@
-@extends('admin.layout.master-v2')
+@extends('admin.layout.master-v2', [
+    'page_title' => 'Sửa thông tin danh mục sản phẩm',
+    'current_menu' => 'category_manager',
+    'current_sub_menu' => 'edit',
+])
 @section('content')
     <div class="content">
         <div class="container-fluid">
