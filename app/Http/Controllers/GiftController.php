@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Gift;
+use App\Account;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -62,6 +64,8 @@ class GiftController extends Controller
         $request->validated();
         $obj = new Gift();
         $obj->name = Input::get('name');
+        $obj->account_id = Auth::user()->account_id;
+        $obj->category_id = Input::get('category_id');
         $obj->description = Input::get('description');
         $obj->images = Input::get('images');
         $obj->age_range = Input::get('age_range');
@@ -79,10 +83,11 @@ class GiftController extends Controller
     public function show($id)
     {
         $obj = Gift::find($id);
+        $info = Account::find($obj->account_id);
         if ($obj == null || $obj->status != 1){
             return view('client.404client.404');
         }
-        return view('client.pages.product-detail')->with('obj', $obj);
+        return view('client.pages.product-detail')->with('obj', $obj)->with('info', $info);
     }
 
     /**
