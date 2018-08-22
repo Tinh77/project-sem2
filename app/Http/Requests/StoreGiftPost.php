@@ -26,7 +26,9 @@ class StoreGiftPost extends FormRequest
         return [
             'name' => 'required|unique:gifts|min:10|max:50',
             'description' => 'required|max:191',
-            'thumbnail' => 'nullable|max:191'
+            'images' => 'nullable|max:1000',
+            'phone_number' => 'nullable|max:11',
+            'address' => 'nullable|max:250'
         ];
     }
 
@@ -35,14 +37,17 @@ class StoreGiftPost extends FormRequest
         return [
             'name.required' => 'Vui lòng nhập tên sản phẩm.',
             'description.required' => 'Vui lòng mô tả sản phẩm của bạn.',
-            'thumbnail. required' => 'Vui lòng thêm ảnh sản phẩm.',
+            'images. required' => 'Vui lòng thêm ảnh sản phẩm.',
+            'phone_number' => 'Vui lòng thêm số điện thoại',
+            'address' => 'vui lòng thêm địa chỉ'
         ];
     }
 
-    public function withValidate($validator){
-        $validator->after(function ($validator){
-            if ($this->get('name') =='quần'){
-                $validator->errors()->add('name','k cần nhập thêm nữa.');
+    public function withValidate($validator)
+    {
+        $validator->after(function ($validator) {
+            if ($this->get('name') == 'quần') {
+                $validator->errors()->add('name', 'k cần nhập thêm nữa.');
             }
         });
     }

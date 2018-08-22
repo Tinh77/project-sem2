@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Account;
 use App\Category;
 use App\Gift;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use JD\Cloudder\Facades\Cloudder;
 
 class GiftController extends Controller
 {
@@ -47,7 +49,7 @@ class GiftController extends Controller
 
     public function create()
     {
-        $obj = Gift::all();
+        $obj = Category::all();
         return view('client.pages.gift.form')->with('obj', $obj);
     }
 
@@ -59,15 +61,23 @@ class GiftController extends Controller
      */
     public function store(StoreGiftPost $request)
     {
+        $id = DB::table('accounts')->pluck('first_name','id');
+//        dd($id);
         $request->validated();
+        $current_time = time();
+        Cloudder::upload(Input::file('images')->getRealPath(), $current_time);
         $obj = new Gift();
         $obj->name = Input::get('name');
+        $obj->category_id = Input::get('category_id');
+        $obj->account_id =
         $obj->description = Input::get('description');
-        $obj->images = Input::get('images');
+        $obj->phone_number = Input::get('phone_number');
+        $obj->address = Input::get('address');
+        $obj->images = $current_time;
         $obj->age_range = Input::get('age_range');
         $obj->gender = Input::get('gender');
         $obj->save();
-//        return redirect('');
+        return 'ok';
     }
 
     /**
@@ -79,7 +89,7 @@ class GiftController extends Controller
     public function show($id)
     {
         $obj = Gift::find($id);
-        if ($obj == null){
+        if ($obj == null) {
             return view('404');
         }
         return view('client.pages.product-detail')->with('obj', $obj);
