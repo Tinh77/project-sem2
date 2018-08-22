@@ -31,6 +31,7 @@ Route::get('/client/gift/create', "GiftController@create");
 Route::get('/client/gift/list/{id}', "GiftController@listCategory");
 Route::get('/client/gift/{id}', "GiftController@show");
 
+Route::resource('/client/transaction','TransactionController');
 
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
