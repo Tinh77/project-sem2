@@ -51,7 +51,6 @@ Route::get('/admin/404', function () {
     return view('admin.404admin.404');
 });
 
-
 Route::get('/pages/personal', function () {
     return view('client.pages.member.personal');
 });
