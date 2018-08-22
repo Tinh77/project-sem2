@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{asset('client-css/price.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/list.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/Footer-Dark.css')}}">
+    <link rel="stylesheet" href="{{asset('client-css/personal.css')}}">
+
     {{--???--}}
     <link rel="stylesheet" href="/fonts/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">

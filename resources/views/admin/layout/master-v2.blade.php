@@ -19,9 +19,9 @@
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="/assets/css/demo.css" rel="stylesheet" />
     <!--     Fonts and icons     -->
-    <link href="/assets/css/font-awesome.css" rel="stylesheet" />
-    <link href="/assets/css/google-roboto-300-700.css" rel="stylesheet" />
-    <script src="/assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet"/>
+    <link href="{{asset('assets/css/google-roboto-300-700.css')}}" rel="stylesheet"/>
+
 </head>
 
 <body>
