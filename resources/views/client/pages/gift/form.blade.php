@@ -11,16 +11,17 @@
                 </div>
                 <div class="card-body card-body-cascade text-center">
                     <h4 class="card-title"><strong>Đăng tin</strong></h4>
-                    <form class="text-center border border-light p-5">
+                    <form action="" method="POST" class="text-center border border-light p-5">
+                        {{csrf_field()}}
                         <table class="table table-borderless">
                             <tr>
                                 <td>Chọn danh mục</td>
                                 <td>
                                     <select class="browser-default custom-select mb-4">
-                                        <option value="1" selected>--Chọn danh mục sản phẩm--</option>
-                                        <option value="2">Report a bug</option>
-                                        <option value="3">Feature request</option>
-                                        <option value="4">Feature request</option>
+                                        <option value="0" selected>--Chọn danh mục sản phẩm--</option>
+                                        @foreach($obj as $item)
+                                            <option value="{{$item ->id}}">{{$item ->name}}</option>
+                                        @endforeach
                                     </select>
                                 </td>
                             </tr>
@@ -92,6 +93,6 @@
                 </div>
             </div>
 
-    </div>
+        </div>
     </div>
 @endsection

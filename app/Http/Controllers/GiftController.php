@@ -6,6 +6,7 @@ use App\Category;
 use App\Gift;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
@@ -47,7 +48,7 @@ class GiftController extends Controller
 
     public function create()
     {
-        $obj = Gift::all();
+        $obj = Category::all();
         return view('client.pages.gift.form')->with('obj', $obj);
     }
 
@@ -59,15 +60,28 @@ class GiftController extends Controller
      */
     public function store(StoreGiftPost $request)
     {
-        $request->validated();
-        $obj = new Gift();
-        $obj->name = Input::get('name');
-        $obj->description = Input::get('description');
-        $obj->images = Input::get('images');
-        $obj->age_range = Input::get('age_range');
-        $obj->gender = Input::get('gender');
-        $obj->save();
-//        return redirect('');
+        if (Auth::check()) {
+            $account_id = Auth::id();
+            $request->validated();
+            $current_time = time();
+            Cloudder::upload(Input::file('images')->getRealPath(), $current_time);
+            $obj = new Gift();
+            $obj->name = Input::get('name');
+            $obj->category_id = Input::get('category_id');
+            $obj->account_id = $account_id;
+            $obj->description = Input::get('description');
+            $obj->phone_number = Input::get('phone_number');
+            $obj->address = Input::get('address');
+            $obj->images = $current_time;
+            $obj->age_range = Input::get('age_range');
+            $obj->gender = Input::get('gender');
+            $obj->save();
+            return 'ok';
+        } else {
+            return redirect('/login');
+        }
+
+
     }
 
     /**
@@ -79,7 +93,7 @@ class GiftController extends Controller
     public function show($id)
     {
         $obj = Gift::find($id);
-        if ($obj == null || $obj->status != 1){
+        if ($obj == null || $obj->status != 1) {
             return view('client.404client.404');
         }
         return view('client.pages.product-detail')->with('obj', $obj);
@@ -94,7 +108,7 @@ class GiftController extends Controller
     public function edit($id)
     {
         $obj = Gift::find($id);
-        if ($obj == null){
+        if ($obj == null) {
             return view('client.404client.404');
         }
         return view('client.pages.gift.edit');
@@ -110,7 +124,7 @@ class GiftController extends Controller
     public function update(Request $request, $id)
     {
         $obj = Gift::find($id);
-        if ($obj == null){
+        if ($obj == null) {
             return view('client.404client.404');
         }
         $obj = new Gift();
