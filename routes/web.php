@@ -24,21 +24,19 @@ Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
 
-Route::get('/client/gift','GiftController@indexHome');
+Route::get('/client/home', 'GiftController@indexHome');
 
-Route::get('/client/gift/list',"GiftController@index");
-Route::get('/client/gift/create', "GiftController@create");
+//Route::get('/client/gift/list', "GiftController@index");
+//Route::get('/client/gift/create', "GiftController@create");
 Route::get('/client/gift/list/{id}', "GiftController@listCategory");
-Route::get('/client/gift/{id}', "GiftController@show");
+//Route::get('/client/gift/{id}', "GiftController@show");
+
+Route::resource('/client/gift', "GiftController");
 
 
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
 });
-Route::get('/client/gift/form', function () {
-    return view('client.pages.gift.form');
-});
-
 Route::get('/client/gift/list', function () {
     return view('client.pages.gift.list');
 });
@@ -50,3 +48,6 @@ Route::get('/client/404', function () {
 Route::get('/admin/404', function () {
     return view('admin.404admin.404');
 });
+
+
+
