@@ -20,22 +20,47 @@ class GiftController extends Controller
      */
     public function indexHome()
     {
-        $obj = Gift::orderBy('created_at', 'desc')->paginate(6);
-        return view('client.pages.home')->with('obj_home', $obj);
+        $keyword = Input::get('key');
+        $data = Input::get();
+        $obj = Gift::orderBy('created_at', 'desc');
+        if (isset($keyword) && Input::get('key')) {
+            $obj = $obj->where('name', 'like', '%' . $keyword . '%');
+        } else {
+            $data['key'] = '';
+        }
+        $obj = $obj->paginate(6);
+        return view('client.pages.home')
+            ->with('obj', $obj)
+            ->with('data', $data);
     }
 
     public function index()
     {
-        $list_obj = DB::table('gifts')->pluck("name", "category_id");
-        return view('client.pages.list')->with('list_obj', $list_obj)
-            ;
+        $keyword = Input::get('key');
+        $data = Input::get();
+        $obj = Gift::orderBy('created_at', 'desc');
+        if (isset($keyword) && Input::get('key')) {
+            $obj = $obj->where('name', 'like', '%' . $keyword . '%');
+        } else {
+            $data['key'] = '';
+        }
+        $obj = $obj->paginate(6);
+        $list_obj = DB::table('categories')->pluck("name", "id");
+        return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
+//        $list_obj = DB::table('gifts')->pluck("name", "category_id");
+//        return view('client.pages.list')->with('list_obj', $list_obj);
     }
-    public function listindex(){
-        if (Auth::check()){
+
+    public function listindex()
+    {
+        if (Auth::check()) {
             $account_id = Auth::id();
-            $obj = DB::table('gifts')->where('account_id','=', $account_id)->get();
+            $obj = DB::table('gifts')->where([
+                ['account_id', '=', $account_id],
+                    ['status', '=', 1]
+            ])->get();
             return view('client.pages.gift.listGift')->with('obj', $obj);
-        }else {
+        } else {
             return redirect('/login');
         }
 
@@ -51,8 +76,7 @@ class GiftController extends Controller
     {
         $obj = DB::table('gifts')
             ->where('category_id', '=', $id)
-            ->paginate(10);
-//        dd($obj);
+            ->paginate(6);
         $gift = Gift::all();
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
@@ -92,7 +116,6 @@ class GiftController extends Controller
         } else {
             return redirect('/login');
         }
-
 
 
     }

@@ -1,9 +1,9 @@
 @extends('client.pages.gift.list')
 @section('content1')
     <div class="col-md-9 personal">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-9">
-                <h4 class="card-title">Danh sách sản phẩm đã đăng của bạn.</h4>
+                <h4 class="card-title">Danh sách món quà đã đăng của bạn.</h4>
                 <div class="row content-personal">
                     <table id="datatables"
                            class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
@@ -11,40 +11,40 @@
                            aria-describedby="datatables_info">
                         <thead>
                         <tr role="row">
-                            {{--<th class="sorting_asc" tabindex="0" aria-controls="datatables"--}}
-                            {{--rowspan="1" colspan="1" style="width: 50px;"--}}
-                            {{--aria-sort="ascending"--}}
-                            {{--aria-label="Name: activate to sort column descending">Id--}}
-                            {{--</th>--}}
-                            <th class="sorting" tabindex="0" aria-controls="datatables"
-                                rowspan="1" colspan="1" style="width: 270px;"
-                                aria-label="Office: activate to sort column ascending">Tên
+                            <th class="sorting_asc" tabindex="0" aria-controls="datatables"
+                            rowspan="1" colspan="1" style="width: 80px;"
+                            aria-sort="ascending"
+                            aria-label="Name: activate to sort column descending">Id
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="datatables"
-                                rowspan="1" colspan="1" style="width: 270px;"
+                                rowspan="1" colspan="1" style="width: 370px;"
+                                aria-label="Office: activate to sort column ascending">Tên món quà
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="datatables"
+                                rowspan="1" colspan="1" style="width: 570px;"
                                 aria-label="Position: activate to sort column ascending">
-                                Ảnh
+                                Ảnh món quà
                             </th>
 
                             <th class="sorting" tabindex="0" aria-controls="datatables"
-                                rowspan="1" colspan="1" style="width: 270px;"
+                                rowspan="1" colspan="1" style="width: 470px;"
                                 aria-label="Position: activate to sort column ascending">
-                                Mô tả
+                                Mô tả món quà
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="datatables"
-                                rowspan="1" colspan="1" style="width: 270px;"
+                                rowspan="1" colspan="1" style="width: 200px;"
                                 aria-label="Office: activate to sort column ascending">Trạng thái
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="datatables"
-                                rowspan="1" colspan="1" style="width: 270px;"
+                                rowspan="1" colspan="1" style="width: 100px;"
                                 aria-label="Office: activate to sort column ascending">Xóa
                             </th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="items-page">
                         @foreach($obj as $item)
                             <tr>
-                                {{--<th scope="row">{{$item->id}}</th>--}}
+                                <th scope="row">{{$item->id}}</th>
                                 <td>{{$item->name}}</td>
                                 <td>
                                     <div style="background-image: url({{$item->images}}) ;background-size:
@@ -60,8 +60,8 @@
                                     //                                ?>
                                 </td>
                                 <td>
-                                    <a href="" data-id="{{$item->id}}"
-                                       class="btn btn-simple btn-danger btn-delete">Delete</a>
+                                    <button data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
+                                       class="btn btn-simple btn-danger btn-icon remove btn-delete">Delete</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -72,92 +72,48 @@
         </div>
     </div>
     <script>
-        $(document).on('click', 'btn-delete', function (e) {
-            e.preventDefault();
-            var id = $(this).data('id');
-            swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            }).then((willDelete) => {
-                if (willDelete) {
-                    // swal("Poof! Your imaginary file has been deleted!", {
-                    //     icon: "success",
-                    // });
-                    $.ajax({
-                        'url': '../gift/' + id,
-                        'method': 'DELETE',
-                        'data': {
-                            '_token': $('meta[name="csrf-token"]').attr('content1')
-                        },
-                        success: function (response) {
-                            swal({
-                                text: 'Món Quà đã bị xoá.',
-                                type: 'success',
-                                confirmButtonClass: "btn btn-success",
-                                buttonsStyling: false
-                            })
-                            setTimeout(function () {
-                                window.location.reload();
-                            }, 2 * 1000);
-                        },
-                        error: function () {
-                            swal({
-                                text: 'Có lỗi xảy ra, vui lòng thử lại sau.',
-                                type: 'warning',
-                                confirmButtonClass: "btn btn-danger",
-                                buttonsStyling: false
-                            })
-                        }
-                    });
-                } else {
-                    swal("Your imaginary file is safe!");
+        function deleteItemConfirm($id) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-        });
-        // $('.btn-delete').click(function () {
-        //     var thisButton = $(this);
-        //     swal({
-        //         text: "Bạn có chắc muốn xoá món quà này không?",
-        //         type: 'warning',
-        //         showCancelButton: true,
-        //         confirmButtonClass: 'btn btn-success',
-        //         cancelButtonClass: 'btn btn-danger',
-        //         confirmButtonText: 'Đồng ý',
-        //         cancelButtonText: 'Huỷ bỏ',
-        //         buttonsStyling: false
-        //     }).then(function () {
-        //         var id = thisButton.attr('id');
-        //         $.ajax({
-        //             'url': '../gift/' + id,
-        //             'method': 'DELETE',
-        //             'data': {
-        //                 '_token': $('meta[name="csrf-token"]').attr('content1')
-        //             },
-        //             success: function (response) {
-        //                 swal({
-        //                     text: 'Món Quà đã bị xoá.',
-        //                     type: 'success',
-        //                     confirmButtonClass: "btn btn-success",
-        //                     buttonsStyling: false
-        //                 })
-        //                 setTimeout(function () {
-        //                     window.location.reload();
-        //                 }, 2 * 1000);
-        //             },
-        //             error: function () {
-        //                 swal({
-        //                     text: 'Có lỗi xảy ra, vui lòng thử lại sau.',
-        //                     type: 'warning',
-        //                     confirmButtonClass: "btn btn-danger",
-        //                     buttonsStyling: false
-        //                 })
-        //             }
-        //         });
-        //     });
-        //     return false;
-        // })
+            // var id = $(this).data("id");
+            swal({
+                text: "Bạn có chắc là muốn xóa món quà này?",
+                icon: 'warning',
+                // buttons: true,
+                buttons: ["Hủy", "Xóa"]
+            }).then(function() {
+
+                $.ajax({
+                    url: '/client/gift/' + $id,
+                    method: 'DELETE',
+                    data: {
+                        '_method': 'DELETE',
+                        'id': $id
+                    },
+                    success: function (response) {
+                        swal(
+                            'Đã xóa thành công.',
+                            'success'
+                        )
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 2*1000);
+
+                        // $("#items-page").load(" #items-page");
+
+                    },
+                    error: function () {
+                        swal(
+                            'Deleted.',
+                            'error'
+                        )
+                    }
+                });
+            });
+            return false;
+        };
     </script>
 @endsection
