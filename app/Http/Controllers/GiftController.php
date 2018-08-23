@@ -21,8 +21,18 @@ class GiftController extends Controller
      */
     public function indexHome()
     {
-        $obj = Gift::orderBy('created_at', 'desc')->paginate(6);
-        return view('client.pages.home')->with('obj_home', $obj);
+        $keyword = Input::get('key');
+        $data = Input::get();
+        $obj = Gift::orderBy('created_at', 'desc');
+        if (isset($keyword) && Input::get('key')) {
+            $obj = $obj->where('name', 'like', '%' . $keyword . '%');
+        } else {
+            $data['key'] = '';
+        }
+        $obj = $obj->paginate(6);
+        return view('client.pages.home')
+            ->with('obj', $obj)
+            ->with('data', $data);
     }
 
     public function index()
