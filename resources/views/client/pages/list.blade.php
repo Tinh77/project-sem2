@@ -10,7 +10,7 @@
                     <div class="col-md-3">
                         <h4 class="newsblock-title text-center">Danh mục </h4>
                         <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control w-75" type="search" placeholder="Search"
+                            <input class="form-control w-75" name="key" type="search" placeholder="Search"
                                    aria-label="Search">
                             <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
                         </form>
@@ -20,7 +20,7 @@
                             @foreach($list_obj as $key => $item)
                                 <tr>
                                     <td>
-                                        <a href="/client/gift/list/{{$key}}">{{$item}}</a>
+                                        <a href="/client/category-gift/{{$key}}">{{$item}}</a>
                                     </td>
                                 </tr>
                             @endforeach
