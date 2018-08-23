@@ -24,14 +24,18 @@ Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
 
-Route::get('/client/gift','GiftController@indexHome');
+Route::get('/client/home','GiftController@indexHome');
 
-Route::get('/client/gift/list',"GiftController@index");
-Route::get('/client/gift/create', "GiftController@create");
-Route::get('/client/gift/list/{id}', "GiftController@listCategory");
-Route::get('/client/gift/{id}', "GiftController@show");
+//Route::get('/client/gift/list',"GiftController@index");
+//Route::get('/client/gift/create', "GiftController@create");
+//Route::get('/client/gift/list/{id}', "GiftController@listCategory");
+//Route::get('/client/gift/{id}', "GiftController@show");
+
+
+Route::resource('/client/gift','GiftController');
 
 Route::resource('/client/transaction','TransactionController');
+
 
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
@@ -57,3 +61,5 @@ Route::group(['middleware' => ['twostep']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', 'HomeController@index')->name('home');
 });
+
+Route::post('/login-user','login_user@login');

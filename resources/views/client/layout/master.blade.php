@@ -7,7 +7,7 @@
     <title>Trang chủ</title>
 
     <link rel="stylesheet" href="{{asset('client-css/styles.css')}}">
-    {{--<link rel="stylesheet" href="{{asset('client-css/mdb.min.css')}}">--}}
+    <link rel="stylesheet" href="{{asset('client-css/mdb.min.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/app.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/product-detail.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/price.css')}}">
