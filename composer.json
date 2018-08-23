@@ -9,6 +9,7 @@
         "fideloper/proxy": "^4.0",
         "jeremykenedy/laravel-roles": "^1.2",
         "jeremykenedy/laravel2step": "^1.0",
+        "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0"
     },

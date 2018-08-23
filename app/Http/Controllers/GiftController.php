@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Gift;
-use App\Account;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
@@ -45,9 +44,26 @@ class GiftController extends Controller
         } else {
             $data['key'] = '';
         }
-        $obj = $obj->paginate(5);
+        $obj = $obj->paginate(6);
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
+//        $list_obj = DB::table('gifts')->pluck("name", "category_id");
+//        return view('client.pages.list')->with('list_obj', $list_obj);
+    }
+
+    public function listindex()
+    {
+        if (Auth::check()) {
+            $account_id = Auth::id();
+            $obj = DB::table('gifts')->where([
+                ['account_id', '=', $account_id],
+                    ['status', '=', 1]
+            ])->get();
+            return view('client.pages.gift.listGift')->with('obj', $obj);
+        } else {
+            return redirect('/login');
+        }
+
     }
 
     /**
@@ -96,11 +112,10 @@ class GiftController extends Controller
             $obj->age_range = Input::get('age_range');
             $obj->gender = Input::get('gender');
             $obj->save();
-            return 'ok';
+            return 'Bạn đã ddawng tin thành công.';
         } else {
             return redirect('/login');
         }
-
 
 
     }
@@ -146,6 +161,7 @@ class GiftController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         $obj = Gift::find($id);
@@ -170,7 +186,7 @@ class GiftController extends Controller
      */
     public function destroy($id)
     {
-        $obj = Category::find($id);
+        $obj = Gift::find($id);
         if ($obj == null) {
             return response()->json(['message' => 'Gift không tồn tại hoặc đã bị xoá!'], 404);
         }
