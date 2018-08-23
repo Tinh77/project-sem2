@@ -13,6 +13,8 @@ class GiftsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('gifts')->truncate();
         DB::table('gifts')->insert([
             [
                 'account_id'=>1,
@@ -328,5 +330,6 @@ class GiftsTableSeeder extends Seeder
             ]
 
         ]);
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
