@@ -63,3 +63,5 @@ Route::group(['middleware' => ['twostep']], function () {
 });
 
 Route::post('/login-user','login_user@login');
+
+Route::get('/pages/personal_information','GiftController@showPersonal');
