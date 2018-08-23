@@ -28,6 +28,6 @@
                 <td>Giới tính</td>
                 <td>{{$obj->gender}}</td>
             </tr>
-        </tbody>
+    </tbody>
     </table>
 @endsection

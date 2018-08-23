@@ -37,8 +37,17 @@ class GiftController extends Controller
 
     public function index()
     {
-        $list_obj = DB::table('gifts')->pluck("name", "category_id");
-        return view('client.pages.list')->with('list_obj', $list_obj);
+        $keyword = Input::get('key');
+        $data = Input::get();
+        $obj = Gift::orderBy('created_at', 'desc');
+        if (isset($keyword) && Input::get('key')) {
+            $obj = $obj->where('name', 'like', '%' . $keyword . '%');
+        } else {
+            $data['key'] = '';
+        }
+        $obj = $obj->paginate(5);
+        $list_obj = DB::table('categories')->pluck("name", "id");
+        return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
     }
 
     /**
@@ -51,8 +60,7 @@ class GiftController extends Controller
     {
         $obj = DB::table('gifts')
             ->where('category_id', '=', $id)
-            ->paginate(10);
-//        dd($obj);
+            ->paginate(6);
         $gift = Gift::all();
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);

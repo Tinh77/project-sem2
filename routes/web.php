@@ -26,11 +26,7 @@ Route::get('/admin/demo-list', function () {
 
 Route::get('/client/home','GiftController@indexHome');
 
-//Route::get('/client/gift/list',"GiftController@index");
-//Route::get('/client/gift/create', "GiftController@create");
-//Route::get('/client/gift/list/{id}', "GiftController@listCategory");
-//Route::get('/client/gift/{id}', "GiftController@show");
-
+Route::get('/client/category-gift/{id}', "GiftController@listCategory");
 
 Route::resource('/client/gift','GiftController');
 
@@ -39,9 +35,6 @@ Route::resource('/client/transaction','TransactionController');
 
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
-});
-Route::get('/client/gift/form', function () {
-    return view('client.pages.gift.form');
 });
 
 Route::get('/client/gift/list', function () {
@@ -64,4 +57,8 @@ Route::group(['middleware' => ['twostep']], function () {
 
 Route::post('/login-user','login_user@login');
 
-Route::get('/pages/personal_information','GiftController@showPersonal');
+Route::get('/profile', 'ProfileController@index')->middleware('role:admin'); // admin
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/profile/{id}', 'ProfileController@show');
+    Route::get('/profile/user/{id}', 'ProfileController@showUser');
+});
