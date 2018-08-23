@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
@@ -15,13 +15,18 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $obj = DB::table('transactions')
-            ->where('owner_id', '=', '1')
-            ->join('gifts', 'transactions.gift_id', '=', 'gifts.id')
-            ->join('accounts', 'transactions.buyer_id', '=', 'accounts.id')
-            ->select('transactions.*','gifts.images as gift_images', 'gifts.name as gift_name', 'accounts.first_name as account_first_name')
-            ->get();
-        return view('client.pages.list_transaction')->with(['obj' => $obj]);
+        if (auth()->check()) {
+            $account_id = auth()->user()->id;
+            $obj = DB::table('transactions')
+                ->where('owner_id', '=', $account_id)
+                ->join('gifts', 'transactions.gift_id', '=', 'gifts.id')
+                ->join('accounts', 'transactions.buyer_id', '=', 'accounts.id')
+                ->select('transactions.*', 'gifts.images as gift_images', 'gifts.name as gift_name', 'accounts.first_name as account_first_name')
+                ->get();
+            return view('client.pages.list_transaction')->with(['obj' => $obj]);
+        } else {
+            return redirect('/login');
+        }
     }
 
     /**
