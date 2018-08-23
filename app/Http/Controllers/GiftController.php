@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Gift;
-use App\Account;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use JD\Cloudder\Facades\Cloudder;
 
 class GiftController extends Controller
 {
