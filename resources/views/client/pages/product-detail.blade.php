@@ -1,6 +1,15 @@
 @extends('client.layout.master')
 @section('content')
-
+    <div id="fb-root"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div class="product-detail mt-5">
         <div class="container">
             <div class="card content-card">
@@ -54,12 +63,11 @@
                             <p class="vote"><strong>91%</strong> of người mua hài lòng với sản phẩm này <strong>(87 bình
                                     chọn)</strong>
                             </p>
+                            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="400" data-numposts="1">
 
-
+                            </div>
                             <div class="action">
-
                                 <button class="add-to-cart btn font-text" type="button">QUAN TÂM</button>
-
                             </div>
                         </div>
                     </div>
