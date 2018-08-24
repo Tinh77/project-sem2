@@ -8,10 +8,11 @@
                     <div class="wrapper row">
                         <div class="preview col-md-6">
                             <div class="preview-pic tab-content">
-                                <div class="tab-pane active" id="pic-1"><img
-                                            src="{{ $obj->images }}"
-                                            alt="">
-                                </div>
+                                {{--<div class="tab-pane active"--}}
+                                     {{--style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($obj -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 255px;height: 200px"></div>--}}
+                                <img class="img-fluid"
+                                     src="{{\JD\Cloudder\Facades\Cloudder::show($obj -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
+                                     alt="">
                                 <div class="tab-pane" id="pic-2"><img
                                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx_Y3fukPJq4oMHJ_o7phVvzHeMflTbmBGsOxAN3w4Y-KSV8wI"
                                             alt="">
@@ -57,7 +58,7 @@
 
                             <div class="action">
 
-                                    <button class="add-to-cart btn font-text" type="button">QUAN TÂM</button>
+                                <button class="add-to-cart btn font-text" type="button">QUAN TÂM</button>
 
                             </div>
                         </div>

@@ -23,6 +23,7 @@ Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
 
+Route::resource('/admin','CategoryController');
 
 Route::get('/client/list-gift', function () {
     return view('client.pages.gift.list');

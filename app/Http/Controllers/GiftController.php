@@ -9,6 +9,7 @@ use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use JD\Cloudder\Facades\Cloudder;
 
 class GiftController extends Controller
 {
@@ -27,7 +28,7 @@ class GiftController extends Controller
         } else {
             $data['key'] = '';
         }
-        $obj = $obj->paginate(6);
+        $obj = $obj->paginate(8);
         return view('client.pages.home')
             ->with('obj', $obj)
             ->with('data', $data);
