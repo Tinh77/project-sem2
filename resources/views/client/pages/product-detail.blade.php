@@ -10,7 +10,7 @@
                             <div class="preview-pic tab-content">
                                 {{--<div class="tab-pane active"--}}
                                      {{--style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($obj -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 255px;height: 200px"></div>--}}
-                                <img class="img-fluid"
+                                <img class="img-fluid tab-pane active"
                                      src="{{\JD\Cloudder\Facades\Cloudder::show($obj -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
                                      alt="">
                                 <div class="tab-pane" id="pic-2"><img
