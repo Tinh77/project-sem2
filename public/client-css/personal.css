@@ -1,8 +1,5 @@
-.container{
-    padding-top: 60px;
-}
 .personal{
-    padding-top: 80px;
+    padding-top: 35px;
     width: 80%;
 }
 .personal .profile__menu .profile__socials{
@@ -10,12 +7,22 @@
     TEXT-ALIGN: CENTER;
     PADDING-TOP: 20PX;
 }
+.personal-center{
+    float: left;
+}
 .content-personal{
     border-left: 1px solid #e8eaed;
 }
-.profile__socials{
-    padding-bottom: 30px;
-    padding-top: 20px;
+.personal-center .theme{
+    font-size: 20px;
+}
+.personal-center .img-detail{
+    width: 200px;
+    height: 200px;
+}
+.personal-left>b, strong {
+    font-weight: bolder;
+    font-size: 30px;
 }
 .profile__socials .flow{
     padding: 10px;
@@ -54,7 +61,4 @@
 .icon-icon{
     color:#afaeaf;
     font-size: 20px;
-}
-.personal_header{
-    padding-bottom: 40px;
 }
