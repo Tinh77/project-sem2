@@ -24,7 +24,7 @@ class StoreGiftPost extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:gifts|min:10|max:50',
+            'name' => 'required|unique:gifts|max:50',
             'description' => 'required|max:191',
             'thumbnail' => 'nullable|max:191'
         ];

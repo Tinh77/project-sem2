@@ -30,12 +30,10 @@
             <h4 class="text-center font-text mt-5 mb-5"><strong>Những sản phẩm đang tìm chủ mới</strong></h4>
             {{--product--}}
             <form class="form-inline my-2 my-lg-0 justify-content-center font-text">
-                <input class="form-control mr-sm-2 w-50" type="search" placeholder="Tìm kiếm sản phẩm mà bạn cần..."
+                <input class="form-control mr-sm-2 w-50" name="key" value="{{$data['key']}}" type="search"
+                       placeholder="Tìm kiếm sản phẩm mà bạn cần..."
                        aria-label="Search">
-                <button type="button" class="btn btn-success btn-sm"><i
-                            class="fa fa-search"></i></button>
             </form>
-
             <div class="row wow fadeIn mt-5">
                 @foreach($obj as $item)
                     <div class="col-lg-3 col-md-6 mb-4">

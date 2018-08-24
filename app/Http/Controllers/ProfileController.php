@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Account;
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class TransactionController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,18 +15,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        if (auth()->check()) {
-            $account_id = auth()->user()->id;
-            $obj = DB::table('transactions')
-                ->where('owner_id', '=', $account_id)
-                ->join('gifts', 'transactions.gift_id', '=', 'gifts.id')
-                ->join('accounts', 'transactions.buyer_id', '=', 'accounts.id')
-                ->select('transactions.*', 'gifts.images as gift_images', 'gifts.name as gift_name', 'accounts.first_name as account_first_name')
-                ->get();
-            return view('client.pages.list_transaction')->with(['obj' => $obj]);
-        } else {
-            return redirect('/login');
-        }
+        return Account::all();
     }
 
     /**
@@ -42,7 +31,7 @@ class TransactionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -53,21 +42,26 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        return Account::find($id);
     }
 
+
+    public function showUser($id)
+    {
+        return User::find($id);
+    }
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Account $account)
     {
         //
     }
@@ -75,11 +69,11 @@ class TransactionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Account $account)
     {
         //
     }
@@ -87,10 +81,10 @@ class TransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Account $account)
     {
         //
     }
