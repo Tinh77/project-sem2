@@ -30,7 +30,7 @@
             </thead>
             <tbody>
             <tr>
-                <td><a href="/profile/{id}">Thông tin cá nhân</a></td>
+                <td><a href="/profile/{{auth()->id()}}">Thông tin cá nhân</a></td>
             </tr>
             <tr>
                 <td>Đánh giá</td>
