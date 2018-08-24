@@ -37,7 +37,7 @@
     {{--<link rel="stylesheet" href="{{asset('client-css/Animated-Testimomial.css')}}">--}}
     {{--<link rel="stylesheet" href="{{asset('client-css/News-article-for-homepage-by-Ikbendiederiknl.css')}}">--}}
     {{--<link rel="stylesheet" href="{{asset('client-css/styles.css')}}">--}}
-    <link rel="stylesheet" href="{{asset('client-css/dropdown.css')}}">
+    {{--<link rel="stylesheet" href="{{asset('client-css/dropdown.css')}}">--}}
     {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
     {{--<link rel="stylesheet" href="{{asset('client-css/Simple-Header-y-Navbar-adaptativo-1.css')}}">--}}
     {{--<link rel="stylesheet" href="{{asset('client-css/Simple-Header-y-Navbar-adaptativo.css')}}">--}}
@@ -59,16 +59,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-<script src="{{asset('client-js/app.js')}}"></script>
-<script src="{{asset('client-js/js.js')}}"></script>
 <script src="{{asset('client-js/mdb.min.js')}}"></script>
-<script scr="/client-js/price.js"></script>
-<script scr="/client-js/list.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-<script src="{{asset('client-js/Animated-Testimomial.js')}}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="{{asset('client-js/Simple-Slider.js')}}"></script>
+
 </body>
 
 </html>

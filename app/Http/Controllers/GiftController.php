@@ -21,8 +21,11 @@ class GiftController extends Controller
      */
     public function indexHome()
     {
-        $obj = Gift::orderBy('created_at', 'desc')->paginate(6);
-        return view('client.pages.home')->with('obj_home', $obj);
+        $obj = Gift::orderBy('created_at', 'desc')->paginate(8);
+        return view('client.pages.home')
+            ->with('obj', $obj);
+
+
     }
 
     public function index()
@@ -82,7 +85,6 @@ class GiftController extends Controller
         } else {
             return redirect('/login');
         }
-
 
 
     }
