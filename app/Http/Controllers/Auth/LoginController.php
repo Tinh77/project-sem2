@@ -32,6 +32,10 @@ class LoginController extends Controller
      *
      * @return void
      */
+//    public function redirectTo()
+//    {
+//        return redirect('/client/home');
+//    }
 
     public function username()
     {

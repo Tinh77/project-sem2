@@ -1,6 +1,6 @@
 @extends('client.layout.master')
 @section('content')
-    <div class="card">
+    <div class="card padding">
         <div class="card-body">
             <h5 class="card-title">Lịch sử giao dịch</h5>
             <table class="table">

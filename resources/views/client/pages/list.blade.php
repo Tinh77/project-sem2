@@ -3,7 +3,7 @@
 
     <div class="container">
     </div>
-    <div class="list-page font-text bg-light" style="padding-top: 50px">
+    <div class="list-page font-text bg-light padding" style="padding-top: 50px">
         <div class="news-block">
             <div class="container">
                 <div class="row">

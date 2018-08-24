@@ -1,6 +1,6 @@
 @extends('client.layout.master')
 @section('content')
-    <div class="home-page">
+    <div class="home-page padding">
         <div class="container">
             @include('client.partial.slide')
             <h4 class="text-center font-text mt-2 mb-2"><strong>Sản phẩm được tìm kiếm nhiều nhất</strong></h4>
@@ -30,32 +30,35 @@
             <h4 class="text-center font-text mt-5 mb-5"><strong>Những sản phẩm đang tìm chủ mới</strong></h4>
             {{--product--}}
             <form class="form-inline my-2 my-lg-0 justify-content-center font-text">
-                <input class="form-control mr-sm-2 w-50" name="key" value="{{$data['key']}}" type="search" placeholder="Tìm kiếm sản phẩm mà bạn cần..."
+                <input class="form-control mr-sm-2 w-50" name="key" value="{{$data['key']}}" type="search"
+                       placeholder="Tìm kiếm sản phẩm mà bạn cần..."
                        aria-label="Search">
             </form>
-            <div class="row mt-5">
+            <div class="row wow fadeIn mt-5">
                 @foreach($obj as $item)
-                    <div class="col-sm-6 col-md-4 col-6 p-3">
+                    <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card">
                             <div class="view overlay">
-                                <div class="product-image card-img-top"
-                                     style="background-image: url({{$item -> images}})"></div>
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
+                                <a href="/client/gift/{{$item -> id}}">
+                                    <div style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 255px;height: 200px"></div>
+                                    {{--<img class="img-fluid" src="{{$item -> images}}" alt="">--}}
                                 </a>
+
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title font-text"> {{$item -> name}} </h5>
-                                <hr>
-                                <p class="card-text">{{$item-> description}}</p>
-                                <a href="#!" class="black-text d-flex justify-content-end">
-                                    <button class="btn btn-amber">Quan tâm</button>
+                            <div class="card-body text-center">
+                                <a href="" class="grey-text">
+                                    <h5 class="card-title font-text"> {{$item -> name}} </h5>
                                 </a>
+
+
                             </div>
                         </div>
                     </div>
                 @endforeach
+
             </div>
+            <a class="text-primary float-right font-text" href="/client/gift">Xem thêm <i
+                        class="fas fa-angle-double-right"></i></a>
             <h4 class="text-center font-text mt-5 mb-5"><strong>Lorem Ipsum is simply dummy text </strong></h4>
 
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

@@ -18,25 +18,23 @@ Route::get('/admin/demo-form', function () {
     return view('admin.pages.form');
 });
 
-Route::resource('admin/category', 'CategoryController');
 
 Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
 
-Route::get('/client/home','GiftController@indexHome');
-
 
 Route::get('/client/list-gift', function () {
     return view('client.pages.gift.list');
 });
-Route::get('/client/pages/list','GiftController@listindex');
+Route::get('/client/pages/list', 'GiftController@listindex');
 Route::get('/client/category-gift/{id}', "GiftController@listCategory");
 
-Route::resource('/client/gift','GiftController');
+Route::resource('/client/gift', 'GiftController');
 
-Route::resource('/client/transaction','TransactionController');
+Route::resource('/client/transaction', 'TransactionController');
 
+Route::get('/client/home', 'GiftController@indexHome');
 
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
@@ -54,13 +52,14 @@ Auth::routes();
 Route::group(['middleware' => ['twostep']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', 'HomeController@index')->name('home');
+
 });
 
-
-Route::post('/login-user','login_user@login');
+Route::post('/login-user', 'login_user@login');
 
 Route::get('/profile', 'ProfileController@index')->middleware('role:admin'); // admin
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile/{id}', 'ProfileController@show');
     Route::get('/profile/user/{id}', 'ProfileController@showUser');
 });
+
