@@ -12,12 +12,12 @@
                         <thead>
                         <tr role="row">
                             <th class="sorting_asc" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 80px;"
-                            aria-sort="ascending"
-                            aria-label="Name: activate to sort column descending">Id
+                                rowspan="1" colspan="1" style="width: 80px;"
+                                aria-sort="ascending"
+                                aria-label="Name: activate to sort column descending">Id
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="datatables"
-                                rowspan="1" colspan="1" style="width: 370px;"
+                                rowspan="1" colspan="1" style="width: 470px;"
                                 aria-label="Office: activate to sort column ascending">Tên món quà
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="datatables"
@@ -37,6 +37,10 @@
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="datatables"
                                 rowspan="1" colspan="1" style="width: 100px;"
+                                aria-label="Office: activate to sort column ascending">Sửa
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="datatables"
+                                rowspan="1" colspan="1" style="width: 100px;"
                                 aria-label="Office: activate to sort column ascending">Xóa
                             </th>
                         </tr>
@@ -47,9 +51,10 @@
                                 <th scope="row">{{$item->id}}</th>
                                 <td>{{$item->name}}</td>
                                 <td>
-                                    <div style="background-image: url({{$item->images}}) ;background-size:
-                                        cover;background-position: center;background-repeat: no-repeat;width: 70px;height:
-                                        70px">
+                                    <div
+                                        style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images,
+                                        array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;
+                                            background-repeat: no-repeat;background-position: center;width: 70px;height: 70px">
                                     </div>
                                 </td>
                                 <td>{{$item->description}}</td>
@@ -60,9 +65,16 @@
                                     //                                ?>
                                 </td>
                                 <td>
-                                    <button data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
-                                       class="btn btn-simple btn-danger btn-icon remove btn-delete">Delete</button>
+                                    <a href="/client/gift/{{$item->id}}/edit"
+                                       class="btn btn-simple btn-warning btn-icon edit"><i
+                                            class="material-icons">edit</i></a>
                                 </td>
+                                <td>
+                                    <button data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
+                                            class="btn btn-simple btn-danger btn-icon remove btn-delete">Delete
+                                    </button>
+                                </td>
+
                             </tr>
                         @endforeach
                         </tbody>
@@ -84,7 +96,7 @@
                 icon: 'warning',
                 // buttons: true,
                 buttons: ["Hủy", "Xóa"]
-            }).then(function() {
+            }).then(function () {
 
                 $.ajax({
                     url: '/client/gift/' + $id,
@@ -100,7 +112,7 @@
                         )
                         setTimeout(function () {
                             window.location.reload();
-                        }, 2*1000);
+                        }, 2 * 1000);
 
                         // $("#items-page").load(" #items-page");
 

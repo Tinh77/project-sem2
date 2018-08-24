@@ -13,6 +13,7 @@ use JD\Cloudder\Facades\Cloudder;
 
 class GiftController extends Controller
 {
+//    public function __struckt
     /**
      * Display a listing of the resource.
      *
@@ -112,7 +113,7 @@ class GiftController extends Controller
             $obj->age_range = Input::get('age_range');
             $obj->gender = Input::get('gender');
             $obj->save();
-            return 'Bạn đã ddawng tin thành công.';
+            return 'Bạn đã đăng tin thành công.';
         } else {
             return redirect('/login');
         }
@@ -148,10 +149,11 @@ class GiftController extends Controller
     public function edit($id)
     {
         $obj = Gift::find($id);
+        $list_Category = Category::all();
         if ($obj == null) {
             return view('client.404client.404');
         }
-        return view('client.pages.gift.edit');
+        return view('client.pages.gift.edit')->with('obj', $obj)->with('list_Category',$list_Category);
     }
 
     /**
@@ -164,19 +166,35 @@ class GiftController extends Controller
 
     public function update(Request $request, $id)
     {
+        if(!Auth::check())
+        {
+            return redirect('/login');
+        }
+//        $request->validated();
         $obj = Gift::find($id);
+
         if ($obj == null) {
             return view('client.404client.404');
         }
-        $obj = new Gift();
-        $obj->name = Input::get('name');
-        $obj->description = Input::get('description');
-        $obj->images = Input::get('images');
-        $obj->age_range = Input::get('age_range');
-        $obj->gender = Input::get('gender');
+//        $obj = new Gift();
+        $obj->name = $request->get('name');
+        $obj->description = $request->get('description');
+        if(Input::file('photo') != null)
+        {
+            $current_time = time();
+            Cloudder::upload(Input::file('photo')->getRealPath(), $current_time);
+            $obj->images = $current_time;
+        }
+        $obj->phone_number = $request->get('phone_number');
+        $obj->address = $request->get('address');
+        $obj->age_range = $request->get('age_range');
+        $obj->gender = $request->get('gender');
+        $obj->category_id = $request->get('category_id');
+
         $obj->save();
-        return redirect('');
+        return redirect('/client/gift');
     }
+
 
     /**
      * Remove the specified resource from storage.
