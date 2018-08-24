@@ -29,7 +29,7 @@ class GiftController extends Controller
         } else {
             $data['key'] = '';
         }
-        $obj = $obj->paginate(6);
+        $obj = $obj->paginate(8);
         return view('client.pages.home')
             ->with('obj', $obj)
             ->with('data', $data);

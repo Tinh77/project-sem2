@@ -1,9 +1,6 @@
 @extends('client.layout.master')
 @section('content')
-
-    <div class="container">
-    </div>
-    <div class="list-page font-text bg-light" style="padding-top: 50px">
+    <div class="list-page font-text bg-light padding" style="padding-top: 50px">
         <div class="news-block">
             <div class="container">
                 <div class="row">
@@ -60,7 +57,7 @@
                                 <a href="/client/gift/{{$item->id}}">
                                     <article class="image col-md-3 ">
                                         <div class="bg-slide-list"
-                                             style="background-image: url({{$item->images}}) ;background-size: cover;background-position: center;background-repeat: no-repeat;width: 200px;height: 200px"></div>
+                                             style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 200px;height: 200px"></div>
                                         <p>{{$item->name}}</p>
                                         <a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>
                                     </article>

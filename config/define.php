@@ -10,6 +10,6 @@ return [
         0 => 'Chưa giao dịch',
         1 => 'Đã giao dịch',
         2 => 'Đang giao',
-        3 => 'Hoàn thành'
+        3 => 'Hoàn thành',
     ],
 ];
