@@ -20,11 +20,12 @@
     {{--<link rel="stylesheet" href="{{asset('client-css/price.css')}}">--}}
     {{--<link rel="stylesheet" href="{{asset('client-css/list.css')}}">--}}
     <link rel="stylesheet" href="{{asset('client-css/Footer-Dark.css')}}">
+    <link rel="stylesheet" href="{{asset('client-css/personal.css')}}">
     {{--???--}}
     {{--<link rel="stylesheet" href="/fonts/ionicons.min.css">--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
-    <link rel="stylesheet" href="{{asset('client-css/Simple-Header-y-Navbar-adaptativo-1.css')}}">
+    <link rel="stylesheet" href="{{asset('cliencontent_personalt-css/Simple-Header-y-Navbar-adaptativo-1.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/Simple-Header-y-Navbar-adaptativo.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/Simple-Slider.css')}}">
     {{--font--}}
@@ -50,8 +51,10 @@
 <div class="bg-white">
     @include('client.partial.header')
 
-    @section('content')
-    @show
+    @yield('content')
+    {{--@show--}}
+
+    {{--@yield('content_personal')--}}
 
     @include('client.partial.footer')
 </div>
