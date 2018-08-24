@@ -51,10 +51,10 @@
 <div class="bg-white">
     @include('client.partial.header')
 
-    @section('content')
-    @show
+    @yield('content')
+    {{--@show--}}
 
-    @yield('content_personal')
+    {{--@yield('content_personal')--}}
 
     @include('client.partial.footer')
 </div>

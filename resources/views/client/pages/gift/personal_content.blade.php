@@ -1,11 +1,12 @@
-@extends('client.layout.master')
+@extends('client.pages.gift.personal_information')
 @section("content_personal")
-    <div class="container row">
-        <div class="col-md-3">
-            @include('client.pages.gift.menu_personal')
-        </div>
-        <div class="col-md-9">
-            <table class="table">
+    <div class="col-md-9 personal">
+        <div class="row justify-content-center">
+            <div class="personal_header">
+                <h1>Thông tin của bạn </h1>
+            </div>
+            <div class="col-md-9">
+             <table class="table">
                 <thead>
                 <tr>
                     <th>Tên</th>
@@ -33,10 +34,17 @@
                     <td>Giới tính</td>
                     <td>{{$obj->gender}}</td>
                 </tr>
+                <tr>
+                    <td>Giới thiệu</td>
+                    <td>{{$obj->intro}}</td>
+                </tr>
+                <tr>
+                    <td>Ngày tạo tài khoản</td>
+                    <td>{{$obj->created_at}}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
     </div>
-
-
+    </div>
 @endsection
