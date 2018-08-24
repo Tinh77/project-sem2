@@ -41,7 +41,9 @@
                             <div class="view overlay">
                                 <a href="/client/gift/{{$item -> id}}">
                                     <div style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 255px;height: 200px"></div>
-                                    {{--<img class="img-fluid" src="{{$item -> images}}" alt="">--}}
+                                        {{--<img class="img-fluid"--}}
+                                             {{--src="{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"--}}
+                                             {{--alt="">--}}
                                 </a>
 
                             </div>
