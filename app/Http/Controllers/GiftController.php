@@ -123,14 +123,6 @@ class GiftController extends Controller
 //            ->with('info', $info)
 
     }
-    public function showPersonal($id){
-        $obj = Account::find($id);
-        if ($obj == null || $obj->status != 1) {
-
-            return view('client.404client.404');
-        }
-        return view('client.pages.gift.personal_information')->with('obj', $obj);
-    }
 
     /**
      * Show the form for editing the specified resource.

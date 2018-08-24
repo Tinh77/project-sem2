@@ -2,9 +2,12 @@
 @section("content")
     <div class="container">
         <div class="row">
-            @include('client.pages.gift.menu_personal')
-            @section('content_personal')
-            @show()
+            <div class="col-md-3">
+                @include('client.pages.gift.menu_personal')
+            </div>
+            <div class="col-md-9">
+                @yield('content_personal')
+            </div>
         </div>
     </div>
 @endsection

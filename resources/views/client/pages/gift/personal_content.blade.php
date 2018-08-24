@@ -4,7 +4,7 @@
         <thead>
         <tr>
           <th>Tên</th>
-          <th>{{$obj->name}}</th>
+          <th>{{$obj->full_name}} {{$obj->last_name}}</th>
         </tr>
         </thead>
         <tbody>
