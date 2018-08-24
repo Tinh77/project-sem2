@@ -97,7 +97,8 @@
                                                                             class="material-icons">close</i></a>
                                                             </td>
                                                         </tr>
-                                                    </thead>
+                                                    @endforeach
+                                                    </tbody>
                                                     <tbody>
                                                     @foreach($list_obj as $obj)
                                                         <tr role="row" class="even">
