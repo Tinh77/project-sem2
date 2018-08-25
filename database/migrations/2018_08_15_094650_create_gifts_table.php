@@ -20,8 +20,6 @@ class CreateGiftsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('name');
             $table->string('description');
-            $table->string('phone_number');
-            $table->string('address');
             $table->string('images');
             $table->integer('age_range'); // 1. 0 - 6 months | 2. 6 - 12 month | 3. 12 month - 24 month | 4. > 24 month.
             $table->integer('gender'); // 1. Male | 2. Female

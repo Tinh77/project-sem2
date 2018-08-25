@@ -11,6 +11,9 @@ class User extends Authenticatable
     use Notifiable;
     use HasRoleAndPermission;
 
+    public function account() {
+        return $this->hasOne('\App\Account','id', 'account_id');
+    }
     /**
      * The attributes that are mass assignable.
      *
