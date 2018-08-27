@@ -23,6 +23,7 @@ Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
 
+Route::resource('/admin','CategoryController');
 
 Route::get('/client/list-gift', function () {
     return view('client.pages.gift.list');
@@ -58,8 +59,15 @@ Route::group(['middleware' => ['twostep']], function () {
 Route::post('/login-user', 'login_user@login');
 
 Route::get('/profile', 'ProfileController@index')->middleware('role:admin'); // admin
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/profile/{id}', 'ProfileController@show');
-    Route::get('/profile/user/{id}', 'ProfileController@showUser');
+
+//Route::group(['middleware' => ['auth']], function () {
+//    Route::get('/profile/{id}', 'ProfileController@show');
+//    Route::get('/profile/user/{id}', 'ProfileController@showUser');
+//});
+
+Route::get('/profile/{id}', 'ProfileController@show');
+
+Route::get('/pages/personal_information', function () {
+    return view('client.pages.gift.personal_information');
 });
 

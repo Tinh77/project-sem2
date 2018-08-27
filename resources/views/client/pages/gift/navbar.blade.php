@@ -21,19 +21,19 @@
             <div class="profile__stats">
                 <table class="table">
                     <thead>
-                    <tr>
-                        <strong>
-                            <td>
-                            <a scope="col"><h3>Dòng thời gian</h3></a></td>
-                        </strong>
-                    </tr>
+
                     </thead>
                     <tbody>
+                    <tr>
+                        <td>
+                            <p>Dòng thời gian</p>
+                        </td>
+                    </tr>
                     <tr>
                         <a href=""></a>
                     </tr>
                     <tr>
-                        <td>Ðánh giá</td>
+                        <td><a href="/profile/{{auth()->id()}}">Thông tin cá nhân</a></td>
                     </tr>
                     <tr><td>
                         <a href="/client/pages/list">Món quà đã đăng</a></td>
@@ -46,21 +46,21 @@
                     </tr>
                     <tr>
                         <td>
-                            <h3>Thông tin sơ lược</h3>
+                            <p>Thông tin sơ lược</p>
                             <p class="text-email"><i class="fas fa-envelope-open email"></i> quatangynghia@gmail.com</p>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <h3>Mạng xã hội</h3>
-                            <div class="profile__socials__link">
-                                <a href="https://plus.google.com/101798871598004831050"
-                                   class="profile__socials__link__google"><i
-                                        class="fab fa-google-plus-g fa-2x"></i><span
-                                        class="text-google">Google</span></a>
-                            </div>
-                        </td>
-                    </tr>
+                    {{--<tr>--}}
+                        {{--<td>--}}
+                            {{--<p>Mạng xã hội</p>--}}
+                            {{--<div class="profile__socials__link">--}}
+                                {{--<a href="https://plus.google.com/101798871598004831050"--}}
+                                   {{--class="profile__socials__link__google"><i--}}
+                                        {{--class="fab fa-google-plus-g fa-2x"></i><span--}}
+                                        {{--class="text-google">Google</span></a>--}}
+                            {{--</div>--}}
+                        {{--</td>--}}
+                    {{--</tr>--}}
                     </tbody>
                 </table>
             </div>
