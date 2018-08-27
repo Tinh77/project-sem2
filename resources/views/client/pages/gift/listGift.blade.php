@@ -70,9 +70,9 @@
                                             class="material-icons">edit</i></a>
                                 </td>
                                 <td>
-                                    <button data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
+                                    <a data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
                                             class="btn btn-simple btn-danger btn-icon remove btn-delete">Delete
-                                    </button>
+                                    </a>
                                 </td>
 
                             </tr>
