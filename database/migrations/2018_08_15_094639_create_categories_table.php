@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('description');
             $table->string('thumbnail');
             $table->timestamps();
-            $table->integer('status')->default(1);
+            $table->boolean('status')->default(true);
         });
     }
 

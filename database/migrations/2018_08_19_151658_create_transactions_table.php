@@ -23,7 +23,6 @@ class CreateTransactionsTable extends Migration
             $table->foreign('gift_id')->references('id')->on('gifts');
             $table->boolean('status')->default(false);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
