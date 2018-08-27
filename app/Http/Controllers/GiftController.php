@@ -9,6 +9,7 @@ use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 use JD\Cloudder\Facades\Cloudder;
 
 class GiftController extends Controller
@@ -20,18 +21,13 @@ class GiftController extends Controller
      */
     public function indexHome()
     {
-        $keyword = Input::get('key');
-        $data = Input::get();
+        $category = Category::all();
         $obj = Gift::orderBy('created_at', 'desc');
-        if (isset($keyword) && Input::get('key')) {
-            $obj = $obj->where('name', 'like', '%' . $keyword . '%');
-        } else {
-            $data['key'] = '';
-        }
-        $obj = $obj->paginate(8);
+        $obj = $obj->paginate(3);
+//        dd($obj);
         return view('client.pages.home')
-            ->with('obj', $obj)
-            ->with('data', $data);
+            ->with('category', $category)
+            ->with('obj', $obj);
     }
 
     public function index()
@@ -57,7 +53,7 @@ class GiftController extends Controller
             $account_id = Auth::id();
             $obj = DB::table('gifts')->where([
                 ['account_id', '=', $account_id],
-                    ['status', '=', 1]
+                ['status', '=', 1]
             ])->get();
             return view('client.pages.gift.listGift')->with('obj', $obj);
         } else {
