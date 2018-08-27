@@ -92,10 +92,17 @@
             });
             // var id = $(this).data("id");
             swal({
-                text: "Bạn có chắc là muốn xóa món quà này?",
+                text: "Bạn có chắc là muốn xóa mó1n quà này?",
                 icon: 'warning',
                 // buttons: true,
-                buttons: ["Hủy", "Xóa"]
+                // buttons: ["Hủy", "Xóa"]
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Xoá",
+                cancelButtonText: "Hủy",
+                closeOnConfirm: false,
+                closeOnCancel: false
+
             }).then(function () {
 
                 $.ajax({

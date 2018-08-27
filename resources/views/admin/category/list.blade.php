@@ -114,7 +114,7 @@
                                                                 <a href="/admin/category/{{$obj->id}}/edit"
                                                                    class="btn btn-simple btn-warning btn-icon edit"><i
                                                                             class="material-icons">edit</i></a>
-                                                                <a href="#/{{$obj->id}}" id="{{$obj->id}}"
+                                                                <a data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
                                                                    class="btn btn-simple btn-danger btn-icon remove btn-delete"><i
                                                                             class="material-icons">close</i></a>
                                                             </td>
@@ -147,47 +147,101 @@
         </div>
     </div>
     <script>
-        $('.btn-delete').click(function () {
-            var thisButton = $(this);
+        function deleteItemConfirm($id) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            // var id = $(this).data("id");
             swal({
-                text: "Bạn có chắc muốn xoá danh mục này không?",
-                type: 'warning',
+                text: "Bạn có chắc là muốn xóa mó1n quà này?",
+                icon: 'warning',
+                // buttons: true,
+                // buttons: ["Hủy", "Xóa"]
                 showCancelButton: true,
-                confirmButtonClass: 'btn btn-success',
-                cancelButtonClass: 'btn btn-danger',
-                confirmButtonText: 'Đồng ý',
-                cancelButtonText: 'Huỷ bỏ',
-                buttonsStyling: false
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Xoá",
+                cancelButtonText: "Hủy",
+                closeOnConfirm: false,
+                closeOnCancel: false
+
             }).then(function () {
-                var id = thisButton.attr('id');
+
                 $.ajax({
-                    'url': '/admin/category/' + id,
-                    'method': 'DELETE',
-                    'data': {
-                        '_token': $('meta[name="csrf-token"]').attr('content')
+                    url: '/client/gift/' + $id,
+                    method: 'DELETE',
+                    data: {
+                        '_method': 'DELETE',
+                        'id': $id
                     },
                     success: function (response) {
-                        swal({
-                            text: 'Danh mục đã bị xoá.',
-                            type: 'success',
-                            confirmButtonClass: "btn btn-success",
-                            buttonsStyling: false
-                        })
+                        swal(
+                            'Đã xóa thành công.',
+                            'success'
+                        )
                         setTimeout(function () {
                             window.location.reload();
                         }, 2 * 1000);
+
+                        // $("#items-page").load(" #items-page");
+
                     },
                     error: function () {
-                        swal({
-                            text: 'Có lỗi xảy ra, vui lòng thử lại sau.',
-                            type: 'warning',
-                            confirmButtonClass: "btn btn-danger",
-                            buttonsStyling: false
-                        })
+                        swal(
+                            'Deleted.',
+                            'error'
+                        )
                     }
                 });
             });
             return false;
-        })
+        };
     </script>
 @endsection
+
+{{--<script>--}}
+        {{--$('.btn-delete').click(function () {--}}
+            {{--var thisButton = $(this);--}}
+            {{--swal({--}}
+                {{--text: "Bạn có chắc muốn xoá danh mục này không?",--}}
+                {{--type: 'warning',--}}
+                {{--showCancelButton: true,--}}
+                {{--confirmButtonClass: 'btn btn-success',--}}
+                {{--cancelButtonClass: 'btn btn-danger',--}}
+                {{--confirmButtonText: 'Đồng ý',--}}
+                {{--cancelButtonText: 'Huỷ bỏ',--}}
+                {{--buttonsStyling: false--}}
+            {{--}).then(function () {--}}
+                {{--var id = thisButton.attr('id');--}}
+                {{--$.ajax({--}}
+                    {{--'url': '/admin/category/' + id,--}}
+                    {{--'method': 'DELETE',--}}
+                    {{--'data': {--}}
+                        {{--'_token': $('meta[name="csrf-token"]').attr('content')--}}
+                    {{--},--}}
+                    {{--success: function (response) {--}}
+                        {{--swal({--}}
+                            {{--text: 'Danh mục đã bị xoá.',--}}
+                            {{--type: 'success',--}}
+                            {{--confirmButtonClass: "btn btn-success",--}}
+                            {{--buttonsStyling: false--}}
+                        {{--})--}}
+                        {{--setTimeout(function () {--}}
+                            {{--window.location.reload();--}}
+                        {{--}, 2 * 1000);--}}
+                    {{--},--}}
+                    {{--error: function () {--}}
+                        {{--swal({--}}
+                            {{--text: 'Có lỗi xảy ra, vui lòng thử lại sau.',--}}
+                            {{--type: 'warning',--}}
+                            {{--confirmButtonClass: "btn btn-danger",--}}
+                            {{--buttonsStyling: false--}}
+                        {{--})--}}
+                    {{--}--}}
+                {{--});--}}
+            {{--});--}}
+            {{--return false;--}}
+        {{--})--}}
+    {{--</script>--}}
+{{--@endsection--}}
