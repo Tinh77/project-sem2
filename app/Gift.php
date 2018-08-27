@@ -9,7 +9,7 @@ class Gift extends Model
     protected $table = 'gifts';
 
     public function account() {
-        return $this->hasOne('\App\Account', 'id', 'account_id');
+        return $this->hasOne('\App\User', 'id', 'account_id');
     }
 
     public function category() {

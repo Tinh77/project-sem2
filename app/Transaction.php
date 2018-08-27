@@ -16,11 +16,11 @@ class Transaction extends Model
     protected $table = 'transactions';
 
     public function owner() {
-        return $this->hasOne('\App\Account', 'id', 'owner_id');
+        return $this->hasOne('\App\User', 'id', 'owner_id');
     }
 
     public function buyer() {
-        return $this->hasOne('\App\Account', 'id', 'buyer_id');
+        return $this->hasOne('\App\User', 'id', 'buyer_id');
     }
 
     public function gift() {
