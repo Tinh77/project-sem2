@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Account;
 use App\Category;
+use App\Exchage;
 use App\Gift;
+use App\Mail\EmailOnePersen;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use JD\Cloudder\Facades\Cloudder;
 
 class GiftController extends Controller
@@ -193,5 +197,26 @@ class GiftController extends Controller
         $obj->status = 0;
         $obj->save();
         return response()->json(['message' => 'Đã xoá thông tin danh mục'], 200);
+    }
+    public function quantam(Request $request) {
+        if (!Auth::check()) {
+            echo json_encode(['ret' => 'NG', "msg" => 'Bạn cần login']);
+            die();
+        }
+        $giftId = $request->giftId;
+        $buyer_id = $request->buyer_id;
+        $obj = new Exchage();
+//        if ($obj )
+        $obj->owner_id = Auth::id();
+        $obj->buyer_id = $buyer_id;
+        $obj->gift_id = $giftId;
+        $obj->token = md5($obj->owner_id . $obj->buyer_id . $obj->gift_id);
+        if ( $obj->save()){
+            $account = Account::findOrFail($buyer_id);
+            Mail::to($account->email)->send(new EmailOnePersen($obj));
+            echo json_encode(['ret' => 'OK']);
+            die();
+        }
+        die();
     }
 }

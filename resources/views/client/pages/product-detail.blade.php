@@ -67,7 +67,9 @@
 
                             </div>
                             <div class="action">
-                                <button class="add-to-cart btn font-text" type="button">QUAN TÂM</button>
+                                    <button class="add-to-cart btn font-text" id="quantamaction" data-gif-id="{{ $obj->id }}" data-user-id="{{ $obj->account_id }}" type="button">
+                                        <i class="fa fa-spinner fa-spin" style="display: none"></i> QUAN TÂM
+                                    </button>
                             </div>
                         </div>
                     </div>

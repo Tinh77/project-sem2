@@ -100,7 +100,11 @@
                                             <td>{{$category->id}}</td>
                                             <td>{{$category->name}}</td>
                                             <td class="hidden-xs">{{$category->description}}</td>
-                                            <td class="hidden-xs">{{$category->thumbnail}}</td>
+                                            <td class="hidden-xs">
+                                                <div class="bg-slide-list"
+                                                     style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($category->thumbnail, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 100px;height: 100px"></div>
+
+                                            </td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$category->created_at}}</td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$category->updated_at}}</td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$category->status}}</td>

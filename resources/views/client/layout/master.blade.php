@@ -71,10 +71,12 @@
 {{--<script scr="/client-js/list.js"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+
 {{--<script src="{{asset('client-js/Animated-Testimomial.js')}}"></script>--}}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 {{--<script src="{{asset('client-js/Simple-Slider.js')}}"></script>--}}
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('/js/common.js')}}"></script>
 </body>
 
 </html>

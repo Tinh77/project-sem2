@@ -99,5 +99,12 @@ Route::group(['prefix' => config('laravelusers.prefix'), 'middleware' => 'web', 
 });
 
 Route::middleware(['web', 'auth'])->group(function () {
-    Route::post('search-users', '\App\Http\Controllers\Admin\UsersManagementController@search')->name('search-users');
+        Route::post('search-users', '\App\Http\Controllers\Admin\UsersManagementController@search')->name('search-users');
 });
+
+Route::get('/sendMailTwoPersen/{id}', 'EmailSendTwo@sendMailTwo');
+Route::get('/sendMailOnePersen', 'EmailSendTwo@sendMailOne');
+
+Route::get('/client/gift/', 'EmailSendTwo@sendMailOne');
+Route::get("/gift/quantam", "GiftController@quantam");
+Route::get("/sendMailTwoPersen/{token}", "EmailSendTwo@sendMailTwo");
