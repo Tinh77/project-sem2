@@ -59,10 +59,10 @@ Route::group(['middleware' => ['twostep']], function () {
 
 Route::get('/profile', 'ProfileController@index')->middleware('role:admin'); // admin
 
-//Route::group(['middleware' => ['auth']], function () {
-//    Route::get('/profile/{id}', 'ProfileController@show');
-//    Route::get('/profile/user/{id}', 'ProfileController@showUser');
-//});
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/profile/{id}', 'ProfileController@show');
+    Route::get('/profile/user/{id}', 'ProfileController@showUser');
+});
 
 Route::get('/profile/{id}', 'ProfileController@show');
 
