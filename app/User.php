@@ -28,4 +28,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'activated', 'status', 'created_at', 'updated_at', 'deleted_at',
     ];
+
+    public function findId()
+    {
+        return $this->belongsTo('App/Account','account_id');
+    }
 }
