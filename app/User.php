@@ -11,6 +11,9 @@ class User extends Authenticatable
     use Notifiable;
     use HasRoleAndPermission;
 
+    public function account() {
+        return $this->hasOne('\App\Account','id', 'account_id');
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -26,7 +29,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'activated', 'status', 'created_at', 'updated_at', 'deleted_at',
+        'password', 'remember_token', 'activated', 'created_at', 'updated_at', 'deleted_at',
     ];
 
     public function findId()
