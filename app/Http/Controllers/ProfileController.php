@@ -56,11 +56,10 @@ class ProfileController extends Controller
     public function show($id)
     {
 
-        if (Auth::check()){
+        if (Auth::check()) {
 //            $id = auth()->id();
-            $obj = Account::where('id','=',$id)->first();
-            if($obj == null)
-            {
+            $obj = Account::where('id', '=', $id)->first();
+            if ($obj == null) {
                 return view('client.404client.404');
             }
 //            dd($obj);
@@ -68,7 +67,6 @@ class ProfileController extends Controller
         }
 
     }
-
 
     public function showUser($id)
     {
@@ -80,6 +78,7 @@ class ProfileController extends Controller
 //        }
 //        return view('client.pages.gift.personal_content')->with('obj', $obj);
     }
+
     /**
      * Show the form for editing the specified resource.
      *

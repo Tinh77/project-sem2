@@ -1,5 +1,5 @@
-@extends('client.pages.gift.personal_information')
-@section("content_personal")
+@extends('client.pages.gift.list')
+@section("content1")
     <div class="col-md-9 personal">
         <div class="row justify-content-center">
             <div class="personal_header">

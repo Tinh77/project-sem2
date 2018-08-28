@@ -1,4 +1,3 @@
-
         <div class="col-md-3 personal-left">
             <div class="text-center personal-image">
                 <img
