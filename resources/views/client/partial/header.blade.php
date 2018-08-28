@@ -1,6 +1,6 @@
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-        <div class="container p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark top-nav-collapse">
+        <div class="container">
             <a class="navbar-brand" href="/client/home">
                 <img src="{{asset('img/brand/logo.png')}}" style="width: 300px" class="img-fluid" alt="">
             </a>
@@ -17,10 +17,16 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/client/gift/create">Đăng tin</a>
+                        <a class="nav-link" href="/client/gift/create">Bạn cần cho</a>
+                    </li>
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link" href="/client/gift/create">Bạn cần xin</a>--}}
+                    {{--</li>--}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chúng tôi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/client/profile/{id}"></a>
+                        <a class="nav-link" href="#">Liên hệ</a>
                     </li>
                 </ul>
 

@@ -10,7 +10,7 @@
                     </a>
                 </div>
                 <div class="card-body card-body-cascade text-center">
-                    <h4 class="card-title"><strong>Đăng tin</strong></h4>
+                    <h4 class="card-title"><strong>Thông tin sản phẩm muốn cho</strong></h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             Vui lòng kiểm tra lại các trường bên dưới
@@ -61,16 +61,17 @@
                             <tr>
                                 <td>Hình ảnh</td>
                                 <td>
-                                    <input type="file" name="images">
+                                    <input type="file" name="images" class="form-control">
                                 </td>
                             </tr>
                             <td>Chọn độ tuổi sản phẩm</td>
                             <td>
                                 <select class="browser-default custom-select mb-4" name="age_range">
-                                    <option value="1" selected>--Lựa chọn độ tuổi món quà của bạn--</option>
-                                    <option value="2">Report a bug</option>
-                                    <option value="3">Feature request</option>
-                                    <option value="4">Feature request</option>
+                                    <option value="0" selected>--Mọi lứa tuổi--</option>
+                                    <option value="1">Dưới 6 tháng</option>
+                                    <option value="2">6 - 12 tháng</option>
+                                    <option value="3">12 - 24 tháng</option>
+                                    <option value="4">Trên 24 tháng</option>
                                 </select>
                             </td>
                             <tr>
@@ -88,7 +89,7 @@
                                 <td>Giới tính</td>
                                 <td>
                                     <select class="browser-default custom-select mb-4" name="gender">
-                                        <option value="0" selected>--Lựa chọn giới tính của bạn--</option>
+                                        <option value="0" selected>--Tất cả--</option>
                                         <option value="1">Nam</option>
                                         <option value="2">Nữ</option>
                                     </select>
@@ -97,15 +98,31 @@
                             <tr>
                                 <td>Địa chỉ</td>
                                 <td>
-                                    <input type="text" id="defaultContactFormName" class="form-control mb-4"
-                                           placeholder="Tên sản phẩm" name="address">
+                                    <textarea type="text" id="defaultContactFormName" class="form-control mb-4"
+                                              placeholder="Địa điểm nơi có thể giao dịch sản phẩm" name="address"></textarea>
                                     @if($errors->has('address'))
                                         <label class="text-danger float-right">*{{$errors->first('address')}}</label>
                                     @endif
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Thành phố</td>
+                                <td>
+                                    <select name="city" id="" class="browser-default custom-select mb-4">
+                                        <option value="0">--Toàn quốc--</option>
+                                        <option value="1">Hà Nội</option>
+                                        <option value="2">Đà Nẵng</option>
+                                        <option value="3">Nha Trang</option>
+                                        <option value="4">TP Hồ Chí Minh</option>
+                                    </select>
+                                    @if($errors->has('city'))
+                                        <label class="text-danger float-right">*{{$errors->first('city')}}</label>
+                                    @endif
+                                </td>
+                            </tr>
                         </table>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-info">Lưu thông tin</button>
+                        <button type="reset" class="btn btn-grey">Làm lại</button>
                     </form>
                 </div>
             </div>

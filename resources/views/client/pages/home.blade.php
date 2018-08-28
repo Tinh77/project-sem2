@@ -9,44 +9,31 @@
             <section class="section pb-3 wow fadeIn" data-wow-delay="0.3s">
 
                 <!--Section heading-->
-                <h1 class="font-weight-bold text-center h1 my-5">Danh mục sản phẩm đang tìm chủ mới</h1>
-                <p class="text-center grey-text mb-5 mx-auto w-responsive">Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Fugit, error amet numquam iure provident voluptate esse
-                    quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
+                <h2 class="font-weight-bold text-center my-5">Danh mục quà tặng</h2>
+                <p class="text-center grey-text mb-5 mx-auto w-responsive">Tìm kiếm quà tặng theo danh mục mong
+                    muốn.</p>
                 <!--Section description-->
                 <!--Grid row-->
                 <div class="row">
 
                     <!--Grid column-->
-                    @foreach($category as $item)
+                    @foreach($categories as $item)
                         <div class="col-lg col-md-6 mb-4">
-
                             <!--Card-->
-                            <div class="card card-ecommerce">
-
+                            <div class="card card-ecommerce h-100">
                                 <!--Card image-->
-                                <div class="view overlay z-depth-1">
-                                    {{--<img src="{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"--}}
-                                    {{--class="card-img-top" alt="">--}}
-                                    <img class="img-thumbnail" src="{{$item -> thumbnail}}" alt="">
-                                    <a>
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
+                                <div class="view overlay z-depth-1"
+                                     style="background-image: url('{{$item -> thumbnail}}'); background-size: cover; width: 198px; height: 220px;">
                                 </div>
-                                <!--Card image-->
-
                                 <!--Card content-->
                                 <div class="card-body text-center no-padding">
                                     <!--Category & Title-->
                                     <h4 class="card-title">
-                                        <strong>
-                                            <a href="/client/category-gift/{{$item ->id}}">{{$item ->name}}</a>
-                                        </strong>
+                                        <a href="/client/category-gift/{{$item ->id}}">{{$item ->name}}</a>
                                     </h4>
 
                                     <!--Description-->
-                                    <p class="card-text">Neque porro quisquam est, qui dolorem ipsum quia dolor.
-                                    </p>
+                                    <p class="card-text">{{$item->description}}</p>
                                     <!--Card footer-->
                                 </div>
                                 <!--Card content-->
@@ -69,11 +56,10 @@
             <section class="section pb-3 wow fadeIn" data-wow-delay="0.3s">
 
                 <!--Section heading-->
-                <h1 class="font-weight-bold text-center h1 my-5">Những sản phẩm đang tìm chủ mới</h1>
+                <h2 class="font-weight-bold text-center my-5">Quà tặng dành cho bạn</h2>
                 <!--Section description-->
-                <p class="text-center grey-text mb-5 mx-auto w-responsive">Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Fugit, error amet numquam iure provident voluptate esse
-                    quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
+                <p class="text-center grey-text mb-5 mx-auto w-responsive">Những sản phẩm mới nhất đang cần tìm chủ mới.
+                    Click quan tâm để liên hệ với người cho.</p>
 
                 <!--Carousel Wrapper-->
                 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -100,502 +86,149 @@
 
                     <!--Slides-->
                     <div class="carousel-inner" role="listbox">
-
                         <!--First slide-->
-                        <div class="carousel-item active">
-
-
+                        <div class="carousel-item active row">
+                            @for($i = 0; $i < 3; $i++)
                             <div class="col-md-4">
-
                                 <!--Card-->
                                 <div class="card card-cascade narrower card-ecommerce">
-
                                     <!--Card image-->
-                                    <div class="view view-cascade overlay">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg"
-                                             class="card-img-top" alt="">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
+                                    <a href="/client/gift/{{$list_obj[$i]->id}}">
+                                        <div class="view view-cascade overlay" style="background-image: url('{{$list_obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
+                                        </div>
+                                    </a>
                                     <!--Card image-->
 
                                     <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding">
+                                    <div class="card-body card-body-cascade text-center no-padding h-100">
                                         <!--Category & Title-->
-                                        <a href="" class="text-muted">
-                                            <h5>Shoes</h5>
-                                        </a>
+                                        {{--<a href="" class="text-muted">--}}
+                                            {{--<h5>{{$list_obj[$i]->name}}</h5>--}}
+                                        {{--</a>--}}
                                         <h4 class="card-title">
-                                            <strong>
-                                                <a href="">Slim jeans</a>
-                                            </strong>
+                                            <a href="/client/gift/{{$list_obj[$i]->id}}">{{$list_obj[$i]->name}}</a>
                                         </h4>
 
                                         <!--Description-->
-                                        <p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut
-                                            rerum necessitatibus saepe eveniet ut et voluptates.
+                                        <p class="card-text">{{$list_obj[$i]->description}}
                                         </p>
 
                                         <!--Card footer-->
                                         <div class="card-footer">
-                                            <span class="float-left">69$</span>
+                                            <span class="float-left"><i class="fa fa-clock-o"></i> {{$list_obj[$i]->created_at->format('Y-m-d')}}</span>
                                             <span class="float-right">
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </span>
+                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$list_obj[$i]->id}}">
+                                                  <i class="fa fa-eye"></i> chi tiết
+                                                </a>
+                                              </span>
                                         </div>
 
                                     </div>
                                     <!--Card content-->
 
                                 </div>
-                                <!--Card-->
+                                                        <!--Card-->
 
                             </div>
-
-                            <div class="col-md-4 clearfix d-none d-sm-block">
-
-                                <!--Card-->
-                                <div class="card card-cascade narrower card-ecommerce">
-
-                                    <!--Card image-->
-                                    <div class="view view-cascade overlay">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg"
-                                             class="card-img-top" alt="">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    <!--Card image-->
-
-                                    <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding">
-                                        <!--Category & Title-->
-                                        <a href="" class="text-muted">
-                                            <h5>Jeans</h5>
-                                        </a>
-                                        <h4 class="card-title">
-                                            <strong>
-                                                <a href="">Slim jeans</a>
-                                            </strong>
-                                        </h4>
-
-                                        <!--Description-->
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing minima
-                                            veniam elit. Nam incidunt eius est voluptatibus.
-                                        </p>
-
-                                        <!--Card footer-->
-                                        <div class="card-footer">
-                                            <span class="float-left">99$</span>
-                                            <span class="float-right">
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </span>
-                                        </div>
-
-                                    </div>
-                                    <!--Card content-->
-
-                                </div>
-                                <!--Card-->
-
-                            </div>
-
-                            <div class="col-md-4 clearfix d-none d-sm-block">
-
-                                <!--Card-->
-                                <div class="card card-cascade narrower card-ecommerce">
-
-                                    <!--Card image-->
-                                    <div class="view view-cascade overlay">
-                                        <img src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg"
-                                             class="card-img-top" alt="">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    <!--Card image-->
-
-                                    <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding">
-                                        <!--Category & Title-->
-                                        <a href="" class="text-muted">
-                                            <h5>Shorts</h5>
-                                        </a>
-                                        <h4 class="card-title">
-                                            <strong>
-                                                <a href="">Denim shorts</a>
-                                            </strong>
-                                        </h4>
-
-                                        <!--Description-->
-                                        <p class="card-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                            amet, consectetur, adipisci velit, sed quia
-                                            non.
-                                        </p>
-
-                                        <!--Card footer-->
-                                        <div class="card-footer">
-                                            <span class="float-left">49$</span>
-                                            <span class="float-right">
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </span>
-                                        </div>
-
-                                    </div>
-                                    <!--Card content-->
-
-                                </div>
-                                <!--Card-->
-
-                            </div>
-
+                            @endfor
                         </div>
                         <!--First slide-->
 
                         <!--Second slide-->
                         <div class="carousel-item">
 
-                            <div class="col-md-4">
-
-                                <!--Card-->
-                                <div class="card card-cascade narrower card-ecommerce">
-
-                                    <!--Card image-->
-                                    <div class="view view-cascade overlay">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(30).jpg"
-                                             class="card-img-top" alt="">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
+                            @for($i = 3; $i < 6; $i++)
+                                <div class="col-md-4">
+                                    <!--Card-->
+                                    <div class="card card-cascade narrower card-ecommerce">
+                                        <!--Card image-->
+                                        <a href="/client/gift/{{$list_obj[$i]->id}}">
+                                            <div class="view view-cascade overlay" style="background-image: url('{{$list_obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
+                                            </div>
                                         </a>
-                                    </div>
-                                    <!--Card image-->
+                                        <!--Card image-->
 
-                                    <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding">
-                                        <!--Category & Title-->
-                                        <a href="" class="text-muted">
-                                            <h5>Accessories</h5>
-                                        </a>
-                                        <h4 class="card-title">
-                                            <strong>
-                                                <a href="">Summer hat</a>
-                                            </strong>
-                                        </h4>
+                                        <!--Card content-->
+                                        <div class="card-body card-body-cascade text-center no-padding h-100">
+                                            <!--Category & Title-->
+                                            {{--<a href="" class="text-muted">--}}
+                                            {{--<h5>{{$list_obj[$i]->name}}</h5>--}}
+                                            {{--</a>--}}
+                                            <h4 class="card-title">
+                                                <a href="/client/gift/{{$list_obj[$i]->id}}">{{$list_obj[$i]->name}}</a>
+                                            </h4>
 
-                                        <!--Description-->
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing minima
-                                            veniam elit. Nam incidunt eius est voluptatibus.
-                                        </p>
+                                            <!--Description-->
+                                            <p class="card-text">{{$list_obj[$i]->description}}
+                                            </p>
 
-                                        <!--Card footer-->
-                                        <div class="card-footer">
-                                            <span class="float-left">39$</span>
-                                            <span class="float-right">
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </span>
+                                            <!--Card footer-->
+                                            <div class="card-footer">
+                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{$list_obj[$i]->created_at->format('Y-m-d')}}</span>
+                                                <span class="float-right">
+                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$list_obj[$i]->id}}">
+                                                  <i class="fa fa-eye"></i> chi tiết
+                                                </a>
+                                              </span>
+                                            </div>
+
                                         </div>
+                                        <!--Card content-->
 
                                     </div>
-                                    <!--Card content-->
+                                    <!--Card-->
 
                                 </div>
-                                <!--Card-->
-
-                            </div>
-
-                            <div class="col-md-4 clearfix d-none d-sm-block">
-
-                                <!--Card-->
-                                <div class="card card-cascade narrower card-ecommerce">
-
-                                    <!--Card image-->
-                                    <div class="view view-cascade overlay">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(37).jpg"
-                                             class="card-img-top" alt="">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    <!--Card image-->
-
-                                    <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding">
-                                        <!--Category & Title-->
-                                        <a href="" class="text-muted">
-                                            <h5>Shoes</h5>
-                                        </a>
-                                        <h4 class="card-title">
-                                            <strong>
-                                                <a href="">Black heels</a>
-                                            </strong>
-                                        </h4>
-
-                                        <!--Description-->
-                                        <p class="card-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                            amet, consectetur, adipisci velit, sed quia
-                                            non.
-                                        </p>
-
-                                        <!--Card footer-->
-                                        <div class="card-footer">
-                                            <span class="float-left">79$</span>
-                                            <span class="float-right">
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </span>
-                                        </div>
-
-                                    </div>
-                                    <!--Card content-->
-
-                                </div>
-                                <!--Card-->
-
-                            </div>
-
-                            <div class="col-md-4 clearfix d-none d-sm-block">
-
-                                <!--Card-->
-                                <div class="card card-cascade narrower card-ecommerce">
-
-                                    <!--Card image-->
-                                    <div class="view view-cascade overlay">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(31).jpg"
-                                             class="card-img-top" alt="">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    <!--Card image-->
-
-                                    <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding">
-                                        <!--Category & Title-->
-                                        <a href="" class="text-muted">
-                                            <h5>Outerwear</h5>
-                                        </a>
-                                        <h4 class="card-title">
-                                            <strong>
-                                                <a href="">Black jacket</a>
-                                            </strong>
-                                        </h4>
-
-                                        <!--Description-->
-                                        <p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut
-                                            rerum necessitatibus saepe eveniet ut et voluptates.
-                                        </p>
-
-                                        <!--Card footer-->
-                                        <div class="card-footer">
-                                            <span class="float-left">149$</span>
-                                            <span class="float-right">
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </span>
-                                        </div>
-
-                                    </div>
-                                    <!--Card content-->
-
-                                </div>
-                                <!--Card-->
-
-                            </div>
-
+                            @endfor
                         </div>
                         <!--Second slide-->
 
                         <!--Third slide-->
                         <div class="carousel-item">
 
-                            <div class="col-md-4">
-
-                                <!--Card-->
-                                <div class="card card-cascade narrower card-ecommerce">
-
-                                    <!--Card image-->
-                                    <div class="view view-cascade overlay">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(38).jpg"
-                                             class="card-img-top" alt="">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
+                            @for($i = 6; $i < 9; $i++)
+                                <div class="col-md-4">
+                                    <!--Card-->
+                                    <div class="card card-cascade narrower card-ecommerce">
+                                        <!--Card image-->
+                                        <a href="/client/gift/{{$list_obj[$i]->id}}">
+                                            <div class="view view-cascade overlay" style="background-image: url('{{$list_obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
+                                            </div>
                                         </a>
-                                    </div>
-                                    <!--Card image-->
+                                        <!--Card image-->
 
-                                    <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding">
-                                        <!--Category & Title-->
-                                        <a href="" class="text-muted">
-                                            <h5>Accessories</h5>
-                                        </a>
-                                        <h4 class="card-title">
-                                            <strong>
-                                                <a href="">Leather bag</a>
-                                            </strong>
-                                        </h4>
+                                        <!--Card content-->
+                                        <div class="card-body card-body-cascade text-center no-padding h-100">
+                                            <!--Category & Title-->
+                                            {{--<a href="" class="text-muted">--}}
+                                            {{--<h5>{{$list_obj[$i]->name}}</h5>--}}
+                                            {{--</a>--}}
+                                            <h4 class="card-title">
+                                                <a href="/client/gift/{{$list_obj[$i]->id}}">{{$list_obj[$i]->name}}</a>
+                                            </h4>
 
-                                        <!--Description-->
-                                        <p class="card-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                            amet, consectetur, adipisci velit, sed quia
-                                            non.
-                                        </p>
+                                            <!--Description-->
+                                            <p class="card-text">{{$list_obj[$i]->description}}
+                                            </p>
 
-                                        <!--Card footer-->
-                                        <div class="card-footer">
-                                            <span class="float-left">29$</span>
-                                            <span class="float-right">
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </span>
+                                            <!--Card footer-->
+                                            <div class="card-footer">
+                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{$list_obj[$i]->created_at->format('Y-m-d')}}</span>
+                                                <span class="float-right">
+                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$list_obj[$i]->id}}">
+                                                  <i class="fa fa-eye"></i> chi tiết
+                                                </a>
+                                              </span>
+                                            </div>
+
                                         </div>
+                                        <!--Card content-->
 
                                     </div>
-                                    <!--Card content-->
+                                    <!--Card-->
 
                                 </div>
-                                <!--Card-->
-
-                            </div>
-
-                            <div class="col-md-4 clearfix d-none d-sm-block">
-
-                                <!--Card-->
-                                <div class="card card-cascade narrower card-ecommerce">
-
-                                    <!--Card image-->
-                                    <div class="view view-cascade overlay">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/belt.jpg"
-                                             class="card-img-top" alt="">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    <!--Card image-->
-
-                                    <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding">
-                                        <!--Category & Title-->
-                                        <a href="" class="text-muted">
-                                            <h5>Accessories</h5>
-                                        </a>
-                                        <h4 class="card-title">
-                                            <strong>
-                                                <a href="">Leather belt</a>
-                                            </strong>
-                                        </h4>
-
-                                        <!--Description-->
-                                        <p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut
-                                            rerum necessitatibus saepe eveniet ut et voluptates.
-                                        </p>
-
-                                        <!--Card footer-->
-                                        <div class="card-footer">
-                                            <span class="float-left">89$</span>
-                                            <span class="float-right">
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </span>
-                                        </div>
-
-                                    </div>
-                                    <!--Card content-->
-
-                                </div>
-                                <!--Card-->
-
-                            </div>
-
-                            <div class="col-md-4 clearfix d-none d-sm-block">
-
-                                <!--Card-->
-                                <div class="card card-cascade narrower card-ecommerce">
-
-                                    <!--Card image-->
-                                    <div class="view view-cascade overlay">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(57).jpg"
-                                             class="card-img-top" alt="">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    <!--Card image-->
-
-                                    <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding">
-                                        <!--Category & Title-->
-                                        <a href="" class="text-muted">
-                                            <h5>Shoes</h5>
-                                        </a>
-                                        <h4 class="card-title">
-                                            <strong>
-                                                <a href="">Sneakers</a>
-                                            </strong>
-                                        </h4>
-
-                                        <!--Description-->
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing minima
-                                            veniam elit. Nam incidunt eius est voluptatibus.
-                                        </p>
-
-                                        <!--Card footer-->
-                                        <div class="card-footer">
-                                            <span class="float-left">129$</span>
-                                            <span class="float-right">
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </span>
-                                        </div>
-
-                                    </div>
-                                    <!--Card content-->
-
-                                </div>
-                                <!--Card-->
-
-                            </div>
+                            @endfor
 
                         </div>
                         <!--Third slide-->
@@ -730,33 +363,3 @@
 
     </main>
 @endsection
-
-
-
-
-
-
-
-
-{{--@foreach($obj as $item)--}}
-{{--<div class="col-lg-3 col-md-6 mb-4">--}}
-{{--<div class="card">--}}
-{{--<div class="view overlay">--}}
-{{--<a href="/client/gift/{{$item -> id}}">--}}
-{{--<div style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 255px;height: 200px"></div>--}}
-{{--<img class="img-fluid"--}}
-{{--src="{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"--}}
-{{--alt="">--}}
-{{--</a>--}}
-
-{{--</div>--}}
-{{--<div class="card-body text-center">--}}
-{{--<a href="" class="grey-text">--}}
-{{--<h5 class="card-title font-text"> {{$item -> name}} </h5>--}}
-{{--</a>--}}
-
-
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--@endforeach--}}
