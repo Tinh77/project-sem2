@@ -68,7 +68,7 @@ class CategoriesManagementController extends Controller
      */
     public function create()
     {
-        return view(config('laravelusers.createCategoriesBlade'));
+        return view(config('laravelusers.createCategoryBlade'));
     }
 
     /**

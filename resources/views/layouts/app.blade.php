@@ -52,11 +52,11 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                     @level(4)
-                                        {{ __('[Admin]') }}
+                                    {{ __('[Admin]') }}
                                     @else
                                         {{ __('[Member]') }}
-                                    @endrole
-                                    <span class="caret"></span>
+                                        @endrole
+                                        <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

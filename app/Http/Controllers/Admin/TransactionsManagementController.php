@@ -114,9 +114,9 @@ class TransactionsManagementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function create()
     {
-
+        return redirect(route('transactions'));
     }
 
     /**

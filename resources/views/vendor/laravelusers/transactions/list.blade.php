@@ -55,7 +55,6 @@
                                         <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers.users-table.status')</th>
                                         <th class="no-search no-sort">@lang('laravelusers.users-table.actions')</th>
                                         <th class="no-search no-sort"></th>
-                                        <th class="no-search no-sort"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="users_table">
@@ -76,11 +75,6 @@
                                             <td>
                                                 <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('manage/transactions/' . $transaction->id) }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.show')">
                                                     @lang('laravelusers.buttons.show')
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('manage/transactions/' . $transaction->id . '/edit') }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.edit')">
-                                                    @lang('laravelusers.buttons.edit')
                                                 </a>
                                             </td>
                                         </tr>

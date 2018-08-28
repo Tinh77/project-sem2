@@ -10,13 +10,12 @@
 
         <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', 'Laravel') }}</title>
 
-        {{-- Styles --}}
-        @if(config('laravelusers.enableBootstrapCssCdn'))
-            <link rel="stylesheet" type="text/css" href="{{ config('laravelusers.bootstrapCssCdn') }}">
-        @endif
-        @if(config('laravelusers.enableAppCss'))
-            <link rel="stylesheet" type="text/css" href="{{ asset(config('laravelusers.appCssPublicFile')) }}">
-        @endif
+
+
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         @yield('template_linked_css')
 
@@ -41,7 +40,29 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown show">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="navURLDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Admin Panel <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navURLDrop">
 
+                                    <a class="dropdown-item" href="{{ route('users') }}">
+                                        Users
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('categories') }}">
+                                        Categories
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('gifts') }}">
+                                        Gifts
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('transactions') }}">
+                                        Transactions
+                                    </a>
+                                    <a class="dropdown-item" href="/manage">
+                                        Logs
+                                    </a>
+                                </div>
+                            </li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
@@ -51,12 +72,13 @@
                                 <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                                 <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                             @else
-                                <li><a class="nav-link" href="{{ route('users') }}">@lang('app.nav.users')</a></li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{ Auth::user()->name }} <span class="caret"></span>
+
+                                <li class="nav-item dropdown show">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" id="navDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{ Auth::user()->username }} <span class="caret"></span>
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu" aria-labelledby="navDrop">
+
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">

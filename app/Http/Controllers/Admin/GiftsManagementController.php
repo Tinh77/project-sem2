@@ -15,7 +15,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use App\Category;
 use App\Gift;
-use App\Comment;
+use App\User;
 
 class GiftsManagementController extends Controller
 {
@@ -77,7 +77,13 @@ class GiftsManagementController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view(config('laravelusers.createGiftsBlade'))->with($categories);
+        $users = User::all();
+
+        $data = [
+            'users' => $users,
+            'categories' => $categories
+        ];
+        return view(config('laravelusers.createGiftBlade'), $data);
     }
 
     /**
