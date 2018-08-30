@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark top-nav-collapse">
         <div class="container">
             <a class="navbar-brand" href="/client/home">
-                <img src="{{asset('img/brand/logo.png')}}" style="width: 300px" class="img-fluid" alt="">
+                <img src="{{asset('img/brand/Logo_active01.png')}}" style="width: 300px" class="img-fluid" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
                     aria-controls="navbarSupportedContent-7"
@@ -27,6 +27,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Liên hệ</a>
+
                     </li>
                 </ul>
 
