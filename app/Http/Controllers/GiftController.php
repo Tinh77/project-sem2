@@ -19,6 +19,8 @@ class GiftController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function indexHome()
     {
         $category = Category::all();
