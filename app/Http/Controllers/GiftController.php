@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Gift;
+use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
@@ -132,7 +133,12 @@ class GiftController extends Controller
 
             return view('client.404client.404');
         }
-        return view('client.pages.product-detail')->with('obj', $obj);
+
+        $transaction = Transaction::where('buyer_id', Auth::user()->id)->where('gift_id', $id)->first();
+        if (!$transaction->status) {
+            $verify = true;
+        } else $verify = false;
+        return view('client.pages.product-detail')->with('obj', $obj)->with('ifollowthis', $verify)->with('transaction', $transaction);
 //            ->with('info', $info)
 
     }

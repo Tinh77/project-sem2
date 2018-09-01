@@ -59,7 +59,9 @@
                             <p class="ml-xl-0 ml-4">
                                 <b>Resolution: </b>2048 x 1536</p>
                             <p class="ml-xl-0 ml-4">
-                                <b>Availability: </b>In stock</p>
+                                <b>Số điện thoại: </b>
+                                K cho đâu hihi
+                            </p>
 
                             <!-- Add to Cart -->
                             <section class="color">
@@ -67,7 +69,18 @@
                                     <div class="row mt-3 mb-4">
                                         <div class="col-md-12 text-center text-md-left text-md-right">
                                             <button class="btn btn-primary btn-rounded">
-                                                Quan Tâm
+                                                @if ($ifollowthis)
+                                                    Chúng mày đến {{ $obj->account->account->address }}, gọi vô số {{ $obj->account->account->phone }} để have a deal!
+                                                @else
+                                                    Quan Tâm
+                                                @endif
+                                            </button>
+                                            <button class="btn btn-danger btn-rounded">
+                                                @if ($ifollowthis)
+                                                    REPORT FAKE
+                                                @else
+                                                    DISLIKE THIS SHIT
+                                                @endif
                                             </button>
                                         </div>
                                     </div>

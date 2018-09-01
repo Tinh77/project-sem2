@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Transaction;
+use App\Gift;
 
 class TransactionController extends Controller
 {
@@ -34,9 +36,15 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $owner_id = Gift::findOrFail($id)->account->id;
+        $transaction = Transaction::create([
+            'owner_id' => $owner_id,
+            'buyer_id' => Auth::user()->id,
+            'gift_id' => $id,
+        ]);
+        return back();
     }
 
     /**
