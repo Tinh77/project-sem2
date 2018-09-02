@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Gift;
 use App\Transaction;
+use App\Notification;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
@@ -28,9 +29,11 @@ class GiftController extends Controller
         $obj = Gift::orderBy('created_at', 'desc');
         $obj = $obj->paginate(3);
 //        dd($obj);
+        $notifications = Notification::where('account_id', Auth::user()->id)->get();
         return view('client.pages.home')
             ->with('category', $category)
-            ->with('obj', $obj);
+            ->with('obj', $obj)
+            ->with('notifications', $notifications);
     }
 
     public function index()
@@ -134,11 +137,7 @@ class GiftController extends Controller
             return view('client.404client.404');
         }
 
-        $transaction = Transaction::where('buyer_id', Auth::user()->id)->where('gift_id', $id)->first();
-        if (!$transaction->status) {
-            $verify = true;
-        } else $verify = false;
-        return view('client.pages.product-detail')->with('obj', $obj)->with('ifollowthis', $verify)->with('transaction', $transaction);
+        return view('client.pages.product-detail')->with('obj', $obj);
 //            ->with('info', $info)
 
     }

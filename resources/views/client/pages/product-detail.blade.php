@@ -1,6 +1,7 @@
 @extends('client.layout.master')
 @section('content')
     <!-- Main Container -->
+
     <div class="content-margin">
         <div class="container mt-5 pt-3 ">
             <!-- Section: product details -->
@@ -58,29 +59,15 @@
                                 <b>Độ tuổi: </b>{{$obj -> age_range}}</p>
                             <p class="ml-xl-0 ml-4">
                                 <b>Resolution: </b>2048 x 1536</p>
-                            <p class="ml-xl-0 ml-4">
-                                <b>Số điện thoại: </b>
-                                K cho đâu hihi
-                            </p>
+
 
                             <!-- Add to Cart -->
                             <section class="color">
                                 <div class="mt-5">
                                     <div class="row mt-3 mb-4">
-                                        <div class="col-md-12 text-center text-md-left text-md-right">
-                                            <button class="btn btn-primary btn-rounded">
-                                                @if ($ifollowthis)
-                                                    Chúng mày đến {{ $obj->account->account->address }}, gọi vô số {{ $obj->account->account->phone }} để have a deal!
-                                                @else
-                                                    Quan Tâm
-                                                @endif
-                                            </button>
-                                            <button class="btn btn-danger btn-rounded">
-                                                @if ($ifollowthis)
-                                                    REPORT FAKE
-                                                @else
-                                                    DISLIKE THIS SHIT
-                                                @endif
+                                        <div class="col-md-12 text-center text-md-left text-md-right" id="btnShow">
+                                            <button class="btn btn-primary btn-rounded" onclick="getInfo()">
+                                                Quan tâm!
                                             </button>
                                         </div>
                                     </div>
@@ -807,4 +794,28 @@
             js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+    <script>
+        function getInfo() {
+            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><button class="btn btn-default">{{$obj->account->account->address}}</button><br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi đã nhận</font></button>');
+        }
+        function informSubmit(id, gift_id) {
+            $.ajax({
+                url: '/client/gift/'+gift_id+'/inform',
+                type: 'POST',
+                data: {
+                    'id': id,
+                    'gift_id': gift_id
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: (response) => {
+                    if (response.status == 0) {
+                        console.log("okay");
+                    } else if (response.status == 'fraud') console.log("fraud");
+                },
+                error: (response) => console.log("fail")
+            });
+        }
+    </script>
 @endsection

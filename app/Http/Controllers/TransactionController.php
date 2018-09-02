@@ -36,15 +36,9 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $owner_id = Gift::findOrFail($id)->account->id;
-        $transaction = Transaction::create([
-            'owner_id' => $owner_id,
-            'buyer_id' => Auth::user()->id,
-            'gift_id' => $id,
-        ]);
-        return back();
+        //
     }
 
     /**

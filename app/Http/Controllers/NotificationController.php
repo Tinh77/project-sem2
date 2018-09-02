@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Notification;
+use App\Gift;
 use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use jeremykenedy\LaravelLogger\App\Http\Controllers\LaravelLoggerController;
+use Mockery\Matcher\Not;
 
 class NotificationController extends Controller
 {
@@ -25,13 +28,22 @@ class NotificationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($id, Request $request)
     {
-        $transaction = Transaction::where('buyer_id', Auth::user()->id)->where('gift_id', $id)->first();
-        if (!$transaction) return back();
+        $gift = Gift::findOrFail($id);
+        if (Auth::user()->id == $gift->account->id) return response()->json(['status' => 'fraud']);
+        if (Auth::user()->id != $request->input['id']) return response()->json(['status' => 'fraud']);
+        if ($request->input['id'] == $gift->account->id) return response()->json(['status' => 'fraud']);
+        $transaction = Transaction::create([
+            'owner_id' => $gift->account->id,
+            'buyer_id' => Auth::user()->id,
+            'gift_id' => $gift->id
+        ]);
         Notification::create([
+            'account_id' => $transaction->owner_id,
             'transaction_id' => $transaction->id
         ]);
+        return response()->json(['status' => 0]);
     }
 
     /**
@@ -51,9 +63,9 @@ class NotificationController extends Controller
      * @param  \App\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-
+        return Notification::where('account_id', Auth::user()->id)->get();
     }
 
     /**
@@ -62,12 +74,17 @@ class NotificationController extends Controller
      * @param  \App\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request) // confirm
     {
-        $transaction = Transaction::where('owner_id', Auth::user()->id)->where('gift_id', $id)->first();
-        if (!$transaction && !$transaction->confirmed) return back();
-        $transaction->delete();
-
+        if (Auth::user()->id != $request->input['id']) return response()->json(['status' => 'fraud']);
+        $transaction = Transaction::where('id', $request->input('transaction_id'))->where('owner_id', Auth::user()->id)->where('gift_id', $id)->first();
+        if ($request->input['id'] == $transaction->buyer_id) return response()->json(['status' => 'fraud']);
+        if ($transaction->owner_id == $transaction->buyer_id) return response()->json(['status' => 'fraud']);
+        if (!$transaction || $transaction->status) return response()->json(['status' => 'fraud']);
+        $transaction->status = true;
+        $transaction->save();
+        Notification::where('account_id', Auth::user()->id)->delete();
+        return response()->json(['status' => 0]);
         // coupon or sth
     }
 
