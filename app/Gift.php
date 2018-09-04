@@ -73,4 +73,5 @@ class Gift extends Model
                 break;
         }
     }
+
 }

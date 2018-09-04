@@ -1,6 +1,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark top-nav-collapse">
+<<<<<<< HEAD
         <div class="container">
+=======
+        <div class="container p-0">
+>>>>>>> 58a4f6adbe507880c19400b1752cdd903d587e8e
             <a class="navbar-brand" href="/client/home">
                 <img src="{{asset('img/brand/Logo_active01.png')}}" style="width: 300px" class="img-fluid" alt="">
             </a>
