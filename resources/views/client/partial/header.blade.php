@@ -1,8 +1,8 @@
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark top-nav-collapse">
         <div class="container p-0">
             <a class="navbar-brand" href="/client/home">
-                <img src="{{asset('img/brand/logo.png')}}" style="width: 300px" class="img-fluid" alt="">
+                <img src="{{asset('img/brand/Logo_active01.png')}}" style="width: 300px" class="img-fluid" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
                     aria-controls="navbarSupportedContent-7"
@@ -17,10 +17,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/client/gift/create">Đăng tin</a>
+                        <a class="nav-link" href="/client/gift/create">Bạn cần cho</a>
                     </li>
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link" href="/client/gift/create">Bạn cần xin</a>--}}
+                    {{--</li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/client/profile/{id}"></a>
+                        {{--<a class="nav-link" href="/profile/{{$obj->id}}"></a>--}}
                     </li>
                 </ul>
 

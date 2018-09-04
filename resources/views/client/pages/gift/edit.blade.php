@@ -10,7 +10,7 @@
                     </a>
                 </div>
                 <div class="card-body card-body-cascade text-center">
-                    <h4 class="card-title"><strong>Thông tin sản phẩm muốn cho</strong></h4>
+                    <h4 class="card-title"><strong>Sửa món quà</strong></h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             Vui lòng kiểm tra lại các trường bên dưới
@@ -21,17 +21,20 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="/client/gift" method="POST" class="text-center border border-light p-5"
+                    <form action="/client/gift/{{$obj->id}}" method="POST" class="text-center border border-light p-5"
                           enctype="multipart/form-data">
+                        @method('PUT')
                         {{csrf_field()}}
                         <table class="table table-borderless">
                             <tr>
                                 <td>Chọn danh mục</td>
                                 <td>
                                     <select class="browser-default custom-select mb-4" name="category_id">
-                                        <option value="0" selected>--Chọn danh mục sản phẩm--</option>
-                                        @foreach($obj as $item)
-                                            <option value="{{$item -> id}}">{{$item -> name}}</option>
+                                        <option>--Chọn danh mục sản phẩm--</option>
+                                        @foreach($list_Category as $item)
+                                            <option value="{{$item -> id}}"
+                                            {{ ($item->id == $obj->category_id) ? 'selected' : '' }}
+                                            >{{$item -> name}}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -40,7 +43,7 @@
                                 <td>Tên sản phẩm</td>
                                 <td>
                                     <input type="text" id="defaultContactFormName" class="form-control mb-4"
-                                           placeholder="Tên sản phẩm" name="name">
+                                           placeholder="Tên sản phẩm" name="name" value="{{$obj->name}}">
                                     @if($errors->has('name'))
                                         <label class="text-danger float-right">*{{$errors->first('name')}}</label>
                                     @endif
@@ -51,9 +54,11 @@
                                 <td>
                                     <div class="form-group">
                                     <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"
-                                              placeholder="Mô tả sản phẩm" name="description"></textarea>
+                                              placeholder="Mô tả sản phẩm"
+                                              name="description">{{$obj->description}}</textarea>
                                         @if($errors->has('description'))
-                                            <label class="text-danger float-right">*{{$errors->first('description')}}</label>
+                                            <label
+                                                class="text-danger float-right">*{{$errors->first('description')}}</label>
                                         @endif
                                     </div>
                                 </td>
@@ -61,26 +66,33 @@
                             <tr>
                                 <td>Hình ảnh</td>
                                 <td>
-                                    <input type="file" name="images" class="form-control">
+                                    <div
+                                        style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($obj -> images,
+                                        array('width'=>300, 'height'=>300,'crop'=>'fit'))}}');background-size: cover;
+                                            background-repeat: no-repeat;background-position: center;width: 70px;height: 70px">
+                                    </div>
+                                    <input type="file" name="photo">
+                                    {{--{{Form::file('images')}}--}}
                                 </td>
                             </tr>
                             <td>Chọn độ tuổi sản phẩm</td>
                             <td>
                                 <select class="browser-default custom-select mb-4" name="age_range">
-                                    <option value="0" selected>--Mọi lứa tuổi--</option>
-                                    <option value="1">Dưới 6 tháng</option>
-                                    <option value="2">6 - 12 tháng</option>
-                                    <option value="3">12 - 24 tháng</option>
-                                    <option value="4">Trên 24 tháng</option>
+                                    <option value="0">--Lựa chọn độ tuổi món quà của bạn--</option>
+                                    <option value="1" {{ ($obj->age_range == 1) ? 'selected' : '' }}>Report a bug</option>
+                                    <option value="2" {{ ($obj->age_range == 2) ? 'selected' : '' }}>Feature request</option>
+                                    <option value="3" {{ ($obj->age_range == 3) ? 'selected' : '' }}>Feature request</option>
                                 </select>
                             </td>
                             <tr>
                                 <td>Số điện thoại</td>
                                 <td>
                                     <input type="numberu" class="form-control mb-4"
-                                           placeholder="Số điện thoại" name="phone_number">
+                                           placeholder="Số điện thoại" name="phone_number"
+                                           value="{{$obj->phone_number}}">
                                     @if($errors->has('phone_number'))
-                                        <label class="text-danger float-right">*{{$errors->first('phone_number')}}</label>
+                                        <label
+                                            class="text-danger float-right">*{{$errors->first('phone_number')}}</label>
                                     @endif
 
                                 </td>
@@ -89,40 +101,24 @@
                                 <td>Giới tính</td>
                                 <td>
                                     <select class="browser-default custom-select mb-4" name="gender">
-                                        <option value="0" selected>--Tất cả--</option>
-                                        <option value="1">Nam</option>
-                                        <option value="2">Nữ</option>
+                                        <option value="0">--Lựa chọn giới tính của bạn--</option>
+                                        <option value="1" {{ ($obj->gender == 1) ? 'selected' : '' }}>Nam</option>
+                                        <option value="2" {{ ($obj->gender == 2) ? 'selected' : '' }}>Nữ</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Địa chỉ</td>
                                 <td>
-                                    <textarea type="text" id="defaultContactFormName" class="form-control mb-4"
-                                              placeholder="Địa điểm nơi có thể giao dịch sản phẩm" name="address"></textarea>
+                                    <input type="text" id="defaultContactFormName" class="form-control mb-4"
+                                           placeholder="Tên sản phẩm" name="address" value="{{$obj->address}}">
                                     @if($errors->has('address'))
                                         <label class="text-danger float-right">*{{$errors->first('address')}}</label>
                                     @endif
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Thành phố</td>
-                                <td>
-                                    <select name="city" id="" class="browser-default custom-select mb-4">
-                                        <option value="0">--Toàn quốc--</option>
-                                        <option value="1">Hà Nội</option>
-                                        <option value="2">Đà Nẵng</option>
-                                        <option value="3">Nha Trang</option>
-                                        <option value="4">TP Hồ Chí Minh</option>
-                                    </select>
-                                    @if($errors->has('city'))
-                                        <label class="text-danger float-right">*{{$errors->first('city')}}</label>
-                                    @endif
-                                </td>
-                            </tr>
                         </table>
-                        <button type="submit" class="btn btn-info">Lưu thông tin</button>
-                        <button type="reset" class="btn btn-grey">Làm lại</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>

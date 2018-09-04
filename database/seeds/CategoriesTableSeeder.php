@@ -18,35 +18,35 @@ class CategoriesTableSeeder extends Seeder
         DB::table('categories')->insert([
             [
                 'name' => 'Quần áo',
-                'description' => '',
+                'description' => 'Các thể loại quần áo được chia sẻ',
                 'thumbnail' => 'https://bizweb.dktcdn.net/100/042/300/themes/55369/assets/menu_icon_3.png?1513314074912',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'Mũ',
-                'description' => '1',
+                'description' => 'Mũ các loại dành cho trẻ em',
                 'thumbnail' => 'https://vn-live-02.slatic.net/original/19e1737914da112ed0b26c3b89b13ddd.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'Giày dép',
-                'description' => '1',
+                'description' => 'Các thể loại giày depf dành cho trẻ em',
                 'thumbnail' => 'https://sieuthikid.com/wp-content/uploads/2013/08/mua-sam-giay-dep-cho-be-voi-nhung-meo-cuc-doc-0.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'Đồ dùng',
-                'description' => '1',
+                'description' => 'Các đồ dùng sinh hoạt, dụng cụ khác.',
                 'thumbnail' => 'http://babyborn.vn/Images/Product/ghe-nga-nam-an-cho-tre-so-sinh-to-toddler.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'Đồ chơi',
-                'description' => '1',
+                'description' => 'Đồ chơi các loại',
                 'thumbnail' => 'https://media.bibomart.net/u/bbm/product/2015/08/25/17/48/410_410/360215_xe_3_banh_cho_be_1.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
