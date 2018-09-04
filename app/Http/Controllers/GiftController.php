@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Gift;
+use App\Transaction;
+use App\Notification;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
@@ -24,11 +26,16 @@ class GiftController extends Controller
 
     public function indexHome()
     {
-        $categories = Category::all();
-        $list_obj = Gift::orderBy('created_at', 'desc')->paginate(9);
+
+        $category = Category::all();
+        $obj = Gift::orderBy('created_at', 'desc');
+        $obj = $obj->paginate(3);
+//        dd($obj);
+        $notifications = Notification::where('account_id', Auth::user()->id)->get();
         return view('client.pages.home')
-            ->with('categories', $categories)
-            ->with('list_obj', $list_obj);
+            ->with('category', $category)
+            ->with('obj', $obj)
+            ->with('notifications', $notifications);
     }
 
     public function index()
@@ -130,8 +137,11 @@ class GiftController extends Controller
 
             return view('client.404client.404');
         }
-        $list_relate = Gift::where('category_id', $obj->category_id)->paginate(3);
-        return view('client.pages.product-detail')->with('obj', $obj)->with('list_relate',$list_relate);
+
+        return view('client.pages.product-detail')->with('obj', $obj);
+//            ->with('info', $info)
+
+
     }
 
     /**
