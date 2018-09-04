@@ -23,13 +23,11 @@ class GiftController extends Controller
 
     public function indexHome()
     {
-        $category = Category::all();
-        $obj = Gift::orderBy('created_at', 'desc');
-        $obj = $obj->paginate(3);
-//        dd($obj);
+        $categories = Category::all();
+        $list_obj = Gift::orderBy('created_at', 'desc')->paginate(9);
         return view('client.pages.home')
-            ->with('category', $category)
-            ->with('obj', $obj);
+            ->with('categories', $categories)
+            ->with('list_obj', $list_obj);
     }
 
     public function index()
@@ -109,13 +107,12 @@ class GiftController extends Controller
             $obj->images = $current_time;
             $obj->age_range = Input::get('age_range');
             $obj->gender = Input::get('gender');
+            $obj->city = Input::get('city');
             $obj->save();
-            return 'Bạn đã ddawng tin thành công.';
+            return 'Bạn đã đăng tin thành công.';
         } else {
             return redirect('/login');
         }
-
-
     }
 
     /**
@@ -132,9 +129,8 @@ class GiftController extends Controller
 
             return view('client.404client.404');
         }
-        return view('client.pages.product-detail')->with('obj', $obj);
-//            ->with('info', $info)
-
+        $list_relate = Gift::where('category_id', $obj->category_id)->paginate(3);
+        return view('client.pages.product-detail')->with('obj', $obj)->with('list_relate',$list_relate);
     }
 
     /**

@@ -17,8 +17,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/client/gift/create">Đăng tin</a>
+                        <a class="nav-link" href="/client/gift/create">Bạn cần cho</a>
                     </li>
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link" href="/client/gift/create">Bạn cần xin</a>--}}
+                    {{--</li>--}}
                     <li class="nav-item">
                         {{--<a class="nav-link" href="/profile/{{$obj->id}}"></a>--}}
                     </li>
