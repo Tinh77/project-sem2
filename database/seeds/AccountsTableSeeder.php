@@ -12,6 +12,8 @@ class AccountsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        DB::table('accounts')->truncate();
         DB::table('accounts')->insert([
             [
                 'first_name' => 'ahihi',
@@ -42,7 +44,18 @@ class AccountsTableSeeder extends Seeder
                 'age' => 50,
                 'gender' => false,
                 'intro' => 'T càng k biết t ở đâu ra ?'
+            ],
+            [
+                'first_name' => 'Đào',
+                'last_name' => 'Hùng',
+                'email' => 'xuanhung2401@gmail.com',
+                'phone' => '0966668388',
+                'address' => 'Bà Triệu',
+                'age' => 40,
+                'gender' => true,
+                'intro' => 'T Quang Anh dở hơi.'
             ]
         ]);
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

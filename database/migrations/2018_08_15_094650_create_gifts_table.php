@@ -24,6 +24,7 @@ class CreateGiftsTable extends Migration
             $table->string('images');
             $table->integer('age_range'); // 1. 0 - 6 months | 2. 6 - 12 month | 3. 12 month - 24 month | 4. > 24 month.
             $table->integer('gender'); // 1. Male | 2. Female
+            $table->integer('city');
             $table->timestamps();
             $table->boolean('status')->default(true);
         });
