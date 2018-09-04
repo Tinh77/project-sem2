@@ -46,7 +46,11 @@ class ProfileController extends Controller
     {
         //
     }
+    public function findId($id){
+         $obj = User::find($id);
 
+         return view('client.partial.header')->with('obj',$obj);
+    }
     /**
      * Display the specified resource.
      *

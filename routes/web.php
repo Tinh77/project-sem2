@@ -56,7 +56,6 @@ Route::group(['middleware' => ['twostep']], function () {
 
 });
 
-Route::post('/login-user', 'login_user@login');
 
 Route::get('/profile', 'ProfileController@index')->middleware('role:admin'); // admin
 
@@ -71,3 +70,34 @@ Route::get('/pages/personal_information', function () {
     return view('client.pages.gift.personal_information');
 });
 
+// super duper admin panel
+Route::group(['prefix' => config('laravelusers.prefix'), 'middleware' => 'web', 'namespace' => 'Admin'], function () {
+    Route::resource('users', 'UsersManagementController', [
+        'names' => [
+            'index'   => 'users',
+            'destroy' => 'user.destroy',
+        ],
+    ]);
+    Route::resource('categories', 'CategoriesManagementController', [
+        'names' => [
+            'index'   => 'categories',
+            'destroy' => 'category.destroy',
+        ],
+    ]);
+    Route::resource('gifts', 'GiftsManagementController', [
+        'names' => [
+            'index'   => 'gifts',
+            'destroy' => 'gift.destroy',
+        ],
+    ]);
+    Route::resource('transactions', 'TransactionsManagementController', [
+        'names' => [
+            'index'   => 'transactions',
+            'destroy' => 'transaction.destroy',
+        ],
+    ]);
+});
+
+Route::middleware(['web', 'auth'])->group(function () {
+    Route::post('search-users', '\App\Http\Controllers\Admin\UsersManagementController@search')->name('search-users');
+});
