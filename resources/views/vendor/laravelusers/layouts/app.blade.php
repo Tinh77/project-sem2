@@ -58,7 +58,7 @@
                                     <a class="dropdown-item" href="{{ route('transactions') }}">
                                         Transactions
                                     </a>
-                                    <a class="dropdown-item" href="/manage">
+                                    <a class="dropdown-item" href="/activity">
                                         Logs
                                     </a>
                                 </div>
