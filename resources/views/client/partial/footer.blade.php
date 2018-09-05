@@ -7,10 +7,12 @@
 
             <!--First column-->
             <div class="col-md-3 mr-auto">
-                <h5 class="text-uppercase mb-3">Footer Content</h5>
-                <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
-                    amet, consectetur
-                    adipisicing elit.</p>
+                    <a   class="img-footer w-50" href="/client/home">
+                        <img src="{{asset('img/brand/Logo_active01.png')}}" style="width: 300px" class="img-fluid" alt="">
+                    </a>
+                <p style="font-size: small">
+                    Meaning_gift  mong muốn trở thành tổ chức giàu tình cảm, tiết kiệm và quy mô dựa trên việc xây dựng một cộng đồng tích cực không lãng phí, cung cấp những thông tin hữu ích, thuận tiện cho cộng đồng.
+                </p>
             </div>
             <!--/.First column-->
 
@@ -18,20 +20,18 @@
 
             <!--Second column-->
             <div class="col-md-2 ml-auto">
-                <h5 class="text-uppercase mb-3">Links</h5>
-                <ul class="list-unstyled">
+                <h6 class="text-uppercase mb-3">Tiêu chí</h6>
+                <ul class="list-unstyled" style="font-size: small">
                     <li>
-                        <a href="#!">Link 1</a>
+                        <a class="nav-link" href="#!">Có cho</a>
                     </li>
                     <li>
-                        <a href="#!">Link 2</a>
+                        <a class="nav-link" href="#!">Thiếu xin</a>
                     </li>
                     <li>
-                        <a href="#!">Link 3</a>
+                        <a class="nav-link" href="#!">Chí cho</a>
                     </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
+
                 </ul>
             </div>
             <!--/.Second column-->
@@ -40,19 +40,13 @@
 
             <!--Third column-->
             <div class="col-md-2 ml-auto">
-                <h5 class="text-uppercase mb-3">Links</h5>
-                <ul class="list-unstyled">
+                <h6 class="text-uppercase mb-3">Chính sách</h6>
+                <ul class="list-unstyled" style="font-size: small">
                     <li>
-                        <a href="#!">Link 1</a>
+                        <a  class="nav-link" href="#!">Cho đi để nhận lại</a>
                     </li>
                     <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
+                        <a  class="nav-link" href="#!">Mọi thứ đều có ý nghĩa</a>
                     </li>
                 </ul>
             </div>
@@ -62,19 +56,13 @@
 
             <!--Fourth column-->
             <div class="col-md-3 ml-auto">
-                <h5 class="text-uppercase mb-3">Links</h5>
-                <ul class="list-unstyled">
+                <h6 class="text-uppercase mb-3">Meaning_gift</h6>
+                <ul class="list-unstyled" style="font-size: small">
                     <li>
-                        <a href="#!">Link 1</a>
+                        <a class="nav-link" href="#">Về chúng tôi</a>
                     </li>
                     <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
+                        <a class="nav-link" href="#">Liên hệ với chúng tôi</a>
                     </li>
                 </ul>
             </div>
@@ -123,8 +111,8 @@
     <!--Copyright-->
     <div class="footer-copyright py-3 text-center">
         <div class="container-fluid">
-            &copy; 2018 Copyright:
-            <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> MDBootstrap.com </a>
+            Copyright &copy; 2018 by
+            <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> Meaning_gift </a>
 
         </div>
     </div>
