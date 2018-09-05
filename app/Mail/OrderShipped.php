@@ -30,7 +30,7 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->from('admin@meaning-gift.com')
+        return $this->from('xuanhung2401@gmail.com')
             ->view('emails.send')->with('title', $this->title)->with('content', $this->content);
 
     }
