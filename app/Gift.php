@@ -19,4 +19,7 @@ class Gift extends Model
     protected $fillable = [
         'account_id', 'category_id', 'name', 'description', 'images', 'age_range', 'gender', 'status'
     ];
+
+    public function genderString(){
+    }
 }

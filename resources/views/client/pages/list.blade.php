@@ -31,17 +31,19 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-12 mb-5">
                                 <!-- Panel -->
-                                <h3 class="font-weight-bold dark-grey-text">Danh mục sản phẩm</h3>
+                                <h4 class="dark-grey-text">Danh mục sản phẩm</h4>
                                 <div class="divider border-top"></div>
+                                <p> <a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
+
                                 @foreach($list_obj as $key => $item)
-                                    <p><a class="dark-grey-text" href="/client/category-gift/{{$key}}">{{$item}}</a></p>
+                                    <p><a class="dark-grey-text text-center" href="/client/category-gift/{{$key}}">{{$item}}</a></p>
                                 @endforeach
 
                             </div>
 
                             <!-- Filter by category-->
                             <div class="col-md-6 col-lg-12 mb-5">
-                                <h3 class="font-weight-bold dark-grey-text">Phân loại theo tuổi</h3>
+                                <h4 class=" dark-grey-text">Phân loại theo tuổi</h4>
                                 <div class="divider border-top"></div>
 
                                 <!--Radio group-->
@@ -109,7 +111,7 @@
                                         <!-- Rating -->
                                             <!--Card footer-->
                                             <div class="card-footer">
-                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{$item->created_at->format('Y-m-d')}}</span>
+                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</span>
                                                 <span class="float-right">
                                                 <a class="card-link" title="Quick Look" href="/client/gift/{{$item->id}}">
                                                   <i class="fa fa-eye"></i> chi tiết
