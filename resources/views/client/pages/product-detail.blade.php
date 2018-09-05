@@ -16,7 +16,7 @@
                                 <div class="carousel-inner text-center text-md-left" role="listbox">
                                     <div class="carousel-item active text-center">
                                         <img src="{{\JD\Cloudder\Facades\Cloudder::show($obj -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
-                                             alt="First slide" class="img-fluid">
+                                             alt="First slide" class="img-fluid p-4">
                                     </div>
                                 </div>
                                 <!--/.Slides-->
@@ -125,10 +125,6 @@
 
                                         <!--Card content-->
                                         <div class="card-body card-body-cascade text-center no-padding h-100">
-                                            <!--Category & Title-->
-                                            {{--<a href="" class="text-muted">--}}
-                                            {{--<h5>{{$list_obj[$i]->name}}</h5>--}}
-                                            {{--</a>--}}
                                             <h4 class="card-title">
                                                 <a href="/client/gift/{{$item->id}}">{{$item->name}}</a>
                                             </h4>
