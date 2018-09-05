@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use JD\Cloudder\Facades\Cloudder;
+use Mockery\Matcher\Not;
 
 class GiftController extends Controller
 {
@@ -29,7 +30,10 @@ class GiftController extends Controller
         $category = Category::all();
         $obj = Gift::orderBy('created_at', 'desc')->paginate(9);
 //        dd($obj);
-        $notifications = Notification::where('account_id', Auth::user()->id)->get();
+        $notifications = new Notification();
+        if (Auth::check()) {
+            $notifications = Notification::where('account_id', Auth::user()->id)->get();
+        }
         return view('client.pages.home')
             ->with('category', $category)
             ->with('obj', $obj)

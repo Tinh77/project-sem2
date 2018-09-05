@@ -31,25 +31,25 @@ class NotificationController extends Controller
     public function create($id, Request $request)
     {
         $gift = Gift::findOrFail($id);
-        if (Auth::user()->id == $gift->account->id) return response()->json(['status' => 'fraud']);
-        if (Auth::user()->id != $request->input['id']) return response()->json(['status' => 'fraud']);
-        if ($request->input['id'] == $gift->account->id) return response()->json(['status' => 'fraud']);
+        if (Auth::user()->id == $gift->account->id) return response()->json(['status' => '1']);
+        if (Auth::user()->id != $request->get('id')) return response()->json(['status' => '2' . '-' . Auth::user()->id . '-' . $request->get('id') . '-' . $gift->account->id]);
+        if ($request->get('id') == $gift->account->id) return response()->json(['status' => '3']);
         $transaction = Transaction::create([
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
             'gift_id' => $gift->id
         ]);
-        Notification::create([
-            'account_id' => $transaction->owner_id,
-            'transaction_id' => $transaction->id
-        ]);
+        $notification = new Notification();
+        $notification->account_id = $transaction->owner_id;
+        $notification->transaction_id = $transaction->id;
+        $notification->save();
         return response()->json(['status' => 0]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -60,7 +60,7 @@ class NotificationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Notification  $notification
+     * @param  \App\Notification $notification
      * @return \Illuminate\Http\Response
      */
     public function show()
@@ -71,7 +71,7 @@ class NotificationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Notification  $notification
+     * @param  \App\Notification $notification
      * @return \Illuminate\Http\Response
      */
     public function edit($id, Request $request) // confirm
@@ -91,8 +91,8 @@ class NotificationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Notification  $notification
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Notification $notification
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Notification $notification)
@@ -103,7 +103,7 @@ class NotificationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Notification  $notification
+     * @param  \App\Notification $notification
      * @return \Illuminate\Http\Response
      */
     public function destroy(Notification $notification)
