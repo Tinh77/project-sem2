@@ -66,7 +66,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 5,
+                'account_id' => 4,
                 'category_id' => '1',
                 'name' => 'Quần dài cá voi xanh',
                 'description' => 'Mình có 15 chiếc quần của trẻ từ trên 12 tháng không bị sờn rách sạch sẽ muốn để lại cho các bé mặc vừa',
@@ -78,7 +78,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 6,
+                'account_id' => 4,
                 'category_id' => 1,
                 'name' => 'Quần nỉ sơ sinh cho bé',
                 'description' => 'Mình có 1 lô quần nỉ của trẻ sơ sinh không bị sờn rách sạch sẽ muốn để lại cho các bé sơ sinh',
@@ -90,7 +90,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 7,
+                'account_id' => 4,
                 'category_id' => 1,
                 'name' => 'Quần đùi sơ sinh bo ống',
                 'description' => 'Mình có 1 lô quần của trẻ sơ sinh không bị sờn rách sạch sẽ muốn để lại cho các bé sơ sinh',
@@ -102,7 +102,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 8,
+                'account_id' => 4,
                 'category_id' => 1,
                 'name' => 'Quần dài kaki',
                 'description' => 'Mình có 2 cái quần màu kaki bé trai màu xanh và cam cho trẻ trên 3 tuổi muốn để lại cho bé nào mặc vừa quần không bị sờn rách và sạch sẽ',
@@ -114,7 +114,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 9,
+                'account_id' => 4,
                 'category_id' => 2,
                 'name' => 'Mũ sơ sinh',
                 'description' => 'Mình có 5 chiếc mũ của trẻ sơ sinh không bị sờn rách sạch sẽ muốn để lại cho các bé sơ sinh',
@@ -126,7 +126,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 10,
+                'account_id' => 4,
                 'category_id' => 2,
                 'name' => 'Mũ phớt chấm bi',
                 'description' => 'Mình được người thân tặng mũ mà con mình không đội vừa nên muốn để lại cho các bé',
@@ -138,7 +138,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 11,
+                'account_id' => 4,
                 'category_id' => 2,
                 'name' => 'Mũ',
                 'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy',
@@ -150,10 +150,10 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 12,
+                'account_id' => 4,
                 'category_id' => 2,
                 'name' => 'Mũ Bibos',
-                'description' => 'cần cho một mũ',
+                'description' => 'Mình được người thân tặng mũ mà con mình không đội vừa nên muốn để lại cho các bé',
                 'images' => 'https://media.bibomart.net/u/bbm/product/2017/01/20/22/17/300_300/mu-ss-2-tai-bibos-trang-vien-hong-3m-113466_1.jpg',
                 'age_range' => 3,
                 'gender' => 2,
@@ -162,10 +162,10 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 12,
+                'account_id' => 4,
                 'category_id' => 2,
                 'name' => 'Mũ Bibos',
-                'description' => 'cần cho một mũ',
+                'description' => 'Mình được người thân tặng mũ mà con mình không đội vừa nên muốn để lại cho các bé',
                 'images' => 'https://media.bibomart.net/u/bbm/product/2017/01/20/22/17/300_300/mu-ss-2-tai-bibos-trang-vien-hong-3m-113466_1.jpg',
                 'age_range' => 3,
                 'gender' => 2,
