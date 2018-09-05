@@ -33,6 +33,9 @@ Route::get('/client/category-gift/{id}', "GiftController@listCategory");
 
 Route::resource('/client/gift', 'GiftController');
 
+Route::post('/client/gift/{id}/inform', 'NotificationController@create');
+Route::post('/client/gift/{id}/confirm', 'NotificationController@edit');
+
 Route::resource('/client/transaction', 'TransactionController');
 
 Route::get('/client/home', 'GiftController@indexHome');
