@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^6.3",
         "jeremykenedy/laravel-logger": "^2.2",
         "jeremykenedy/laravel-roles": "^1.2",
         "jeremykenedy/laravel2step": "^1.0",
