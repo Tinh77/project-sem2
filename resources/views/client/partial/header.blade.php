@@ -2,6 +2,7 @@
 if (!isset($notifications)) $notifications = null;
 @endphp
     <nav class="navbar navbar-expand-lg navbar-dark top-nav-collapse">
+
         <div class="container p-0">
             <a class="navbar-brand" href="/client/home">
                 <img src="{{asset('img/brand/Logo_active01.png')}}" style="width: 300px" class="img-fluid" alt="">
@@ -25,6 +26,7 @@ if (!isset($notifications)) $notifications = null;
                         {{--<a class="nav-link" href="/client/gift/create">Bạn cần xin</a>--}}
                     {{--</li>--}}
                     <li class="nav-item">
+
                         <a class="nav-link" href="#">Về chúng tôi</a>
                     </li>
                     <li class="nav-item">

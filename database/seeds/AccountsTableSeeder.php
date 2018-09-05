@@ -18,7 +18,7 @@ class AccountsTableSeeder extends Seeder
             [
                 'first_name' => 'ahihi',
                 'last_name' => 'dongok',
-                'email' => 'ahihi.dongok@sth.com',
+                'email' => 'tinhgtd00580@fpt.edu.vn',
                 'phone' => '699669996',
                 'address' => 'saturn',
                 'age' => 1,

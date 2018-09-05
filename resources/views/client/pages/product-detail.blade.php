@@ -35,7 +35,8 @@
                             </div>
                         </div>
                         <div class="col-lg-5 mr-3 text-center text-md-left">
-                            <h2 class="h2-responsive product-name font-weight-bold">
+                            <h2 class="
+                            h2-responsive product-name font-weight-bold">
                                 {{$obj->name}}
                             </h2>
                             <p class="ml-xl-0 ml-4"><b>Ngày đăng: </b>{{$obj -> created_at -> format('d-m-Y H:i:s')}}</p>
@@ -76,7 +77,7 @@
                                 width="100%" height="450"
                                 frameborder="0" style="border:0"
                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDnro9-Oa4Ku3yKBkHFl_fVU7zVsOZ2Tvw
-    &q={{$obj->address}}" allowfullscreen>
+            &q={{$obj->address}}" allowfullscreen>
                         </iframe>
                     </div>
                 </div>
