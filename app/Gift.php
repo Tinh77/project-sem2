@@ -8,21 +8,9 @@ class Gift extends Model
 {
     protected $table = 'gifts';
 
-    public function account() {
-        return $this->hasOne('\App\User', 'id', 'account_id');
-    }
-
-    public function category() {
-        return $this->hasOne('\App\Category', 'id', 'category_id');
-    }
-
-    protected $fillable = [
-        'account_id', 'category_id', 'name', 'description', 'images', 'age_range', 'gender', 'status'
-    ];
-
     public function getGenderStringAttribute()
     {
-        switch ($this->gender){
+        switch ($this->gender) {
             case 1:
                 return 'Nam';
                 break;
@@ -40,7 +28,7 @@ class Gift extends Model
 
     public function getAgeStringAttribute()
     {
-        switch ($this->age_range){
+        switch ($this->age_range) {
             case 0:
                 return 'Dành cho mọi lứa tuổi';
                 break;
@@ -64,7 +52,7 @@ class Gift extends Model
 
     public function getCityNameAttribute()
     {
-        switch ($this->city){
+        switch ($this->city) {
             case 0:
                 return 'Toàn quốc';
                 break;
@@ -85,4 +73,9 @@ class Gift extends Model
                 break;
         }
     }
+
+    protected $fillable = [
+        'account_id', 'category_id', 'name', 'description', 'images', 'age_range', 'gender', 'status'
+    ];
+
 }

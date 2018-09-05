@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderShipped;
 use App\Notification;
 use App\Gift;
 use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use jeremykenedy\LaravelLogger\App\Http\Controllers\LaravelLoggerController;
 use Mockery\Matcher\Not;
 
@@ -32,17 +34,21 @@ class NotificationController extends Controller
     {
         $gift = Gift::findOrFail($id);
         if (Auth::user()->id == $gift->account->id) return response()->json(['status' => '1']);
-        if (Auth::user()->id != $request->get('id')) return response()->json(['status' => '2' . '-' . Auth::user()->id . '-' . $request->get('id') . '-' . $gift->account->id]);
+        if (Auth::user()->id != $request->get('id')) return response()->json(['status' => '2']);
         if ($request->get('id') == $gift->account->id) return response()->json(['status' => '3']);
+
         $transaction = Transaction::create([
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
-            'gift_id' => $gift->id
+            'gift_id' => $gift->id,
+            'status'=> 0
         ]);
         $notification = new Notification();
         $notification->account_id = $transaction->owner_id;
         $notification->transaction_id = $transaction->id;
         $notification->save();
+        // mail đến người cho.
+        Mail::to($gift->account->account->email)->send(new OrderShipped('Xin món hàng ' . $gift->name, 'Tôi rất quan tâm đến món quà của bạn, vui long click vào đây để xác nhận cho tôi.'));
         return response()->json(['status' => 0]);
     }
 

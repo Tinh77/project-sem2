@@ -125,6 +125,66 @@
                                                 <option value="2">Đà Nẵng</option>
                                                 <option value="3">Nha Trang</option>
                                                 <option value="4">TP Hồ Chí Minh</option>
+                                                <option value="5">An Giang</option>
+                                                <option value="6">Bà Rịa - Vũng Tàu</option>
+                                                <option value="7">Bắc Giang</option>
+                                                <option value="8">Bắc Kạn</option>
+                                                <option value="9">Bạc Liêu</option>
+                                                <option value="10">Bắc Ninh</option>
+                                                <option value="11">Bến Tre</option>
+                                                <option value="12">Bình Định</option>
+                                                <option value="13">Bình Dương</option>
+                                                <option value="14">Bình Phước</option>
+                                                <option value="15">Bình Thuận</option>
+                                                <option value="16">Cà Mau</option>
+                                                <option value="17">Cần Thơ</option>
+                                                <option value="18">Cao Bằng</option>
+                                                <option value="19">Đắk Lắk</option>
+                                                <option value="20">Đắk Nông</option>
+                                                <option value="21">Điện Biên</option>
+                                                <option value="22">Đồng Nai</option>
+                                                <option value="23">Đồng Tháp</option>
+                                                <option value="24">Gia Lai</option>
+                                                <option value="25">Hà Giang</option>
+                                                <option value="26">Hà Nam</option>
+                                                <option value="27">Hà Tĩnh</option>
+                                                <option value="28">Hải Dương</option>
+                                                <option value="29">Hải Phòng</option>
+                                                <option value="30">Hậu Giang</option>
+                                                <option value="31">Hòa Bình</option>
+                                                <option value="32">Hưng Yên</option>
+                                                <option value="33">Khánh Hòa</option>
+                                                <option value="34">Kiên Giang</option>
+                                                <option value="35">Kon Tum</option>
+                                                <option value="36">Lai Châu</option>
+                                                <option value="37">Lâm Đồng</option>
+                                                <option value="38">Lạng Sơn</option>
+                                                <option value="39">Lào Cai</option>
+                                                <option value="40">Long An</option>
+                                                <option value="41">Nam Định</option>
+                                                <option value="42">Nghệ An</option>
+                                                <option value="43">Ninh Bình</option>
+                                                <option value="44">Ninh Thuận</option>
+                                                <option value="45">Phú Thọ</option>
+                                                <option value="46">Phú Yên</option>
+                                                <option value="47">Quảng Bình</option>
+                                                <option value="48">Quảng Nam</option>
+                                                <option value="49">Quảng Ngãi</option>
+                                                <option value="50">Quảng Ninh</option>
+                                                <option value="51">Quảng Trị</option>
+                                                <option value="52">Sóc Trăng</option>
+                                                <option value="53">Sơn La</option>
+                                                <option value="54">Tây Ninh</option>
+                                                <option value="55">Thái Bình</option>
+                                                <option value="56">Thái Nguyên</option>
+                                                <option value="57">Thanh Hóa</option>
+                                                <option value="58">Thừa Thiên Huế</option>
+                                                <option value="59">Tiền Giang</option>
+                                                <option value="60">Trà Vinh</option>
+                                                <option value="61">Tuyên Quang</option>
+                                                <option value="62">Vĩnh Long</option>
+                                                <option value="63">Vĩnh Phúc</option>
+                                                <option value="64">Yên Bái</option>
                                             </select>
                                             @if($errors->has('city'))
                                                 <label class="text-danger float-right">*{{$errors->first('city')}}</label>
@@ -146,6 +206,7 @@
         </div>
     </div>
 @endsection
+
 
 
 

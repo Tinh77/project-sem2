@@ -104,3 +104,5 @@ Route::group(['prefix' => config('laravelusers.prefix'), 'middleware' => 'web', 
 Route::middleware(['web', 'auth'])->group(function () {
     Route::post('search-users', '\App\Http\Controllers\Admin\UsersManagementController@search')->name('search-users');
 });
+
+Route::get('/send-mail', 'EmailController@send');

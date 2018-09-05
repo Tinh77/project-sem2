@@ -43,12 +43,7 @@
                     <tr>
                         <td>Giao dịch thành công</td>
                     </tr>
-                    <tr>
-                        <td>
-                            <p>Thông tin sơ lược</p>
-                            <p class="text-email"><i class="fas fa-envelope-open email"></i> quatangynghia@gmail.com</p>
-                        </td>
-                    </tr>
+
                     {{--<tr>--}}
                         {{--<td>--}}
                             {{--<p>Mạng xã hội</p>--}}
