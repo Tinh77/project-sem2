@@ -1,3 +1,4 @@
+
 @extends('client.layout.master')
 @section('content')
     @include('client.partial.intro')
@@ -17,7 +18,7 @@
                 <div class="row">
 
                     <!--Grid column-->
-                    @foreach($categories as $item)
+                    @foreach($category as $item)
                         <div class="col-lg col-md-6 mb-4">
                             <!--Card-->
                             <div class="card card-ecommerce h-100">
@@ -89,47 +90,47 @@
                         <!--First slide-->
                         <div class="carousel-item active row">
                             @for($i = 0; $i < 3; $i++)
-                            <div class="col-md-4">
-                                <!--Card-->
-                                <div class="card card-cascade narrower card-ecommerce">
-                                    <!--Card image-->
-                                    <a href="/client/gift/{{$list_obj[$i]->id}}">
-                                        <div class="view view-cascade overlay" style="background-image: url('{{$list_obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
-                                        </div>
-                                    </a>
-                                    <!--Card image-->
+                                <div class="col-md-4">
+                                    <!--Card-->
+                                    <div class="card card-cascade narrower card-ecommerce">
+                                        <!--Card image-->
+                                        <a href="/client/gift/{{$obj[$i]->id}}">
+                                            <div class="view view-cascade overlay" style="background-image: url('{{$obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
+                                            </div>
+                                        </a>
+                                        <!--Card image-->
 
-                                    <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding h-100">
-                                        <!--Category & Title-->
-                                        {{--<a href="" class="text-muted">--}}
+                                        <!--Card content-->
+                                        <div class="card-body card-body-cascade text-center no-padding h-100">
+                                            <!--Category & Title-->
+                                            {{--<a href="" class="text-muted">--}}
                                             {{--<h5>{{$list_obj[$i]->name}}</h5>--}}
-                                        {{--</a>--}}
-                                        <h4 class="card-title">
-                                            <a href="/client/gift/{{$list_obj[$i]->id}}">{{$list_obj[$i]->name}}</a>
-                                        </h4>
+                                            {{--</a>--}}
+                                            <h4 class="card-title">
+                                                <a href="/client/gift/{{$obj[$i]->id}}">{{$obj[$i]->name}}</a>
+                                            </h4>
 
-                                        <!--Description-->
-                                        <p class="card-text">{{$list_obj[$i]->description}}
-                                        </p>
+                                            <!--Description-->
+                                            <p class="card-text">{{$obj[$i]->description}}
+                                            </p>
 
-                                        <!--Card footer-->
-                                        <div class="card-footer">
-                                            <span class="float-left"><i class="fa fa-clock-o"></i> {{$list_obj[$i]->created_at->format('Y-m-d')}}</span>
-                                            <span class="float-right">
-                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$list_obj[$i]->id}}">
+                                            <!--Card footer-->
+                                            <div class="card-footer">
+                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{$obj[$i]->created_at->format('Y-m-d')}}</span>
+                                                <span class="float-right">
+                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$obj[$i]->id}}">
                                                   <i class="fa fa-eye"></i> chi tiết
                                                 </a>
                                               </span>
+                                            </div>
+
                                         </div>
+                                        <!--Card content-->
 
                                     </div>
-                                    <!--Card content-->
+                                    <!--Card-->
 
                                 </div>
-                                                        <!--Card-->
-
-                            </div>
                             @endfor
                         </div>
                         <!--First slide-->
@@ -142,8 +143,8 @@
                                     <!--Card-->
                                     <div class="card card-cascade narrower card-ecommerce">
                                         <!--Card image-->
-                                        <a href="/client/gift/{{$list_obj[$i]->id}}">
-                                            <div class="view view-cascade overlay" style="background-image: url('{{$list_obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
+                                        <a href="/client/gift/{{$obj[$i]->id}}">
+                                            <div class="view view-cascade overlay" style="background-image: url('{{$obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
                                             </div>
                                         </a>
                                         <!--Card image-->
@@ -155,18 +156,18 @@
                                             {{--<h5>{{$list_obj[$i]->name}}</h5>--}}
                                             {{--</a>--}}
                                             <h4 class="card-title">
-                                                <a href="/client/gift/{{$list_obj[$i]->id}}">{{$list_obj[$i]->name}}</a>
+                                                <a href="/client/gift/{{$obj[$i]->id}}">{{$obj[$i]->name}}</a>
                                             </h4>
 
                                             <!--Description-->
-                                            <p class="card-text">{{$list_obj[$i]->description}}
+                                            <p class="card-text">{{$obj[$i]->description}}
                                             </p>
 
                                             <!--Card footer-->
                                             <div class="card-footer">
-                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{$list_obj[$i]->created_at->format('Y-m-d')}}</span>
+                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{$obj[$i]->created_at->format('Y-m-d')}}</span>
                                                 <span class="float-right">
-                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$list_obj[$i]->id}}">
+                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$obj[$i]->id}}">
                                                   <i class="fa fa-eye"></i> chi tiết
                                                 </a>
                                               </span>
@@ -191,8 +192,8 @@
                                     <!--Card-->
                                     <div class="card card-cascade narrower card-ecommerce">
                                         <!--Card image-->
-                                        <a href="/client/gift/{{$list_obj[$i]->id}}">
-                                            <div class="view view-cascade overlay" style="background-image: url('{{$list_obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
+                                        <a href="/client/gift/{{$obj[$i]->id}}">
+                                            <div class="view view-cascade overlay" style="background-image: url('{{$obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
                                             </div>
                                         </a>
                                         <!--Card image-->
@@ -204,18 +205,18 @@
                                             {{--<h5>{{$list_obj[$i]->name}}</h5>--}}
                                             {{--</a>--}}
                                             <h4 class="card-title">
-                                                <a href="/client/gift/{{$list_obj[$i]->id}}">{{$list_obj[$i]->name}}</a>
+                                                <a href="/client/gift/{{$obj[$i]->id}}">{{$obj[$i]->name}}</a>
                                             </h4>
 
                                             <!--Description-->
-                                            <p class="card-text">{{$list_obj[$i]->description}}
+                                            <p class="card-text">{{$obj[$i]->description}}
                                             </p>
 
                                             <!--Card footer-->
                                             <div class="card-footer">
-                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{$list_obj[$i]->created_at->format('Y-m-d')}}</span>
+                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{$obj[$i]->created_at->format('Y-m-d')}}</span>
                                                 <span class="float-right">
-                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$list_obj[$i]->id}}">
+                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$obj[$i]->id}}">
                                                   <i class="fa fa-eye"></i> chi tiết
                                                 </a>
                                               </span>
@@ -235,7 +236,7 @@
 
                     </div>
                     <!--Slides-->
-
+                    <a class="text-blue pull-right mt-5" href="/client/gift">Xem thêm <i class="fa fa-angle-double-right"></i></a>
                 </div>
                 <!--Carousel Wrapper-->
 

@@ -26,10 +26,8 @@ class GiftController extends Controller
 
     public function indexHome()
     {
-
         $category = Category::all();
-        $obj = Gift::orderBy('created_at', 'desc');
-        $obj = $obj->paginate(3);
+        $obj = Gift::orderBy('created_at', 'desc')->paginate(9);
 //        dd($obj);
         $notifications = Notification::where('account_id', Auth::user()->id)->get();
         return view('client.pages.home')
@@ -134,12 +132,10 @@ class GiftController extends Controller
         $obj = Gift::find($id);
 //        $info = Account::find($obj->account_id);
         if ($obj == null || $obj->status != 1) {
-
             return view('client.404client.404');
         }
-
-        return view('client.pages.product-detail')->with('obj', $obj);
-//            ->with('info', $info)
+        $list_relate = Gift::where('category_id', $obj->category_id)->paginate(3);
+        return view('client.pages.product-detail')->with('obj', $obj)->with('list_relate',$list_relate);
 
 
     }
@@ -157,7 +153,7 @@ class GiftController extends Controller
         if ($obj == null) {
             return view('client.404client.404');
         }
-        return view('client.pages.gift.edit')->with('obj', $obj)->with('list_Category',$list_Category);
+        return view('client.pages.gift.edit')->with('obj', $obj)->with('list_Category', $list_Category);
     }
 
     /**
@@ -170,8 +166,7 @@ class GiftController extends Controller
 
     public function update(Request $request, $id)
     {
-        if(!Auth::check())
-        {
+        if (!Auth::check()) {
             return redirect('/login');
         }
 //        $request->validated();
@@ -183,8 +178,7 @@ class GiftController extends Controller
 //        $obj = new Gift();
         $obj->name = $request->get('name');
         $obj->description = $request->get('description');
-        if(Input::file('photo') != null)
-        {
+        if (Input::file('photo') != null) {
             $current_time = time();
             Cloudder::upload(Input::file('photo')->getRealPath(), $current_time);
             $obj->images = $current_time;
