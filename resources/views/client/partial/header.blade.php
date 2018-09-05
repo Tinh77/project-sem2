@@ -2,11 +2,8 @@
 if (!isset($notifications)) $notifications = null;
 @endphp
     <nav class="navbar navbar-expand-lg navbar-dark top-nav-collapse">
-<<<<<<< HEAD
-        <div class="container">
-=======
+
         <div class="container p-0">
->>>>>>> 58a4f6adbe507880c19400b1752cdd903d587e8e
             <a class="navbar-brand" href="/client/home">
                 <img src="{{asset('img/brand/Logo_active01.png')}}" style="width: 300px" class="img-fluid" alt="">
             </a>
@@ -29,11 +26,11 @@ if (!isset($notifications)) $notifications = null;
                         {{--<a class="nav-link" href="/client/gift/create">Bạn cần xin</a>--}}
                     {{--</li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Chúng tôi</a>
+
+                        <a class="nav-link" href="#">Về chúng tôi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Liên hệ</a>
-
+                        <a class="nav-link" href="#">Liên hệ với chúng tôi</a>
                     </li>
                 </ul>
 
@@ -72,7 +69,7 @@ if (!isset($notifications)) $notifications = null;
                                 </a>
 
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink-4">
-                                    <li><a class="waves-effect waves-light" href="">
+                                    <li><a class="waves-effect waves-light" href="/profile/{{auth()->id()}}">
                                         Trang cá nhân
                                     </a></li>
                                     <li>
@@ -122,45 +119,6 @@ if (!isset($notifications)) $notifications = null;
     }
 </script>
 
-
-
-
-{{--@if (Route::has('login'))--}}
-
-    {{--@auth--}}
-        {{--<li class="nav-item">--}}
-            {{--<a id="navbarDropdown" class="dropdown-toggle" href="#" role="button"--}}
-               {{--data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-                {{--{{ Auth::user()->username }}--}}
-                {{--@level(4)--}}
-                {{--{{ __('[Admin]') }}--}}
-                {{--@else--}}
-                {{--{{ __('[Member]') }}--}}
-                {{--@endrole--}}
-                {{--<span class="caret"></span>--}}
-            {{--</a>--}}
-
-            {{--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
-                {{--<a class="dropdown-item" href="">--}}
-                    {{--Trang cá nhân--}}
-                {{--</a>--}}
-                {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
-                   {{--onclick="event.preventDefault();--}}
-        {{--document.getElementById('logout-form').submit();">--}}
-                    {{--Đăng xuất--}}
-                {{--</a>--}}
-                {{--<form id="logout-form" action="{{ route('logout') }}" method="POST"--}}
-                      {{--style="display: none;">--}}
-                    {{--@csrf--}}
-                {{--</form>--}}
-            {{--</div>--}}
-        {{--</li>--}}
-    {{--@else--}}
-        {{--<a class=" text-dark mr-5 item-menu font-text" href="{{ route('login') }}"--}}
-           {{--style="padding-top: 6px">Đăng--}}
-            {{--nhập</a>--}}
-    {{--@endauth--}}
-{{--@endif--}}
 
 
 

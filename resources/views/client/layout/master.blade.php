@@ -17,7 +17,7 @@
     <!-- Style.css -->
     <link href="{{asset('MDB/css/style.min.css')}}" rel="stylesheet">
 
-
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('client-css/personal.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/navbar.css')}}">
 

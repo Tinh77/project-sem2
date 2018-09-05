@@ -11,14 +11,13 @@
                 <div class="col-sm-6">
                     <form class="search-form" role="search">
                         {{--@if(\Illuminate\Support\Facades\Session::has('message'))--}}
-                            {{--<div class="alert{{\Illuminate\Support\Facades\Session::get('message-class')}}">{{\Illuminate\Support\Facades\Session::get('message')}}</div>--}}
+                        {{--<div class="alert{{\Illuminate\Support\Facades\Session::get('message-class')}}">{{\Illuminate\Support\Facades\Session::get('message')}}</div>--}}
                         {{--@endif--}}
                         <div class="form-group md-form my-0 waves-light">
 
                             {{--<input class="form-control mr-sm-2 w-50" name="key" value="{{$data['key']}}" type="search"--}}
-                                   {{--placeholder="Tìm kiếm sản phẩm mà bạn cần..."--}}
-                                   {{--aria-label="Search">--}}
-
+                            {{--placeholder="Tìm kiếm sản phẩm mà bạn cần..."--}}
+                            {{--aria-label="Search">--}}
                         </div>
                     </form>
                 </div>
@@ -92,7 +91,7 @@
 
                                         <!--Card image-->
                                         <div class="view overlay">
-                                            <div class="bg-slide-list" --}}
+                                            <div class="bg-slide-list"
                                                  style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 100%;height: 200px"></div>
 
 
@@ -106,29 +105,18 @@
                                         <div class="card-body">
                                             <!--Category & Title-->
 
-                                            <h5 class="card-title mb-1"><strong><a href=""
-                                                                                   class="dark-grey-text">{{$item -> name}}</a></strong>
+                                            <h5 class="card-title mb-1"><a href=""
+                                                                           class="dark-grey-text">{{$item -> name}}</a>
                                             </h5>
-                                        {{--<span class="badge badge-danger mb-2">bestseller</span>--}}
                                         <!-- Rating -->
                                             <!--Card footer-->
-                                            <div class="card-footer row pb-0">
-                                                {{--<span class="float-left"><img class="img-fluid w-25" src="https://i.pinimg.com/originals/53/37/49/5337490ca1097befda8a3a81e0b77af4.jpg" alt="">--}}
-                                                {{--</span>--}}
-                                                {{--<span class="float-right">--}}
-                                                {{--<a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">--}}
-                                                {{--<i class="fa fa-heart"></i>--}}
-                                                {{--</a>--}}
-                                                {{--</span>--}}
-                                                <div class="col-sm-6" style="padding: 0;margin: 0;!important;">
-                                                    <img class="avatar" style="width: 50px;height: 50px"
-                                                         src="https://i.pinimg.com/originals/53/37/49/5337490ca1097befda8a3a81e0b77af4.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="col-sm-6"
-                                                     style="padding: 0;margin: 0;!important;padding-top: 15px">
-                                                    <p>Thanh tung</p>
-                                                </div>
+                                            <div class="card-footer">
+                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{$item->created_at->format('Y-m-d')}}</span>
+                                                <span class="float-right">
+                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$item->id}}">
+                                                  <i class="fa fa-eye"></i> chi tiết
+                                                </a>
+                                              </span>
                                             </div>
 
                                         </div>
@@ -157,31 +145,3 @@
 
     </main>
 @endsection
-
-
-
-
-
-
-
-
-
-{{--@foreach($list_obj as $key => $item)--}}
-{{--<tr>--}}
-{{--<td>--}}
-{{--<a href="/client/category-gift/{{$key}}">{{$item}}</a>--}}
-{{--</td>--}}
-{{--</tr>--}}
-{{--@endforeach--}}
-
-
-{{--@foreach($obj as $item)--}}
-{{--<a href="/client/gift/{{$item->id}}">--}}
-{{--<article class="image col-md-3 ">--}}
-{{--<div class="bg-slide-list"--}}
-{{--style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 200px;height: 200px"></div>--}}
-{{--<p>{{$item->name}}</p>--}}
-{{--<a>-Dành cho độ tuổi...<br><i class="fas fa-heart"></i></a>--}}
-{{--</article>--}}
-{{--</a>--}}
-{{--@endforeach--}}

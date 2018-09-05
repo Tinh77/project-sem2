@@ -5,8 +5,8 @@ header,
 .jarallax {
     height: 700px;
 }
-.content-margin{
-    margin-top: 20vh;
+.font-intro {
+    font-family: 'Dancing Script', cursive;
 }
 .multiple-select-dropdown li [type=checkbox] + label {
     height: 1rem;
