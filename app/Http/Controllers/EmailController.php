@@ -11,9 +11,8 @@ class EmailController extends Controller
     //
     public function send(Request $request)
     {
-        Mail::to('tinhgtd00580@fpt.edu.vn')->send(new OrderShipped('Chào Tình', 'Thầy đói.'));
+//        Mail::to('tinhgtd00580@fpt.edu.vn')->send(new OrderShipped('Chào Tình', 'Thầy đói.'));
         Mail::to('thanhtungle1235@gmail.com')->send(new OrderShipped('Chào Tùng', 'Thầy rất đói.'));
-        Mail::to('hanhntd00589@fpt.edu.vn')->send(new OrderShipped('Chào Hạnh', 'Thầy khát.'));
         return response()->json(['message' => 'Request completed']);
     }
 

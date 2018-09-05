@@ -15,24 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
-    ],
-
-    'ses' => [
-        'key' => env('SES_KEY'),
-        'secret' => env('SES_SECRET'),
-        'region' => env('SES_REGION', 'us-east-1'),
-    ],
-
-    'sparkpost' => [
-        'secret' => env('SPARKPOST_SECRET'),
-    ],
-
-    'stripe' => [
-        'model' => App\User::class,
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
-    ],
+        'domain' => env('MAILGUN_DOMAIN', 'sandbox28b367b3f8c24ce78c4f94332bcd4ced.mailgun.org'),
+        'secret' => env('MAILGUN_SECRET', 'e902de2e46c715fcf74cd52410c0dbb9-f45b080f-0e0ac3c3'),
+    ]
 
 ];
