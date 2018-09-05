@@ -67,11 +67,11 @@ if (!isset($notifications)) $notifications = null;
                                 </a>
 
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink-4">
-                                    <li><a class="waves-effect waves-light" href="/profile/{{auth()->id()}}">
+                                    <li><a class="dropdown-item waves-effect waves-light" href="/profile/{{auth()->id()}}">
                                         Trang cá nhân
                                     </a></li>
                                     <li>
-                                    <a class="waves-effect waves-light" href="{{ route('logout') }}"
+                                    <a class="dropdown-item waves-effect waves-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
                                         Đăng xuất
