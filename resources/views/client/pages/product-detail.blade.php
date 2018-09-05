@@ -194,7 +194,11 @@
                 success: (response) => {
                     if (response.status == 0) {
                         console.log("okay");
-                    } else if (response.status == 'fraud') console.log("fraud");
+                    } else if (response.status == 'fraud') {
+                        console.log("fraud");
+                    } else{
+                        console.log(response.status);
+                    }
                 },
                 error: (response) => console.log("fail")
             });
