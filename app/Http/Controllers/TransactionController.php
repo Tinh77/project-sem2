@@ -19,13 +19,12 @@ class TransactionController extends Controller
     {
         if (auth()->check()) {
             $account_id = auth()->user()->id;
-            $obj = DB::table('transactions')
-                ->where('owner_id', '=', $account_id)
-                ->join('gifts', 'transactions.gift_id', '=', 'gifts.id')
-                ->join('accounts', 'transactions.buyer_id', '=', 'accounts.id')
-                ->select('transactions.*', 'gifts.images as gift_images', 'gifts.name as gift_name', 'accounts.first_name as account_first_name')
-                ->get();
-            return view('client.pages.list_transaction')->with(['obj' => $obj]);
+            $obj = Transaction::where('owner_id', '=', $account_id);
+//                ->join('gifts', 'transactions.gift_id', '=', 'gifts.id')
+//                ->join('accounts', 'transactions.buyer_id', '=', 'accounts.id')
+//                ->select('transactions.*', 'gifts.images as gift_images', 'gifts.name as gift_name', 'accounts.first_name as account_first_name')
+//                ->get();
+            return view('client.gift.listGift')->with(['obj' => $obj]);
         } else {
             return redirect('/login');
         }

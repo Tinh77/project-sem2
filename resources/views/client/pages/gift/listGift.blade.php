@@ -3,7 +3,7 @@
     <div class="col-md-9 personal">
         <div class="row justify-content-center">
             <div class="col-md-9">
-                <h4 class="card-title">Danh sách món quà đã đăng của bạn.</h4>
+                <h4 class="card-title">Danh sách món quà đã cho.</h4>
                 <div class="row content-personal">
                     <table id="datatables"
                            class="table table-striped table-no-bordered table-hover dataTable dtr-inline"

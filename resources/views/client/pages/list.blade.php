@@ -49,7 +49,10 @@
                                 <!--Radio group-->
                                 <div class="form-group ">
                                     <input name="group100" type="radio" id="radio100">
-                                    <label for="radio100" class="dark-grey-text">Tất cả</label>
+                                    <a href="">
+                                        <label for="radio100" class="dark-grey-text">Tất cả</label>
+                                    </a>
+
                                 </div>
 
                                 <div class="form-group">

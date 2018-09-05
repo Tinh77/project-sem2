@@ -19,7 +19,7 @@
 
                     <!--Grid column-->
                     @foreach($category as $item)
-                        <div class="col-lg col-md-6 mb-4">
+                        <div class="col-lg col-md col-sm col mb-4">
                             <!--Card-->
                             <div class="card card-ecommerce h-100">
                                 <!--Card image-->
