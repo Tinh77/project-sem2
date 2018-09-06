@@ -8,6 +8,13 @@ class Gift extends Model
 {
     protected $table = 'gifts';
 
+    public function account() {
+        return $this->hasOne('\App\User', 'id', 'account_id');
+    }
+    public function category() {
+        return $this->hasOne('\App\Category', 'id', 'category_id');
+    }
+
     public function getGenderStringAttribute()
     {
         switch ($this->gender) {
