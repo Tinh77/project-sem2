@@ -2,8 +2,8 @@
 @section('content1')
     <div class="col-md-9 personal">
         <div class="row justify-content-center">
-            <h4 class="card-title">Danh sách món quà đã đăng của bạn.</h4>
-            <div class="row content-personal">
+            <h4 class="card-title">Danh sách món quà cho đi.</h4>
+            <div class="row content-personal" style="padding-left: 15px;">
                 <table id="datatables"
                        class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
                        cellspacing="0" width="100%" style="width: 100%;" role="grid"
@@ -11,65 +11,92 @@
                     <thead>
                     <tr role="row">
                         <th class="sorting_asc" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 80px;"
+                            rowspan="1" colspan="1" style="width: 130px;"
                             aria-sort="ascending"
-                            aria-label="Name: activate to sort column descending">Id
+                            aria-label="Name: activate to sort column descending">Id món quà
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 470px;"
+                            rowspan="1" colspan="1" style="width: 300px;"
                             aria-label="Office: activate to sort column ascending">Tên món quà
-                        </th>
-                        <th class="sorting" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 570px;"
-                            aria-label="Position: activate to sort column ascending">
-                            Ảnh món quà
-                        </th>
-
-                        <th class="sorting" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 470px;"
-                            aria-label="Position: activate to sort column ascending">
-                            Mô tả món quà
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="datatables"
                             rowspan="1" colspan="1" style="width: 200px;"
                             aria-label="Office: activate to sort column ascending">Trạng thái
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 100px;"
-                            aria-label="Office: activate to sort column ascending">Sửa
-                        </th>
-                        <th class="sorting" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 100px;"
-                            aria-label="Office: activate to sort column ascending">Xóa
+                            rowspan="1" colspan="1" style="width: 200px;"
+                            aria-label="Office: activate to sort column ascending">Action
                         </th>
                     </tr>
                     </thead>
                     <tbody id="items-page">
-                    @foreach($obj as $item)
+                    @foreach($obj_owner_id as $item)
                         <tr>
-                            <th scope="row">{{$item->id}}</th>
-                            <td>{{$item->name}}</td>
-                            <td>
-                                <div
-                                        style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images,
-                                        array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;
-                                                background-repeat: no-repeat;background-position: center;width: 70px;height: 70px">
+                            <th scope="row">{{$item->gift_id}}</th>
+                            <td>{{$item->gift_name}}</td>
+                            <td>{{ $item->statusString }}</td>
+                            <td class="float-left">
+                                <div class="btn-group">
+                                    <a href="/client/gift/{{$item->id}}/edit"
+                                       class="btn btn-sm btn-simple btn-warning btn-icon edit"><i
+                                                class="fa fa-pencil"></i></a>
+                                    <a data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
+                                       class="btn btn-sm btn-simple btn-danger btn-icon remove btn-delete"><i
+                                                class="fa fa-trash"></i>
+                                    </a>
                                 </div>
                             </td>
-                            <td>{{str_limit($item->description,50)}}</td>
-                            <td>
-                                {{$item->status}}
 
-                            </td>
-                            <td>
-                                <a href="/client/gift/{{$item->id}}/edit"
-                                   class="btn btn-sm btn-simple btn-warning btn-icon edit"><i
-                                            class="material-icons">edit</i></a>
-                            </td>
-                            <td>
-                                <a data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
-                                   class="btn btn-sm btn-simple btn-danger btn-icon remove btn-delete">Delete
-                                </a>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <h4 class="card-title">Danh sách món quà nhận lại.</h4>
+            <div class="row content-personal" style="padding-left: 15px;">
+                <table id="datatables"
+                       class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
+                       cellspacing="0" width="100%" style="width: 100%;" role="grid"
+                       aria-describedby="datatables_info">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="datatables"
+                            rowspan="1" colspan="1" style="width: 130px;"
+                            aria-sort="ascending"
+                            aria-label="Name: activate to sort column descending">Id món quà
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="datatables"
+                            rowspan="1" colspan="1" style="width: 300px;"
+                            aria-label="Office: activate to sort column ascending">Tên món quà
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="datatables"
+                            rowspan="1" colspan="1" style="width: 200px;"
+                            aria-label="Office: activate to sort column ascending">Trạng thái
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="datatables"
+                            rowspan="1" colspan="1" style="width: 200px;"
+                            aria-label="Office: activate to sort column ascending">Action
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="items-page">
+                    @foreach($obj_buyer_id as $item)
+                        <tr>
+                            <th scope="row">{{$item->gift_id}}</th>
+                            <td>{{$item->gift_name}}</td>
+                            <td>{{ $item->statusString }}</td>
+                            <td class="float-left">
+                                <div class="btn-group">
+                                    <a href="/client/gift/{{$item->id}}/edit"
+                                       class="btn btn-sm btn-warning edit"><i
+                                                class="fa fa-pencil"></i></a>
+                                    <a data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
+                                       class="btn btn-sm btn-danger remove btn-delete"><i
+                                                class="fa fa-trash"></i>
+                                    </a>
+                                </div>
                             </td>
 
                         </tr>

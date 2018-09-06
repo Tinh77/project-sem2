@@ -49,6 +49,7 @@
 <script type="text/javascript" src="{{asset('MDB/js/popper.min.js')}}"></script>
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+<script type="text/javascript" src="{{asset('client-js/client.js')}}"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="{{asset('MDB/js/mdb.min.js')}}"></script>
 <!-- My js core JavaScript -->

@@ -28,8 +28,12 @@ Route::resource('/admin','CategoryController');
 Route::get('/client/list-gift', function () {
     return view('client.pages.gift.list');
 });
+
 Route::get('/client/pages/list', 'GiftController@listindex');
 //Route::get('/client/pages/listtransaction', 'GiftController@listtransactionindex');
+
+//Route::get('/client/pages/list', 'GiftController@listindex');
+
 Route::get('/client/category-gift/{id}', "GiftController@listCategory");
 
 Route::resource('/client/gift', 'GiftController');
@@ -37,7 +41,7 @@ Route::resource('/client/gift', 'GiftController');
 Route::post('/client/gift/{id}/inform', 'NotificationController@create');
 Route::post('/client/gift/{id}/confirm', 'NotificationController@edit');
 
-Route::resource('/client/transaction', 'TransactionController');
+Route::get('/client/transaction', 'TransactionController@indexOwnerId');
 
 Route::get('/client/home', 'GiftController@indexHome');
 

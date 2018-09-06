@@ -6,14 +6,14 @@
             </div>
             <div class="profile__menu">
                 <div class="text-center">
-                    <strong>Giang Hạnh</strong>
+                    <b>{{ Auth::user()->username }}h</b>
                     <div class="icon-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fa fa-map-marker-alt"></i>
                     </div>
                 </div>
                 <div class="profile__socials">
                     <button class="flow" type="submit">
-                        <i class="far fa-heart"></i> Theo dõi
+                        <i class="fa fa-heart"></i> Theo dõi
                     </button>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                         <td><a href="/profile/{{auth()->id()}}">Thông tin cá nhân</a></td>
                     </tr>
                     <tr><td>
-                        <a href="/client/pages/list">Món quà đã đăng</a></td>
+                        <a href="/client/transaction">Món quà đã đăng</a></td>
                     </tr>
                     <tr>
                         <td>Tổng số bài dang</td>
