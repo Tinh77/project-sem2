@@ -29,6 +29,7 @@ Route::get('/client/list-gift', function () {
     return view('client.pages.gift.list');
 });
 Route::get('/client/pages/list', 'GiftController@listindex');
+//Route::get('/client/pages/listtransaction', 'GiftController@listtransactionindex');
 Route::get('/client/category-gift/{id}', "GiftController@listCategory");
 
 Route::resource('/client/gift', 'GiftController');

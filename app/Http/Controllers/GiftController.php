@@ -68,6 +68,23 @@ class GiftController extends Controller
 
     }
 
+//
+//    public function listtransactionindex()
+//    {
+//        if (Auth::check()) {
+//            $account_id = Auth::id();
+//            $obj = DB::table('transactions')->where([
+//                ['owner_id', '=', $account_id],
+//                ['buyer_id', '=', $account_id],
+//                ['status', '=', 1]
+//            ])->get();
+//            return view('client.pages.gift.listGift')->with('obj', $obj);
+//        } else {
+//            return redirect('/login');
+//        }
+//
+//    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -108,8 +125,8 @@ class GiftController extends Controller
             $obj->category_id = Input::get('category_id');
             $obj->account_id = $account_id;
             $obj->description = Input::get('description');
-            $obj->phone_number = Input::get('phone_number');
-            $obj->address = Input::get('address');
+//            $obj->phone_number = Input::get('phone_number');
+//            $obj->address = Input::get('address');
             $obj->images = $current_time;
             $obj->age_range = Input::get('age_range');
             $obj->gender = Input::get('gender');
