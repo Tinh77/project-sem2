@@ -15,7 +15,7 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexOwnerId()
+    public function index()
     {
         if (auth()->check()) {
             $account_id = auth()->user()->id;
@@ -32,6 +32,14 @@ class TransactionController extends Controller
             return view('client.pages.gift.listGift')->with(['obj_owner_id' => $obj_owner_id, 'obj_buyer_id' => $obj_buyer_id]);
         } else {
             return redirect('/login');
+        }
+    }
+
+    public function show($id)
+    {
+        if (auth()->check()) {
+            $transaction = Transaction::findOrFail($id);
+            return view('client.pages.gift.gifttransaction', compact('transaction'));
         }
     }
 }

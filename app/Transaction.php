@@ -54,4 +54,9 @@ class Transaction extends Model
                 break;
         }
     }
+
+//    public function gift()
+//    {
+//        return $this->belongsTo('App\User');
+//    }
 }
