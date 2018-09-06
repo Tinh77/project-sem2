@@ -16,7 +16,7 @@
                                 <div class="carousel-inner text-center text-md-left" role="listbox">
                                     <div class="carousel-item active text-center">
                                         <img src="{{\JD\Cloudder\Facades\Cloudder::show($obj -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
-                                             alt="First slide" class="img-fluid">
+                                             alt="First slide" class="img-fluid p-4">
                                     </div>
                                 </div>
                                 <!--/.Slides-->
@@ -35,7 +35,8 @@
                             </div>
                         </div>
                         <div class="col-lg-5 mr-3 text-center text-md-left">
-                            <h2 class="h2-responsive product-name font-weight-bold">
+                            <h2 class="
+                            h2-responsive product-name font-weight-bold">
                                 {{$obj->name}}
                             </h2>
                             <p class="ml-xl-0 ml-4"><b>Ngày đăng: </b>{{$obj -> created_at -> format('d-m-Y H:i:s')}}</p>
@@ -76,7 +77,7 @@
                                 width="100%" height="450"
                                 frameborder="0" style="border:0"
                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDnro9-Oa4Ku3yKBkHFl_fVU7zVsOZ2Tvw
-    &q={{$obj->address}}" allowfullscreen>
+            &q={{$obj->address}}" allowfullscreen>
                         </iframe>
                     </div>
                 </div>
@@ -125,10 +126,6 @@
 
                                         <!--Card content-->
                                         <div class="card-body card-body-cascade text-center no-padding h-100">
-                                            <!--Category & Title-->
-                                            {{--<a href="" class="text-muted">--}}
-                                            {{--<h5>{{$list_obj[$i]->name}}</h5>--}}
-                                            {{--</a>--}}
                                             <h4 class="card-title">
                                                 <a href="/client/gift/{{$item->id}}">{{$item->name}}</a>
                                             </h4>
@@ -194,7 +191,11 @@
                 success: (response) => {
                     if (response.status == 0) {
                         console.log("okay");
-                    } else if (response.status == 'fraud') console.log("fraud");
+                    } else if (response.status == 'fraud') {
+                        console.log("fraud");
+                    } else{
+                        console.log(response.status);
+                    }
                 },
                 error: (response) => console.log("fail")
             });
