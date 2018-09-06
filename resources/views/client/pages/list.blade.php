@@ -46,29 +46,30 @@
                                 <h4 class=" dark-grey-text">Phân loại theo tuổi</h4>
                                 <div class="divider border-top"></div>
 
-                                <!--Radio group-->
-                                <div class="form-group ">
-                                    <input name="group100" type="radio" id="radio100">
-                                    <a href="">
-                                        <label for="radio100" class="dark-grey-text">Tất cả</label>
-                                    </a>
-
-                                </div>
-
-                                <div class="form-group">
-                                    <input name="group100" type="radio" id="radio101" checked>
-                                    <label for="radio101" class="dark-grey-text">0 tháng - 6 tháng</label>
-                                </div>
-
-                                <div class="form-group">
-                                    <input name="group100" type="radio" id="radio102">
-                                    <label for="radio102" class="dark-grey-text">6 tháng - 12 tháng</label>
-                                </div>
-
-                                <div class="form-group">
-                                    <input name="group100" type="radio" id="radio103">
-                                    <label for="radio103" class="dark-grey-text">trên 12 tháng</label>
-                                </div>
+                                <!--Radio <group-->
+                                <form method="GET" id="searchForm" action="/client/gift">
+                                    <!--/group-->
+                                    <div class="form-group ">
+                                        <label class="dark-grey-text">
+                                            <input name="group100" value="0" type="radio" id="search_age_range">
+                                            Tất cả</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="group100" value="1" type="radio" id="search_age_range">
+                                            0 tháng - 6 tháng</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="group100" value="2" type="radio" id="search_age_range">
+                                            6 tháng - 12 tháng</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="group100" value="3" type="radio" id="search_age_range">
+                                            trên 12 tháng</label>
+                                    </div>
+                                </form>
                                 <!--Radio group-->
                             </div>
                             <!-- /Filter by category-->
@@ -117,7 +118,7 @@
                                             <!--Card footer-->
                                             <div class="card-footer">
                                                 <span class="float-left"><i
-                                                            class="fa fa-clock-o"></i> {{$item->created_at->format('Y-m-d')}}</span>
+                                                            class="fa fa-clock-o"></i> {{$item->created_at->diffForHumans()}}</span>
                                                 <span class="float-right">
                                                 <a class="card-link" title="chi tiết"
                                                    href="/client/gift/{{$item->id}}">
