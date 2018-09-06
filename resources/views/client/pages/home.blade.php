@@ -287,7 +287,7 @@
                                 <div>
                                     <a href="" class="purple-text">
                                         <h5>
-                                            <i class="fa fa-plane pr-2"></i>Fashion week</h5>
+                                            <i class="fa fa-plane pr-2"></i></h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
                                         <strong>Tất cả vì trẻ nhỏ</strong>
@@ -311,7 +311,7 @@
                                 <div>
                                     <a href="" class="pink-text">
                                         <h5>
-                                            <i class="fa fa-camera pr-2"></i>Street style</h5>
+                                            <i class="fa fa-eye pr-2"></i></h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
                                         <strong>Cho bé ngủ đúng cách</strong>
@@ -335,7 +335,7 @@
                                 <div>
                                     <a href="" class="green-text">
                                         <h5>
-                                            <i class="fa fa-eye pr-2"></i>Summer trends</h5>
+                                            <i class="fa fa-camera pr-2"></i></h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
                                         <strong>Chụp ảnh cho bé</strong>
