@@ -60,7 +60,8 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        //
+        $transaction = DB::select('select * from transaction where owner_id = account_id and gift_id = ? and status =1');
+        return view('client.pages.list_transaction')->with(['transaction' => $transaction]);
     }
 
     /**
