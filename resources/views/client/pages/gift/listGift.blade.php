@@ -115,16 +115,19 @@
             });
             // var id = $(this).data("id");
             swal({
-                text: "Bạn có chắc là muốn xóa mó1n quà này?",
-                icon: 'warning',
-                // buttons: true,
-                // buttons: ["Hủy", "Xóa"]
+                text: "Bạn có chắc là muốn xóa lịch sử món quà này?",
+                type: 'warning',
+                // icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Xoá",
-                cancelButtonText: "Hủy",
-                closeOnConfirm: false,
-                closeOnCancel: false
+                // buttons: true,
+
+                buttons: ["Hủy", "Xóa"]
+
+                // confirmButtonClass: 'btn btn-success',
+                // cancelButtonClass: 'btn btn-danger',
+                // confirmButtonText: "Xoá",
+                // cancelButtonText: "Hủy",
+                // buttonsStyling: false
 
             }).then(function () {
 
@@ -135,7 +138,7 @@
                         '_method': 'DELETE',
                         'id': $id
                     },
-                    success: function (response) {
+                    success: function () {
                         swal(
                             'Đã xóa thành công.',
                             'success'
