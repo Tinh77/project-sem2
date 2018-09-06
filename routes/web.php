@@ -18,6 +18,10 @@ Route::get('/admin/demo-form', function () {
     return view('admin.pages.form');
 });
 
+Route::get('/client/list-transaction', function () {
+    return view('client.pages.gift.gifttransaction');
+});
+
 
 Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
@@ -28,7 +32,12 @@ Route::resource('/admin','CategoryController');
 Route::get('/client/list-gift', function () {
     return view('client.pages.gift.list');
 });
+
+Route::get('/client/pages/list', 'GiftController@listindex');
+//Route::get('/client/pages/listtransaction', 'GiftController@listtransactionindex');
+
 //Route::get('/client/pages/list', 'GiftController@listindex');
+
 Route::get('/client/category-gift/{id}', "GiftController@listCategory");
 
 Route::resource('/client/gift', 'GiftController');
@@ -105,7 +114,10 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::post('search-users', '\App\Http\Controllers\Admin\UsersManagementController@search')->name('search-users');
 });
 
+
+
 Route::get('/send-mail', 'EmailController@send');
+
 
 Route::get('/client/post1', function () {
     return view('client.posts.post1');
@@ -118,3 +130,4 @@ Route::get('/client/pages/post2', function () {
 Route::get('/client/post3', function () {
     return view('client.posts.post3');
 });
+
