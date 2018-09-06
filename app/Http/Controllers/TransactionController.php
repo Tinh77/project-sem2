@@ -15,17 +15,21 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexOwnerId()
     {
         if (auth()->check()) {
             $account_id = auth()->user()->id;
-            $obj = DB::table('transactions')
-                ->where('owner_id', '=', $account_id)
+            $obj_owner_id = Transaction::where('owner_id', '=', $account_id)
                 ->join('gifts', 'transactions.gift_id', '=', 'gifts.id')
                 ->join('accounts', 'transactions.buyer_id', '=', 'accounts.id')
                 ->select('transactions.*', 'gifts.images as gift_images', 'gifts.name as gift_name', 'accounts.first_name as account_first_name')
                 ->get();
-            return view('client.pages.list_transaction')->with(['obj' => $obj]);
+            $obj_buyer_id = Transaction::where('buyer_id', '=', $account_id)
+                ->join('gifts', 'transactions.gift_id', '=', 'gifts.id')
+                ->join('accounts', 'transactions.buyer_id', '=', 'accounts.id')
+                ->select('transactions.*', 'gifts.images as gift_images', 'gifts.name as gift_name', 'accounts.first_name as account_first_name')
+                ->get();
+            return view('client.pages.gift.listGift')->with(['obj_owner_id' => $obj_owner_id, 'obj_buyer_id' => $obj_buyer_id]);
         } else {
             return redirect('/login');
         }
@@ -60,7 +64,8 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        $transaction = DB::select('select * from transaction where owner_id = account_id and gift_id = ? and status =1');
+
+        $transaction = DB::select('select * from transactions where status = 1 and owner_id = ? and gift_id  ',[\auth()->id(),1]);
         return view('client.pages.list_transaction')->with(['transaction' => $transaction]);
     }
 
@@ -97,4 +102,5 @@ class TransactionController extends Controller
     {
         //
     }
+
 }
