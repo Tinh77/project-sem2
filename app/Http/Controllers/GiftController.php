@@ -17,12 +17,15 @@ use Mockery\Matcher\Not;
 
 class GiftController extends Controller
 {
-//    public function __struckt
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct() {
+        $this->middleware('auth', ['except'=>['indexHome']]);
+    }
 
 
     public function indexHome()
@@ -60,23 +63,6 @@ class GiftController extends Controller
         return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
     }
 
-
-//
-//    public function listtransactionindex()
-//    {
-//        if (Auth::check()) {
-//            $account_id = Auth::id();
-//            $obj = DB::table('transactions')->where([
-//                ['owner_id', '=', $account_id],
-//                ['buyer_id', '=', $account_id],
-//                ['status', '=', 1]
-//            ])->get();
-//            return view('client.pages.gift.listGift')->with('obj', $obj);
-//        } else {
-//            return redirect('/login');
-//        }
-//
-//    }
 
     /**
      * Show the form for creating a new resource.

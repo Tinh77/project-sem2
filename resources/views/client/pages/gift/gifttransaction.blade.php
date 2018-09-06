@@ -11,26 +11,26 @@
                     <thead>
                     <tr>
                         <th>Tên người muốn xin</th>
-                        <th>....</th>
+                        <th>{{$transaction->buyer->username}}</th>
                     </tr>
                     <tr>
                         <td>Tên món quà</td>
-                        <th>....</th>
+                        <th>{{$transaction->gift->name}}</th>
                     </tr>
                     <tr>
                         <td>Ảnh món quà</td>
-                        <th>....</th>
+                        <th>{{$transaction->gift->images}}</th>
                     </tr>
                     <tr>
                         <td>Mô tả món quà</td>
-                        <th>....</th>
+                        <th>{{$transaction->gift->description}}</th>
                     </tr>
                     <tr>
                         <td>Lời nhắn xin</td>
-                        <th>....</th>
+                        <th>{{$transaction->content}}</th>
                     </tr>
                     <tr>
-                        <td> <button type="button" class="btn btn-danger btn-sm">Xác nhận cho</button></td>
+                        <td> <button type="button" class="float-right btn btn-danger btn-sm">Xác nhận cho</button></td>
                     </tr>
 
                     </thead>
