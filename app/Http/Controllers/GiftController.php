@@ -60,20 +60,6 @@ class GiftController extends Controller
         return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
     }
 
-//    public function listindex()
-//    {
-//        if (Auth::check()) {
-//            $account_id = Auth::id();
-//            $obj = DB::table('gifts')->where([
-//                ['account_id', '=', $account_id],
-//                ['status', '=', 1]
-//            ])->get();
-//            return view('client.pages.gift.listGift')->with('obj', $obj);
-//        } else {
-//            return redirect('/login');
-//        }
-//
-//    }
 
     /**
      * Show the form for creating a new resource.
