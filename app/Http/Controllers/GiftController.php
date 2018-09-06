@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Gift;
-use App\Transaction;
+use App\Account;
 use App\Notification;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
@@ -27,6 +27,7 @@ class GiftController extends Controller
 
     public function indexHome()
     {
+
         $category = Category::all();
         $obj = Gift::orderBy('created_at', 'desc')->paginate(9);
 //        dd($obj);
@@ -42,6 +43,7 @@ class GiftController extends Controller
 
     public function index()
     {
+        $age = Input::get('group100');
         $keyword = Input::get('key');
         $data = Input::get();
         $obj = Gift::orderBy('created_at', 'desc');
@@ -50,27 +52,28 @@ class GiftController extends Controller
         } else {
             $data['key'] = '';
         }
+        if (isset($age) && Input::get('group100')){
+            $obj = $obj->where('age_range', '=', $age );
+        }
         $obj = $obj->paginate(6);
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
-//        $list_obj = DB::table('gifts')->pluck("name", "category_id");
-//        return view('client.pages.list')->with('list_obj', $list_obj);
     }
 
-    public function listindex()
-    {
-        if (Auth::check()) {
-            $account_id = Auth::id();
-            $obj = DB::table('gifts')->where([
-                ['account_id', '=', $account_id],
-                ['status', '=', 1]
-            ])->get();
-            return view('client.pages.gift.listGift')->with('obj', $obj);
-        } else {
-            return redirect('/login');
-        }
-
-    }
+//    public function listindex()
+//    {
+//        if (Auth::check()) {
+//            $account_id = Auth::id();
+//            $obj = DB::table('gifts')->where([
+//                ['account_id', '=', $account_id],
+//                ['status', '=', 1]
+//            ])->get();
+//            return view('client.pages.gift.listGift')->with('obj', $obj);
+//        } else {
+//            return redirect('/login');
+//        }
+//
+//    }
 
     /**
      * Show the form for creating a new resource.
@@ -134,12 +137,13 @@ class GiftController extends Controller
     public function show($id)
     {
         $obj = Gift::find($id);
-//        $info = Account::find($obj->account_id);
+        $accountInfo = Account::find($obj->account_id);
         if ($obj == null || $obj->status != 1) {
             return view('client.404client.404');
         }
         $list_relate = Gift::where('category_id', $obj->category_id)->paginate(3);
-        return view('client.pages.product-detail')->with('obj', $obj)->with('list_relate',$list_relate);
+        return view('client.pages.product-detail')->with('obj', $obj)->with('list_relate',$list_relate)
+            ->with('accountInfo', $accountInfo);
 
 
     }

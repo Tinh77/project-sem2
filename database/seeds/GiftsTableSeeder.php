@@ -19,7 +19,7 @@ class GiftsTableSeeder extends Seeder
             [
                 'account_id' => 1,
                 'category_id' => 1,
-                'name' => 'Bộ quần áo dài tay Beiner',
+                'name' => 'Bộ áo dài tay Beiner',
                 'description' => 'Mình có 5 bộ quần áo dài của con mình , mới mặc qua 2 mùa đông nhưng giờ mặc bị chật nên mình muốn để lại cho các bé khác',
                 'images' => 'https://kidsplaza-1.cdn.vccloud.vn/blog/wp-content/uploads/2017/03/quan-ao-tre-so-sinh-1.jpg',
                 'age_range' => 1,
@@ -31,7 +31,7 @@ class GiftsTableSeeder extends Seeder
             [
                 'account_id' => 2,
                 'category_id' => 1,
-                'name' => 'Áo cài vai tay dài Kiza',
+                'name' => 'Áo cài vai dài tay',
                 'description' => 'Mình có 5 cái áo dài của con gái , mới mặc qua 1 mùa đông nhưng giờ mặc bị chật nên mình muốn để lại cho các bé nào mặc vừa',
                 'images' => 'https://media.bibomart.net/u/bbm/product/2016/01/27/17/47/1000_1000/ao-so-sinh-carter-mau-day-s9-102913-4_1.jpg',
                 'age_range' => 1,
