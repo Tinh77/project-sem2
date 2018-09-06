@@ -33,10 +33,11 @@
                                 <!-- Panel -->
                                 <h4 class="dark-grey-text">Danh mục sản phẩm</h4>
                                 <div class="divider border-top"></div>
-                                <p> <a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
+                                <p><a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
 
                                 @foreach($list_obj as $key => $item)
-                                    <p><a class="dark-grey-text text-center" href="/client/category-gift/{{$key}}">{{$item}}</a></p>
+                                    <p><a class="dark-grey-text text-center"
+                                          href="/client/category-gift/{{$key}}">{{$item}}</a></p>
                                 @endforeach
 
                             </div>
