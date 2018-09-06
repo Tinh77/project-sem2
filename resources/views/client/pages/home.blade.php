@@ -272,10 +272,9 @@
                 <!--Section heading-->
                 <h2 class="font-weight-bold text-center h1 my-5">Chia sẻ kinh nghiệm</h2>
                 <!--Section description-->
-                <p class="text-center grey-text mb-5 mx-auto w-responsive">Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.</p>
+                <p class="text-center grey-text mb-5 mx-auto w-responsive">
+                    Luôn tự hào là nguồn thông tin và kiến thức đáng tin cậy dành cho phụ nữ trưởng thành.
+                </p>
 
                 <!--Grid row-->
                 <div class="row">
@@ -283,7 +282,7 @@
                     <!--Grid column-->
                     <div class="col-md-12 mb-4">
                         <div class="card card-image"
-                             style="background-image: url('https://mdbootstrap.com/img/Photos/Others/slide%20(31).jpg');">
+                             style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGRfG_JaywFCGWHnwLLaIL_1nqLxz8qBw70PM11Bo9tMtlFqkkkw');">
                             <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
                                 <div>
                                     <a href="" class="purple-text">
@@ -291,15 +290,13 @@
                                             <i class="fa fa-plane pr-2"></i>Fashion week</h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
-                                        <strong>Project title</strong>
+                                        <strong>Tất cả vì trẻ nhỏ</strong>
                                     </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus quod minima
-                                        assumenda qui mollitia
-                                        architecto soluta at ipsa itaque nam, aliquam minus odit expedita voluptatibus
-                                        fugiat amet, nostrum error
-                                        dolorum!.</p>
-                                    <a class="btn btn-secondary btn-sm">
-                                        <i class="fa fa-clone left"></i> View project</a>
+                                    <p>Nuôi con nhỏ phải thật bình tĩnh, nhất là những ai lần đầu làm mẹ và nuôi con trong tháng đầu:
+                                        đừng lo lắng quá rồi stress thêm; đừng cuống cuồng lên khi con có biểu hiện lạ, hãy bình tĩnh giải quyết.
+                                        Rồi tất cả cũng trôi qua và tốt đẹp cả thôi: bạn sẽ là người mẹ thực sự.</p>
+                                    <a class="btn btn-secondary btn-sm" href="/client/post1">
+                                        <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -309,7 +306,7 @@
                     <!--Grid column-->
                     <div class="col-md-6 mb-4">
                         <div class="card card-image"
-                             style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(60).jpg');">
+                             style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxyuARr2MYS3jUHv8ubofoPCYnTCyesccLChdXBipXp2fdFl_2zw');">
                             <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
                                 <div>
                                     <a href="" class="pink-text">
@@ -317,14 +314,13 @@
                                             <i class="fa fa-camera pr-2"></i>Street style</h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
-                                        <strong>Project title</strong>
+                                        <strong>Cho bé ngủ đúng cách</strong>
                                     </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat,
-                                        laboriosam, voluptatem, optio
-                                        vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum
-                                        dignissimos.</p>
-                                    <a class="btn btn-pink btn-sm">
-                                        <i class="fa fa-clone left"></i> View project</a>
+                                    <p> Không cho trẻ bé sơ sinh nằm nệm quá mềm
+                                        Theo các bác sĩ, hệ xương và cột sống của em bé còn khá mềm yếu vì thế nếu cho trẻ nằm ngủ đệm quá mềm sẽ ảnh hưởng đến cột sống của bé.
+                                        Lớn lên trẻ dễ bị cong, xiêu vẹo hoặc các dị tật khác về cột sống.</p>
+                                    <a class="btn btn-pink btn-sm" href="/client/pages/post2">
+                                        <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -334,7 +330,7 @@
                     <!--Grid column-->
                     <div class="col-md-6 mb-4">
                         <div class="card card-image"
-                             style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(58).jpg');">
+                             style="background-image: url('https://yeutre.vn/cdn/medias/uploads/19/19501-chup-anh-cho-con.jpg');">
                             <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
                                 <div>
                                     <a href="" class="green-text">
@@ -342,14 +338,14 @@
                                             <i class="fa fa-eye pr-2"></i>Summer trends</h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
-                                        <strong>Project title</strong>
+                                        <strong>Chụp ảnh cho bé</strong>
                                     </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat,
-                                        laboriosam, voluptatem, optio
-                                        vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum
-                                        dignissimos.</p>
-                                    <a class="btn btn-success btn-sm">
-                                        <i class="fa fa-clone left"></i> View project</a>
+                                    <p>Khi chụp ảnh nên tắt đèn flash để tránh làm hại mắt bé
+                                        Vì mắt trẻ sơ sinh chưa hoàn chỉnh các điểm ảnh nên
+                                        đèn flash có thể gây hại cho mắt bé
+                                        . Vì thế, nếu bạn muốn chụp lại những khoảnh khắc đáng yêu của con để lưu niệm thì trước khi chụp nhớ tắt đèn flash nhé.</p>
+                                    <a class="btn btn-success btn-sm" href="/client/post3">
+                                        <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
                             </div>
                         </div>

@@ -106,3 +106,15 @@ Route::middleware(['web', 'auth'])->group(function () {
 });
 
 Route::get('/send-mail', 'EmailController@send');
+
+Route::get('/client/post1', function () {
+    return view('client.posts.post1');
+});
+
+Route::get('/client/pages/post2', function () {
+    return view('client.posts.post2');
+});
+
+Route::get('/client/post3', function () {
+    return view('client.posts.post3');
+});
