@@ -18,9 +18,9 @@ Route::get('/admin/demo-form', function () {
     return view('admin.pages.form');
 });
 
-Route::get('/client/list-transaction', function () {
-    return view('client.pages.gift.gifttransaction');
-});
+//Route::get('/client/list-transaction', function () {
+//    return view('client.pages.gift.gifttransaction');
+//});
 
 
 Route::get('/admin/demo-list', function () {
@@ -45,7 +45,8 @@ Route::resource('/client/gift', 'GiftController');
 Route::post('/client/gift/{id}/inform', 'NotificationController@create');
 Route::post('/client/gift/{id}/confirm', 'NotificationController@edit');
 
-Route::get('/client/transaction', 'TransactionController@indexOwnerId');
+Route::get('/client/transaction', 'TransactionController@index');
+Route::get('/client/transaction/{id}', 'TransactionController@show');
 
 Route::get('/client/home', 'GiftController@indexHome');
 
