@@ -126,15 +126,11 @@ class GiftController extends Controller
     public function show($id)
     {
         $obj = Gift::find($id);
-        $accountInfo = Account::find($obj->account_id);
         if ($obj == null || $obj->status != 1) {
             return view('client.404client.404');
         }
         $list_relate = Gift::where('category_id', $obj->category_id)->paginate(3);
-        return view('client.pages.product-detail')->with('obj', $obj)->with('list_relate',$list_relate)
-            ->with('accountInfo', $accountInfo);
-
-
+        return view('client.pages.product-detail')->with('obj', $obj)->with('list_relate',$list_relate);
     }
 
     /**

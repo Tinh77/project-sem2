@@ -169,7 +169,7 @@
         }(document, 'script', 'facebook-jssdk'));</script>
     <script>
         function getInfo() {
-            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$accountInfo->phone}}"><font color="white">{{$accountInfo->phone}}</font></a></button><br><button class="btn btn-default">{{$accountInfo->address}}</button><br>  <textarea id="waitingMessage" name="message" rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea>  <br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi đã nhận</font></button>');
+            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><button class="btn btn-default">{{$obj->account->account->address}}</button><br>  <textarea id="waitingMessage" name="message" rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea>  <br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi đã nhận</font></button>');
         }
 
         function informSubmit(id, gift_id) {

@@ -15,9 +15,6 @@ Route::get('/admin', function () {
 Route::get('/admin/demo-form', function () {
     return view('admin.pages.form');
 });
-//Route::get('/client/list-transaction', function () {
-//    return view('client.pages.gift.gifttransaction');
-//});
 Route::get('/admin/demo-list', function () {
     return view('admin.pages.table');
 });
@@ -26,8 +23,6 @@ Route::get('/client/list-gift', function () {
     return view('client.pages.gift.list');
 });
 Route::get('/client/pages/list', 'GiftController@listindex');
-//Route::get('/client/pages/listtransaction', 'GiftController@listtransactionindex');
-//Route::get('/client/pages/list', 'GiftController@listindex');
 Route::get('/client/category-gift/{id}', "GiftController@listCategory");
 Route::resource('/client/gift', 'GiftController');
 Route::post('/client/gift/{id}/inform', 'NotificationController@create');

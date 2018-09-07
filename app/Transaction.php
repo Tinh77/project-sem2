@@ -27,11 +27,11 @@ class Transaction extends Model
                 return 'Hủy giao dịch';
                 break;
             case 0:
-                return 'Đang chờ xác nhận';
+                return 'Đang chờ người xin';
                 break;
             case 1:
-                return 'Xác nhận';
-                break;
+                return 'Đang chờ xác nhận';
+                break;;
             case 2:
                 return 'Đang trao đổi';
                 break;

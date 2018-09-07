@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderShipped;
 use App\Notification;
 use App\Gift;
 use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
 use Mail;
 
 class NotificationController extends Controller
@@ -47,10 +49,11 @@ class NotificationController extends Controller
         $notification->transaction_id = $transaction->id;
         $notification->save();
         // mail đến người cho.
-        $data = array('title' => 'Xin chao vietnam', 'username' => Auth::user()->username,'namegift'=> $gift->name);
+
+        $data = array('title' => 'Xin chao vietnam', 'username' => Auth::user()->username, 'namegift', 'transaction' => $notification->transaction->id);
         Mail::send('emails.send', $data, function ($message) use ($email) {
             $message->to($email, $email)->subject
-            ('Xin mon hang');
+            ('Tôi muốn xin món hàng này của bạn .Vui lòng xem chi tiết ở bên dưới');
             $message->from('admin@meaning-gift.com', 'Meaning Gift Admin');
         });
         return response()->json(['status' => 0]);
