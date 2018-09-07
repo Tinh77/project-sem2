@@ -4,10 +4,7 @@
     <div class="container">
         <!-- Section: product details -->
         <section id="productDetails" class="pb-5">
-            <<<<<<< HEAD
-            =======
 
-            >>>>>>> 44a9cf3027476197418da4b1097edd6f260ee619
             <!--News card-->
             <div class="card mt-5 hoverable">
                 <div class="row mt-5">
@@ -57,19 +54,14 @@
                             <div class="mt-5">
                                 <div class="row mt-3 mb-4">
                                     <div class="col-md-12 text-center text-md-left text-md-right" id="btnShow">
-                                        <<<<<<< HEAD
-                                        <button class="btn btn-primary btn-rounded" data-toggle="modal"
-                                                data-target="#modalContactForm" onclick="getInfo()">
-                                            =======
-                                            <button class="btn btn-primary btn-rounded"
-                                                    @if(!$follow)
-                                                    onclick="getInfo()
-                                                    @else
-                                                            disabled
-                                                    @endif">
-                                                >>>>>>> 44a9cf3027476197418da4b1097edd6f260ee619
-                                                Quan tâm!
-                                            </button>
+                                        <button class="btn btn-primary btn-rounded"
+                                                @if(!$follow)
+                                                onclick="getInfo()
+                                                @else
+                                                        disabled
+                                                @endif">
+                                            Quan tâm!
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -121,36 +113,6 @@
             <p class="text-center w-responsive mx-auto mb-5 dark-grey-text">Những sản phẩm thuộc cùng thể loại hoặc ở
                 gần bạn...</p>
             <!--Carousel Wrapper-->
-            <<<<<<< HEAD
-            <div class="row">
-                @foreach($list_relate as $item)
-                    <div class="col-md-4 mt-3">
-                        <!--Card-->
-                        <div class="card card-cascade narrower card-ecommerce">
-                            <!--Card image-->
-                            <a href="/client/gift/{{$item->id}}">
-                                <div class="view view-cascade overlay"
-                                     style="background-image: url('{{$item->images}}'); background-size: cover; width: auto; height: 272px;">
-                                </div>
-                            </a>
-                            <!--Card image-->
-
-                            <!--Card content-->
-                            <div class="card-body card-body-cascade text-center no-padding h-100">
-                                <h4 class="card-title">
-                                    <a href="/client/gift/{{$item->id}}">{{$item->name}}</a>
-                                </h4>
-
-                                <!--Description-->
-                                <p class="card-text">{{str_limit($item->description,50)}}
-                                </p>
-
-                                <!--Card footer-->
-                                <div class="card-footer">
-                                            <span class="float-left"><i
-                                                        class="fa fa-clock-o"></i> {{$item->created_at->format('Y-m-d')}}</span>
-                                    <span class="float-right">
-=======
             <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
                 <!--Slides-->
@@ -184,23 +146,27 @@
                                             <span class="float-left"><i
                                                         class="fa fa-clock-o"></i> {{$item->created_at->format('Y-m-d')}}</span>
                                             <span class="float-right">
->>>>>>> 44a9cf3027476197418da4b1097edd6f260ee619
                                                 <a class="card-link" title="Quick Look"
                                                    href="/client/gift/{{$item->id}}">
                                                   <i class="fa fa-eye"></i> chi tiết
                                                 </a>
                                               </span>
-                                </div>
-                            </div>
+                                        </div>
+
+                                    </div>
                                     <!--Card content-->
-                        </div>
+
+                                </div>
                                 <!--Card-->
-                    </div>
+
+                            </div>
                         @endforeach
-                        <a class="text-blue pull-right mt-5" href="/client/gift">Xem thêm <i
-                                    class="fa fa-angle-double-right"></i></a>
+                    </div>
+
+                </div>
+                <!--Slides-->
+
             </div>
-                    <!--Slides-->
 
         </section>
         <!--Section: Products v.5-->
@@ -217,18 +183,15 @@
         }(document, 'script', 'facebook-jssdk'));</script>
     <script>
         function getInfo() {
-            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><button class="btn btn-default">{{$obj->account->account->address}}</button><br>  <textarea id="waitingMessage" name="message" rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea>  <br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi đã nhận</font></button>');
+            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><button class="btn btn-default">{{$obj->account->account->address}}</button><br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi đã nhận</font></button>');
         }
-
         function informSubmit(id, gift_id) {
             $.ajax({
                 url: '/client/gift/' + gift_id + '/inform',
                 type: 'POST',
                 data: {
                     'id': id,
-                    'gift_id': gift_id,
-                    'message': $('#waitingMessage').val()
-
+                    'gift_id': gift_id
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
