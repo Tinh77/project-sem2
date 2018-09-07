@@ -369,7 +369,7 @@
                                                     <table border="0" cellpadding="0" cellspacing="0">
                                                         <tbody>
                                                         <tr>
-                                                            <td><a href="/transaction/" target="_blank">Kiểm tra</a>
+                                                            <td><a href="http://127.0.0.1:8000/client/transaction/{{$transaction}}" target="_blank">Kiểm tra</a>
                                                             </td>
                                                         </tr>
                                                         </tbody>
