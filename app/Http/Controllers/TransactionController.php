@@ -34,9 +34,4 @@ class TransactionController extends Controller
         return view('client.pages.gift.gifttransaction', compact('transaction'));
     }
 
-    public function store(){
-        $transaction = new Transaction();
-//        $transaction->owner_id = ;
-    }
-
 }
