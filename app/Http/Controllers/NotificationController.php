@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Mail\OrderShipped;
 use App\Notification;
 use App\Gift;
 use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use jeremykenedy\LaravelLogger\App\Http\Controllers\LaravelLoggerController;
-use Mockery\Matcher\Not;
+use Mail;
 
 class NotificationController extends Controller
 {
@@ -37,6 +34,7 @@ class NotificationController extends Controller
         if (Auth::user()->id != $request->get('id')) return response()->json(['status' => '2']);
         if ($request->get('id') == $gift->account->id) return response()->json(['status' => '3']);
 
+        $email = $gift->account->account->email;
         $transaction = Transaction::create([
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
@@ -48,7 +46,13 @@ class NotificationController extends Controller
         $notification->transaction_id = $transaction->id;
         $notification->save();
         // mail đến người cho.
-        Mail::to($gift->account->account->email)->send(new OrderShipped('Xin món hàng ' . $gift->name, 'Tôi rất quan tâm đến món quà của bạn, vui long click vào đây để xác nhận cho tôi.'));
+
+        $data = array('title'=>'Xin chao vietnam', 'content'=>'Day la noi dung');
+        Mail::send('emails.send', $data, function($message) use ($email)  {
+            $message->to($email, $email)->subject
+            ('Xin mon hang');
+            $message->from('admin@meaning-gift.com','Meaning Gift Admin');
+        });
         return response()->json(['status' => 0]);
     }
 

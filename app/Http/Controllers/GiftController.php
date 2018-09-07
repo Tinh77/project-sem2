@@ -17,12 +17,15 @@ use Mockery\Matcher\Not;
 
 class GiftController extends Controller
 {
-//    public function __struckt
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct() {
+        $this->middleware('auth', ['except'=>['indexHome']]);
+    }
 
 
     public function indexHome()
@@ -60,20 +63,6 @@ class GiftController extends Controller
         return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
     }
 
-//    public function listindex()
-//    {
-//        if (Auth::check()) {
-//            $account_id = Auth::id();
-//            $obj = DB::table('gifts')->where([
-//                ['account_id', '=', $account_id],
-//                ['status', '=', 1]
-//            ])->get();
-//            return view('client.pages.gift.listGift')->with('obj', $obj);
-//        } else {
-//            return redirect('/login');
-//        }
-//
-//    }
 
     /**
      * Show the form for creating a new resource.
@@ -115,8 +104,8 @@ class GiftController extends Controller
             $obj->category_id = Input::get('category_id');
             $obj->account_id = $account_id;
             $obj->description = Input::get('description');
-            $obj->phone_number = Input::get('phone_number');
-            $obj->address = Input::get('address');
+//            $obj->phone_number = Input::get('phone_number');
+//            $obj->address = Input::get('address');
             $obj->images = $current_time;
             $obj->age_range = Input::get('age_range');
             $obj->gender = Input::get('gender');
