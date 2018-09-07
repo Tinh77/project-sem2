@@ -112,7 +112,7 @@ class GiftController extends Controller
             $obj->gender = Input::get('gender');
             $obj->city = Input::get('city');
             $obj->save();
-            return 'Bạn đã đăng tin thành công.';
+            return redirect('/client/home');
         } else {
             return redirect('/login');
         }
@@ -173,13 +173,11 @@ class GiftController extends Controller
         if (!Auth::check()) {
             return redirect('/login');
         }
-//        $request->validated();
         $obj = Gift::find($id);
 
         if ($obj == null) {
             return view('client.404client.404');
         }
-//        $obj = new Gift();
         $obj->name = $request->get('name');
         $obj->description = $request->get('description');
         if (Input::file('photo') != null) {

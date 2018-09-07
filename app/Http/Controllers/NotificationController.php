@@ -9,6 +9,7 @@ use App\Gift;
 use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use Mail;
 
@@ -35,12 +36,12 @@ class NotificationController extends Controller
         if (Auth::user()->id == $gift->account->id) return response()->json(['status' => '1']);
         if (Auth::user()->id != $request->get('id')) return response()->json(['status' => '2']);
         if ($request->get('id') == $gift->account->id) return response()->json(['status' => '3']);
-
         $email = $gift->account->account->email;
         $transaction = Transaction::create([
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
             'gift_id' => $gift->id,
+            'message' => Input::get('message'),
             'status' => 0
         ]);
         $notification = new Notification();
@@ -48,7 +49,8 @@ class NotificationController extends Controller
         $notification->transaction_id = $transaction->id;
         $notification->save();
         // mail đến người cho.
-        $data = array('title' => 'Xin chao vietnam', 'content' => 'Day la noi dung','transaction'=>$notification->transaction->id);
+
+        $data = array('title' => 'Xin chao vietnam', 'username' => Auth::user()->username, 'namegift' => $gift->name, 'transaction' => $notification->transaction->id);
         Mail::send('emails.send', $data, function ($message) use ($email) {
             $message->to($email, $email)->subject
             ('Tôi muốn xin món hàng này của bạn .Vui lòng xem chi tiết ở bên dưới');
@@ -121,7 +123,7 @@ class NotificationController extends Controller
      * @param  \App\Notification $notification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Notification $notification)
+    public function update(Request $request, Notification $notification, $id)
     {
 
     }

@@ -19,7 +19,11 @@
                     </tr>
                     <tr>
                         <td>Ảnh món quà</td>
-                        <th>{{$transaction->gift->images}}</th>
+                        <th>
+                            <div class="view view-cascade overlay"
+                                 style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($transaction->gift -> images, array('width'=>500, 'height'=>500))}}'); background-size: cover; width: 100%; height: 272px;">
+                            </div>
+                        </th>
                     </tr>
                     <tr>
                         <td>Mô tả món quà</td>
@@ -27,11 +31,12 @@
                     </tr>
                     <tr>
                         <td>Lời nhắn xin</td>
-                        <th>{{$transaction->content}}</th>
+                        <th>{{$transaction->message}}</th>
                     </tr>
                     <tr>
                         <td>
-                            <button data-user-id="{{ Auth::user()->id }}" data-transaction-id="{{ $transaction->id }}"  type="button" class="float-right btn btn-danger btn-sm btn-cf">Xác nhận cho
+                            <button data-user-id="{{ Auth::user()->id }}" data-transaction-id="{{ $transaction->id }}"
+                                    type="button" class="float-right btn btn-danger btn-sm btn-cf">Xác nhận cho
                             </button>
                         </td>
                     </tr>
@@ -44,4 +49,5 @@
             </div>
         </div>
     </div>
+
 @endsection
