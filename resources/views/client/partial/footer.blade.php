@@ -13,22 +13,22 @@
         <div class="row">
 
             <!--First column-->
-            <div class="col-md-3 mr-auto" style="border-right: 1px solid rgba(0,0,0,.1);">
+            <div class="col-md-3 mr-auto">
                     <a   class="img-footer w-50" href="/client/home">
                         <img src="{{asset('img/brand/Logo_active01.png')}}" style="width: 300px" class="img-fluid" alt="">
                     </a>
                 <p style="font-size: small">
                     Meaning_gift  mong muốn trở thành tổ chức giàu tình cảm, tiết kiệm và quy mô dựa trên việc xây dựng một cộng đồng tích cực không lãng phí, cung cấp những thông tin hữu ích, thuận tiện cho cộng đồng.
                 </p>
-                <p style="font-size: small"><i class="far fa-envelope" style="padding-right: 10px"></i>monquaynghia@gmail.com</p>
+                <p style="font-size: small; color: #0345af"><i class="fa fa-envelope" style="padding-right: 10px"></i>monquaynghia@gmail.com</p>
             </div>
             <!--/.First column-->
 
             <hr class="w-100 clearfix d-md-none">
 
             <!--Second column-->
-            <div class="col-md-2 ml-auto" style="border-right: 1px solid rgba(0,0,0,.1); text-align: left">
-                <h6 class="text-uppercase mb-3"><i class="far fa-edit" style="padding-right: 10px"></i> Tiêu chí</h6>
+            <div class="col-md-2 ml-auto" style="padding-top: 10px">
+                <h6 class="text-uppercase mb-3"><i class="fa fa-edit" style="padding-right: 10px"></i> Tiêu chí</h6>
                 <ul class="list-unstyled" style="font-size: small; float: left">
                     <li>
                         <a class="nav-link" href="#!">Cho đi để nhận lại</a>
@@ -44,25 +44,19 @@
             <hr class="w-100 clearfix d-md-none">
 
             <!--Third column-->
-            <div class="col-md-2 ml-auto">
-                <h6 class="text-uppercase mb-3"><i class="far fa-edit" style="padding-right: 10px"></i>FANPAGE</h6>
+            <div class="col-md-2 ml-auto" style="padding-top: 10px" >
+                <h6 class="text-uppercase mb-3"><i class="fa fa-facebook-square" style="padding-right: 10px"></i>FANPAGE</h6>
                 <div class="fb-page" data-href="https://www.facebook.com/Meaning-Gift-310835612807616/?modal=admin_todo_tour"
                      data-width="400" data-height="150"
                      data-hide-cover="false" data-show-facepile="false">
-                    {{--<a href="https://www.facebook.com/facebook">Facebook</a></blockquote>--}}
                 </div>
-                {{--<div class="fb-page"--}}
-                     {{--data-href="https://www.facebook.com/facebook"--}}
-                     {{--data-width="380"--}}
-                     {{--data-hide-cover="false"--}}
-                     {{--data-show-facepile="false"></div>--}}
             </div>
             <!--/.Third column-->
 
             <hr class="w-100 clearfix d-md-none">
 
             <!--Fourth column-->
-            <div class="col-md-3 ml-auto"  style="border-left: 1px solid rgba(0,0,0,.1); text-align: center">
+            <div class="col-md-3 ml-auto" style="padding-top: 10px;  padding-left:1px">
                 <h6 class="text-uppercase mb-3">Meaning_gift</h6>
                 <ul class="list-unstyled" style="font-size: small">
                     <li>
