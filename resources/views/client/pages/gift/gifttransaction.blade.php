@@ -35,7 +35,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <button type="button" onclick="myFunction()" class="float-right btn btn-danger btn-sm btn-confirm">Xác nhận cho
+                            <button data-user-id="{{ Auth::user()->id }}" data-transaction-id="{{ $transaction->id }}"
+                                    type="button" class="float-right btn btn-danger btn-sm btn-cf">Xác nhận cho
                             </button>
                         </td>
                     </tr>
