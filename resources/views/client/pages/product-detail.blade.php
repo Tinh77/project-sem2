@@ -108,61 +108,52 @@
             <p class="text-center w-responsive mx-auto mb-5 dark-grey-text">Những sản phẩm thuộc cùng thể loại hoặc ở
                 gần bạn...</p>
             <!--Carousel Wrapper-->
-            <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+            <div class="row">
+                @foreach($list_relate as $item)
+                    <div class="col-md-4 mt-3">
+                        <!--Card-->
+                        <div class="card card-cascade narrower card-ecommerce">
+                            <!--Card image-->
+                            <a href="/client/gift/{{$item->id}}">
+                                <div class="view view-cascade overlay"
+                                     style="background-image: url('{{$item->images}}'); background-size: cover; width: auto; height: 272px;">
+                                </div>
+                            </a>
+                            <!--Card image-->
 
-                <!--Slides-->
-                <div class="carousel-inner" role="listbox">
-                    <!--First slide-->
-                    <div class="carousel-item active row">
-                        @foreach($list_relate as $item)
-                            <div class="col-md-4">
-                                <!--Card-->
-                                <div class="card card-cascade narrower card-ecommerce">
-                                    <!--Card image-->
-                                    <a href="/client/gift/{{$item->id}}">
-                                        <div class="view view-cascade overlay"
-                                             style="background-image: url('{{$item->images}}'); background-size: cover; width: auto; height: 272px;">
-                                        </div>
-                                    </a>
-                                    <!--Card image-->
+                            <!--Card content-->
+                            <div class="card-body card-body-cascade text-center no-padding h-100">
+                                <h4 class="card-title">
+                                    <a href="/client/gift/{{$item->id}}">{{$item->name}}</a>
+                                </h4>
 
-                                    <!--Card content-->
-                                    <div class="card-body card-body-cascade text-center no-padding h-100">
-                                        <h4 class="card-title">
-                                            <a href="/client/gift/{{$item->id}}">{{$item->name}}</a>
-                                        </h4>
+                                <!--Description-->
+                                <p class="card-text">{{str_limit($item->description,50)}}
+                                </p>
 
-                                        <!--Description-->
-                                        <p class="card-text">{{$item->description}}
-                                        </p>
-
-                                        <!--Card footer-->
-                                        <div class="card-footer">
+                                <!--Card footer-->
+                                <div class="card-footer">
                                             <span class="float-left"><i
                                                         class="fa fa-clock-o"></i> {{$item->created_at->format('Y-m-d')}}</span>
-                                            <span class="float-right">
+                                    <span class="float-right">
                                                 <a class="card-link" title="Quick Look"
                                                    href="/client/gift/{{$item->id}}">
                                                   <i class="fa fa-eye"></i> chi tiết
                                                 </a>
                                               </span>
-                                        </div>
-
-                                    </div>
-                                    <!--Card content-->
-
                                 </div>
-                                <!--Card-->
 
                             </div>
-                        @endforeach
+                            <!--Card content-->
+
+                        </div>
+                        <!--Card-->
                     </div>
-
-                </div>
-                <!--Slides-->
-
+                @endforeach
+                <a class="text-blue pull-right mt-5" href="/client/gift">Xem thêm <i
+                            class="fa fa-angle-double-right"></i></a>
             </div>
-
+            <!--Slides-->
         </section>
         <!--Section: Products v.5-->
     </div>
@@ -178,17 +169,18 @@
         }(document, 'script', 'facebook-jssdk'));</script>
     <script>
         function getInfo() {
-            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$accountInfo->phone}}"><font color="white">{{$accountInfo->phone}}</font></a></button><br><button class="btn btn-default">{{$accountInfo->address}}</button><br><textarea name="message"  rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea><br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi đã nhận</font></button>');
+            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$accountInfo->phone}}"><font color="white">{{$accountInfo->phone}}</font></a></button><br><button class="btn btn-default">{{$accountInfo->address}}</button><br>  <textarea id="waitingMessage" name="message" rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea>  <br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi đã nhận</font></button>');
         }
 
-        function informSubmit(id, gift_id,message) {
+        function informSubmit(id, gift_id) {
             $.ajax({
                 url: '/client/gift/' + gift_id + '/inform',
                 type: 'POST',
                 data: {
                     'id': id,
                     'gift_id': gift_id,
-                    'message': message
+                    'message': $('#waitingMessage').val()
+
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

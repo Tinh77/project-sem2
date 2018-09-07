@@ -17,12 +17,15 @@ class Transaction extends Model
 
 
     protected $fillable = [
-        'owner_id', 'buyer_id', 'gift_id', 'status'
+        'owner_id', 'buyer_id', 'gift_id', 'status', 'message'
     ];
 
     public function getStatusStringAttribute()
     {
         switch ($this->status) {
+            case -1:
+                return 'Hủy giao dịch';
+                break;
             case 0:
                 return 'Đang chờ xác nhận';
                 break;
