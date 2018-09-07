@@ -6,6 +6,7 @@ use App\Category;
 use App\Gift;
 use App\Account;
 use App\Notification;
+use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
@@ -129,8 +130,18 @@ class GiftController extends Controller
         if ($obj == null || $obj->status != 1) {
             return view('client.404client.404');
         }
+        $transaction = Transaction::where('gift_id','=',$id)->where('buyer_id','=', Auth::id())->first();
+        $follow = false;
+        if($transaction){
+            $follow = true;
+        }
         $list_relate = Gift::where('category_id', $obj->category_id)->paginate(3);
-        return view('client.pages.product-detail')->with('obj', $obj)->with('list_relate',$list_relate);
+        return view('client.pages.product-detail')
+            ->with('obj', $obj)
+            ->with('list_relate',$list_relate)
+            ->with('follow', $follow);
+
+
     }
 
     /**

@@ -27,15 +27,12 @@ class Transaction extends Model
                 return 'Hủy';
                 break;
             case 0:
-                return 'Đang chờ người xin';
+                return 'Đang chờ xác nhận';
                 break;
             case 1:
-                return 'Đang chờ xác nhận';
-                break;;
-            case 2:
                 return 'Đang trao đổi';
                 break;
-            case 3:
+            case 2:
                 return 'Hoàn thành';
                 break;
             default:

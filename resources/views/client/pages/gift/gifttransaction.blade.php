@@ -30,7 +30,10 @@
                         <th>{{$transaction->content}}</th>
                     </tr>
                     <tr>
-                        <td> <button type="button" class="float-right btn btn-danger btn-sm">Xác nhận cho</button></td>
+                        <td>
+                            <button data-user-id="{{ Auth::user()->id }}" data-transaction-id="{{ $transaction->id }}"  type="button" class="float-right btn btn-danger btn-sm btn-cf">Xác nhận cho
+                            </button>
+                        </td>
                     </tr>
 
                     </thead>
