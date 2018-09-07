@@ -4,6 +4,7 @@
         <div class="row justify-content-center">
             <h4 class="card-title">Danh sách món quà cho đi.</h4>
             <div class="row content-personal" style="padding-left: 15px;">
+                @if($obj_owner_id->count()>0)
                 <table id="datatables"
                        class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
                        cellspacing="0" width="100%" style="width: 100%;" role="grid"
@@ -32,8 +33,8 @@
                     <tbody id="items-page">
                     @foreach($obj_owner_id as $item)
                         <tr>
-                            <th scope="row">{{$item->gift_id}}</th>
-                            <td>{{$item->gift_name}}</td>
+                            <th scope="row">{{$item->gift->id}}</th>
+                            <td>{{$item->gift->name}}</td>
                             <td>{{ $item->statusString }}</td>
                             <td class="float-left">
                                 <div class="btn-group">
@@ -51,11 +52,18 @@
                     @endforeach
                     </tbody>
                 </table>
+                @else
+                    <div class="alert alert-info">Hiện tại bạn chưa quan tâm sản phẩm nào
+                        Vui lòng click <a href="/client/gift" title="Xem các món quà"
+                                          class="btn-link">vào đây</a> để xem món quà.
+                    </div>
+                @endif
             </div>
         </div>
         <div class="row justify-content-center">
             <h4 class="card-title">Danh sách món quà nhận lại.</h4>
             <div class="row content-personal" style="padding-left: 15px;">
+                @if($obj_buyer_id->count()>0)
                 <table id="datatables"
                        class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
                        cellspacing="0" width="100%" style="width: 100%;" role="grid"
@@ -84,8 +92,8 @@
                     <tbody id="items-page">
                     @foreach($obj_buyer_id as $item)
                         <tr>
-                            <th scope="row">{{$item->gift_id}}</th>
-                            <td>{{$item->gift_name}}</td>
+                            <th scope="row">{{$item->gift->id}}</th>
+                            <td>{{$item->gift->name}}</td>
                             <td>{{ $item->statusString }}</td>
                             <td class="float-left">
                                 <div class="btn-group">
@@ -103,6 +111,12 @@
                     @endforeach
                     </tbody>
                 </table>
+                @else
+                    <div class="alert alert-info">Hiện tại bạn chưa quan tâm sản phẩm nào
+                        Vui lòng click <a href="/client/gift" title="Xem các món quà"
+                                          class="btn-link">vào đây</a> để xem món quà.
+                    </div>
+                @endif
             </div>
         </div>
     </div>

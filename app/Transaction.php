@@ -23,12 +23,15 @@ class Transaction extends Model
     public function getStatusStringAttribute()
     {
         switch ($this->status) {
+            case -1:
+                return 'Hủy';
+                break;
             case 0:
-                return 'Đang chờ xác nhận';
+                return 'Đang chờ người xin';
                 break;
             case 1:
-                return 'Xác nhận';
-                break;
+                return 'Đang chờ xác nhận';
+                break;;
             case 2:
                 return 'Đang trao đổi';
                 break;

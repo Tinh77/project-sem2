@@ -41,14 +41,14 @@ class NotificationController extends Controller
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
             'gift_id' => $gift->id,
-            'status'=> 0
+            'status' => 0
         ]);
         $notification = new Notification();
         $notification->account_id = $transaction->owner_id;
         $notification->transaction_id = $transaction->id;
         $notification->save();
         // mail đến người cho.
-        Mail::to($gift->account->account->email)->send(new OrderShipped('Xin món hàng ' . $gift->name, 'Tôi rất quan tâm đến món quà của bạn, vui long click vào đây để xác nhận cho tôi.'));
+        Mail::to($gift->account->account->email)->send(new OrderShipped('Xin món hàng ' . $gift->name, 'Tôi rất quan tâm đến món quà của bạn, vui long click vào <a ></a > để xác nhận cho tôi.'));
         return response()->json(['status' => 0]);
     }
 
