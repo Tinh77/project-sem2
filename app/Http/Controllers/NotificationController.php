@@ -1,19 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
-use App\Mail\OrderShipped;
 use App\Notification;
 use App\Gift;
 use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Mail;
-use jeremykenedy\LaravelLogger\App\Http\Controllers\LaravelLoggerController;
-use Mockery\Matcher\Not;
-
+use Mail;
 class NotificationController extends Controller
 {
     /**
@@ -25,7 +18,6 @@ class NotificationController extends Controller
     {
         //
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -37,11 +29,10 @@ class NotificationController extends Controller
         if (Auth::user()->id == $gift->account->id) return response()->json(['status' => '1']);
         if (Auth::user()->id != $request->get('id')) return response()->json(['status' => '2']);
         if ($request->get('id') == $gift->account->id) return response()->json(['status' => '3']);
-
+        $email = $gift->account->account->email;
         $transaction = Transaction::create([
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
-            'message' => Input::get('messagge'),
             'gift_id' => $gift->id,
             'status'=> 0
         ]);
@@ -50,10 +41,14 @@ class NotificationController extends Controller
         $notification->transaction_id = $transaction->id;
         $notification->save();
         // mail đến người cho.
-//        Mail::to($gift->account->account->email)->send(new OrderShipped('Xin món hàng ' . $gift->name, 'Tôi rất quan tâm đến món quà của bạn, vui long click vào đây để xác nhận cho tôi.'));
+        $data = array('title'=>'Xin chao vietnam', 'content'=>'Day la noi dung');
+        Mail::send('emails.send', $data, function($message) use ($email)  {
+            $message->to($email, $email)->subject
+            ('Xin mon hang');
+            $message->from('admin@meaning-gift.com','Meaning Gift Admin');
+        });
         return response()->json(['status' => 0]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -64,7 +59,6 @@ class NotificationController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *
@@ -75,7 +69,6 @@ class NotificationController extends Controller
     {
         return Notification::where('account_id', Auth::user()->id)->get();
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -95,7 +88,6 @@ class NotificationController extends Controller
         return response()->json(['status' => 0]);
         // coupon or sth
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -107,7 +99,6 @@ class NotificationController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *

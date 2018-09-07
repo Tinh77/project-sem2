@@ -119,7 +119,7 @@
                                             <!--Card footer-->
                                             <div class="card-footer">
                                                 <span class="float-left"><i
-                                                            class="fa fa-clock-o"></i> {{$item->created_at->diffForHumans()}}</span>
+                                                            class="fa fa-clock-o"></i>{{ Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</span>
                                                 <span class="float-right">
                                                 <a class="card-link" title="chi tiết"
                                                    href="/client/gift/{{$item->id}}">

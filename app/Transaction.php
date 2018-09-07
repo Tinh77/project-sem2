@@ -15,20 +15,6 @@ class Transaction extends Model
 {
     protected $table = 'transactions';
 
-    public function owner()
-    {
-        return $this->hasOne('\App\User', 'id', 'owner_id');
-    }
-
-    public function buyer()
-    {
-        return $this->hasOne('\App\User', 'id', 'buyer_id');
-    }
-
-    public function gift()
-    {
-        return $this->hasOne('\App\Gift', 'id', 'gift_id');
-    }
 
     protected $fillable = [
         'owner_id', 'buyer_id', 'gift_id', 'status'
@@ -54,4 +40,20 @@ class Transaction extends Model
                 break;
         }
     }
+
+    public function owner()
+    {
+        return $this->hasOne('\App\User', 'id', 'owner_id');
+    }
+
+    public function buyer()
+    {
+        return $this->hasOne('\App\User', 'id', 'buyer_id');
+    }
+
+    public function gift()
+    {
+        return $this->belongsTo('\App\Gift');
+    }
+
 }
