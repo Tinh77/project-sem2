@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Transaction;
 use App\Gift;
+use Illuminate\Support\Facades\Input;
 
 class TransactionController extends Controller
 {
@@ -53,7 +54,7 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -65,7 +66,7 @@ class TransactionController extends Controller
     public function show($id)
     {
 
-        $transaction = DB::select('select * from transactions where status = 1 and owner_id = ? and gift_id  ',[\auth()->id(),1]);
+        $transaction = DB::select('select * from transactions where status = 1 and owner_id = ? and gift_id  ', [\auth()->id(), 1]);
         return view('client.pages.list_transaction')->with(['transaction' => $transaction]);
     }
 
@@ -101,6 +102,11 @@ class TransactionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function view(){
+        $name = gift()->description;
+        return response()->json($name);
     }
 
 }

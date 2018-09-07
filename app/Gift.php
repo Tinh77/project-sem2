@@ -78,4 +78,19 @@ class Gift extends Model
         'account_id', 'category_id', 'name', 'description', 'images', 'age_range', 'gender', 'status'
     ];
 
+    public function transactions()
+    {
+        return $this->hasMany('App\Transaction');
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo('App\Transaction', 'owner_id');
+    }
+
+    public function buyer()
+    {
+        return $this->belongsTo('App\Transaction', 'buyer_id');
+    }
+
 }

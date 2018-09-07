@@ -115,8 +115,8 @@ class GiftController extends Controller
             $obj->category_id = Input::get('category_id');
             $obj->account_id = $account_id;
             $obj->description = Input::get('description');
-            $obj->phone_number = Input::get('phone_number');
-            $obj->address = Input::get('address');
+//            $obj->phone_number = Input::get('phone_number');
+//            $obj->address = Input::get('address');
             $obj->images = $current_time;
             $obj->age_range = Input::get('age_range');
             $obj->gender = Input::get('gender');

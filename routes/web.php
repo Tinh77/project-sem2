@@ -106,3 +106,5 @@ Route::middleware(['web', 'auth'])->group(function () {
 });
 
 Route::get('/send-mail', 'EmailController@send');
+
+Route::get('test/api','TransactionController@view');

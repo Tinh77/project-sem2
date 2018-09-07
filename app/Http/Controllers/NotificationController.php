@@ -9,6 +9,7 @@ use App\Gift;
 use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
 use jeremykenedy\LaravelLogger\App\Http\Controllers\LaravelLoggerController;
 use Mockery\Matcher\Not;
@@ -40,6 +41,7 @@ class NotificationController extends Controller
         $transaction = Transaction::create([
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
+            'message' => Input::get('messagge'),
             'gift_id' => $gift->id,
             'status'=> 0
         ]);
@@ -48,7 +50,7 @@ class NotificationController extends Controller
         $notification->transaction_id = $transaction->id;
         $notification->save();
         // mail đến người cho.
-        Mail::to($gift->account->account->email)->send(new OrderShipped('Xin món hàng ' . $gift->name, 'Tôi rất quan tâm đến món quà của bạn, vui long click vào đây để xác nhận cho tôi.'));
+//        Mail::to($gift->account->account->email)->send(new OrderShipped('Xin món hàng ' . $gift->name, 'Tôi rất quan tâm đến món quà của bạn, vui long click vào đây để xác nhận cho tôi.'));
         return response()->json(['status' => 0]);
     }
 
