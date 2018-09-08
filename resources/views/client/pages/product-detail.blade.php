@@ -56,9 +56,9 @@
                                     <div class="col-md-12 text-center text-md-left text-md-right" id="btnShow">
                                         <button class="btn btn-primary btn-rounded"
                                                 @if(!$follow)
-                                                    onclick="getInfo()
+                                                onclick="getInfo()
                                                 @else
-                                                    disabled
+                                                        disabled
                                                 @endif">
                                             Quan tâm!
                                         </button>
@@ -183,16 +183,16 @@
         }(document, 'script', 'facebook-jssdk'));</script>
     <script>
         function getInfo() {
-            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><button class="btn btn-default">{{$obj->account->account->address}}</button><br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi đã nhận</font></button>');
+            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><button class="btn btn-default">{{$obj->account->account->address}}</button><br> <textarea id="waitingMessage" name="message" rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea> <br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi đã nhận</font></button>');
         }
-
         function informSubmit(id, gift_id) {
             $.ajax({
                 url: '/client/gift/' + gift_id + '/inform',
                 type: 'POST',
                 data: {
                     'id': id,
-                    'gift_id': gift_id
+                    'gift_id': gift_id,
+                    'message': $('#waitingMessage').val()
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
