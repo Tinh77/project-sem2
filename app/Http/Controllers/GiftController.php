@@ -139,7 +139,7 @@ class GiftController extends Controller
             $obj->gender = Input::get('gender');
             $obj->city = Input::get('city');
             $obj->save();
-            return 'Bạn đã đăng tin thành công.';
+            return 'bạn đã đăng thành công.';
         } else {
             return redirect('/login');
         }

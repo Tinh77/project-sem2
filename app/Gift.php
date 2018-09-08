@@ -25,7 +25,6 @@ class Gift extends Model
                 break;
         }
     }
-
     public function getAgeStringAttribute()
     {
         switch ($this->age_range) {
@@ -49,6 +48,7 @@ class Gift extends Model
                 break;
         }
     }
+
 
     public function getCityNameAttribute()
     {
