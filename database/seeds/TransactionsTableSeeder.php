@@ -16,13 +16,13 @@ class TransactionsTableSeeder extends Seeder
             [
                 'owner_id' => 1,
                 'buyer_id' => 2,
-                'gift_id' => 19,
+                'gift_id' => 2,
                 'status' => true
             ],
             [
                 'owner_id' => 1,
                 'buyer_id' => 2,
-                'gift_id' => 16,
+                'gift_id' => 3,
                 'status' => true
             ],
             [
