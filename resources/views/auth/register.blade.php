@@ -114,7 +114,7 @@
                                 <div class="col-md-6">
                                     <input id="phone" type="text"
                                            class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
-                                           name="phone" value="{{ old('phone') }}" required>
+                                           name="phone" value="{{ old('phone') }}" required />
 
                                     @if ($errors->has('phone'))
                                         <span class="invalid-feedback" role="alert">

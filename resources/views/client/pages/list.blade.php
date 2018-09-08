@@ -43,6 +43,7 @@
                                 <h4 class="dark-grey-text">Danh mục sản phẩm</h4>
                                 <div class="divider border-top"></div>
                                 <p><a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
+
                                 <div class="jmenu">
                                     @foreach($list_obj as $key => $item)
                                         <p><a class="dark-grey-text text-center {{Request::segment(3) == $key ? 'jactive' : ''}}"
@@ -129,7 +130,9 @@
                                             <!--Card footer-->
                                             <div class="card-footer">
                                                 <span class="float-left"><i
-                                                        class="fa fa-clock-o"></i> {{$item->created_at}}</span>
+
+                                                            class="fa fa-clock-o"></i>{{ Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</span>
+
                                                 <span class="float-right">
                                                 <a class="card-link" title="chi tiết"
                                                    href="/client/gift/{{$item->id}}">

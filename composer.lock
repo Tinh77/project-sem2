@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53f9077cf1fc8fcf45acff24f31ca954",
+    "content-hash": "2f9cdfab2928f42d6d5a8d8de64c2be5",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",
@@ -1157,7 +1157,6 @@
                 "framework",
                 "laravel"
             ],
-
             "time": "2018-08-27T13:18:24+00:00"
         },
         {
