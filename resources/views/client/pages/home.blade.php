@@ -23,7 +23,7 @@
                             <div class="card card-ecommerce h-100">
                                 <!--Card image-->
                                 <div class="view overlay z-depth-1"
-                                     style="background-image: url('{{$item -> thumbnail}}'); background-size: cover; width: 198px; height: 220px;">
+                                     style="background-image: url('{{$item -> thumbnail}}'); background-size: cover; width: 100%; height: 220px;">
                                 </div>
                                 <!--Card content-->
                                 <div class="card-body text-center no-padding">
@@ -95,7 +95,7 @@
                                         <!--Card image-->
                                         <a href="/client/gift/{{$obj[$i]->id}}">
                                             <div class="view view-cascade overlay"
-                                                 style="background-image: url('{{$obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
+                                                 style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($obj[$i] -> images, array('width'=>500, 'height'=>500))}}'); background-size: cover; width: 100%; height: 272px;">
                                             </div>
                                         </a>
                                         <!--Card image-->
