@@ -28,6 +28,6 @@ class TransactionController extends Controller
     public function show($id)
     {
         $transaction = Transaction::findOrFail($id);
-        return view('client.pages.gift.gifttransaction', compact('transaction'));
+        return view('client.pages.gift.gifttransaction', compact('transaction')); 
     }
 }
