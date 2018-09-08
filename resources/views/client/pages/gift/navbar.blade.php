@@ -6,7 +6,7 @@
             </div>
             <div class="profile__menu">
                 <div class="text-center">
-                    <b>{{ Auth::user()->username }}h</b>
+                    <b>{{ Auth::user()->username }}</b>
                     <div class="icon-icon">
                         <i class="fa fa-map-marker-alt"></i>
                     </div>

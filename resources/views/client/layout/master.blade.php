@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('client-css/personal.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/navbar.css')}}">
-
+    @yield('stylesheet')
 
 </head>
 
@@ -58,6 +58,7 @@
 <script>
     new WOW().init();
 </script>
+@yield('script')
 </body>
 
 </html>

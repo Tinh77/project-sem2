@@ -1,4 +1,13 @@
 @extends('client.layout.master')
+@section('stylesheet')
+    <style>
+        .jactive {
+            color: black!important;
+            font-weight: bold;
+        }
+    </style>
+@endsection
+
 @section('content')
     <!-- Main Container -->
     <main class="content-margin">
@@ -33,11 +42,13 @@
                                 <!-- Panel -->
                                 <h4 class="dark-grey-text">Danh mục sản phẩm</h4>
                                 <div class="divider border-top"></div>
-                                <p> <a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
-
-                                @foreach($list_obj as $key => $item)
-                                    <p><a class="dark-grey-text text-center" href="/client/category-gift/{{$key}}">{{$item}}</a></p>
-                                @endforeach
+                                <p><a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
+                                <div class="jmenu">
+                                    @foreach($list_obj as $key => $item)
+                                        <p><a class="dark-grey-text text-center {{Request::segment(3) == $key ? 'jactive' : ''}}"
+                                              href="/client/category-gift/{{$key}}">{{$item}}</a></p>
+                                    @endforeach
+                                </div>
 
                             </div>
 
@@ -45,7 +56,6 @@
                             <div class="col-md-6 col-lg-12 mb-5">
                                 <h4 class=" dark-grey-text">Phân loại theo tuổi</h4>
                                 <div class="divider border-top"></div>
-
                                 <!--Radio <group-->
                                 <form method="GET" id="searchForm" action="/client/gift">
                                     <!--/group-->
@@ -55,13 +65,14 @@
                                             Tất cả</label>
                                     </div>
                                     <div class="form-group">
-                                        <label class="dark-grey-text">
+                                        <label class="dark-grey-text {{ Request::is('name') ? 'jactive' : '' }}">
                                             <input name="group100" value="1" type="radio" id="search_age_range">
-                                            0 tháng - 6 tháng</label>
+                                            0 tháng - 6 tháng
+                                        </label>
                                     </div>
                                     <div class="form-group">
                                         <label class="dark-grey-text">
-                                            <input name="group100" value="2" type="radio" id="search_age_range">
+                                            <input name="group100" value="2" type="radio" id="search_age_range" >
                                             6 tháng - 12 tháng</label>
                                     </div>
                                     <div class="form-group">
@@ -118,7 +129,7 @@
                                             <!--Card footer-->
                                             <div class="card-footer">
                                                 <span class="float-left"><i
-                                                            class="fa fa-clock-o"></i> {{$item->created_at}}</span>
+                                                        class="fa fa-clock-o"></i> {{$item->created_at}}</span>
                                                 <span class="float-right">
                                                 <a class="card-link" title="chi tiết"
                                                    href="/client/gift/{{$item->id}}">
@@ -152,4 +163,13 @@
         <!-- /.Main Container -->
 
     </main>
+@endsection
+
+@section('script')
+    <script>
+        $('.jmenu a').on('click', function() {
+            $('.jmenu a').removeClass('jactive');
+            $(this).addClass('jactive');
+        })
+    </script>
 @endsection
