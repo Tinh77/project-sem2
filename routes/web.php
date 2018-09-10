@@ -119,3 +119,7 @@ Route::middleware(['web', 'auth'])->group(function () {
 
 Route::get('/send-mail', 'EmailController@send');
 
+
+Route::get('/pages/contact', function () {
+    return view('client.pages.contact_us');
+});
