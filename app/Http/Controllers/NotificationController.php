@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderShipped;
 use App\Notification;
 use App\Gift;
 use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
 use Mail;
 
 class NotificationController extends Controller
@@ -33,13 +36,13 @@ class NotificationController extends Controller
         if (Auth::user()->id == $gift->account->id) return response()->json(['status' => '1']);
         if (Auth::user()->id != $request->get('id')) return response()->json(['status' => '2']);
         if ($request->get('id') == $gift->account->id) return response()->json(['status' => '3']);
-
         $email = $gift->account->account->email;
         $transaction = Transaction::create([
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
             'gift_id' => $gift->id,
-            'status'=> 0
+            'message' => Input::get('message'),
+            'status' => 0
         ]);
         $notification = new Notification();
         $notification->account_id = $transaction->owner_id;
@@ -47,11 +50,11 @@ class NotificationController extends Controller
         $notification->save();
         // mail đến người cho.
 
-        $data = array('title'=>'Xin chao vietnam', 'content'=>'Day la noi dung');
-        Mail::send('emails.send', $data, function($message) use ($email)  {
+        $data = array('title' => 'Xin chao vietnam', 'username' => Auth::user()->username, 'namegift' => $gift->name, 'transaction' => $notification->transaction->id);
+        Mail::send('emails.send', $data, function ($message) use ($email) {
             $message->to($email, $email)->subject
-            ('Xin mon hang');
-            $message->from('admin@meaning-gift.com','Meaning Gift Admin');
+            ('Tôi muốn xin món hàng này của bạn .Vui lòng xem chi tiết ở bên dưới');
+            $message->from('admin@meaning-gift.com', 'Meaning Gift Admin');
         });
         return response()->json(['status' => 0]);
     }
@@ -64,7 +67,7 @@ class NotificationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -86,13 +89,28 @@ class NotificationController extends Controller
      */
     public function edit($id, Request $request) // confirm
     {
-        if (Auth::user()->id != $request->input['id']) return response()->json(['status' => 'fraud']);
-        $transaction = Transaction::where('id', $request->input('transaction_id'))->where('owner_id', Auth::user()->id)->where('gift_id', $id)->first();
-        if ($request->input['id'] == $transaction->buyer_id) return response()->json(['status' => 'fraud']);
-        if ($transaction->owner_id == $transaction->buyer_id) return response()->json(['status' => 'fraud']);
-        if (!$transaction || $transaction->status) return response()->json(['status' => 'fraud']);
+        // kiểm tra để xác thực user đang login vs user gửi request
+        if (Auth::user()->id != $request->input('id')) {
+            return response()->json(['status' => 'fraud1']);
+        }
+        // lấy bản ghi ở trong transaction
+        $transaction = Transaction::where('id', $request->input('transaction_id'))
+            ->where('owner_id', Auth::user()->id)->first();
+        //câu lênh trên phải kiểm tra xem có tồn tại dữ liệu được trả về không (*)
+
+        //kiểm tra xem user id được gửi lên từ client có giống vs buyer_id đã lấy được từ bản ghi trên.
+        if ($request->input('id') == $transaction->buyer_id)
+            return response()->json(['status' => 'fraud2']);
+        // kiểm tra xem có tự follow sản phẩm của chính mình ko
+        if ($transaction->owner_id == $transaction->buyer_id)
+            return response()->json(['status' => 'fraud3']);
+        // lẽ ra phải kiểm tra caias này đầu tiên ở vị trí (*)
+        if (!$transaction || $transaction->status)
+            return response()->json(['status' => 'fraud4']);
+        // cập nhật lại status ở transaction
         $transaction->status = true;
         $transaction->save();
+        // xóa notification với điều kiện ở dưới
         Notification::where('account_id', Auth::user()->id)->delete();
         return response()->json(['status' => 0]);
         // coupon or sth
@@ -105,9 +123,9 @@ class NotificationController extends Controller
      * @param  \App\Notification $notification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Notification $notification)
+    public function update(Request $request, Notification $notification, $id)
     {
-        //
+
     }
 
     /**

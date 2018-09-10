@@ -1,9 +1,19 @@
 @extends('client.pages.gift.list')
 @section('content1')
-    <div class="col-md-9 personal">
-        <div class="row justify-content-center">
-            <h4 class="card-title">Danh sách món quà cho đi.</h4>
-            <div class="row content-personal" style="padding-left: 15px;">
+        <div class="col-md-9">
+        <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Món quà của bạn được quan tâm</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Món quà bạn quan tâm</a>
+                </li>
+            </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <table id="datatables"
                        class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
                        cellspacing="0" width="100%" style="width: 100%;" role="grid"
@@ -25,15 +35,15 @@
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="datatables"
                             rowspan="1" colspan="1" style="width: 200px;"
-                            aria-label="Office: activate to sort column ascending">Action
+                            aria-label="Office: activate to sort column ascending">
                         </th>
                     </tr>
                     </thead>
                     <tbody id="items-page">
                     @foreach($obj_owner_id as $item)
                         <tr>
-                            <th scope="row">{{$item->gift_id}}</th>
-                            <td>{{$item->gift_name}}</td>
+                            <th scope="row">{{$item->gift->id}}</th>
+                            <td>{{$item->gift->name}}</td>
                             <td>{{ $item->statusString }}</td>
                             <td class="float-left">
                                 <div class="btn-group">
@@ -52,10 +62,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <h4 class="card-title">Danh sách món quà nhận lại.</h4>
-            <div class="row content-personal" style="padding-left: 15px;">
+            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <table id="datatables"
                        class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
                        cellspacing="0" width="100%" style="width: 100%;" role="grid"
@@ -77,7 +84,7 @@
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="datatables"
                             rowspan="1" colspan="1" style="width: 200px;"
-                            aria-label="Office: activate to sort column ascending">Action
+                            aria-label="Office: activate to sort column ascending">
                         </th>
                     </tr>
                     </thead>
@@ -85,7 +92,7 @@
                     @foreach($obj_buyer_id as $item)
                         <tr>
                             <th scope="row">{{$item->gift_id}}</th>
-                            <td>{{$item->gift_name}}</td>
+                            <td>{{$item->gift->name}}</td>
                             <td>{{ $item->statusString }}</td>
                             <td class="float-left">
                                 <div class="btn-group">
@@ -105,7 +112,9 @@
                 </table>
             </div>
         </div>
-    </div>
+        </div>
+    <div class="clearfix"></div>
+
     <script>
         function deleteItemConfirm($id) {
             $.ajaxSetup({

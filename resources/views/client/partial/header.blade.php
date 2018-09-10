@@ -48,7 +48,7 @@ if (!isset($notifications)) $notifications = null;
                                 <ul class="dropdown-menu" style="white-space: normal !important; width: 300px;" aria-labelledby="navbarDropdownNoti">
                                     @foreach($notifications as $notification)
                                     <li><a class="waves-effect waves-light" onclick="confirmSubmit({{Auth::user()->id}}, {{$notification->transaction->gift_id}}, {{ $notification->transaction_id}})">
-                                        Item ID: {{ $notification->transaction->gift_id }}. User {{ $notification->transaction->buyer->username }} đã nhận món quà của bạn
+                                        Item ID: {{ $notification->transaction->gift_id }}. User {{ $notification->transaction->buyer->username }} đã xin món quà của bạn. Hãy vào email để xem thông tin chi tiết
                                         </a>
                                     </li>
                                     @endforeach

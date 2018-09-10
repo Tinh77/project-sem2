@@ -6,6 +6,7 @@ use App\Category;
 use App\Gift;
 use App\Account;
 use App\Notification;
+use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreGiftPost;
 use Illuminate\Http\Request;
@@ -111,7 +112,7 @@ class GiftController extends Controller
             $obj->gender = Input::get('gender');
             $obj->city = Input::get('city');
             $obj->save();
-            return 'Bạn đã đăng tin thành công.';
+            return redirect('/client/home');
         } else {
             return redirect('/login');
         }
@@ -126,13 +127,19 @@ class GiftController extends Controller
     public function show($id)
     {
         $obj = Gift::find($id);
-        $accountInfo = Account::find($obj->account_id);
         if ($obj == null || $obj->status != 1) {
             return view('client.404client.404');
         }
+        $transaction = Transaction::where('gift_id','=',$id)->where('buyer_id','=', Auth::id())->first();
+        $follow = false;
+        if($transaction){
+            $follow = true;
+        }
         $list_relate = Gift::where('category_id', $obj->category_id)->paginate(3);
-        return view('client.pages.product-detail')->with('obj', $obj)->with('list_relate',$list_relate)
-            ->with('accountInfo', $accountInfo);
+        return view('client.pages.product-detail')
+            ->with('obj', $obj)
+            ->with('list_relate',$list_relate)
+            ->with('follow', $follow);
 
 
     }
@@ -166,13 +173,11 @@ class GiftController extends Controller
         if (!Auth::check()) {
             return redirect('/login');
         }
-//        $request->validated();
         $obj = Gift::find($id);
 
         if ($obj == null) {
             return view('client.404client.404');
         }
-//        $obj = new Gift();
         $obj->name = $request->get('name');
         $obj->description = $request->get('description');
         if (Input::file('photo') != null) {
