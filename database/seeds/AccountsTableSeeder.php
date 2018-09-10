@@ -26,10 +26,10 @@ class AccountsTableSeeder extends Seeder
                 'intro' => 'T k biết t ở đâu ra ?'
             ],
             [
-                'first_name' => 'unk',
-                'last_name' => 'nown',
-                'email' => 'unknown@sth.com',
-                'phone' => '66775508',
+                'first_name' => 'Giang',
+                'last_name' => 'Tình',
+                'email' => 'giangthitinh.070799@gmail.com',
+                'phone' => '01217194177',
                 'address' => 'moon',
                 'age' => 99,
                 'gender' => true,

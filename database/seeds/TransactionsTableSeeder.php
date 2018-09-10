@@ -16,14 +16,14 @@ class TransactionsTableSeeder extends Seeder
             [
                 'owner_id' => 1,
                 'buyer_id' => 2,
-                'gift_id' => 19,
+                'gift_id' => 2,
                 'message' => 'Tôi cần món đồ mà bạn đang cho',
                 'status' => true
             ],
             [
                 'owner_id' => 1,
                 'buyer_id' => 2,
-                'gift_id' => 16,
+                'gift_id' => 3,
                 'message' => 'Tôi cần món đồ mà bạn đang cho',
                 'status' => true
             ],

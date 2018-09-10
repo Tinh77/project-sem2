@@ -22,8 +22,8 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'account_id' => 2,
-                'username' => 'quanganh9x',
-                'password' => \Illuminate\Support\Facades\Hash::make('password')
+                'username' => 'tinhgiang',
+                'password' => \Illuminate\Support\Facades\Hash::make('12344321')
             ],
             [
                 'account_id' => 3,

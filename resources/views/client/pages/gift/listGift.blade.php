@@ -50,13 +50,12 @@
                                     <a href="/client/gift/{{$item->id}}/edit"
                                        class="btn btn-sm btn-simple btn-warning btn-icon edit"><i
                                                 class="fa fa-pencil"></i></a>
-                                    <a data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
-                                       class="btn btn-sm btn-simple btn-danger btn-icon remove btn-delete"><i
+                                    <a data-transaction-id="{{ $item->id }}"
+                                       class="btn btn-sm btn-danger remove btn-confirm-status"><i
                                                 class="fa fa-trash"></i>
                                     </a>
                                 </div>
                             </td>
-
                         </tr>
                     @endforeach
                     </tbody>
@@ -99,8 +98,8 @@
                                     <a href="/client/gift/{{$item->id}}/edit"
                                        class="btn btn-sm btn-warning edit"><i
                                                 class="fa fa-pencil"></i></a>
-                                    <a data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
-                                       class="btn btn-sm btn-danger remove btn-delete"><i
+                                    <a data-transaction-id="{{ $item->id }}"
+                                       class="btn btn-sm btn-danger remove btn-confirm-status"><i
                                                 class="fa fa-trash"></i>
                                     </a>
                                 </div>
@@ -115,59 +114,59 @@
         </div>
     <div class="clearfix"></div>
 
-    <script>
-        function deleteItemConfirm($id) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            // var id = $(this).data("id");
-            swal({
-                text: "Bạn có chắc là muốn xóa lịch sử món quà này?",
-                type: 'warning',
-                // icon: 'warning',
-                showCancelButton: true,
-                // buttons: true,
+    {{--<script>--}}
+        {{--function deleteItemConfirm($id) {--}}
+            {{--$.ajaxSetup({--}}
+                {{--headers: {--}}
+                    {{--'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+                {{--}--}}
+            {{--});--}}
+            {{--// var id = $(this).data("id");--}}
+            {{--swal({--}}
+                {{--text: "Bạn có chắc là muốn xóa lịch sử món quà này?",--}}
+                {{--type: 'warning',--}}
+                {{--// icon: 'warning',--}}
+                {{--showCancelButton: true,--}}
+                {{--// buttons: true,--}}
 
-                buttons: ["Hủy", "Xóa"]
+                {{--buttons: ["Hủy", "Xóa"]--}}
 
-                // confirmButtonClass: 'btn btn-success',
-                // cancelButtonClass: 'btn btn-danger',
-                // confirmButtonText: "Xoá",
-                // cancelButtonText: "Hủy",
-                // buttonsStyling: false
+                {{--// confirmButtonClass: 'btn btn-success',--}}
+                {{--// cancelButtonClass: 'btn btn-danger',--}}
+                {{--// confirmButtonText: "Xoá",--}}
+                {{--// cancelButtonText: "Hủy",--}}
+                {{--// buttonsStyling: false--}}
 
-            }).then(function () {
+            {{--}).then(function () {--}}
 
-                $.ajax({
-                    url: '/client/gift/' + $id,
-                    method: 'DELETE',
-                    data: {
-                        '_method': 'DELETE',
-                        'id': $id
-                    },
-                    success: function () {
-                        swal(
-                            'Đã xóa thành công.',
-                            'success'
-                        )
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 2 * 1000);
+                {{--$.ajax({--}}
+                    {{--url: '/client/gift/' + $id,--}}
+                    {{--method: 'DELETE',--}}
+                    {{--data: {--}}
+                        {{--'_method': 'DELETE',--}}
+                        {{--'id': $id--}}
+                    {{--},--}}
+                    {{--success: function () {--}}
+                        {{--swal(--}}
+                            {{--'Đã xóa thành công.',--}}
+                            {{--'success'--}}
+                        {{--)--}}
+                        {{--setTimeout(function () {--}}
+                            {{--window.location.reload();--}}
+                        {{--}, 2 * 1000);--}}
 
-                        // $("#items-page").load(" #items-page");
+                        {{--// $("#items-page").load(" #items-page");--}}
 
-                    },
-                    error: function () {
-                        swal(
-                            'Deleted.',
-                            'error'
-                        )
-                    }
-                });
-            });
-            return false;
-        };
-    </script>
+                    {{--},--}}
+                    {{--error: function () {--}}
+                        {{--swal(--}}
+                            {{--'Deleted.',--}}
+                            {{--'error'--}}
+                        {{--)--}}
+                    {{--}--}}
+                {{--});--}}
+            {{--});--}}
+            {{--return false;--}}
+        {{--};--}}
+    {{--</script>--}}
 @endsection

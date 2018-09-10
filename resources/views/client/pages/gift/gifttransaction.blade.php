@@ -11,7 +11,19 @@
                     <thead>
                     <tr>
                         <th>Tên người muốn xin</th>
-                        <th>{{$transaction->buyer->username}}</th>
+                        <th>{{$transaction->buyer->account->first_name}}.{{$transaction->buyer->account->last_name}}</th>
+                    </tr>
+                    <tr>
+                        <th>Email người muốn xin</th>
+                        <th>{{$transaction->buyer->account->email}}</th>
+                    </tr>
+                    <tr>
+                        <th>Số điện thoại người muốn xin</th>
+                        <th>{{$transaction->buyer->account->phone}}</th>
+                    </tr>
+                    <tr>
+                        <th>Address người muốn xin</th>
+                        <th>{{$transaction->buyer->account->address}}</th>
                     </tr>
                     <tr>
                         <td>Tên món quà</td>
@@ -42,9 +54,6 @@
                     </tr>
 
                     </thead>
-                    <tbody>
-
-                    </tbody>
                 </table>
             </div>
         </div>

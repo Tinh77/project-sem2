@@ -1,10 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use App\Transaction;
-use App\Gift;
+
 class TransactionController extends Controller
 {
     public function __construct()
@@ -28,6 +28,21 @@ class TransactionController extends Controller
     public function show($id)
     {
         $transaction = Transaction::findOrFail($id);
-        return view('client.pages.gift.gifttransaction', compact('transaction')); 
+        return view('client.pages.gift.gifttransaction', compact('transaction'));
+    }
+
+    public function confirmStatus(Request $request)
+    {
+        $transaction = Transaction::findOrFail($request);
+        if (!$transaction){
+            return response()->json(['status' => 'fraud4']);
+        }
+        if($transaction->status == 1){
+            $transaction->status = 2;
+        }elseif ($transaction->status == 2){
+            $transaction->status = 3;
+        }
+        $transaction->save();
+        return response()->json(['status' => 0]);
     }
 }
