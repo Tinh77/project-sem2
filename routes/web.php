@@ -99,3 +99,7 @@ Route::get('/client/post3', function () {
     return view('client.posts.post3');
 });
 
+
+Route::get('/pages/contact', function () {
+    return view('client.pages.contact_us');
+});
