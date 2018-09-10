@@ -31,39 +31,46 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-12 mb-5">
                                 <!-- Panel -->
-                                <h3 class="font-weight-bold dark-grey-text">Danh mục sản phẩm</h3>
+                                <h4 class="dark-grey-text">Danh mục sản phẩm</h4>
                                 <div class="divider border-top"></div>
+                                <p><a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
+
                                 @foreach($list_obj as $key => $item)
-                                    <p><a class="dark-grey-text" href="/client/category-gift/{{$key}}">{{$item}}</a></p>
+                                    <p><a class="dark-grey-text text-center"
+                                          href="/client/category-gift/{{$key}}">{{$item}}</a></p>
                                 @endforeach
 
                             </div>
 
                             <!-- Filter by category-->
                             <div class="col-md-6 col-lg-12 mb-5">
-                                <h3 class="font-weight-bold dark-grey-text">Phân loại theo tuổi</h3>
+                                <h4 class=" dark-grey-text">Phân loại theo tuổi</h4>
                                 <div class="divider border-top"></div>
 
-                                <!--Radio group-->
-                                <div class="form-group ">
-                                    <input name="group100" type="radio" id="radio100">
-                                    <label for="radio100" class="dark-grey-text">Tất cả</label>
-                                </div>
-
-                                <div class="form-group">
-                                    <input name="group100" type="radio" id="radio101" checked>
-                                    <label for="radio101" class="dark-grey-text">0 tháng - 6 tháng</label>
-                                </div>
-
-                                <div class="form-group">
-                                    <input name="group100" type="radio" id="radio102">
-                                    <label for="radio102" class="dark-grey-text">6 tháng - 12 tháng</label>
-                                </div>
-
-                                <div class="form-group">
-                                    <input name="group100" type="radio" id="radio103">
-                                    <label for="radio103" class="dark-grey-text">trên 12 tháng</label>
-                                </div>
+                                <!--Radio <group-->
+                                <form method="GET" id="searchForm" action="/client/gift">
+                                    <!--/group-->
+                                    <div class="form-group ">
+                                        <label class="dark-grey-text">
+                                            <input name="group100" value="0" type="radio" id="search_age_range">
+                                            Tất cả</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="group100" value="1" type="radio" id="search_age_range">
+                                            0 tháng - 6 tháng</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="group100" value="2" type="radio" id="search_age_range">
+                                            6 tháng - 12 tháng</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="group100" value="3" type="radio" id="search_age_range">
+                                            trên 12 tháng</label>
+                                    </div>
+                                </form>
                                 <!--Radio group-->
                             </div>
                             <!-- /Filter by category-->
@@ -93,7 +100,8 @@
                                         <div class="view overlay">
                                             <div class="bg-slide-list"
                                                  style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 100%;height: 200px"></div>
-                                            <a>
+
+                                            <a href="/client/gift/{{$item ->id}}">
                                                 <div class="mask rgba-white-slight"></div>
                                             </a>
                                         </div>
@@ -103,15 +111,18 @@
                                         <div class="card-body">
                                             <!--Category & Title-->
 
-                                            <h5 class="card-title mb-1"><a href=""
+                                            <h5 class="card-title mb-1"><a href="/client/gift/{{$item ->id}}"
                                                                            class="dark-grey-text">{{$item -> name}}</a>
                                             </h5>
-                                        <!-- Rating -->
+                                            <p class="card-text ">{{str_limit($item->description,50)}}</p>
+                                            <!-- Rating -->
                                             <!--Card footer-->
                                             <div class="card-footer">
-                                                <span class="float-left"><i class="fa fa-clock-o"></i> {{$item->created_at->format('Y-m-d')}}</span>
+                                                <span class="float-left"><i
+                                                            class="fa fa-clock-o"></i>{{ Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</span>
                                                 <span class="float-right">
-                                                <a class="card-link" title="Quick Look" href="/client/gift/{{$item->id}}">
+                                                <a class="card-link" title="chi tiết"
+                                                   href="/client/gift/{{$item->id}}">
                                                   <i class="fa fa-eye"></i> chi tiết
                                                 </a>
                                               </span>

@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use App\Transaction;
-use App\Gift;
 
 class TransactionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,83 +19,30 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        if (auth()->check()) {
-            $account_id = auth()->user()->id;
-            $obj = DB::table('transactions')
-                ->where('owner_id', '=', $account_id)
-                ->join('gifts', 'transactions.gift_id', '=', 'gifts.id')
-                ->join('accounts', 'transactions.buyer_id', '=', 'accounts.id')
-                ->select('transactions.*', 'gifts.images as gift_images', 'gifts.name as gift_name', 'accounts.first_name as account_first_name')
-                ->get();
-            return view('client.pages.list_transaction')->with(['obj' => $obj]);
-        } else {
-            return redirect('/login');
-        }
+        $account_id = auth()->user()->id;
+        $obj_owner_id = Transaction::where('owner_id', '=', $account_id)->get();
+        $obj_buyer_id = Transaction::where('buyer_id', '=', $account_id)->get();
+        return view('client.pages.gift.listGift')->with(['obj_owner_id' => $obj_owner_id, 'obj_buyer_id' => $obj_buyer_id]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $transaction = Transaction::findOrFail($id);
+        return view('client.pages.gift.gifttransaction', compact('transaction'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function confirmStatus(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $transaction = Transaction::findOrFail($request);
+        if (!$transaction){
+            return response()->json(['status' => 'fraud4']);
+        }
+        if($transaction->status == 1){
+            $transaction->status = 2;
+        }elseif ($transaction->status == 2){
+            $transaction->status = 3;
+        }
+        $transaction->save();
+        return response()->json(['status' => 0]);
     }
 }

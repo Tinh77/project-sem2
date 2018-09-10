@@ -43,10 +43,6 @@ class RegisterController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectTo()
-    {
-        return $this->redirectTo('/client/home');
-    }
 
     /**
      * Get a validator for an incoming registration request.
@@ -78,7 +74,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         $account = Account::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -92,10 +87,7 @@ class RegisterController extends Controller
         $user = User::create([
             'account_id' => $account->id,
             'username' => $data['username'],
-            'password' => Hash::make($data['password']),
-//            'password' => sha1(Hash::make($data['password'])),
-
-
+            'password' => Hash::make($data['password'])
         ]);
         $role = Role::where('name', '=', 'User')->first();  //choose the default role upon user creation.
         $user->attachRole($role);

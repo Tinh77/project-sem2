@@ -15,19 +15,45 @@ class Transaction extends Model
 {
     protected $table = 'transactions';
 
-    public function owner() {
+
+    protected $fillable = [
+        'owner_id', 'buyer_id', 'gift_id', 'status', 'message'
+    ];
+
+    public function getStatusStringAttribute()
+    {
+        switch ($this->status) {
+            case -1:
+                return 'Hủy giao dịch';
+                break;
+            case 0:
+                return 'Đang chờ xác nhận';
+                break;
+            case 1:
+                return 'Đang trao đổi';
+                break;
+            case 2:
+                return 'Hoàn thành';
+                break;
+            default:
+                return 'Chưa xác định';
+                break;
+        }
+    }
+
+    public function owner()
+    {
         return $this->hasOne('\App\User', 'id', 'owner_id');
     }
 
-    public function buyer() {
+    public function buyer()
+    {
         return $this->hasOne('\App\User', 'id', 'buyer_id');
     }
 
-    public function gift() {
-        return $this->hasOne('\App\Gift', 'id', 'gift_id');
+    public function gift()
+    {
+        return $this->belongsTo('\App\Gift');
     }
 
-    protected $fillable = [
-        'owner_id', 'buyer_id', 'gift_id', 'status'
-    ];
 }

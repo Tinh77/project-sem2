@@ -2,6 +2,7 @@
 if (!isset($notifications)) $notifications = null;
 @endphp
     <nav class="navbar navbar-expand-lg navbar-dark top-nav-collapse">
+
         <div class="container p-0">
             <a class="navbar-brand" href="/client/home">
                 <img src="{{asset('img/brand/Logo_active01.png')}}" style="width: 300px" class="img-fluid" alt="">
@@ -25,6 +26,7 @@ if (!isset($notifications)) $notifications = null;
                         {{--<a class="nav-link" href="/client/gift/create">Bạn cần xin</a>--}}
                     {{--</li>--}}
                     <li class="nav-item">
+
                         <a class="nav-link" href="#">Về chúng tôi</a>
                     </li>
                     <li class="nav-item">
@@ -46,7 +48,7 @@ if (!isset($notifications)) $notifications = null;
                                 <ul class="dropdown-menu" style="white-space: normal !important; width: 300px;" aria-labelledby="navbarDropdownNoti">
                                     @foreach($notifications as $notification)
                                     <li><a class="waves-effect waves-light" onclick="confirmSubmit({{Auth::user()->id}}, {{$notification->transaction->gift_id}}, {{ $notification->transaction_id}})">
-                                        Item ID: {{ $notification->transaction->gift_id }}. User {{ $notification->transaction->buyer->username }} đã nhận món quà của bạn
+                                        Item ID: {{ $notification->transaction->gift_id }}. User {{ $notification->transaction->buyer->username }} đã xin món quà của bạn. Hãy vào email để xem thông tin chi tiết
                                         </a>
                                     </li>
                                     @endforeach
@@ -67,11 +69,11 @@ if (!isset($notifications)) $notifications = null;
                                 </a>
 
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink-4">
-                                    <li><a class="waves-effect waves-light" href="/profile/{{auth()->id()}}">
+                                    <li><a class="dropdown-item waves-effect waves-light" href="/profile/{{auth()->id()}}">
                                         Trang cá nhân
                                     </a></li>
                                     <li>
-                                    <a class="waves-effect waves-light" href="{{ route('logout') }}"
+                                    <a class="dropdown-item waves-effect waves-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
                                         Đăng xuất
