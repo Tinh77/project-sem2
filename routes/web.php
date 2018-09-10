@@ -29,6 +29,9 @@ Route::post('/client/gift/{id}/inform', 'NotificationController@create');
 Route::post('/client/gift/{id}/confirm', 'NotificationController@edit');
 Route::get('/client/transaction', 'TransactionController@index');
 Route::get('/client/transaction/{id}', 'TransactionController@show');
+
+Route::get('/listposted', 'GiftController@listIndexPosted');
+
 Route::get('/client/home', 'GiftController@indexHome');
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');

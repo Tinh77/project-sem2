@@ -1,12 +1,12 @@
 <div class="col-md-3 personal-left">
-    <div class="text-center personal-image">
+    <div class="text-center personal-image mb-5">
         <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqVmEg51BG1mEUXhvy5enjqTY9X1mle0Zpk48zY7967gEAQscUTQ"
                 alt="Avatar" class="avatar">
     </div>
     <div class="profile__menu">
         <div class="text-center">
-            <h5>{{ Auth::user()->username }}h</h5>
+            <h3>{{ Auth::user()->username }}</h3>
             <div class="icon-icon">
                 <i class="fa fa-map-marker-alt"></i>
             </div>
@@ -25,7 +25,7 @@
             <tbody>
             <tr>
                 <td>
-                    <p>Dòng thời gian</p>
+                    <p><a href="/listposted">Dòng thời thời gian</a></p>
                 </td>
             </tr>
             <tr>
@@ -44,18 +44,6 @@
             <tr>
                 <td>Giao dịch thành công</td>
             </tr>
-
-            {{--<tr>--}}
-            {{--<td>--}}
-            {{--<p>Mạng xã hội</p>--}}
-            {{--<div class="profile__socials__link">--}}
-            {{--<a href="https://plus.google.com/101798871598004831050"--}}
-            {{--class="profile__socials__link__google"><i--}}
-            {{--class="fab fa-google-plus-g fa-2x"></i><span--}}
-            {{--class="text-google">Google</span></a>--}}
-            {{--</div>--}}
-            {{--</td>--}}
-            {{--</tr>--}}
             </tbody>
         </table>
     </div>

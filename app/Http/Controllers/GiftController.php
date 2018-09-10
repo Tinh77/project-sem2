@@ -24,8 +24,9 @@ class GiftController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct() {
-        $this->middleware('auth', ['except'=>['indexHome']]);
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['indexHome']]);
     }
 
 
@@ -56,8 +57,8 @@ class GiftController extends Controller
         } else {
             $data['key'] = '';
         }
-        if (isset($age) && Input::get('group100')){
-            $obj = $obj->where('age_range', '=', $age );
+        if (isset($age) && Input::get('group100')) {
+            $obj = $obj->where('age_range', '=', $age);
         }
         $obj = $obj->paginate(6);
         $list_obj = DB::table('categories')->pluck("name", "id");
@@ -79,6 +80,20 @@ class GiftController extends Controller
         $gift = Gift::all();
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
+    }
+
+    public function listIndexPosted()
+    {
+        if (Auth::check()) {
+            $account_id = Auth::id();
+            $obj = DB::table('gifts')->where([
+                ['account_id', '=', $account_id],
+                ['status', '=', 1]
+            ])->get();
+            return view('client.pages.gift.list_of_gift_posted')->with('obj', $obj);
+        } else {
+            return redirect('/login');
+        }
     }
 
     public function create()
@@ -130,15 +145,15 @@ class GiftController extends Controller
         if ($obj == null || $obj->status != 1) {
             return view('client.404client.404');
         }
-        $transaction = Transaction::where('gift_id','=',$id)->where('buyer_id','=', Auth::id())->first();
+        $transaction = Transaction::where('gift_id', '=', $id)->where('buyer_id', '=', Auth::id())->first();
         $follow = false;
-        if($transaction){
+        if ($transaction) {
             $follow = true;
         }
         $list_relate = Gift::where('category_id', $obj->category_id)->paginate(3);
         return view('client.pages.product-detail')
             ->with('obj', $obj)
-            ->with('list_relate',$list_relate)
+            ->with('list_relate', $list_relate)
             ->with('follow', $follow);
 
 
