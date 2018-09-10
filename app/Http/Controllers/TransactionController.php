@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Gift;
 use Illuminate\Http\Request;
 use App\Transaction;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
@@ -31,18 +33,41 @@ class TransactionController extends Controller
         return view('client.pages.gift.gifttransaction', compact('transaction'));
     }
 
+    public function showDetails($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+        return view('client.pages.gift.transaction_details', compact('transaction'));
+    }
+
     public function confirmStatus(Request $request)
     {
-        $transaction = Transaction::findOrFail($request);
-        if (!$transaction){
-            return response()->json(['status' => 'fraud4']);
+        $transaction = Transaction::findOrFail($request->transaction_id);
+        if (Auth::user()->id == $transaction->gift->account->id) {
+            if (!$transaction->confirm_owner_flag) {
+                $transaction->confirm_owner_flag = true;
+            }
+        } else {
+            if (!$transaction->confirm_buyer_flag) {
+                $transaction->confirm_buyer_flag = true;
+            }
         }
-        if($transaction->status == 1){
+
+        if ($transaction->confirm_owner_flag && $transaction->confirm_buyer_flag) {
             $transaction->status = 2;
-        }elseif ($transaction->status == 2){
-            $transaction->status = 3;
         }
+
         $transaction->save();
+        return response()->json(['status' => 1]);
+    }
+
+    public function refreshStatus(Request $request)
+    {
+        $transaction = Transaction::findOrFail($request->transaction_id);
+        if(Auth::user()->id == $transaction->owner->id && $transaction->status == 1){
+            $transaction->status = '-1';
+            $transaction->save();
+            return response()->json(['status' => 1]);
+        }
         return response()->json(['status' => 0]);
     }
 }

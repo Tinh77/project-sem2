@@ -24,8 +24,9 @@ class GiftController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct() {
-        $this->middleware('auth', ['except'=>['indexHome']]);
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['indexHome']]);
     }
 
 
@@ -33,7 +34,7 @@ class GiftController extends Controller
     {
 
         $category = Category::all();
-        $obj = Gift::orderBy('created_at', 'desc')->paginate(9);
+        $obj = Gift::orderBy('created_at', 'desc')->where(['status' => 1])->paginate(9);
 //        dd($obj);
         $notifications = new Notification();
         if (Auth::check()) {
@@ -50,14 +51,14 @@ class GiftController extends Controller
         $age = Input::get('group100');
         $keyword = Input::get('key');
         $data = Input::get();
-        $obj = Gift::orderBy('created_at', 'desc');
+        $obj = Gift::orderBy('created_at', 'desc')->where(['status' => 1]);
         if (isset($keyword) && Input::get('key')) {
             $obj = $obj->where('name', 'like', '%' . $keyword . '%');
         } else {
             $data['key'] = '';
         }
-        if (isset($age) && Input::get('group100')){
-            $obj = $obj->where('age_range', '=', $age );
+        if (isset($age) && Input::get('group100')) {
+            $obj = $obj->where('age_range', '=', $age);
         }
         $obj = $obj->paginate(6);
         $list_obj = DB::table('categories')->pluck("name", "id");
@@ -76,7 +77,7 @@ class GiftController extends Controller
         $obj = DB::table('gifts')
             ->where('category_id', '=', $id)
             ->paginate(6);
-        $gift = Gift::all();
+        $gift = Gift::where(['status' => 1]);
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
     }
@@ -130,15 +131,15 @@ class GiftController extends Controller
         if ($obj == null || $obj->status != 1) {
             return view('client.404client.404');
         }
-        $transaction = Transaction::where('gift_id','=',$id)->where('buyer_id','=', Auth::id())->first();
+        $transaction = Transaction::where('gift_id', '=', $id)->where('buyer_id', '=', Auth::id())->first();
         $follow = false;
-        if($transaction){
+        if ($transaction) {
             $follow = true;
         }
         $list_relate = Gift::where('category_id', $obj->category_id)->paginate(3);
         return view('client.pages.product-detail')
             ->with('obj', $obj)
-            ->with('list_relate',$list_relate)
+            ->with('list_relate', $list_relate)
             ->with('follow', $follow);
 
 

@@ -17,7 +17,7 @@ class Transaction extends Model
 
 
     protected $fillable = [
-        'owner_id', 'buyer_id', 'gift_id', 'status', 'message'
+        'owner_id', 'buyer_id', 'gift_id', 'status', 'message', 'confirm_buyer_flag', 'confirm_owner_flag'
     ];
 
     public function getStatusStringAttribute()

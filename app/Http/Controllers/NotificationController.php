@@ -108,7 +108,9 @@ class NotificationController extends Controller
         if ($transaction->owner_id == $transaction->buyer_id)
             return response()->json(['status' => 'fraud3']);
         // cập nhật lại status ở transaction
+        $transaction->gift->status = 0;
         $transaction->status = true;
+        $transaction->gift->save();
         $transaction->save();
         $email = $transaction->buyer->account->email;
         // xóa notification với điều kiện ở dưới
