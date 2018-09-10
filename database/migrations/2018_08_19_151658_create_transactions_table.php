@@ -21,6 +21,8 @@ class CreateTransactionsTable extends Migration
             $table->foreign('buyer_id')->references('id')->on('accounts');
             $table->unsignedInteger('gift_id');
             $table->string('message');
+            $table->string('confirm_owner_flag')->default(false);
+            $table->string('confirm_buyer_flag')->default(false);
             $table->foreign('gift_id')->references('id')->on('gifts');
             $table->boolean('status')->default(false);
             $table->timestamps();
