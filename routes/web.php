@@ -32,6 +32,9 @@ Route::get('/client/transaction/{id}', 'TransactionController@show');
 
 Route::get('/listposted', 'GiftController@listIndexPosted');
 
+Route::get('/client/transaction/details/{id}', 'TransactionController@showDetails');
+Route::post('/client/transaction/confirm', 'TransactionController@confirmStatus');
+Route::post('/client/transaction/refresh', 'TransactionController@refreshStatus');
 Route::get('/client/home', 'GiftController@indexHome');
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
@@ -86,4 +89,23 @@ Route::group(['prefix' => config('laravelusers.prefix'), 'middleware' => 'web', 
 Route::middleware(['web', 'auth'])->group(function () {
     Route::post('search-users', '\App\Http\Controllers\Admin\UsersManagementController@search')->name('search-users');
 });
+
 Route::get('/send-mail', 'EmailController@send');
+
+
+Route::get('/client/post1', function () {
+    return view('client.posts.post1');
+});
+
+Route::get('/client/pages/post2', function () {
+    return view('client.posts.post2');
+});
+
+Route::get('/client/post3', function () {
+    return view('client.posts.post3');
+});
+
+
+Route::get('/pages/contact', function () {
+    return view('client.pages.contact_us');
+});

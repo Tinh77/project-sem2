@@ -34,7 +34,7 @@ class GiftController extends Controller
     {
 
         $category = Category::all();
-        $obj = Gift::orderBy('created_at', 'desc')->paginate(9);
+        $obj = Gift::orderBy('created_at', 'desc')->where(['status' => 1])->paginate(9);
 //        dd($obj);
         $notifications = new Notification();
         if (Auth::check()) {
@@ -51,7 +51,7 @@ class GiftController extends Controller
         $age = Input::get('group100');
         $keyword = Input::get('key');
         $data = Input::get();
-        $obj = Gift::orderBy('created_at', 'desc');
+        $obj = Gift::orderBy('created_at', 'desc')->where(['status' => 1]);
         if (isset($keyword) && Input::get('key')) {
             $obj = $obj->where('name', 'like', '%' . $keyword . '%');
         } else {
@@ -77,7 +77,7 @@ class GiftController extends Controller
         $obj = DB::table('gifts')
             ->where('category_id', '=', $id)
             ->paginate(6);
-        $gift = Gift::all();
+        $gift = Gift::where(['status' => 1]);
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
     }

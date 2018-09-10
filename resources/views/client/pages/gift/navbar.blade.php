@@ -36,7 +36,7 @@
             </tr>
             <tr>
                 <td>
-                    <a href="/client/transaction">Món quà đã đăng</a></td>
+                    <a href="/client/transaction">Lịch sử trao đổi</a></td>
             </tr>
             <tr>
                 <td>Tổng số bài dang</td>
