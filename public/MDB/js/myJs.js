@@ -30,6 +30,7 @@ function reset(price) {
     client.text(price + '$');
     reseller.text((Math.round((percentageBonus / 100 * price))) + '$');
 }
+
 developerBtn.on('click', function (e) {
     license.dev.active = true;
     license.corpo.active = false;
@@ -75,5 +76,4 @@ $(document).ready(function () {
 $(function () {
     $("#mdb-lightbox-ui").load("../../mdb-addons/mdb-lightbox-ui.html");
 });
-
 

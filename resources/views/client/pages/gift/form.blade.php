@@ -29,6 +29,14 @@
                             </ul>
                         </div>
                     @endif
+                    <div class="flash-message">
+                        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                            @if(Session::has('alert-' . $msg))
+
+                                <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                            @endif
+                        @endforeach
+                    </div>
                     <form action="/client/gift" method="POST" class="text-center border-light p-5"
                           enctype="multipart/form-data">
                         {{csrf_field()}}
@@ -196,8 +204,9 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-info">Lưu thông tin</button>
+                        <button type="submit" onclick="myFunction()" class="btn btn-info">Lưu thông tin</button>
                         <button type="reset" class="btn btn-grey">Làm lại</button>
+
                     </form>
 
 
@@ -206,6 +215,7 @@
             <!-- Card -->
         </div>
     </div>
+
 @endsection
 
 

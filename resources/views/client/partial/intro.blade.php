@@ -1,6 +1,6 @@
 <!-- Intro Section -->
 <div class="view jarallax" data-jarallax='{"speed": 0.2}'
-     style="overlays-image: url({{asset('img/brand/bg.jpg')}}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+     style="background-image: url({{asset('img/brand/bg.jpg')}}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <div class="mask rgba-white-light">
         <div class="container h-100 d-flex justify-content-center align-items-center">
             <div class="row pt-5 mt-3">

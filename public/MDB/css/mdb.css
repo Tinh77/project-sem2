@@ -1751,9 +1751,9 @@ a.text-light:hover, a.text-light:focus {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1); }
-
+/* 
 .pattern-1 {
-  background: url("../img/overlays/01.png"); }
+  background: url("../img/overlays/01.png"); } */
 
 .pattern-2 {
   background: url("../img/overlays/02.png"); }
