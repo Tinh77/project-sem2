@@ -54,15 +54,16 @@
                                 <td class="float-left">
                                     <div class="btn-group">
                                         <a href="/client/transaction/details/{{$item->id}}"
-                                           class="btn btn-sm btn-simple btn-warning btn-icon edit"><i
-                                                class="fa fa-pencil"></i></a>
+                                           class="btn-sm btn-icon edit"><i
+                                                class="fa fa-info"></i></a>
                                         <a data-transaction-id="{{ $item->id }}"
-                                           class="btn btn-sm btn-success remove btn-confirm-status"><i
+                                           class="btn-icon remove btn-sm btn-confirm-status"><i
                                                 class="fa fa-check"></i>
                                         </a>
                                         <a href="javascript:void(0)" data-transaction-id="{{ $item->id }}"
-                                           class="btn btn-sm btn-simple btn-danger btn-refresh-status"><i
-                                                class="fa fa-refresh"></i></a>
+                                           class="btn-icon remove btn-sm btn-refresh-status"><i
+                                                class="fa fa-refresh"></i>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
@@ -117,10 +118,10 @@
                                 <td class="float-left">
                                     <div class="btn-group">
                                         <a href="/client/transaction/details/{{$item->id}}"
-                                           class="btn btn-sm btn-warning edit" title="thông tin chi tiết giao dịch"><i
-                                                class="fa fa-info-circle"></i></a>
+                                           class="btn-icon edit" title="thông tin chi tiết giao dịch"><i
+                                                class="fa fa-info"></i></a>
                                         <a data-transaction-id="{{ $item->id }}"
-                                           class="btn btn-sm btn-success remove btn-confirm-status"><i
+                                           class="btn-icon remove btn-sm btn-confirm-status"><i
                                                 class="fa fa-check"></i>
                                         </a>
                                     </div>
