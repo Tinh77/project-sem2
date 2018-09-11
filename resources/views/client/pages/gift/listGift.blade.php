@@ -1,15 +1,17 @@
 @extends('client.pages.gift.list')
 @section('content1')
-        <div class="col-md-9">
+    <div class="col-md-9">
         <!-- Nav tabs -->
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Món quà của bạn được quan tâm</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Món quà bạn quan tâm</a>
-                </li>
-            </ul>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                   aria-selected="true">Món quà của bạn được quan tâm</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                   aria-controls="profile" aria-selected="false">Món quà bạn quan tâm</a>
+            </li>
+        </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
@@ -47,16 +49,18 @@
                             <td>{{ $item->statusString }}</td>
                             <td class="float-left">
                                 <div class="btn-group">
-                                    <a href="/client/gift/{{$item->id}}/edit"
+                                    <a href="/client/transaction/details/{{$item->id}}"
                                        class="btn btn-sm btn-simple btn-warning btn-icon edit"><i
                                                 class="fa fa-pencil"></i></a>
-                                    <a data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
-                                       class="btn btn-sm btn-simple btn-danger btn-icon remove btn-delete"><i
-                                                class="fa fa-trash"></i>
+                                    <a data-transaction-id="{{ $item->id }}"
+                                       class="btn btn-sm btn-success remove btn-confirm-status"><i
+                                                class="fa fa-check"></i>
                                     </a>
+                                    <a href="javascript:void(0)" data-transaction-id="{{ $item->id }}"
+                                       class="btn btn-sm btn-simple btn-danger btn-refresh-status"><i
+                                                class="fa fa-refresh"></i></a>
                                 </div>
                             </td>
-
                         </tr>
                     @endforeach
                     </tbody>
@@ -96,12 +100,12 @@
                             <td>{{ $item->statusString }}</td>
                             <td class="float-left">
                                 <div class="btn-group">
-                                    <a href="/client/gift/{{$item->id}}/edit"
+                                    <a href="/client/transaction/details/{{$item->id}}"
                                        class="btn btn-sm btn-warning edit"><i
                                                 class="fa fa-pencil"></i></a>
-                                    <a data-id="{{$item->id}}" onclick="deleteItemConfirm({{$item->id}});"
-                                       class="btn btn-sm btn-danger remove btn-delete"><i
-                                                class="fa fa-trash"></i>
+                                    <a data-transaction-id="{{ $item->id }}"
+                                       class="btn btn-sm btn-success remove btn-confirm-status"><i
+                                                class="fa fa-check"></i>
                                     </a>
                                 </div>
                             </td>
@@ -112,62 +116,6 @@
                 </table>
             </div>
         </div>
-        </div>
+    </div>
     <div class="clearfix"></div>
-
-    <script>
-        function deleteItemConfirm($id) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            // var id = $(this).data("id");
-            swal({
-                text: "Bạn có chắc là muốn xóa lịch sử món quà này?",
-                type: 'warning',
-                // icon: 'warning',
-                showCancelButton: true,
-                // buttons: true,
-
-                buttons: ["Hủy", "Xóa"]
-
-                // confirmButtonClass: 'btn btn-success',
-                // cancelButtonClass: 'btn btn-danger',
-                // confirmButtonText: "Xoá",
-                // cancelButtonText: "Hủy",
-                // buttonsStyling: false
-
-            }).then(function () {
-
-                $.ajax({
-                    url: '/client/gift/' + $id,
-                    method: 'DELETE',
-                    data: {
-                        '_method': 'DELETE',
-                        'id': $id
-                    },
-                    success: function () {
-                        swal(
-                            'Đã xóa thành công.',
-                            'success'
-                        )
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 2 * 1000);
-
-                        // $("#items-page").load(" #items-page");
-
-                    },
-                    error: function () {
-                        swal(
-                            'Deleted.',
-                            'error'
-                        )
-                    }
-                });
-            });
-            return false;
-        };
-    </script>
 @endsection

@@ -29,6 +29,9 @@ Route::post('/client/gift/{id}/inform', 'NotificationController@create');
 Route::post('/client/gift/{id}/confirm', 'NotificationController@edit');
 Route::get('/client/transaction', 'TransactionController@index');
 Route::get('/client/transaction/{id}', 'TransactionController@show');
+Route::get('/client/transaction/details/{id}', 'TransactionController@showDetails');
+Route::post('/client/transaction/confirm', 'TransactionController@confirmStatus');
+Route::post('/client/transaction/refresh', 'TransactionController@refreshStatus');
 Route::get('/client/home', 'GiftController@indexHome');
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
@@ -99,3 +102,7 @@ Route::get('/client/post3', function () {
     return view('client.posts.post3');
 });
 
+
+Route::get('/pages/contact', function () {
+    return view('client.pages.contact_us');
+});
