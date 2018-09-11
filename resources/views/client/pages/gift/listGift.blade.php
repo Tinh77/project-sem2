@@ -25,7 +25,7 @@
                         <th class="sorting_asc" tabindex="0" aria-controls="datatables"
                             rowspan="1" colspan="1" style="width: 130px;"
                             aria-sort="ascending"
-                            aria-label="Name: activate to sort column descending">Id món quà
+                            aria-label="Name: activate to sort column descending">Ảnh món quà
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="datatables"
                             rowspan="1" colspan="1" style="width: 300px;"
@@ -44,7 +44,8 @@
                     <tbody id="items-page">
                     @foreach($obj_owner_id as $item)
                         <tr>
-                            <th scope="row">{{$item->gift->id}}</th>
+                            <th scope="row"><img class="w-75" src="{{\JD\Cloudder\Facades\Cloudder::show($item->gift->images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}" alt="">
+                                </th>
                             <td>{{$item->gift->name}}</td>
                             <td>{{ $item->statusString }}</td>
                             <td class="float-left">
@@ -76,7 +77,7 @@
                         <th class="sorting_asc" tabindex="0" aria-controls="datatables"
                             rowspan="1" colspan="1" style="width: 130px;"
                             aria-sort="ascending"
-                            aria-label="Name: activate to sort column descending">Id món quà
+                            aria-label="Name: activate to sort column descending">Ảnh món quà
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="datatables"
                             rowspan="1" colspan="1" style="width: 300px;"
@@ -95,7 +96,7 @@
                     <tbody id="items-page">
                     @foreach($obj_buyer_id as $item)
                         <tr>
-                            <th scope="row">{{$item->gift_id}}</th>
+                            <th scope="row"><img class="w-75" src="{{\JD\Cloudder\Facades\Cloudder::show($item->gift->images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}" alt=""></th>
                             <td>{{$item->gift->name}}</td>
                             <td>{{ $item->statusString }}</td>
                             <td class="float-left">
