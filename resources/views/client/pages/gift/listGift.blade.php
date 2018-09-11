@@ -67,29 +67,6 @@
                                 </td>
                             </tr>
                         @endforeach
-                        </thead>
-                        <tbody id="items-page">
-                        @foreach($obj_owner_id as $item)
-                            <tr>
-                                <th scope="row">{{$item->gift->id}}</th>
-                                <td>{{$item->gift->name}}</td>
-                                <td>{{ $item->statusString }}</td>
-                                <td class="float-left">
-                                    <div class="btn-group">
-                                        <a href="/client/transaction/details/{{$item->id}}"
-                                           class="btn btn-sm btn-simple btn-warning btn-icon edit"><i
-                                                class="fa fa-pencil"></i></a>
-                                        <a data-transaction-id="{{ $item->id }}"
-                                           class="btn btn-sm btn-success remove btn-confirm-status"><i
-                                                class="fa fa-check"></i>
-                                        </a>
-                                        <a href="javascript:void(0)" data-transaction-id="{{ $item->id }}"
-                                           class="btn btn-sm btn-simple btn-danger btn-refresh-status"><i
-                                                class="fa fa-refresh"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
                         </tbody>
                     </table>
                 @else
