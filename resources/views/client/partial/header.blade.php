@@ -30,7 +30,7 @@ if (!isset($notifications)) $notifications = null;
                         <a class="nav-link" href="#">Về chúng tôi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/contacts">Liên hệ với chúng tôi</a>
+                        <a class="nav-link" href="/pages/contact">Liên hệ với chúng tôi</a>
                     </li>
                 </ul>
 
