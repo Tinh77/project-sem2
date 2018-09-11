@@ -54,7 +54,7 @@
                                 <td class="float-left">
                                     <div class="btn-group">
                                         <a href="/client/transaction/details/{{$item->id}}"
-                                           class="btn-icon edit"><i
+                                           class="btn-sm btn-icon edit"><i
                                                 class="fa fa-info"></i></a>
                                         <a data-transaction-id="{{ $item->id }}"
                                            class="btn-icon remove btn-sm btn-confirm-status"><i
