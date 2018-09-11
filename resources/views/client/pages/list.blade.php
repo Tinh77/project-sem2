@@ -61,23 +61,23 @@
                                 <form method="GET" id="searchForm" action="/client/gift">
                                     <!--/group-->
                                     <div class="form-group ">
-                                        <label class="dark-grey-text">
+                                        <label class="dark-grey-text {{Request::is('gift?group100=0') ? 'jactive' : ''}}">
                                             <input name="group100" value="0" type="radio" id="search_age_range">
                                             Tất cả</label>
                                     </div>
                                     <div class="form-group">
-                                        <label class="dark-grey-text {{ Request::is('name') ? 'jactive' : '' }}">
+                                        <label class="dark-grey-text {{Request::is('gift?group100=1') ? 'jactive' : ''}}">
                                             <input name="group100" value="1" type="radio" id="search_age_range">
                                             0 tháng - 6 tháng
                                         </label>
                                     </div>
                                     <div class="form-group">
-                                        <label class="dark-grey-text">
+                                        <label class="dark-grey-text {{Request::is('gift?group100=2') ? 'jactive' : ''}}">
                                             <input name="group100" value="2" type="radio" id="search_age_range" >
                                             6 tháng - 12 tháng</label>
                                     </div>
                                     <div class="form-group">
-                                        <label class="dark-grey-text">
+                                        <label class="dark-grey-text {{Request::is('gift?group100=3') ? 'jactive' : ''}}">
                                             <input name="group100" value="3" type="radio" id="search_age_range">
                                             trên 12 tháng</label>
                                     </div>
@@ -172,6 +172,13 @@
     <script>
         $('.jmenu a').on('click', function() {
             $('.jmenu a').removeClass('jactive');
+            $(this).addClass('jactive');
+        })
+    </script>
+
+    <script>
+        $('.form-group label').on('click', function() {
+            $('.form-group label').removeClass('jactive');
             $(this).addClass('jactive');
         })
     </script>
