@@ -113,6 +113,7 @@ class GiftController extends Controller
             $obj->gender = Input::get('gender');
             $obj->city = Input::get('city');
             $obj->save();
+
             return redirect('/client/home');
         } else {
             return redirect('/login');
