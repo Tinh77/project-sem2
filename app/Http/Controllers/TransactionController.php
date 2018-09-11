@@ -6,6 +6,7 @@ use App\Gift;
 use Illuminate\Http\Request;
 use App\Transaction;
 use Illuminate\Support\Facades\Auth;
+use Mail;
 
 class TransactionController extends Controller
 {
@@ -63,9 +64,16 @@ class TransactionController extends Controller
     public function refreshStatus(Request $request)
     {
         $transaction = Transaction::findOrFail($request->transaction_id);
-        if(Auth::user()->id == $transaction->owner->id && $transaction->status == 1){
+        $email = $transaction->owner->account->email;
+        if (Auth::user()->id == $transaction->owner->id && $transaction->status == 1) {
             $transaction->status = '-1';
             $transaction->save();
+            $data = array('title' => 'Xin chao vietnam', 'transaction' =>$transaction);
+            Mail::send('emails.send1', $data, function ($message) use ($email) {
+                $message->to($email, $email)->subject
+                ('Bán đã bị hủy giao dịch .Vui lòng xem chi tiết ở bên dưới');
+                $message->from('admin@meaning-gift.com', 'Meaning Gift Admin');
+            });
             return response()->json(['status' => 1]);
         }
         return response()->json(['status' => 0]);

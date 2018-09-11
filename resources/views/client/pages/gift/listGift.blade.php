@@ -26,7 +26,7 @@
                             <th class="sorting_asc" tabindex="0" aria-controls="datatables"
                                 rowspan="1" colspan="1" style="width: 130px;"
                                 aria-sort="ascending"
-                                aria-label="Name: activate to sort column descending">Id món quà
+                                aria-label="Name: activate to sort column descending">Ảnh món quà
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="datatables"
                                 rowspan="1" colspan="1" style="width: 300px;"
@@ -45,21 +45,24 @@
                         <tbody id="items-page">
                         @foreach($obj_owner_id as $item)
                             <tr>
-                                <th scope="row">{{$item->gift->id}}</th>
+                                <th scope="row"><img class="w-75"
+                                                     src="{{\JD\Cloudder\Facades\Cloudder::show($item->gift->images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
+                                                     alt="">
+                                </th>
                                 <td>{{$item->gift->name}}</td>
                                 <td>{{ $item->statusString }}</td>
                                 <td class="float-left">
                                     <div class="btn-group">
                                         <a href="/client/transaction/details/{{$item->id}}"
                                            class="btn btn-sm btn-simple btn-warning btn-icon edit"><i
-                                                    class="fa fa-pencil"></i></a>
+                                                class="fa fa-pencil"></i></a>
                                         <a data-transaction-id="{{ $item->id }}"
                                            class="btn btn-sm btn-success remove btn-confirm-status"><i
-                                                    class="fa fa-check"></i>
+                                                class="fa fa-check"></i>
                                         </a>
                                         <a href="javascript:void(0)" data-transaction-id="{{ $item->id }}"
                                            class="btn btn-sm btn-simple btn-danger btn-refresh-status"><i
-                                                    class="fa fa-refresh"></i></a>
+                                                class="fa fa-refresh"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -78,52 +81,55 @@
             </div>
             <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 @if($obj_buyer_id->count()>0)
-                <table id="datatables"
-                       class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
-                       cellspacing="0" width="100%" style="width: 100%;" role="grid"
-                       aria-describedby="datatables_info">
-                    <thead>
-                    <tr role="row">
-                        <th class="sorting_asc" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 130px;"
-                            aria-sort="ascending"
-                            aria-label="Name: activate to sort column descending">Id món quà
-                        </th>
-                        <th class="sorting" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 300px;"
-                            aria-label="Office: activate to sort column ascending">Tên món quà
-                        </th>
-                        <th class="sorting" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 200px;"
-                            aria-label="Office: activate to sort column ascending">Trạng thái
-                        </th>
-                        <th class="sorting" tabindex="0" aria-controls="datatables"
-                            rowspan="1" colspan="1" style="width: 200px;"
-                            aria-label="Office: activate to sort column ascending">
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody id="items-page">
-                    @foreach($obj_buyer_id as $item)
-                        <tr>
-                            <th scope="row">{{$item->gift_id}}</th>
-                            <td>{{$item->gift->name}}</td>
-                            <td>{{ $item->statusString }}</td>
-                            <td class="float-left">
-                                <div class="btn-group">
-                                    <a href="/client/transaction/details/{{$item->id}}"
-                                       class="btn btn-sm btn-warning edit" title="thông tin chi tiết giao dịch" title="xem chi tiết"><i class="fa fa-info-circle" ></i></a>
-                                    <a data-transaction-id="{{ $item->id }}"
-                                       class="btn btn-sm btn-success remove btn-confirm-status"><i
-                                                class="fa fa-check"></i>
-                                    </a>
-                                </div>
-                            </td>
-
+                    <table id="datatables"
+                           class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
+                           cellspacing="0" width="100%" style="width: 100%;" role="grid"
+                           aria-describedby="datatables_info">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="datatables"
+                                rowspan="1" colspan="1" style="width: 130px;"
+                                aria-sort="ascending"
+                                aria-label="Name: activate to sort column descending">Ảnh món quà
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="datatables"
+                                rowspan="1" colspan="1" style="width: 300px;"
+                                aria-label="Office: activate to sort column ascending">Tên món quà
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="datatables"
+                                rowspan="1" colspan="1" style="width: 200px;"
+                                aria-label="Office: activate to sort column ascending">Trạng thái
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="datatables"
+                                rowspan="1" colspan="1" style="width: 200px;"
+                                aria-label="Office: activate to sort column ascending">
+                            </th>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody id="items-page">
+                        @foreach($obj_buyer_id as $item)
+                            <tr>
+                                <th scope="row"><img class="w-75"
+                                                     src="{{\JD\Cloudder\Facades\Cloudder::show($item->gift->images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
+                                                     alt=""></th>
+                                <td>{{$item->gift->name}}</td>
+                                <td>{{ $item->statusString }}</td>
+                                <td class="float-left">
+                                    <div class="btn-group">
+                                        <a href="/client/transaction/details/{{$item->id}}"
+                                           class="btn btn-sm btn-warning edit" title="thông tin chi tiết giao dịch"><i
+                                                class="fa fa-info-circle"></i></a>
+                                        <a data-transaction-id="{{ $item->id }}"
+                                           class="btn btn-sm btn-success remove btn-confirm-status"><i
+                                                class="fa fa-check"></i>
+                                        </a>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 @else
                     <div class="card text-center">
                         <div class="card-body">

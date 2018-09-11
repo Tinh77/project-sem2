@@ -128,7 +128,7 @@ class GiftController extends Controller
             $obj->gender = Input::get('gender');
             $obj->city = Input::get('city');
             $obj->save();
-            return redirect('/client/home')->with('success','Bạn đăng tin thành công');
+            return redirect('/client/home')->with('success', 'Bạn đăng tin thành công');
         } else {
             return redirect('/login');
         }

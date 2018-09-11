@@ -23,7 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        return view('client.pages.home');
-//        return view('client.pages.home')->with('success', 'sadasdas');
+return redirect("client/home");
     }
 }

@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('client-css/personal.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/navbar.css')}}">
-
+    @yield('stylesheet')
 
 </head>
 
@@ -54,12 +54,12 @@
 <script type="text/javascript" src="{{asset('MDB/js/mdb.min.js')}}"></script>
 <!-- My js core JavaScript -->
 <script type="text/javascript" src="{{asset('MDB/js/myJs.js')}}"></script>
-{{--<script type="text/javascript" src="{{asset('client-js/client.js')}}"></script>--}}
-{{--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>--}}
+<script type="text/javascript" src="{{asset('client-js/client.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-{{--<script>--}}
-{{--new WOW().init();--}}
-{{--</script>--}}
+<script>
+    new WOW().init();
+</script>
 <script src="{{asset('MDB/js/modules/toastr.js')}}"></script>
 @include('client.partial.message')
 @if(session('success'))

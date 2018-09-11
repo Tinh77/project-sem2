@@ -1,4 +1,13 @@
 @extends('client.layout.master')
+@section('stylesheet')
+    <style>
+        .jactive {
+            color: black!important;
+            font-weight: bold;
+        }
+    </style>
+@endsection
+
 @section('content')
     <!-- Main Container -->
     <main class="content-margin">
@@ -35,10 +44,12 @@
                                 <div class="divider border-top"></div>
                                 <p><a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
 
-                                @foreach($list_obj as $key => $item)
-                                    <p><a class="dark-grey-text text-center"
-                                          href="/client/category-gift/{{$key}}">{{$item}}</a></p>
-                                @endforeach
+                                <div class="jmenu">
+                                    @foreach($list_obj as $key => $item)
+                                        <p><a class="dark-grey-text text-center {{Request::segment(3) == $key ? 'jactive' : ''}}"
+                                              href="/client/category-gift/{{$key}}">{{$item}}</a></p>
+                                    @endforeach
+                                </div>
 
                             </div>
 
@@ -46,27 +57,27 @@
                             <div class="col-md-6 col-lg-12 mb-5">
                                 <h4 class=" dark-grey-text">Phân loại theo tuổi</h4>
                                 <div class="divider border-top"></div>
-
                                 <!--Radio <group-->
                                 <form method="GET" id="searchForm" action="/client/gift">
                                     <!--/group-->
                                     <div class="form-group ">
-                                        <label class="dark-grey-text">
+                                        <label class="dark-grey-text {{Request::is('gift?group100=0') ? 'jactive' : ''}}">
                                             <input name="group100" value="0" type="radio" id="search_age_range">
                                             Tất cả</label>
                                     </div>
                                     <div class="form-group">
-                                        <label class="dark-grey-text">
+                                        <label class="dark-grey-text {{Request::is('gift?group100=1') ? 'jactive' : ''}}">
                                             <input name="group100" value="1" type="radio" id="search_age_range">
-                                            0 tháng - 6 tháng</label>
+                                            0 tháng - 6 tháng
+                                        </label>
                                     </div>
                                     <div class="form-group">
-                                        <label class="dark-grey-text">
-                                            <input name="group100" value="2" type="radio" id="search_age_range">
+                                        <label class="dark-grey-text {{Request::is('gift?group100=2') ? 'jactive' : ''}}">
+                                            <input name="group100" value="2" type="radio" id="search_age_range" >
                                             6 tháng - 12 tháng</label>
                                     </div>
                                     <div class="form-group">
-                                        <label class="dark-grey-text">
+                                        <label class="dark-grey-text {{Request::is('gift?group100=3') ? 'jactive' : ''}}">
                                             <input name="group100" value="3" type="radio" id="search_age_range">
                                             trên 12 tháng</label>
                                     </div>
@@ -119,7 +130,9 @@
                                             <!--Card footer-->
                                             <div class="card-footer">
                                                 <span class="float-left"><i
+
                                                             class="fa fa-clock-o"></i>{{ Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</span>
+
                                                 <span class="float-right">
                                                 <a class="card-link" title="chi tiết"
                                                    href="/client/gift/{{$item->id}}">
@@ -153,4 +166,20 @@
         <!-- /.Main Container -->
 
     </main>
+@endsection
+
+@section('script')
+    <script>
+        $('.jmenu a').on('click', function() {
+            $('.jmenu a').removeClass('jactive');
+            $(this).addClass('jactive');
+        })
+    </script>
+
+    <script>
+        $('.form-group label').on('click', function() {
+            $('.form-group label').removeClass('jactive');
+            $(this).addClass('jactive');
+        })
+    </script>
 @endsection

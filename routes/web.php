@@ -9,16 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/admin', function () {
-    return view('admin.layout.master-v2');
-});
-Route::get('/admin/demo-form', function () {
-    return view('admin.pages.form');
-});
-Route::get('/admin/demo-list', function () {
-    return view('admin.pages.table');
-});
-Route::resource('/admin','CategoryController');
 Route::get('/client/list-gift', function () {
     return view('client.pages.gift.list');
 });
@@ -29,9 +19,7 @@ Route::post('/client/gift/{id}/inform', 'NotificationController@create');
 Route::post('/client/gift/{id}/confirm', 'NotificationController@edit');
 Route::get('/client/transaction', 'TransactionController@index');
 Route::get('/client/transaction/{id}', 'TransactionController@show');
-
 Route::get('/listposted', 'GiftController@listIndexPosted');
-
 Route::get('/client/transaction/details/{id}', 'TransactionController@showDetails');
 Route::post('/client/transaction/confirm', 'TransactionController@confirmStatus');
 Route::post('/client/transaction/refresh', 'TransactionController@refreshStatus');
@@ -90,9 +78,7 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::post('search-users', '\App\Http\Controllers\Admin\UsersManagementController@search')->name('search-users');
 });
 
-Route::get('/send-mail', 'EmailController@send');
-
-
+//Route::get('/send-mail', 'EmailController@send');
 Route::get('/client/post1', function () {
     return view('client.posts.post1');
 });
