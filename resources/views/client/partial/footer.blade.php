@@ -1,77 +1,31 @@
-
 <footer class="page-footer pt-4 mt-4 text-center text-md-left mdb-color lighten-2">
 
     <!--Footer Links-->
-    <div class="container">
-        <div class="row">
-
-            <!--First column-->
-            <div class="col-md-3 mr-auto">
-                    <a   class="img-footer w-50" href="/client/home">
-                        <img src="{{asset('img/brand/Logo_active01.png')}}" style="width: 300px" class="img-fluid" alt="">
-                    </a>
-                <p style="font-size: small">
-                    Meaning_gift  mong muốn trở thành tổ chức giàu tình cảm, tiết kiệm và quy mô dựa trên việc xây dựng một cộng đồng tích cực không lãng phí, cung cấp những thông tin hữu ích, thuận tiện cho cộng đồng.
-                </p>
-            </div>
-            <!--/.First column-->
-
-            <hr class="w-100 clearfix d-md-none">
-
-            <!--Second column-->
-            <div class="col-md-2 ml-auto">
-                <h6 class="text-uppercase mb-3">Tiêu chí</h6>
-                <ul class="list-unstyled" style="font-size: small">
-                    <li>
-                        <a class="nav-link" href="#!">Có cho</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#!">Thiếu xin</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#!">Chí cho</a>
-                    </li>
-
-                </ul>
-            </div>
-            <!--/.Second column-->
-
-            <hr class="w-100 clearfix d-md-none">
-
-            <!--Third column-->
-            <div class="col-md-2 ml-auto">
-                <h6 class="text-uppercase mb-3">Chính sách</h6>
-                <ul class="list-unstyled" style="font-size: small">
-                    <li>
-                        <a  class="nav-link" href="#!">Cho đi để nhận lại</a>
-                    </li>
-                    <li>
-                        <a  class="nav-link" href="#!">Mọi thứ đều có ý nghĩa</a>
-                    </li>
-                </ul>
-            </div>
-            <!--/.Third column-->
-
-            <hr class="w-100 clearfix d-md-none">
-
-            <!--Fourth column-->
-            <div class="col-md-3 ml-auto">
-                <h6 class="text-uppercase mb-3">Meaning_gift</h6>
-                <ul class="list-unstyled" style="font-size: small">
-                    <li>
-                        <a class="nav-link" href="#">Về chúng tôi</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">Liên hệ với chúng tôi</a>
-                    </li>
-                </ul>
-            </div>
-            <!--/.Fourth column-->
-
-        </div>
-    </div>
     <!--/.Footer Links-->
-
+@guest
+    <!-- Call to action -->
+        <ul class="list-unstyled list-inline text-center py-2">
+            <li class="list-inline-item">
+                <h5 class="mb-1">Tạo tài khoản chỉ mất vài giây</h5>
+            </li>
+            <li class="list-inline-item">
+                <a href="{{ route('register') }}"
+                   class="btn btn-outline-white btn-rounded">{{ __('auth.register') }}</a>
+            </li>
+        </ul>
+        <!-- Call to action -->
+@else
+    <!-- Call to action -->
+        <ul class="list-unstyled list-inline text-center py-2">
+            <li class="list-inline-item">
+                <h5 class="mb-1">Đăng truyện của bạn chỉ mất vài giây</h5>
+            </li>
+            <li class="list-inline-item">
+                <a href="#!" class="btn btn-outline-white btn-rounded">{{ __('auth.post') }}</a>
+            </li>
+        </ul>
+        <!-- Call to action -->
+    @endif
     <hr>
 
     <!--Social buttons-->

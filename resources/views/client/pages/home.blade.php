@@ -17,7 +17,7 @@
                 <div class="row">
 
                     <!--Grid column-->
-                    @foreach($category as $item)
+                    @foreach($categories as $item)
                         <div class="col-lg col-md col-sm col mb-4">
                             <!--Card-->
                             <div class="card card-ecommerce h-100">
@@ -55,7 +55,8 @@
             <!--Section: Products v.5-->
             <section class="section pb-3 wow fadeIn" data-wow-delay="0.3s">
 
-                <!--Section heading-->
+            {{--<a class="btn btn-success" onclick="toastr.success('Hi! I am success message.');">Success message</a>--}}
+            <!--Section heading-->
                 <h2 class="font-weight-bold text-center my-5">Quà tặng dành cho bạn</h2>
                 <!--Section description-->
                 <p class="text-center grey-text mb-5 mx-auto w-responsive">Những sản phẩm mới nhất đang cần tìm chủ mới.
@@ -251,7 +252,7 @@
         <div class="streak streak-photo"
              style="background-image:url('{{asset('img/brand/bg-02.jpg')}}')">
 
-            <div class="flex-center white-text pattern-1" style="background-attachment: f">
+            <div class="flex-center white-text">
                 <ul class="list-unstyled">
                     <li>
                         <h1 class=" white-text">
@@ -292,8 +293,10 @@
                                     <h3 class="mb-4 mt-4">
                                         <strong>Tất cả vì trẻ nhỏ</strong>
                                     </h3>
-                                    <p>Nuôi con nhỏ phải thật bình tĩnh, nhất là những ai lần đầu làm mẹ và nuôi con trong tháng đầu:
-                                        đừng lo lắng quá rồi stress thêm; đừng cuống cuồng lên khi con có biểu hiện lạ, hãy bình tĩnh giải quyết.
+                                    <p>Nuôi con nhỏ phải thật bình tĩnh, nhất là những ai lần đầu làm mẹ và nuôi con
+                                        trong tháng đầu:
+                                        đừng lo lắng quá rồi stress thêm; đừng cuống cuồng lên khi con có biểu hiện lạ,
+                                        hãy bình tĩnh giải quyết.
                                         Rồi tất cả cũng trôi qua và tốt đẹp cả thôi: bạn sẽ là người mẹ thực sự.</p>
                                     <a class="btn btn-secondary btn-sm" href="/client/post1">
                                         <i class="fa fa-clone left"></i>Xem chi tiết</a>
@@ -317,7 +320,8 @@
                                         <strong>Cho bé ngủ đúng cách</strong>
                                     </h3>
                                     <p> Không cho trẻ bé sơ sinh nằm nệm quá mềm
-                                        Theo các bác sĩ, hệ xương và cột sống của em bé còn khá mềm yếu vì thế nếu cho trẻ nằm ngủ đệm quá mềm sẽ ảnh hưởng đến cột sống của bé.
+                                        Theo các bác sĩ, hệ xương và cột sống của em bé còn khá mềm yếu vì thế nếu cho
+                                        trẻ nằm ngủ đệm quá mềm sẽ ảnh hưởng đến cột sống của bé.
                                         Lớn lên trẻ dễ bị cong, xiêu vẹo hoặc các dị tật khác về cột sống.</p>
                                     <a class="btn btn-pink btn-sm" href="/client/pages/post2">
                                         <i class="fa fa-clone left"></i>Xem chi tiết</a>
@@ -343,7 +347,8 @@
                                     <p>Khi chụp ảnh nên tắt đèn flash để tránh làm hại mắt bé
                                         Vì mắt trẻ sơ sinh chưa hoàn chỉnh các điểm ảnh nên
                                         đèn flash có thể gây hại cho mắt bé
-                                        . Vì thế, nếu bạn muốn chụp lại những khoảnh khắc đáng yêu của con để lưu niệm thì trước khi chụp nhớ tắt đèn flash nhé.</p>
+                                        . Vì thế, nếu bạn muốn chụp lại những khoảnh khắc đáng yêu của con để lưu niệm
+                                        thì trước khi chụp nhớ tắt đèn flash nhé.</p>
                                     <a class="btn btn-success btn-sm" href="/client/post3">
                                         <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
@@ -361,4 +366,5 @@
         </div>
 
     </main>
+
 @endsection

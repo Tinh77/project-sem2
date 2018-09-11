@@ -112,7 +112,7 @@
                             <td class="float-left">
                                 <div class="btn-group">
                                     <a href="/client/transaction/details/{{$item->id}}"
-                                       class="btn btn-sm btn-warning edit" title="thông tin chi tiết giao dịch"><i class="fa fa-info-circle" ></i></a>
+                                       class="btn btn-sm btn-warning edit" title="thông tin chi tiết giao dịch" title="xem chi tiết"><i class="fa fa-info-circle" ></i></a>
                                     <a data-transaction-id="{{ $item->id }}"
                                        class="btn btn-sm btn-success remove btn-confirm-status"><i
                                                 class="fa fa-check"></i>

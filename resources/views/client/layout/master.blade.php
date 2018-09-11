@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('MDB/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="{{asset('MDB/css/mdb.min.css')}}" rel="stylesheet">
     <!-- Style.css -->
@@ -39,25 +39,51 @@
 @include('client.partial.header')
 <!--Main Navigation-->
 <!--Main Layout-->
-@section('content')
-@show
+@yield('content')
 <!--Main Layout-->
 <!--Footer-->
 @include('client.partial.footer')
-<script type="text/javascript" src="{{asset('MDB/js/jquery-3.3.1.min.js')}}"></script>
+<script src="{{asset('MDB/js/jquery-3.3.1.min.js')}}"></script>
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="{{asset('MDB/js/popper.min.js')}}"></script>
+<script src="{{asset('MDB/js/popper.min.js')}}"></script>
+<script src="{{asset('MDB/js/bootstrap.min.js')}}"></script>
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
-<script type="text/javascript" src="{{asset('client-js/client.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('js/app.js')}}"></script>--}}
+
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="{{asset('MDB/js/mdb.min.js')}}"></script>
 <!-- My js core JavaScript -->
 <script type="text/javascript" src="{{asset('MDB/js/myJs.js')}}"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-    new WOW().init();
-</script>
+{{--<script type="text/javascript" src="{{asset('client-js/client.js')}}"></script>--}}
+{{--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>--}}
+
+{{--<script>--}}
+{{--new WOW().init();--}}
+{{--</script>--}}
+<script src="{{asset('MDB/js/modules/toastr.js')}}"></script>
+@include('client.partial.message')
+@if(session('success'))
+
+    <script>
+        toastr.options = {
+            "closeButon": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": 300,
+            "hideDuration": 1000,
+            "timeOut": 30000,
+            "extendedTimeOut": 5000,
+            "showEasing": "swing",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr["success"]("{{ session('success')}} ");
+    </script>
+@endif
 </body>
 
 </html>

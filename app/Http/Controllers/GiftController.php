@@ -33,7 +33,7 @@ class GiftController extends Controller
     public function indexHome()
     {
 
-        $category = Category::all();
+        $categories = Category::all();
         $obj = Gift::orderBy('created_at', 'desc')->where(['status' => 1])->paginate(9);
 //        dd($obj);
         $notifications = new Notification();
@@ -41,9 +41,10 @@ class GiftController extends Controller
             $notifications = Notification::where('account_id', Auth::user()->id)->get();
         }
         return view('client.pages.home')
-            ->with('category', $category)
+            ->with('categories', $categories)
             ->with('obj', $obj)
-            ->with('notifications', $notifications);
+            ->with('notifications', $notifications)
+            ->with('success', 'kiem tra tre tre tre tre');
     }
 
     public function index()
@@ -127,7 +128,7 @@ class GiftController extends Controller
             $obj->gender = Input::get('gender');
             $obj->city = Input::get('city');
             $obj->save();
-            return redirect('/client/home');
+            return redirect('/client/home')->with('success','Bạn đăng tin thành công');
         } else {
             return redirect('/login');
         }

@@ -30,7 +30,7 @@ if (!isset($notifications)) $notifications = null;
                         <a class="nav-link" href="#">Về chúng tôi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/contacts">Liên hệ với chúng tôi</a>
+                        <a class="nav-link" href="/contact_us">Liên hệ với chúng tôi</a>
                     </li>
                 </ul>
 
@@ -40,9 +40,9 @@ if (!isset($notifications)) $notifications = null;
                         @auth
                             @if ($notifications)
                             <li class="dropdown nav-item ml-3">
-                                <a href="#" role="button" class="nav-link dropdown-toggle waves-effect waves-light text-white-50"
+                                <a href="#" role="button" class="nav-link dropdown-toggle waves-effect waves-light text-white"
                                    id="navbarDropdownNoti" data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false" v-pre><i class="fa fa-bell text-black-50"></i> ({{$notifications->count()}})
+                                   aria-expanded="false" v-pre><i class="fa fa-bell text-white"></i> ({{$notifications->count()}})
                                 </a>
 
                                 <ul class="dropdown-menu" style="white-space: normal !important; width: 300px;" aria-labelledby="navbarDropdownNoti">
@@ -56,9 +56,9 @@ if (!isset($notifications)) $notifications = null;
                             </li>
                             @endif
                             <li class="dropdown nav-item ml-3">
-                                <a href="#" role="button" class="nav-link dropdown-toggle waves-effect waves-light text-white-50 font-weight-bold"
+                                <a href="#" role="button" class="nav-link dropdown-toggle waves-effect waves-light text-white font-weight-bold"
                                    id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false"><i class="fa fa-user text-black-50"></i>
+                                   aria-expanded="false"><i class="fa fa-user text-white"></i>
                                     {{ Auth::user()->username }}
                                     {{--@level(4)--}}
                                     {{--{{ __('[Admin]') }}--}}
