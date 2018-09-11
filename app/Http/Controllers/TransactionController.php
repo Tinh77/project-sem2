@@ -71,7 +71,7 @@ class TransactionController extends Controller
             $data = array('title' => 'Xin chao vietnam', 'transaction' =>$transaction);
             Mail::send('emails.send1', $data, function ($message) use ($email) {
                 $message->to($email, $email)->subject
-                ('Tôi muốn xin món hàng này của bạn .Vui lòng xem chi tiết ở bên dưới');
+                ('Bán đã bị hủy giao dịch .Vui lòng xem chi tiết ở bên dưới');
                 $message->from('admin@meaning-gift.com', 'Meaning Gift Admin');
             });
             return response()->json(['status' => 1]);

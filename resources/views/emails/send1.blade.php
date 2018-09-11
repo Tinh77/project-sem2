@@ -362,6 +362,8 @@
                                         <p>Xin chào,</p>
                                         <p>{{$transaction->owner->account->last_name}} không muốn cho bạn món quà {{$transaction->gift->name}} nữa vì thời gian bạn đến nhận quá lâu.</p>
 
+                                        <span class="apple-link">Bạn có thể nhận những món quà khác trong Meaning Gift.</span>
+
                                         <p>This is a really simple email template. Its sole purpose is to get the
                                             recipient to click the button with no distractions.</p>
                                         <p>Good luck! Hope it works.</p>
@@ -377,11 +379,6 @@
                 <!-- START FOOTER -->
                 <div class="footer">
                     <table border="0" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td class="content-block">
-                                <span class="apple-link">Bạn có thể nhận những món quà khác trong Meaning Gift.</span>
-                            </td>
-                        </tr>
                         <tr>
                             <td class="content-block powered-by">
                                 Powered by <a href="http://127.0.0.1:8000/client/home">Meaning Gift</a>.
