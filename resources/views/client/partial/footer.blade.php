@@ -10,7 +10,7 @@
             </li>
             <li class="list-inline-item">
                 <a href="{{ route('register') }}"
-                   class="btn btn-outline-white btn-rounded">{{ __('auth.register') }}</a>
+                   class="btn btn-outline-white btn-rounded">Tạo tài khoản ngay</a>
             </li>
         </ul>
         <!-- Call to action -->
@@ -18,10 +18,10 @@
     <!-- Call to action -->
         <ul class="list-unstyled list-inline text-center py-2">
             <li class="list-inline-item">
-                <h5 class="mb-1">Đăng truyện của bạn chỉ mất vài giây</h5>
+                <h5 class="mb-1">Đăng món quà của bạn chỉ mất vài giây</h5>
             </li>
             <li class="list-inline-item">
-                <a href="#!" class="btn btn-outline-white btn-rounded">{{ __('auth.post') }}</a>
+                <a href="#!" class="btn btn-outline-white btn-rounded">Đăng món quà</a>
             </li>
         </ul>
         <!-- Call to action -->
