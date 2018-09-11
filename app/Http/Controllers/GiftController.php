@@ -82,6 +82,20 @@ class GiftController extends Controller
         return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
     }
 
+    public function listIndexPosted()
+    {
+        if (Auth::check()) {
+            $account_id = Auth::id();
+            $obj = DB::table('gifts')->where([
+                ['account_id', '=', $account_id],
+                ['status', '=', 1]
+            ])->get();
+            return view('client.pages.gift.list_of_gift_posted')->with('obj', $obj);
+        } else {
+            return redirect('/login');
+        }
+    }
+
     public function create()
     {
         $obj = Category::all();
@@ -113,6 +127,7 @@ class GiftController extends Controller
             $obj->gender = Input::get('gender');
             $obj->city = Input::get('city');
             $obj->save();
+
             return redirect('/client/home');
         } else {
             return redirect('/login');

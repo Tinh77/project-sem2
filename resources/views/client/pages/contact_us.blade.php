@@ -5,7 +5,13 @@
 
     <section>
         <div class="mdb-map">
-            <div id="map-container" class="z-depth-1-half map-container" style="height: 450px;"></div>
+            {{--<div id="map-container" class="z-depth-1-half map-container" style="height: 450px;"></div>--}}
+            <iframe
+                    width="100%" height="450"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDnro9-Oa4Ku3yKBkHFl_fVU7zVsOZ2Tvw
+            &q=số 8a, Tôn Thất Huyết, Mỹ đình" allowfullscreen>
+            </iframe>
         </div>
     </section>
 
@@ -37,74 +43,74 @@
                                             <div class="col-lg-8">
 
                                                 <div class="card-body form">
-
+                                                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfGyarpl44BeYB4Zxzfq7oPl-w-aT5-iPku7qGiQrgkU15yaQ/viewform?embedded=true" width="700" height="500" frameborder="0" marginheight="0" marginwidth="0">Đang tải...</iframe>
                                                     <!-- Header -->
-                                                    <h3 class="mt-4"><i class="fa fa-envelope pr-2"></i>Viết thư cho chúng tôi:</h3>
+                                                    {{--<h3 class="mt-4"><i class="fa fa-envelope pr-2"></i>Viết thư cho chúng tôi:</h3>--}}
 
-                                                    <!-- Grid row -->
-                                                    <div class="row">
+                                                    {{--<!-- Grid row -->--}}
+                                                    {{--<div class="row">--}}
 
-                                                        <!-- Grid column -->
-                                                        <div class="col-md-6">
-                                                            <div class="md-form mb-0">
-                                                                <input type="text" id="form-contact-name" class="form-control">
-                                                                <label for="form-contact-name" class="">Họ và tên</label>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Grid column -->
+                                                        {{--<!-- Grid column -->--}}
+                                                        {{--<div class="col-md-6">--}}
+                                                            {{--<div class="md-form mb-0">--}}
+                                                                {{--<input type="text" id="form-contact-name" class="form-control">--}}
+                                                                {{--<label for="form-contact-name" class="">Họ và tên</label>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<!-- Grid column -->--}}
 
-                                                        <!-- Grid column -->
-                                                        <div class="col-md-6">
-                                                            <div class="md-form mb-0">
-                                                                <input type="text" id="form-contact-email" class="form-control">
-                                                                <label for="form-contact-email" class="">Email</label>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Grid column -->
-
-                                                    </div>
-                                                    <!-- Grid row -->
-
-                                                    <!-- Grid row -->
-                                                    <div class="row">
-
-                                                        <!-- Grid column -->
-                                                        <div class="col-md-6">
-                                                            <div class="md-form mb-0">
-                                                                <input type="text" id="form-contact-phone" class="form-control">
-                                                                <label for="form-contact-phone" class="">Số điện thoại</label>
-                                                            </div>
-                                                        </div>
+                                                        {{--<!-- Grid column -->--}}
+                                                        {{--<div class="col-md-6">--}}
+                                                            {{--<div class="md-form mb-0">--}}
+                                                                {{--<input type="text" id="form-contact-email" class="form-control">--}}
+                                                                {{--<label for="form-contact-email" class="">Email</label>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
                                                         <!-- Grid column -->
 
-                                                        <!-- Grid column -->
-                                                        <div class="col-md-6">
-                                                            <div class="md-form mb-0">
-                                                                <input type="text" id="form-contact-company" class="form-control">
-                                                                <label for="form-contact-company" class="">Địa chỉ</label>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Grid column -->
-
-                                                    </div>
+                                                    {{--</div>--}}
                                                     <!-- Grid row -->
 
                                                     <!-- Grid row -->
-                                                    <div class="row">
+                                                    {{--<div class="row">--}}
+
+                                                        {{--<!-- Grid column -->--}}
+                                                        {{--<div class="col-md-6">--}}
+                                                            {{--<div class="md-form mb-0">--}}
+                                                                {{--<input type="text" id="form-contact-phone" class="form-control">--}}
+                                                                {{--<label for="form-contact-phone" class="">Số điện thoại</label>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<!-- Grid column -->--}}
+
+                                                        {{--<!-- Grid column -->--}}
+                                                        {{--<div class="col-md-6">--}}
+                                                            {{--<div class="md-form mb-0">--}}
+                                                                {{--<input type="text" id="form-contact-company" class="form-control">--}}
+                                                                {{--<label for="form-contact-company" class="">Địa chỉ</label>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<!-- Grid column -->--}}
+
+                                                    {{--</div>--}}
+                                                    <!-- Grid row -->
+
+                                                    <!-- Grid row -->
+                                                    {{--<div class="row">--}}
 
                                                         <!-- Grid column -->
-                                                        <div class="col-md-12">
-                                                            <div class="md-form mb-0">
-                                                                <textarea type="text" id="form-contact-message" class="form-control md-textarea" rows="3"></textarea>
-                                                                <label for="form-contact-message">Tin nhắn</label>
-                                                                <a class="btn-floating btn-lg blue">
-                                                                    <i class="fa fa-send-o"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
+                                                        {{--<div class="col-md-12">--}}
+                                                            {{--<div class="md-form mb-0">--}}
+                                                                {{--<textarea type="text" id="form-contact-message" class="form-control md-textarea" rows="3"></textarea>--}}
+                                                                {{--<label for="form-contact-message">Tin nhắn</label>--}}
+                                                                {{--<a class="btn-floating btn-lg blue">--}}
+                                                                    {{--<i class="fa fa-send-o"></i>--}}
+                                                                {{--</a>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
                                                         <!-- Grid column -->
 
-                                                    </div>
+                                                    {{--</div>--}}
                                                     <!-- Grid row -->
 
                                                 </div>
@@ -126,7 +132,7 @@
                                                             <p><i class="fa fa-phone pr-2 mb-4"></i>+ 01 6877 775 63</p>
                                                         </li>
                                                         <li>
-                                                            <p><i class="fa fa-envelope pr-2"></i>monquaynghia@gmail.com</p>
+                                                            <p><i class="fa fa-envelope pr-2"></i>meaning2810@gmail.com</p>
                                                         </li>
                                                     </ul>
                                                     <hr class="hr-light my-4">
@@ -171,8 +177,8 @@
 
             </div>
             <!--Grid row-->
-
         </div>
+
 
     </main>
     <!--Main Layout-->

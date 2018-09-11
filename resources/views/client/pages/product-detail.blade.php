@@ -56,10 +56,10 @@
                                     <div class="col-md-12 text-center text-md-left text-md-right" id="btnShow">
                                         <button class="btn btn-primary btn-rounded"
                                                 @if(!$follow)
-                                                onclick="getInfo()
+                                                onclick="getInfo()"
                                                 @else
-                                                        disabled
-                                                @endif">
+                                                onclick="subscribed()"
+                                                @endif>
                                             Quan tâm!
                                         </button>
                                     </div>
@@ -185,6 +185,12 @@
         function getInfo() {
             $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><button class="btn btn-default">{{$obj->account->account->address}}</button><br> <textarea id="waitingMessage" name="message" rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea> <br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi muốn xin</font></button>');
         }
+
+        function subscribed() {
+            alert("Sản phẩm này đã được bạn quan tâm!")
+            disable
+        }
+
         function informSubmit(id, gift_id) {
             $.ajax({
                 url: '/client/gift/' + gift_id + '/inform',
@@ -201,6 +207,8 @@
                     if (response.status == 0) {
                         console.log("okay");
                         alert('Bạn đã quan tâm món quà.Hãy chờ chủ nhân của món quà xác nhận lại')
+                        window.location.reload()
+
                     } else if (response.status == 'fraud') {
                         console.log("fraud");
                     } else {

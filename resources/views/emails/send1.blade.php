@@ -360,25 +360,11 @@
                                 <tr>
                                     <td>
                                         <p>Xin chào,</p>
-                                        <p>{{$username}} muốn xin {{$namegift}} bạn đã đăng tìm chủ mới, Bạn vui
-                                            lòng kiểm tra chi tiết giao dịch và xác nhận giao dịch tại đây</p>
-                                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
-                                            <tbody>
-                                            <tr>
-                                                <td align="left">
-                                                    <table border="0" cellpadding="0" cellspacing="0">
-                                                        <tbody>
-                                                        <tr>
-                                                            <td><a href="http://127.0.0.1:8000/client/transaction/{{$transaction}}" target="_blank">Kiểm tra</a>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <p><a href="http://127.0.0.1:8000/client/transaction/{{$transaction}}">http://127.0.0.1:8000/client/transaction/{{$transaction}}</a></p>
+                                        <p>{{$transaction->owner->account->last_name}} không muốn cho bạn món quà {{$transaction->gift->name}} nữa vì thời gian bạn đến nhận quá lâu.</p>
+
+                                        <p>This is a really simple email template. Its sole purpose is to get the
+                                            recipient to click the button with no distractions.</p>
+                                        <p>Good luck! Hope it works.</p>
                                     </td>
                                 </tr>
                             </table>
@@ -393,7 +379,7 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td class="content-block">
-                                <span class="apple-link">Cảm ơn đã sử dụng dịch vụ của chúng tôi</span>
+                                <span class="apple-link">Bạn có thể nhận những món quà khác trong Meaning Gift.</span>
                             </td>
                         </tr>
                         <tr>
