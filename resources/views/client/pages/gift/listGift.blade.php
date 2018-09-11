@@ -16,30 +16,52 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                @if($obj_owner_id->count()>0)
-                    <table id="datatables"
-                           class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
-                           cellspacing="0" width="100%" style="width: 100%;" role="grid"
-                           aria-describedby="datatables_info">
-                        <thead>
-                        <tr role="row">
-                            <th class="sorting_asc" tabindex="0" aria-controls="datatables"
-                                rowspan="1" colspan="1" style="width: 130px;"
-                                aria-sort="ascending"
-                                aria-label="Name: activate to sort column descending">Id món quà
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="datatables"
-                                rowspan="1" colspan="1" style="width: 300px;"
-                                aria-label="Office: activate to sort column ascending">Tên món quà
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="datatables"
-                                rowspan="1" colspan="1" style="width: 200px;"
-                                aria-label="Office: activate to sort column ascending">Trạng thái
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="datatables"
-                                rowspan="1" colspan="1" style="width: 200px;"
-                                aria-label="Office: activate to sort column ascending">
-                            </th>
+                <table id="datatables"
+                       class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
+                       cellspacing="0" width="100%" style="width: 100%;" role="grid"
+                       aria-describedby="datatables_info">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="datatables"
+                            rowspan="1" colspan="1" style="width: 130px;"
+                            aria-sort="ascending"
+                            aria-label="Name: activate to sort column descending">Ảnh món quà
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="datatables"
+                            rowspan="1" colspan="1" style="width: 300px;"
+                            aria-label="Office: activate to sort column ascending">Tên món quà
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="datatables"
+                            rowspan="1" colspan="1" style="width: 200px;"
+                            aria-label="Office: activate to sort column ascending">Trạng thái
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="datatables"
+                            rowspan="1" colspan="1" style="width: 200px;"
+                            aria-label="Office: activate to sort column ascending">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="items-page">
+                    @foreach($obj_owner_id as $item)
+                        <tr>
+                            <th scope="row"><img class="w-75" src="{{\JD\Cloudder\Facades\Cloudder::show($item->gift->images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}" alt="">
+                                </th>
+                            <td>{{$item->gift->name}}</td>
+                            <td>{{ $item->statusString }}</td>
+                            <td class="float-left">
+                                <div class="btn-group">
+                                    <a href="/client/transaction/details/{{$item->id}}"
+                                       class="btn btn-sm btn-simple btn-warning btn-icon edit"><i
+                                                class="fa fa-pencil"></i></a>
+                                    <a data-transaction-id="{{ $item->id }}"
+                                       class="btn btn-sm btn-success remove btn-confirm-status"><i
+                                                class="fa fa-check"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" data-transaction-id="{{ $item->id }}"
+                                       class="btn btn-sm btn-simple btn-danger btn-refresh-status"><i
+                                                class="fa fa-refresh"></i></a>
+                                </div>
+                            </td>
                         </tr>
                         </thead>
                         <tbody id="items-page">
@@ -87,7 +109,7 @@
                         <th class="sorting_asc" tabindex="0" aria-controls="datatables"
                             rowspan="1" colspan="1" style="width: 130px;"
                             aria-sort="ascending"
-                            aria-label="Name: activate to sort column descending">Id món quà
+                            aria-label="Name: activate to sort column descending">Ảnh món quà
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="datatables"
                             rowspan="1" colspan="1" style="width: 300px;"
@@ -106,7 +128,7 @@
                     <tbody id="items-page">
                     @foreach($obj_buyer_id as $item)
                         <tr>
-                            <th scope="row">{{$item->gift_id}}</th>
+                            <th scope="row"><img class="w-75" src="{{\JD\Cloudder\Facades\Cloudder::show($item->gift->images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}" alt=""></th>
                             <td>{{$item->gift->name}}</td>
                             <td>{{ $item->statusString }}</td>
                             <td class="float-left">
