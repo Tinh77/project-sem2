@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Register-Page')
 @section('content')
     <div class="container content-margin">
         <div class="row justify-content-center font-text mt-5">

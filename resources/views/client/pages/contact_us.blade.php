@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Contact_Us-Page')
 @section('content')
     <body class="hidden-sn white-skin animated">
     <!-- /.Navigation -->

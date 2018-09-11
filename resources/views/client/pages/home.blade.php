@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Home-Page')
 @section('content')
     @include('client.partial.intro')
     <main>

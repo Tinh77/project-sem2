@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'List-Page')
 @section('stylesheet')
     <style>
         .jactive {

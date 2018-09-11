@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Product_Detail-Page')
 @section('content')
     <!-- Main Container -->
     <div class="container">
