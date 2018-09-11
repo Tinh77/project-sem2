@@ -28,7 +28,6 @@ $(document).ready(function () {
         });
     })
     $('.btn-confirm-status').click(function () {
-        var id = $(this).attr('data-gift-id');
         var transaction_id = $(this).attr('data-transaction-id');
         $.ajax({
             url: '/client/transaction/confirm',
@@ -53,7 +52,6 @@ $(document).ready(function () {
     })
 
     $('.btn-refresh-status').click(function () {
-        var id = $(this).attr('data-gift-id');
         var transaction_id = $(this).attr('data-transaction-id');
         $.ajax({
             url: '/client/transaction/refresh',
@@ -65,6 +63,7 @@ $(document).ready(function () {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: (response) => {
+                swal("Good job!", "Bạn đã hủy giao dịch thành công!", "success");
                 if (response.status == 1) {
                     window.location.href = 'http://127.0.0.1:8000/client/transaction';
                 } else if (response.status == 'fraud') {
@@ -77,6 +76,8 @@ $(document).ready(function () {
         });
     })
 });
+
+
 
 
 
