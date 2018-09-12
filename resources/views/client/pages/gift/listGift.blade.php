@@ -54,16 +54,24 @@
                                 <td class="float-left">
                                     <div class="btn-group">
                                         <a href="/client/transaction/details/{{$item->id}}"
-                                           class="btn-sm btn-icon edit"><i
-                                                class="fa fa-info"></i></a>
-                                        <a data-transaction-id="{{ $item->id }}"
-                                           class="btn-icon remove btn-sm btn-confirm-status"><i
-                                                class="fa fa-check"></i>
-                                        </a>
-                                        <a href="javascript:void(0)" data-transaction-id="{{ $item->id }}"
-                                           class="btn-icon remove btn-sm btn-refresh-status"><i
-                                                class="fa fa-refresh"></i>
-                                        </a>
+                                           class="btn-sm btn-icon edit " title="thông tin chi tiết giao dịch"><i
+                                                    class="fa fa-info"></i></a>
+                                        @if(($item->confirm_owner_flag == 1 && $item->status != -1) || $item->status == -1)
+                                        @else
+                                            <a data-transaction-id="{{ $item->id }}"
+                                               class="btn-icon btn-action-p remove btn-sm btn-confirm-status"
+                                               title="hoàn thành giao dịch"><i
+                                                        class="fa fa-check"></i>
+                                            </a>
+                                        @endif
+                                        @if($item->confirm_owner_flag == 1 || $item->confirm_buyer_flag == 1 || $item->status == -1)
+                                        @else
+                                            <a href="javascript:void(0)" data-transaction-id="{{ $item->id }}"
+                                               class="btn-icon btn-action-p remove btn-sm btn-refresh-status"
+                                               title="hủy giao dịch"><i
+                                                        class="fa fa-refresh"></i>
+                                            </a>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
@@ -118,12 +126,15 @@
                                 <td class="float-left">
                                     <div class="btn-group">
                                         <a href="/client/transaction/details/{{$item->id}}"
-                                           class="btn-icon edit" title="thông tin chi tiết giao dịch"><i
-                                                class="fa fa-info"></i></a>
-                                        <a data-transaction-id="{{ $item->id }}"
-                                           class="btn-icon remove btn-sm btn-confirm-status"><i
-                                                class="fa fa-check"></i>
-                                        </a>
+                                           class="btn-icon btn-sm edit" title="thông tin chi tiết giao dịch"><i
+                                                    class="fa fa-info"></i></a>
+                                        @if($item->confirm_buyer_flag == 0)
+                                            <a data-transaction-id="{{ $item->id }}"
+                                               class="btn-icon btn-action-p remove btn-sm btn-confirm-status"
+                                               title="hoàn thành giao dịch"><i
+                                                        class="fa fa-check"></i>
+                                            </a>
+                                        @endif
                                     </div>
                                 </td>
 
