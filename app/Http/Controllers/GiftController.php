@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use JD\Cloudder\Facades\Cloudder;
 use Mockery\Matcher\Not;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class GiftController extends Controller
 {
+    use SearchableTrait;
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +49,7 @@ class GiftController extends Controller
 
     public function index()
     {
-        $age = Input::get('group100');
+        // we dont use whole page re-rendering anymore, as it is not efficient! instead use js
         $keyword = Input::get('key');
         $data = Input::get();
         $obj = Gift::orderBy('created_at', 'desc');
@@ -56,12 +58,39 @@ class GiftController extends Controller
         } else {
             $data['key'] = '';
         }
-        if (isset($age) && Input::get('group100')){
-            $obj = $obj->where('age_range', '=', $age );
-        }
         $obj = $obj->paginate(6);
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
+    }
+
+    public function searchBySection(Request $request)
+    {
+        $searchQueries = json_decode($request->input('search'), true); // array ['category' => 'hey', 'ahi' => 'roam']
+        if (!is_array($searchQueries)) return $searchQueries;
+        $category_id = $searchQueries['category_id'];
+        $gifts = DB::table('gifts');
+        foreach ($searchQueries as $query => $string) {
+            switch ($query) {
+                case 'category_id':
+                case 'age_range':
+                case 'gender':
+                case 'city':
+                    if (!is_string($string) && !is_int($string)) return response()->json(['status' => 'fraud']); // avoid sql injection
+                    $gifts = $gifts->where($query, 'like', '%' . $string . '%');
+                    break;
+                default:
+                    return response()->json(['status' => 'fraud']); // avoid sql injection
+                    break;
+            }
+        }
+        return view('client.pages.list-gift')->with('obj', $gifts->paginate(6)->withPath($category_id));
+    }
+
+    public function search($string)
+    {
+        if (!is_string($string)) return response()->json(['status' => 'fraud']);
+        $gifts = Gift::search($string, null, true)->get();
+        return $gifts;
     }
 
 

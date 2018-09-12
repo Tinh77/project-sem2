@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    $("input[name=group100]").click(function () {
-        $("form#searchForm").submit();
-    })
     $('.btn-cf').click(function () {
         var user_id = $(this).attr('data-user-id');
         var transaction_id = $(this).attr('data-transaction-id');

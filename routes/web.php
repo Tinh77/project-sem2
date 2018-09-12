@@ -25,6 +25,8 @@ Route::get('/client/list-gift', function () {
 Route::get('/client/pages/list', 'GiftController@listindex');
 Route::get('/client/category-gift/{id}', "GiftController@listCategory");
 Route::resource('/client/gift', 'GiftController');
+Route::post('/client/gift/search', 'GiftController@searchBySection');
+Route::get('/client/gift/search/{string}', 'GiftController@search');
 Route::post('/client/gift/{id}/inform', 'NotificationController@create');
 Route::post('/client/gift/{id}/confirm', 'NotificationController@edit');
 Route::get('/client/transaction', 'TransactionController@index');

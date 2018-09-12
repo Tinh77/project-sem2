@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <!-- Jquery -->
+    <script type="text/javascript" src="{{asset('MDB/js/jquery-3.3.1.min.js')}}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{{asset('MDB/js/popper.min.js')}}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     <!-- Material Design Bootstrap -->
     <link href="{{asset('MDB/css/mdb.min.css')}}" rel="stylesheet">
     <!-- Style.css -->
@@ -44,11 +50,7 @@
 <!--Main Layout-->
 <!--Footer-->
 @include('client.partial.footer')
-<script type="text/javascript" src="{{asset('MDB/js/jquery-3.3.1.min.js')}}"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="{{asset('MDB/js/popper.min.js')}}"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+
 <script type="text/javascript" src="{{asset('client-js/client.js')}}"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="{{asset('MDB/js/mdb.min.js')}}"></script>

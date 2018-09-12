@@ -1,6 +1,12 @@
 @extends('client.layout.master')
 @section('content')
     <!-- Main Container -->
+    <style>
+        [type="radio"]:checked, [type="radio"]:not(:checked){
+            position: static;
+            opacity: 1;
+        }
+    </style>
     <main class="content-margin">
         <div class="container mt-5 pt-3">
             <!--Navbar-->
@@ -29,51 +35,90 @@
                     <div class="">
                         <!-- Grid row -->
                         <div class="row">
-                            <div class="col-md-6 col-lg-12 mb-5">
-                                <!-- Panel -->
-                                <h4 class="dark-grey-text">Danh mục sản phẩm</h4>
+                            <div class="col-md-6 col-lg-12">
+                                <h4 class=" dark-grey-text">Phân loại theo danh mục</h4>
                                 <div class="divider border-top"></div>
-                                <p><a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
-
-                                @foreach($list_obj as $key => $item)
-                                    <p><a class="dark-grey-text text-center"
-                                          href="/client/category-gift/{{$key}}">{{$item}}</a></p>
-                                @endforeach
-
-                            </div>
-
-                            <!-- Filter by category-->
-                            <div class="col-md-6 col-lg-12 mb-5">
-                                <h4 class=" dark-grey-text">Phân loại theo tuổi</h4>
-                                <div class="divider border-top"></div>
-
-                                <!--Radio <group-->
-                                <form method="GET" id="searchForm" action="/client/gift">
-                                    <!--/group-->
-                                    <div class="form-group ">
-                                        <label class="dark-grey-text">
-                                            <input name="group100" value="0" type="radio" id="search_age_range">
-                                            Tất cả</label>
-                                    </div>
+                                <form action="#">
+                                    @foreach ($list_obj as $key => $item)
                                     <div class="form-group">
                                         <label class="dark-grey-text">
-                                            <input name="group100" value="1" type="radio" id="search_age_range">
+                                            <input name="category_id" value="{{$key}}" type="radio">
+                                            {{$item}}
+                                        </label>
+                                    </div>
+                                    @endforeach
+                                </form>
+                            </div>
+
+                            <!-- Filter by age-->
+                            <div class="col-md-6 col-lg-12">
+                                <h4 class=" dark-grey-text">Phân loại theo tuổi</h4>
+                                <div class="divider border-top"></div>
+                                <form action="#">
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="age_range" value="1" type="radio">
                                             0 tháng - 6 tháng</label>
                                     </div>
                                     <div class="form-group">
                                         <label class="dark-grey-text">
-                                            <input name="group100" value="2" type="radio" id="search_age_range">
+                                            <input name="age_range" value="2" type="radio">
                                             6 tháng - 12 tháng</label>
                                     </div>
                                     <div class="form-group">
                                         <label class="dark-grey-text">
-                                            <input name="group100" value="3" type="radio" id="search_age_range">
-                                            trên 12 tháng</label>
+                                            <input name="age_range" value="3" type="radio">
+                                            > 12 tháng</label>
                                     </div>
                                 </form>
-                                <!--Radio group-->
                             </div>
-                            <!-- /Filter by category-->
+                            <!-- /Filter by age-->
+                            <!-- Filter by gender -->
+                            <div class="col-md-6 col-lg-12">
+                                <h4 class=" dark-grey-text">Phân loại theo giới tính</h4>
+                                <div class="divider border-top"></div>
+                                <form action="#">
+                                    <div class="form-group ">
+                                        <label class="dark-grey-text">
+                                            <input name="gender" value="0" type="radio">
+                                            Nữ</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="gender" value="1" type="radio">
+                                            Nam</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /Filter by gender -->
+                            <!-- Filter by gender -->
+                            <div class="col-md-6 col-lg-12">
+                                <h4 class=" dark-grey-text">Phân biệt vùng miền</h4>
+                                <div class="divider border-top"></div>
+                                <form action="#">
+                                    <div class="form-group ">
+                                        <label class="dark-grey-text">
+                                            <input name="city" value="0" type="radio">
+                                            Tất cả</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="city" value="1" type="radio">
+                                            Backy</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="city" value="2" type="radio">
+                                            Trungky</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dark-grey-text">
+                                            <input name="city" value="3" type="radio">
+                                            Namky</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /Filter by gender -->
                         </div>
                         <!-- /Grid row -->
                     </div>
@@ -83,7 +128,7 @@
                 <!-- Content -->
                 <div class="col-lg-9">
                     <!-- Products Grid -->
-                    <section class="section pt-4">
+                    <section class="section pt-4" id="showGifts">
                         <!-- Grid row -->
 
                         <div class="row">
@@ -153,4 +198,30 @@
         <!-- /.Main Container -->
 
     </main>
+    <script>
+        $(document).ready(() => {
+            let args = {};
+            $('input[type=radio]').change(function () {
+                construct(this.name, this.value);
+            });
+            function construct(name, value) {
+                args[name] = value;
+                $.ajax({
+                    url: '/client/gift/search',
+                    type: 'POST',
+                    data: {
+                        'search': JSON.stringify(args)
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: (response) => {
+                        $('#showGifts').html(response);
+                    },
+                    error: (response) => console.log("fail")
+                });
+            }
+        });
+
+    </script>
 @endsection

@@ -1,8 +1,24 @@
 <?php
 namespace App;
 use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
+
 class Gift extends Model
 {
+    use SearchableTrait;
+
+    protected $searchable = [
+        'columns' => [
+            'gifts.name' => 10,
+            'users.username' => 7,
+            'categories.name' => 7,
+            'gifts.city' => 5,
+        ],
+        'joins' => [
+            'users' => ['gifts.account_id','users.id'],
+            'categories' => ['gifts.category_id','categories.id'],
+        ],
+    ];
     protected $table = 'gifts';
     public function account() {
         return $this->hasOne('\App\User', 'id', 'account_id');
