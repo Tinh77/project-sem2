@@ -11,8 +11,14 @@ class User extends Authenticatable
     use Notifiable;
     use HasRoleAndPermission;
 
+
     public function account() {
         return $this->hasOne('\App\Account','id', 'account_id');
+    }
+
+    public function routeNotificationForMail($notification)
+    {
+        return $this->account->email;
     }
     /**
      * The attributes that are mass assignable.
