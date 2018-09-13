@@ -1,4 +1,13 @@
 @extends('client.layout.master')
+@section('stylesheet')
+    <style>
+        .jactive {
+            color: black!important;
+            font-weight: bold;
+        }
+    </style>
+@endsection
+
 @section('content')
     <!-- Main Container -->
     <style>
@@ -48,6 +57,14 @@
                                     </div>
                                     @endforeach
                                 </form>
+                                <p><a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
+
+                                <div class="jmenu">
+                                    @foreach($list_obj as $key => $item)
+                                        <p><a class="dark-grey-text text-center {{Request::segment(3) == $key ? 'jactive' : ''}}"
+                                              href="/client/category-gift/{{$key}}">{{$item}}</a></p>
+                                    @endforeach
+                                </div>
                             </div>
 
                             <!-- Filter by age-->
@@ -164,7 +181,9 @@
                                             <!--Card footer-->
                                             <div class="card-footer">
                                                 <span class="float-left"><i
+
                                                             class="fa fa-clock-o"></i>{{ Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</span>
+
                                                 <span class="float-right">
                                                 <a class="card-link" title="chi tiết"
                                                    href="/client/gift/{{$item->id}}">
@@ -223,5 +242,21 @@
             }
         });
 
+    </script>
+@endsection
+
+@section('script')
+    <script>
+        $('.jmenu a').on('click', function() {
+            $('.jmenu a').removeClass('jactive');
+            $(this).addClass('jactive');
+        })
+    </script>
+
+    <script>
+        $('.form-group label').on('click', function() {
+            $('.form-group label').removeClass('jactive');
+            $(this).addClass('jactive');
+        })
     </script>
 @endsection
