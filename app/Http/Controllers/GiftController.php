@@ -75,11 +75,13 @@ class GiftController extends Controller
     public function listCategory($id = null)
     {
         $obj = DB::table('gifts')
-            ->where('category_id', '=', $id)
+            ->where('category_id', '=', $id)->where(['status' => 1])
             ->paginate(6);
-        $gift = Gift::where(['status' => 1]);
         $list_obj = DB::table('categories')->pluck("name", "id");
-        return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
+        if ($obj == null || $list_obj == null){
+            return view('client.404client.404');
+        }
+        return view('client.pages.list',compact('obj'), compact('list_obj'));
     }
 
     public function listIndexPosted()

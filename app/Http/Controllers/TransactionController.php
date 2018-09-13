@@ -43,11 +43,12 @@ class TransactionController extends Controller
     public function confirmStatus(Request $request)
     {
         $transaction = Transaction::findOrFail($request->transaction_id);
-        if (Auth::user()->id == $transaction->gift->account->id) {
+        if (Auth::user()->id == $transaction->owner_id) {
             if (!$transaction->confirm_owner_flag) {
                 $transaction->confirm_owner_flag = true;
             }
-        } else {
+        }
+        if(Auth::user()->id == $transaction->buyer_id) {
             if (!$transaction->confirm_buyer_flag) {
                 $transaction->confirm_buyer_flag = true;
             }
