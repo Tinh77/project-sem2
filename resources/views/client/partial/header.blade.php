@@ -20,7 +20,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/client/gift/create">Bạn cần cho</a>
+                    <a class="nav-link" href="/client/gift/create">Đăng món quà</a>
                 </li>
                 {{--<li class="nav-item">--}}
                 {{--<a class="nav-link" href="/client/gift/create">Bạn cần xin</a>--}}

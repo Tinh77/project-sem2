@@ -21,7 +21,7 @@
                 <h5 class="mb-1">Đăng món quà của bạn chỉ mất vài giây</h5>
             </li>
             <li class="list-inline-item">
-                <a href="#!" class="btn btn-outline-white btn-rounded">Đăng món quà</a>
+                <a href="/client/gift/create" class="btn btn-outline-white btn-rounded">Đăng món quà</a>
             </li>
         </ul>
         <!-- Call to action -->
@@ -33,7 +33,7 @@
         <ul class="list-unstyled list-inline">
 
             <li class="list-inline-item">
-                <a class="btn-floating btn-fb">
+                <a target="_blank" href="https://www.facebook.com/Meaning-Gift-310835612807616" class="btn-floating btn-fb">
                     <i class="fa fa-facebook"> </i>
                 </a>
             </li>
