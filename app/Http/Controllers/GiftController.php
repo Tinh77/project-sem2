@@ -43,8 +43,7 @@ class GiftController extends Controller
         return view('client.pages.home')
             ->with('categories', $categories)
             ->with('obj', $obj)
-            ->with('notifications', $notifications)
-            ->with('success', 'kiem tra tre tre tre tre');
+            ->with('notifications', $notifications);
     }
 
     public function index()
