@@ -31,7 +31,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                @lang('laravelusers.showing-all-users')
+                                Showing All Gifts
                             </span>
 
                             <div class="btn-group pull-right btn-group-xs">
@@ -44,11 +44,11 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="{{ route('users.create') }}">
+                                            <a href="{{ route('gifts.create') }}">
                                                 @if(config('laravelusers.fontAwesomeEnabled'))
                                                     <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
                                                 @endif
-                                                @lang('laravelusers.buttons.create-new')
+                                                {!! trans('laravelusers.buttons.create-new') !!}
                                             </a>
                                         </li>
                                         <li>
@@ -61,11 +61,11 @@
                                         </li>
                                     </ul>
                                 @else
-                                    <a href="{{ route('users.create') }}" class="btn btn-default btn-sm pull-right" data-toggle="tooltip" data-placement="left" title="@lang('laravelusers.tooltips.create-new')">
+                                    <a href="{{ route('gifts.create') }}" class="btn btn-default btn-sm pull-right" data-toggle="tooltip" data-placement="left" title="@lang('laravelusers.tooltips.create-new')">
                                         @if(config('laravelusers.fontAwesomeEnabled'))
                                             <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
                                         @endif
-                                        @lang('laravelusers.buttons.create-new')
+                                        {!! trans('laravelusers.buttons.create-new') !!}
                                     </a>
                                 @endif
                             </div>
@@ -87,6 +87,7 @@
                                         <th>@lang('laravelusers.users-table.id')</th>
                                         <th>{{ __('Name') }}</th>
                                         <th class="hidden-xs">{{ __('Category') }}</th>
+                                        <th class="hidden-xs">{{ __('Images') }}</th>
                                         <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers.users-table.created')</th>
                                         <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers.users-table.updated')</th>
                                         <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers.users-table.status')</th>
@@ -101,6 +102,8 @@
                                             <td>{{$gift->id}}</td>
                                             <td>{{$gift->name}}</td>
                                             <td class="hidden-xs">{{$gift->category->name}}</td>
+                                            <td class="hidden-xs"><img src="{{\JD\Cloudder\Facades\Cloudder::show($gift->images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
+                                                                       alt="quanganh9x" class="img-fluid" style="height: 50px; width: 50px;"></td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$gift->created_at}}</td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$gift->updated_at}}</td>
                                             <th class="hidden-sm hidden-xs hidden-md">{{$gift->status}}</th>
@@ -112,12 +115,12 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('manage/gifts/' . $gift->id) }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.show')">
-                                                    @lang('laravelusers.buttons.show')
+                                                    {!! trans('laravelusers.buttons.show')  !!}
                                                 </a>
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('manage/gifts/' . $gift->id . '/edit') }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.edit')">
-                                                    @lang('laravelusers.buttons.edit')
+                                                    {!! trans('laravelusers.buttons.edit') !!}
                                                 </a>
                                             </td>
                                         </tr>

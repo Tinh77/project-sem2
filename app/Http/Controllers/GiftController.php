@@ -93,7 +93,7 @@ class GiftController extends Controller
     public function search($string)
     {
         if (!is_string($string)) return response()->json(['status' => 'fraud']);
-        $gifts = Gift::search($string, null, true)->get();
+        $gifts = Gift::search($string, null, true, true)->where('status', true)->get();
         return $gifts;
     }
 

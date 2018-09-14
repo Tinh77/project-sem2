@@ -30,7 +30,7 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span id="card_title">
-                                @lang('laravelusers.showing-all-users')
+                                Showing All Transactions
                             </span>
                         </div>
                     </div>
@@ -50,8 +50,9 @@
                                         <th>@lang('laravelusers.users-table.id')</th>
                                         <th>{{ __('Owner') }}</th>
                                         <th>{{ __('Buyer') }}</th>
-                                        <th>{{ __('Gift ID') }}</th>
+                                        <th class="hidden-xs">{{ __('Gift ID') }}</th>
                                         <th class="hidden-xs">{{ __('Gift Name') }}</th>
+                                        <th class="hidden-xs">{{ __('Images') }}</th>
                                         <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers.users-table.status')</th>
                                         <th class="no-search no-sort">@lang('laravelusers.users-table.actions')</th>
                                         <th class="no-search no-sort"></th>
@@ -63,8 +64,10 @@
                                             <td>{{$transaction->id}}</td>
                                             <td>{{$transaction->owner->username}}</td>
                                             <td>{{$transaction->buyer->username}}</td>
-                                            <td>{{$transaction->gift_id}}</td>
+                                            <td class="hidden-xs">{{$transaction->gift_id}}</td>
                                             <td class="hidden-xs">{{$transaction->gift->name}}</td>
+                                            <td class="hidden-xs"><img src="{{\JD\Cloudder\Facades\Cloudder::show($transaction->gift->images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
+                                                                       alt="quanganh9x" class="img-fluid" style="height: 50px; width: 50px;"></td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$transaction->status}}</td>
                                             <td>
                                                 {!! Form::open(array('url' => 'manage/transactions/' . $transaction->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => trans('laravelusers.tooltips.delete'))) !!}
@@ -74,7 +77,7 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('manage/transactions/' . $transaction->id) }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.show')">
-                                                    @lang('laravelusers.buttons.show')
+                                                    {!! trans('laravelusers.buttons.show') !!}
                                                 </a>
                                             </td>
                                         </tr>

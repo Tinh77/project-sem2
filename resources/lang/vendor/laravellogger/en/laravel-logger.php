@@ -41,7 +41,7 @@ return [
             'user'          => 'User',
             'method'        => 'Method',
             'route'         => 'Route',
-            'ipAddress'     => 'Ip <span class="hidden-sm hidden-xs">Address</span>',
+            'ipAddress'     => 'IP <span class="hidden-sm hidden-xs">Address</span>',
             'agent'         => '<span class="hidden-sm hidden-xs">User </span>Agent',
             'deleteDate'    => '<span class="hidden-sm hidden-xs">Date </span>Deleted',
         ],

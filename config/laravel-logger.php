@@ -100,7 +100,7 @@ return [
     */
 
     // The parent Blade file
-    'loggerBladeExtended'       => 'vendor.laravelusers.layouts.app',
+    'loggerBladeExtended'       => 'LaravelLogger::layouts.app',
 
     // Switch Between bootstrap 3 `panel` and bootstrap 4 `card` classes
     'bootstapVersion'           => '4',
