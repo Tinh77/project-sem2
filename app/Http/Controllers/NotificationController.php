@@ -41,6 +41,7 @@ class NotificationController extends Controller
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
             'gift_id' => $gift->id,
+
             'message' => Input::get('message'),
             'status' => 0
         ]);
@@ -54,7 +55,7 @@ class NotificationController extends Controller
         Mail::send('emails.send', $data, function ($message) use ($email) {
             $message->to($email, $email)->subject
             ('Tôi muốn xin món hàng này của bạn .Vui lòng xem chi tiết ở bên dưới');
-            $message->from('admin@meaning-gift.com', 'Meaning Gift Admin');
+            $message->from(';admin@meaning-gift.com', 'Meaning Gift Admin');
         });
         return response()->json(['status' => 0]);
     }
@@ -89,6 +90,7 @@ class NotificationController extends Controller
      */
     public function edit($id, Request $request) // confirm
     {
+
         // kiểm tra để xác thực user đang login vs user gửi request
         if (Auth::user()->id != $request->input('id')) {
             return response()->json(['status' => 'fraud1']);
@@ -96,6 +98,8 @@ class NotificationController extends Controller
         // lấy bản ghi ở trong transaction
         $transaction = Transaction::where('id', $request->input('transaction_id'))
             ->where('owner_id', Auth::user()->id)->first();
+        if (!$transaction || $transaction->status)
+            return response()->json(['status' => 'fraud4']);
         //câu lênh trên phải kiểm tra xem có tồn tại dữ liệu được trả về không (*)
 
         //kiểm tra xem user id được gửi lên từ client có giống vs buyer_id đã lấy được từ bản ghi trên.
@@ -104,16 +108,22 @@ class NotificationController extends Controller
         // kiểm tra xem có tự follow sản phẩm của chính mình ko
         if ($transaction->owner_id == $transaction->buyer_id)
             return response()->json(['status' => 'fraud3']);
-        // lẽ ra phải kiểm tra caias này đầu tiên ở vị trí (*)
-        if (!$transaction || $transaction->status)
-            return response()->json(['status' => 'fraud4']);
         // cập nhật lại status ở transaction
+        $transaction->gift->status = 0;
         $transaction->status = true;
+        $transaction->gift->save();
         $transaction->save();
+        $email = $transaction->buyer->account->email;
         // xóa notification với điều kiện ở dưới
+        $data = array('title' => 'Xin chao vietnam', 'username' => $transaction->owner->account->last_name,'namegift' => $transaction->gift->name, 'transaction' => $transaction);
+        Mail::send('emails.send2', $data, function ($message) use ($email) {
+            $message->to($email, $email)->subject
+            ('Tôi muốn xin món hàng này của bạn .Vui lòng xem chi tiết ở bên dưới');
+            $message->from('admin@meaning-gift.com', 'Meaning Gift Admin');
+        });
         Notification::where('account_id', Auth::user()->id)->delete();
         return response()->json(['status' => 0]);
-        // coupon or sth
+//        // coupon or sth
     }
 
     /**

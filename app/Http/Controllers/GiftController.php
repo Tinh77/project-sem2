@@ -15,53 +15,86 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use JD\Cloudder\Facades\Cloudder;
 use Mockery\Matcher\Not;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class GiftController extends Controller
 {
+    use SearchableTrait;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct() {
-        $this->middleware('auth', ['except'=>['indexHome']]);
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['indexHome']]);
     }
 
 
     public function indexHome()
     {
 
-        $category = Category::all();
-        $obj = Gift::orderBy('created_at', 'desc')->paginate(9);
+        $categories = Category::all();
+        $obj = Gift::orderBy('created_at', 'desc')->where(['status' => 1])->paginate(9);
 //        dd($obj);
         $notifications = new Notification();
         if (Auth::check()) {
             $notifications = Notification::where('account_id', Auth::user()->id)->get();
         }
         return view('client.pages.home')
-            ->with('category', $category)
+            ->with('categories', $categories)
             ->with('obj', $obj)
             ->with('notifications', $notifications);
     }
 
     public function index()
     {
-        $age = Input::get('group100');
+        // we dont use whole page re-rendering anymore, as it is not efficient! instead use js
         $keyword = Input::get('key');
         $data = Input::get();
-        $obj = Gift::orderBy('created_at', 'desc');
+        $obj = Gift::orderBy('created_at', 'desc')->where(['status' => 1]);
         if (isset($keyword) && Input::get('key')) {
             $obj = $obj->where('name', 'like', '%' . $keyword . '%');
         } else {
             $data['key'] = '';
         }
-        if (isset($age) && Input::get('group100')){
-            $obj = $obj->where('age_range', '=', $age );
+        if (isset($age) && Input::get('group100')) {
+            $obj = $obj->where('age_range', '=', $age);
         }
         $obj = $obj->paginate(6);
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
+    }
+
+    public function searchBySection(Request $request)
+    {
+        $searchQueries = json_decode($request->input('search'), true); // array ['category' => 'hey', 'ahi' => 'roam']
+        if (!is_array($searchQueries)) return $searchQueries;
+        $category_id = $searchQueries['category_id'];
+        $gifts = DB::table('gifts');
+        foreach ($searchQueries as $query => $string) {
+            switch ($query) {
+                case 'category_id':
+                case 'age_range':
+                case 'gender':
+                case 'city':
+                    if (!is_string($string) && !is_int($string)) return response()->json(['status' => 'fraud']); // avoid sql injection
+                    $gifts = $gifts->where($query, 'like', '%' . $string . '%');
+                    break;
+                default:
+                    return response()->json(['status' => 'fraud']); // avoid sql injection
+                    break;
+            }
+        }
+        return view('client.pages.list-gift')->with('obj', $gifts->paginate(6)->withPath($category_id));
+    }
+
+    public function search($string)
+    {
+        if (!is_string($string)) return response()->json(['status' => 'fraud']);
+        $gifts = Gift::search($string, null, true)->get();
+        return $gifts;
     }
 
 
@@ -74,11 +107,27 @@ class GiftController extends Controller
     public function listCategory($id = null)
     {
         $obj = DB::table('gifts')
-            ->where('category_id', '=', $id)
+            ->where('category_id', '=', $id)->where(['status' => 1])
             ->paginate(6);
-        $gift = Gift::all();
         $list_obj = DB::table('categories')->pluck("name", "id");
-        return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
+        if ($obj == null || $list_obj == null){
+            return view('client.404client.404');
+        }
+        return view('client.pages.list',compact('obj'), compact('list_obj'));
+    }
+
+    public function listIndexPosted()
+    {
+        if (Auth::check()) {
+            $account_id = Auth::id();
+            $obj = DB::table('gifts')->where([
+                ['account_id', '=', $account_id],
+                ['status', '=', 1]
+            ])->get();
+            return view('client.pages.gift.list_of_gift_posted')->with('obj', $obj);
+        } else {
+            return redirect('/login');
+        }
     }
 
     public function create()
@@ -112,7 +161,7 @@ class GiftController extends Controller
             $obj->gender = Input::get('gender');
             $obj->city = Input::get('city');
             $obj->save();
-            return redirect('/client/home');
+            return redirect('/client/home')->with('success', 'Bạn đăng tin thành công');
         } else {
             return redirect('/login');
         }
@@ -130,15 +179,15 @@ class GiftController extends Controller
         if ($obj == null || $obj->status != 1) {
             return view('client.404client.404');
         }
-        $transaction = Transaction::where('gift_id','=',$id)->where('buyer_id','=', Auth::id())->first();
+        $transaction = Transaction::where('gift_id', '=', $id)->where('buyer_id', '=', Auth::id())->first();
         $follow = false;
-        if($transaction){
+        if ($transaction) {
             $follow = true;
         }
         $list_relate = Gift::where('category_id', $obj->category_id)->paginate(3);
         return view('client.pages.product-detail')
             ->with('obj', $obj)
-            ->with('list_relate',$list_relate)
+            ->with('list_relate', $list_relate)
             ->with('follow', $follow);
 
 

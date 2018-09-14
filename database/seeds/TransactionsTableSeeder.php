@@ -16,15 +16,19 @@ class TransactionsTableSeeder extends Seeder
             [
                 'owner_id' => 1,
                 'buyer_id' => 2,
-                'gift_id' => 19,
+                'gift_id' => 2,
                 'message' => 'Tôi cần món đồ mà bạn đang cho',
+                'confirm_owner_flag' => false,
+                'confirm_buyer_flag' => false,
                 'status' => true
             ],
             [
                 'owner_id' => 1,
                 'buyer_id' => 2,
-                'gift_id' => 16,
+                'gift_id' => 3,
                 'message' => 'Tôi cần món đồ mà bạn đang cho',
+                'confirm_owner_flag' => false,
+                'confirm_buyer_flag' => false,
                 'status' => true
             ],
             [
@@ -32,13 +36,17 @@ class TransactionsTableSeeder extends Seeder
                 'buyer_id' => 2,
                 'gift_id' => 10,
                 'message' => 'Tôi cần món đồ mà bạn đang cho',
-                'status' => false
+                'confirm_owner_flag' => false,
+                'confirm_buyer_flag' => false,
+                'status' => true
             ],
             [
                 'owner_id' => 3,
                 'buyer_id' => 1,
                 'gift_id' => 1,
                 'message' => 'Tôi cần món đồ mà bạn đang cho',
+                'confirm_owner_flag' => false,
+                'confirm_buyer_flag' => false,
                 'status' => true
             ],
         ]);

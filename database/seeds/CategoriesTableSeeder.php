@@ -19,7 +19,7 @@ class CategoriesTableSeeder extends Seeder
             [
                 'name' => 'Quần áo',
                 'description' => 'Các thể loại quần áo được chia sẻ',
-                'thumbnail' => 'https://bizweb.dktcdn.net/100/042/300/themes/55369/assets/menu_icon_3.png?1513314074912',
+                'thumbnail' => 'https://ae01.alicdn.com/kf/HTB1T64iSFXXXXbSXVXXq6xXFXXXe/2017-Qu-n-o-baby-Thi-t-b-ng-b-g-i-qu-n-o-Tr.jpg_640x640.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],

@@ -9,26 +9,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/admin', function () {
-    return view('admin.layout.master-v2');
-});
-Route::get('/admin/demo-form', function () {
-    return view('admin.pages.form');
-});
-Route::get('/admin/demo-list', function () {
-    return view('admin.pages.table');
-});
-Route::resource('/admin','CategoryController');
 Route::get('/client/list-gift', function () {
     return view('client.pages.gift.list');
 });
 Route::get('/client/pages/list', 'GiftController@listindex');
 Route::get('/client/category-gift/{id}', "GiftController@listCategory");
 Route::resource('/client/gift', 'GiftController');
+Route::post('/client/gift/search', 'GiftController@searchBySection');
+Route::get('/client/gift/search/{string}', 'GiftController@search');
 Route::post('/client/gift/{id}/inform', 'NotificationController@create');
 Route::post('/client/gift/{id}/confirm', 'NotificationController@edit');
 Route::get('/client/transaction', 'TransactionController@index');
 Route::get('/client/transaction/{id}', 'TransactionController@show');
+Route::get('/listposted', 'GiftController@listIndexPosted');
+Route::get('/client/transaction/details/{id}', 'TransactionController@showDetails');
+Route::post('/client/transaction/confirm', 'TransactionController@confirmStatus');
+Route::post('/client/transaction/refresh', 'TransactionController@refreshStatus');
 Route::get('/client/home', 'GiftController@indexHome');
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
@@ -84,9 +80,7 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::post('search-users', '\App\Http\Controllers\Admin\UsersManagementController@search')->name('search-users');
 });
 
-Route::get('/send-mail', 'EmailController@send');
-
-
+//Route::get('/send-mail', 'EmailController@send');
 Route::get('/client/post1', function () {
     return view('client.posts.post1');
 });
@@ -99,3 +93,7 @@ Route::get('/client/post3', function () {
     return view('client.posts.post3');
 });
 
+
+Route::get('/contact_us', function () {
+    return view('client.pages.contact_us');
+});

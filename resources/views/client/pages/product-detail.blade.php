@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Trang chi tiết sản phẩm')
 @section('content')
     <!-- Main Container -->
     <div class="container">
@@ -46,7 +47,7 @@
                         <p class="ml-xl-0 ml-4">
                             <b>Độ tuổi: </b>{{$obj -> ageString}}</p>
                         <p class="ml-xl-0 ml-4">
-                            <b>Địa điểm: </b>{{$obj->address}} (<a href="#goole-map-infor">bản đồ</a>)</p>
+                            <b>Địa điểm: </b>{{$obj->account->account->address}} (<a href="#goole-map-infor">bản đồ</a>)</p>
                         <p class="ml-xl-0 ml-4">
                             <b>Thành phố: </b>{{$obj->cityName}}</p>
                         <!-- Add to Cart -->
@@ -56,10 +57,10 @@
                                     <div class="col-md-12 text-center text-md-left text-md-right" id="btnShow">
                                         <button class="btn btn-primary btn-rounded"
                                                 @if(!$follow)
-                                                onclick="getInfo()
+                                                onclick="getInfo()"
                                                 @else
-                                                        disabled
-                                                @endif">
+                                                onclick="subscribed()"
+                                                @endif>
                                             Quan tâm!
                                         </button>
                                     </div>
@@ -82,7 +83,7 @@
                             width="100%" height="450"
                             frameborder="0" style="border:0"
                             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDnro9-Oa4Ku3yKBkHFl_fVU7zVsOZ2Tvw
-            &q={{$obj->address}}" allowfullscreen>
+            &q={{$obj->account->account->address}}" allowfullscreen>
                     </iframe>
                 </div>
             </div>
@@ -183,8 +184,14 @@
         }(document, 'script', 'facebook-jssdk'));</script>
     <script>
         function getInfo() {
-            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><button class="btn btn-default">{{$obj->account->account->address}}</button><br> <textarea id="waitingMessage" name="message" rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea> <br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi đã nhận</font></button>');
+            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><button class="btn btn-default">{{$obj->account->account->address}}</button><br> <textarea id="waitingMessage" name="message" rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea> <br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi muốn xin</font></button>');
         }
+
+        function subscribed() {
+            alert("Sản phẩm này đã được bạn quan tâm!")
+            disable
+        }
+
         function informSubmit(id, gift_id) {
             $.ajax({
                 url: '/client/gift/' + gift_id + '/inform',
@@ -201,6 +208,8 @@
                     if (response.status == 0) {
                         console.log("okay");
                         alert('Bạn đã quan tâm món quà.Hãy chờ chủ nhân của món quà xác nhận lại')
+                        window.location.reload()
+
                     } else if (response.status == 'fraud') {
                         console.log("fraud");
                     } else {

@@ -1,9 +1,10 @@
 @extends('client.pages.gift.list')
+@section('page-title', 'Trang lịch sử trao đổi')
 @section('content1')
     <div class="col-md-9 personal">
         <div class="row justify-content-center">
             <div class="personal_header">
-                <h1>Chi tiết trao đổi.</h1>
+                <h1>Chi tiết thông tin người xin.</h1>
             </div>
 
             <div class="col-md-9">
@@ -11,7 +12,19 @@
                     <thead>
                     <tr>
                         <th>Tên người muốn xin</th>
-                        <th>{{$transaction->buyer->username}}</th>
+                        <th>{{$transaction->buyer->account->first_name}}.{{$transaction->buyer->account->last_name}}</th>
+                    </tr>
+                    <tr>
+                        <th>Email người muốn xin</th>
+                        <th>{{$transaction->buyer->account->email}}</th>
+                    </tr>
+                    <tr>
+                        <th>Số điện thoại người muốn xin</th>
+                        <th>{{$transaction->buyer->account->phone}}</th>
+                    </tr>
+                    <tr>
+                        <th>Address người muốn xin</th>
+                        <th>{{$transaction->buyer->account->address}}</th>
                     </tr>
                     <tr>
                         <td>Tên món quà</td>
@@ -42,9 +55,6 @@
                     </tr>
 
                     </thead>
-                    <tbody>
-
-                    </tbody>
                 </table>
             </div>
         </div>

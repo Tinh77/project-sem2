@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Simple Transactional Email</title>
+    <title>Send Email</title>
     <style>
         /* -------------------------------------
             GLOBAL RESETS
@@ -378,9 +378,7 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <p>This is a really simple email template. Its sole purpose is to get the
-                                            recipient to click the button with no distractions.</p>
-                                        <p>Good luck! Hope it works.</p>
+                                        <p><a href="http://127.0.0.1:8000/client/transaction/{{$transaction}}">http://127.0.0.1:8000/client/transaction/{{$transaction}}</a></p>
                                     </td>
                                 </tr>
                             </table>
