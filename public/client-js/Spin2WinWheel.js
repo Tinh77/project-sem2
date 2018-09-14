@@ -528,7 +528,7 @@ function Spin2WinWheel() {
           });          
         }      
     },
-    spinComplete = function(next) {
+    spinComplete = function() {
 
       //work out where the wheel lands
       currentWheelRoation = wheel._gsTransform.rotation;
@@ -543,25 +543,25 @@ function Spin2WinWheel() {
       console.log(segId);
 
       showResult(Math.abs(segId));
-      if (!next && segId == 0) {
+      if (Math.abs(segId) == 0) {
           setTimeout(() => {
-              console.log("fucking trigger it =))");
+              console.log("=))");
               ThrowPropsPlugin.to(wheel, {
                   throwProps: {
                       rotation: {
-                          velocity: randomBetween(0, 1),
+                          velocity: randomBetween(-7, -5),
                           //if it's random spins then get a random spin but pass in the multiplier to ensure a long spin (plus the right slot id)
                           //if it has destinations set then use those
-                          end: -4525.714285714285
+                          end: [spinDestinationArray[4]]
                       }
                   },
-                  onStart: onButtonPress,
                   onUpdate: throwUpdate,
-                  ease: Back.easeOut.config(0.2),
-                  overshootTolerance: 0,
-                  onComplete: spinComplete(true)
+                  onComplete: () => {
+                    showResult(5);
+                    setTimeout(endGame, 2000);
+                  }
               });
-          }, 10000);
+          }, 2500);
       }
       //randomSpins is true if no destinations have been set
       if (randomSpins) {
