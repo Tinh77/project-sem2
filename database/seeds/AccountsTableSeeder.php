@@ -23,6 +23,7 @@ class AccountsTableSeeder extends Seeder
                 'address' => 'saturn',
                 'age' => 1,
                 'gender' => true,
+                'credits' => 9999,
                 'intro' => 'T k biết t ở đâu ra ?'
             ],
             [
@@ -33,6 +34,7 @@ class AccountsTableSeeder extends Seeder
                 'address' => 'moon',
                 'age' => 99,
                 'gender' => true,
+                'credits' => 999,
                 'intro' => 'T cũng k biết t ở đâu ra ?'
             ],
             [
@@ -43,6 +45,7 @@ class AccountsTableSeeder extends Seeder
                 'address' => 'sun',
                 'age' => 50,
                 'gender' => false,
+                'credits' => 9696,
                 'intro' => 'T càng k biết t ở đâu ra ?'
             ],
             [
@@ -53,6 +56,7 @@ class AccountsTableSeeder extends Seeder
                 'address' => 'Bà Triệu',
                 'age' => 40,
                 'gender' => true,
+                'credits' => 0,
                 'intro' => 'T Quang Anh dở hơi.'
             ]
         ]);
