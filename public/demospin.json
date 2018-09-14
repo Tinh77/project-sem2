@@ -1,0 +1,42 @@
+{
+  "colorArray":[ "#364C62", "#F1C40F", "#E67E22", "#E74C3C", "#16A085", "#95A5A6", "#ECF0F1", "#27AE60", "#2980B9", "#8E44AD", "#2C3E50", "#F39C12", "#D35400", "#C0392B", "#BDC3C7","#1ABC9C", "#2ECC71", "#E87AC2", "#3498DB", "#9B59B6", "#7F8C8D"],
+
+  "segmentValuesArray" : [
+    {"type": "string", "value": "IPHONE XS", "win": false, "resultText": "IPHONE XS!!!!!"},
+    {"type": "image", "value": "/icons/sad.svg", "win": false, "resultText": "Hông có gì hết trơn :v"},
+    {"type": "image", "value": "/icons/snack.svg", "win": false, "resultText": "Đố bạn có cái này :))"},
+    {"type": "image", "value": "/icons/sad.svg", "win": false, "resultText": "Chúc bạn may mắn lần sau"},
+    {"type": "image", "value": "/icons/kiss.svg", "win": false, "resultText": "Hộp quà bí mật"},
+    {"type": "string", "value": "=))))))))", "win": false, "resultText": "AHIHIDONGOK"},
+    {"type": "image", "value": "/icons/rose.svg", "win": false, "resultText": "<3 Đôi lời từ mình *phùuu xém tiêu*"}
+  ],
+
+  "svgWidth": 1024,
+  "svgHeight": 768,
+  "wheelStrokeColor": "#D0BD0C",
+  "wheelStrokeWidth": 18,
+  "wheelSize": 700,
+  "wheelTextOffsetY": 80,
+  "wheelTextColor": "#EDEDED",
+  "wheelTextSize": "2.3em",
+  "wheelImageOffsetY": 40,
+  "wheelImageSize": 50,
+  "centerCircleSize": 360,
+  "centerCircleStrokeColor": "#F1DC15",
+  "centerCircleStrokeWidth": 12,
+  "centerCircleFillColor": "#EDEDED",
+  "segmentStrokeColor": "#E2E2E2",
+  "segmentStrokeWidth": 4,
+  "centerX": 512,
+  "centerY": 384,
+  "hasShadows": false,
+  "numSpins": 5,
+  "spinDestinationArray":[5, 7, 2, 1, 6],
+  "minSpinDuration":2,
+  "invalidSpinText":"INVALID SPIN. PLEASE SPIN AGAIN.",
+  "gameOverText": "Meaning Gift - Project by T1708A (+E ?)",
+  "introText": "QUAYYY!",
+  "hasSound":true,
+  "gameId":"9a0232ec06bc431114e2a7f3aea03bbe2164f1aa",
+  "clickToSpin":true
+}
