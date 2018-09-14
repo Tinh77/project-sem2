@@ -271,10 +271,12 @@
             <section class="text-center pb-5 wow fadeIn">
 
                 <!--Section heading-->
-                <h2 class="font-weight-bold text-center h1 my-5">Chia sẻ kinh nghiệm</h2>
+                <h2 class="font-weight-bold text-center h1 my-5">Cho đi để nhận lại</h2>
                 <!--Section description-->
                 <p class="text-center grey-text mb-5 mx-auto w-responsive">
-                    Luôn tự hào là nguồn thông tin và kiến thức đáng tin cậy dành cho phụ nữ trưởng thành.
+
+
+                    Tình người chẳng phải tìm kiếm ở nơi nào xa xôi mà hiện hữu ngay trong những hành động rất đời thường và bình dị quanh chúng ta mỗi ngày.
                 </p>
 
                 <!--Grid row-->
@@ -291,13 +293,10 @@
                                             <i class="fa fa-plane pr-2"></i></h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
-                                        <strong>Tất cả vì trẻ nhỏ</strong>
+                                        <strong>Nghĩa cử</strong>
                                     </h3>
-                                    <p>Nuôi con nhỏ phải thật bình tĩnh, nhất là những ai lần đầu làm mẹ và nuôi con
-                                        trong tháng đầu:
-                                        đừng lo lắng quá rồi stress thêm; đừng cuống cuồng lên khi con có biểu hiện lạ,
-                                        hãy bình tĩnh giải quyết.
-                                        Rồi tất cả cũng trôi qua và tốt đẹp cả thôi: bạn sẽ là người mẹ thực sự.</p>
+                                    <p>
+                                        Những nghĩa cử khiến bạn tin rằng cuộc đời vẫn đẹp và đáng sống lắm</p>
                                     <a class="btn btn-secondary btn-sm" href="/client/post1">
                                         <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
@@ -317,12 +316,10 @@
                                             <i class="fa fa-eye pr-2"></i></h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
-                                        <strong>Cho bé ngủ đúng cách</strong>
+                                        <strong>Yêu thương</strong>
                                     </h3>
-                                    <p> Không cho trẻ bé sơ sinh nằm nệm quá mềm
-                                        Theo các bác sĩ, hệ xương và cột sống của em bé còn khá mềm yếu vì thế nếu cho
-                                        trẻ nằm ngủ đệm quá mềm sẽ ảnh hưởng đến cột sống của bé.
-                                        Lớn lên trẻ dễ bị cong, xiêu vẹo hoặc các dị tật khác về cột sống.</p>
+                                    <p>“Yêu thương cho đi để nhận lại” cho đi một để nhận lại gấp trăm ngàn lần yêu thương.
+                                        Trao yêu thương sẽ nhận lại yêu thương, cái được nhận lại còn lớn lao gấp bội lần. </p>
                                     <a class="btn btn-pink btn-sm" href="/client/pages/post2">
                                         <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
@@ -342,13 +339,10 @@
                                             <i class="fa fa-camera pr-2"></i></h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
-                                        <strong>Chụp ảnh cho bé</strong>
+                                        <strong>Cái nắm tay</strong>
                                     </h3>
-                                    <p>Khi chụp ảnh nên tắt đèn flash để tránh làm hại mắt bé
-                                        Vì mắt trẻ sơ sinh chưa hoàn chỉnh các điểm ảnh nên
-                                        đèn flash có thể gây hại cho mắt bé
-                                        . Vì thế, nếu bạn muốn chụp lại những khoảnh khắc đáng yêu của con để lưu niệm
-                                        thì trước khi chụp nhớ tắt đèn flash nhé.</p>
+                                    <p>Mỗi bàn tay từ khi sinh ra đều có kẽ hở không phải là khuyết thiếu mà để chờ được lấp đầy
+                                        để mười ngón tay đan quyện vào nhau đi qua hành trình của chia sẻ và yêu thương.</p>
                                     <a class="btn btn-success btn-sm" href="/client/post3">
                                         <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
