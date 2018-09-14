@@ -41,6 +41,7 @@ class NotificationController extends Controller
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
             'gift_id' => $gift->id,
+
             'message' => Input::get('message'),
             'status' => 0
         ]);
@@ -54,7 +55,7 @@ class NotificationController extends Controller
         Mail::send('emails.send', $data, function ($message) use ($email) {
             $message->to($email, $email)->subject
             ('Tôi muốn xin món hàng này của bạn .Vui lòng xem chi tiết ở bên dưới');
-            $message->from('admin@meaning-gift.com', 'Meaning Gift Admin');
+            $message->from(';admin@meaning-gift.com', 'Meaning Gift Admin');
         });
         return response()->json(['status' => 0]);
     }

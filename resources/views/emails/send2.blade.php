@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Simple Transactional Email</title>
+    <title>Send Email</title>
     <style>
         /* -------------------------------------
             GLOBAL RESETS
@@ -157,7 +157,7 @@
 <p>Xin chào,</p>
 <p>{{$username}} đã cho bạn món quà {{$namegift}} .Hãy xem thông tin và liên hệ
     với {{$username}}
-    để tiến hành trao đổi
+    để tiến hành trao đổi.
 </p>
     <table border="0" style="width: 70%" cellpadding="0" cellspacing="0" class="table table-bordered">
         <tr>

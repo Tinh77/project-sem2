@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Trang chi tiết sản phẩm')
 @section('content')
     <!-- Main Container -->
     <div class="container">
