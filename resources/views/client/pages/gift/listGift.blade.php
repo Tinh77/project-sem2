@@ -65,7 +65,7 @@
                                                         class="fa fa-check"></i>
                                             </a>
                                         @endif
-                                        @if($item->confirm_owner_flag == 1 || $item->confirm_buyer_flag == 1 || $item->status == -1)
+                                        @if($item->status == 2 || $item->status == -1)
                                         @else
                                             <a href="javascript:void(0)" data-transaction-id="{{ $item->id }}"
                                                class="btn-icon btn-action-p remove btn-sm btn-refresh-status"
