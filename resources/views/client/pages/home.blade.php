@@ -328,11 +328,12 @@
                                         <h5>
                                             <i class="fa fa-plane pr-2"></i></h5>
                                     </a>
-                                    <h3 class="mb-4 mt-4">
+                                    <h3 class="mb-4 mt-4" style="">
                                         <strong>Nghĩa cử</strong>
                                     </h3>
                                     <p>
-                                        Những nghĩa cử khiến bạn tin rằng cuộc đời vẫn đẹp và đáng sống lắm</p>
+                                        Tình người chẳng phải tìm kiếm ở nơi nào xa xôi mà hiện hữu ngay trong những hành động rất đời thường và bình dị quanh chúng ta mỗi ngày.
+                                    </p>
                                     <a class="btn btn-secondary btn-sm" href="/client/post1">
                                         <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
