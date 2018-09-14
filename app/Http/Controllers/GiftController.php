@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use JD\Cloudder\Facades\Cloudder;
 use Mockery\Matcher\Not;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class GiftController extends Controller
 {
+    use SearchableTrait;
     /**
      * Display a listing of the resource.
      *
@@ -43,13 +45,12 @@ class GiftController extends Controller
         return view('client.pages.home')
             ->with('categories', $categories)
             ->with('obj', $obj)
-            ->with('notifications', $notifications)
-            ->with('success', 'kiem tra tre tre tre tre');
+            ->with('notifications', $notifications);
     }
 
     public function index()
     {
-        $age = Input::get('group100');
+        // we dont use whole page re-rendering anymore, as it is not efficient! instead use js
         $keyword = Input::get('key');
         $data = Input::get();
         $obj = Gift::orderBy('created_at', 'desc')->where(['status' => 1]);
@@ -66,6 +67,36 @@ class GiftController extends Controller
         return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
     }
 
+    public function searchBySection(Request $request)
+    {
+        $searchQueries = json_decode($request->input('search'), true); // array ['category' => 'hey', 'ahi' => 'roam']
+        if (!is_array($searchQueries)) return $searchQueries;
+        $category_id = $searchQueries['category_id'];
+        $gifts = DB::table('gifts');
+        foreach ($searchQueries as $query => $string) {
+            switch ($query) {
+                case 'category_id':
+                case 'age_range':
+                case 'gender':
+                case 'city':
+                    if (!is_string($string) && !is_int($string)) return response()->json(['status' => 'fraud']); // avoid sql injection
+                    $gifts = $gifts->where($query, 'like', '%' . $string . '%');
+                    break;
+                default:
+                    return response()->json(['status' => 'fraud']); // avoid sql injection
+                    break;
+            }
+        }
+        return view('client.pages.list-gift')->with('obj', $gifts->paginate(6)->withPath($category_id));
+    }
+
+    public function search($string)
+    {
+        if (!is_string($string)) return response()->json(['status' => 'fraud']);
+        $gifts = Gift::search($string, null, true)->get();
+        return $gifts;
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -76,11 +107,13 @@ class GiftController extends Controller
     public function listCategory($id = null)
     {
         $obj = DB::table('gifts')
-            ->where('category_id', '=', $id)
+            ->where('category_id', '=', $id)->where(['status' => 1])
             ->paginate(6);
-        $gift = Gift::where(['status' => 1]);
         $list_obj = DB::table('categories')->pluck("name", "id");
-        return view('client.pages.list')->with('obj', $obj)->with('gift', $gift)->with('list_obj', $list_obj);
+        if ($obj == null || $list_obj == null){
+            return view('client.404client.404');
+        }
+        return view('client.pages.list',compact('obj'), compact('list_obj'));
     }
 
     public function listIndexPosted()

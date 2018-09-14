@@ -44,75 +44,78 @@
                                             <div class="col-lg-8">
 
                                                 <div class="card-body form">
-                                                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfGyarpl44BeYB4Zxzfq7oPl-w-aT5-iPku7qGiQrgkU15yaQ/viewform?embedded=true" width="700" height="500" frameborder="0" marginheight="0" marginwidth="0">Đang tải...</iframe>
+                                                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfGyarpl44BeYB4Zxzfq7oPl-w-aT5-iPku7qGiQrgkU15yaQ/viewform?embedded=true"
+                                                            width="700" height="500" frameborder="0" marginheight="0"
+                                                            marginwidth="0">Đang tải...
+                                                    </iframe>
                                                     <!-- Header -->
-                                                    {{--<h3 class="mt-4"><i class="fa fa-envelope pr-2"></i>Viết thư cho chúng tôi:</h3>--}}
+                                                {{--<h3 class="mt-4"><i class="fa fa-envelope pr-2"></i>Viết thư cho chúng tôi:</h3>--}}
 
-                                                    {{--<!-- Grid row -->--}}
-                                                    {{--<div class="row">--}}
+                                                {{--<!-- Grid row -->--}}
+                                                {{--<div class="row">--}}
 
-                                                        {{--<!-- Grid column -->--}}
-                                                        {{--<div class="col-md-6">--}}
-                                                            {{--<div class="md-form mb-0">--}}
-                                                                {{--<input type="text" id="form-contact-name" class="form-control">--}}
-                                                                {{--<label for="form-contact-name" class="">Họ và tên</label>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                        {{--<!-- Grid column -->--}}
+                                                {{--<!-- Grid column -->--}}
+                                                {{--<div class="col-md-6">--}}
+                                                {{--<div class="md-form mb-0">--}}
+                                                {{--<input type="text" id="form-contact-name" class="form-control">--}}
+                                                {{--<label for="form-contact-name" class="">Họ và tên</label>--}}
+                                                {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<!-- Grid column -->--}}
 
-                                                        {{--<!-- Grid column -->--}}
-                                                        {{--<div class="col-md-6">--}}
-                                                            {{--<div class="md-form mb-0">--}}
-                                                                {{--<input type="text" id="form-contact-email" class="form-control">--}}
-                                                                {{--<label for="form-contact-email" class="">Email</label>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                        <!-- Grid column -->
+                                                {{--<!-- Grid column -->--}}
+                                                {{--<div class="col-md-6">--}}
+                                                {{--<div class="md-form mb-0">--}}
+                                                {{--<input type="text" id="form-contact-email" class="form-control">--}}
+                                                {{--<label for="form-contact-email" class="">Email</label>--}}
+                                                {{--</div>--}}
+                                                {{--</div>--}}
+                                                <!-- Grid column -->
 
-                                                    {{--</div>--}}
-                                                    <!-- Grid row -->
-
-                                                    <!-- Grid row -->
-                                                    {{--<div class="row">--}}
-
-                                                        {{--<!-- Grid column -->--}}
-                                                        {{--<div class="col-md-6">--}}
-                                                            {{--<div class="md-form mb-0">--}}
-                                                                {{--<input type="text" id="form-contact-phone" class="form-control">--}}
-                                                                {{--<label for="form-contact-phone" class="">Số điện thoại</label>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                        {{--<!-- Grid column -->--}}
-
-                                                        {{--<!-- Grid column -->--}}
-                                                        {{--<div class="col-md-6">--}}
-                                                            {{--<div class="md-form mb-0">--}}
-                                                                {{--<input type="text" id="form-contact-company" class="form-control">--}}
-                                                                {{--<label for="form-contact-company" class="">Địa chỉ</label>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                        {{--<!-- Grid column -->--}}
-
-                                                    {{--</div>--}}
-                                                    <!-- Grid row -->
+                                                {{--</div>--}}
+                                                <!-- Grid row -->
 
                                                     <!-- Grid row -->
-                                                    {{--<div class="row">--}}
+                                                {{--<div class="row">--}}
 
-                                                        <!-- Grid column -->
-                                                        {{--<div class="col-md-12">--}}
-                                                            {{--<div class="md-form mb-0">--}}
-                                                                {{--<textarea type="text" id="form-contact-message" class="form-control md-textarea" rows="3"></textarea>--}}
-                                                                {{--<label for="form-contact-message">Tin nhắn</label>--}}
-                                                                {{--<a class="btn-floating btn-lg blue">--}}
-                                                                    {{--<i class="fa fa-send-o"></i>--}}
-                                                                {{--</a>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                        <!-- Grid column -->
+                                                {{--<!-- Grid column -->--}}
+                                                {{--<div class="col-md-6">--}}
+                                                {{--<div class="md-form mb-0">--}}
+                                                {{--<input type="text" id="form-contact-phone" class="form-control">--}}
+                                                {{--<label for="form-contact-phone" class="">Số điện thoại</label>--}}
+                                                {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<!-- Grid column -->--}}
 
-                                                    {{--</div>--}}
+                                                {{--<!-- Grid column -->--}}
+                                                {{--<div class="col-md-6">--}}
+                                                {{--<div class="md-form mb-0">--}}
+                                                {{--<input type="text" id="form-contact-company" class="form-control">--}}
+                                                {{--<label for="form-contact-company" class="">Địa chỉ</label>--}}
+                                                {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<!-- Grid column -->--}}
+
+                                                {{--</div>--}}
+                                                <!-- Grid row -->
+
                                                     <!-- Grid row -->
+                                                {{--<div class="row">--}}
+
+                                                <!-- Grid column -->
+                                                {{--<div class="col-md-12">--}}
+                                                {{--<div class="md-form mb-0">--}}
+                                                {{--<textarea type="text" id="form-contact-message" class="form-control md-textarea" rows="3"></textarea>--}}
+                                                {{--<label for="form-contact-message">Tin nhắn</label>--}}
+                                                {{--<a class="btn-floating btn-lg blue">--}}
+                                                {{--<i class="fa fa-send-o"></i>--}}
+                                                {{--</a>--}}
+                                                {{--</div>--}}
+                                                {{--</div>--}}
+                                                <!-- Grid column -->
+
+                                                {{--</div>--}}
+                                                <!-- Grid row -->
 
                                                 </div>
 
@@ -127,13 +130,15 @@
                                                     <h3 class="my-4 pb-2">Thông tin liên hệ</h3>
                                                     <ul class="text-lg-left list-unstyled ml-4">
                                                         <li>
-                                                            <p><i class="fa fa-map-marker pr-2 mb-4"></i>8A, Tôn Thất Huyết, Mỹ Đình, Hà Nội</p>
+                                                            <p><i class="fa fa-map-marker pr-2 mb-4"></i>8A, Tôn Thất
+                                                                Huyết, Mỹ Đình, Hà Nội</p>
                                                         </li>
                                                         <li>
                                                             <p><i class="fa fa-phone pr-2 mb-4"></i>+ 01 6877 775 63</p>
                                                         </li>
                                                         <li>
-                                                            <p><i class="fa fa-envelope pr-2"></i>meaning2810@gmail.com</p>
+                                                            <p><i class="fa fa-envelope pr-2"></i>meaning2810@gmail.com
+                                                            </p>
                                                         </li>
                                                     </ul>
                                                     <hr class="hr-light my-4">
@@ -186,67 +191,56 @@
     <!-- SCRIPTS -->
 
     <!-- JQuery -->
-    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
-
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="../../js/popper.min.js"></script>
-
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
-
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="../../js/mdb.min.js"></script>
-
     <script src="https://maps.google.com/maps/api/js"></script>
-    <script type="text/javascript">
-        /* WOW.js init */
-        new WOW().init();
+    {{--<script type="text/javascript">--}}
+        {{--/* WOW.js init */--}}
+        {{--new WOW().init();--}}
 
-        // MDB Lightbox Init
-        $(function () {
-            $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
-        });
+        {{--// MDB Lightbox Init--}}
+        {{--$(function () {--}}
+            {{--$("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");--}}
+        {{--});--}}
 
-        // Tooltips Initialization
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
-    <script>
-        // Material Select Initialization
-        $(document).ready(function () {
-            $('.mdb-select').material_select();
-        });
-    </script>
-    <script>
-        function init_map() {
+        {{--// Tooltips Initialization--}}
+        {{--$(function () {--}}
+            {{--$('[data-toggle="tooltip"]').tooltip()--}}
+        {{--})--}}
+    {{--</script>--}}
+    {{--<script>--}}
+        {{--// Material Select Initialization--}}
+        {{--$(document).ready(function () {--}}
+            {{--$('.mdb-select').material_select();--}}
+        {{--});--}}
+    {{--</script>--}}
+    {{--<script>--}}
+        {{--function init_map() {--}}
 
-            var var_location = new google.maps.LatLng(40.725118, -73.997699);
+            {{--var var_location = new google.maps.LatLng(40.725118, -73.997699);--}}
 
-            var var_mapoptions = {
-                center: var_location,
+            {{--var var_mapoptions = {--}}
+                {{--center: var_location,--}}
 
-                zoom: 14
-            };
+                {{--zoom: 14--}}
+            {{--};--}}
 
-            var var_marker = new google.maps.Marker({
-                position: var_location,
-                map: var_map,
-                title: "New York"
-            });
+            {{--var var_marker = new google.maps.Marker({--}}
+                {{--position: var_location,--}}
+                {{--map: var_map,--}}
+                {{--title: "New York"--}}
+            {{--});--}}
 
-            var var_map = new google.maps.Map(document.getElementById("map-container"),
-                var_mapoptions);
+            {{--var var_map = new google.maps.Map(document.getElementById("map-container"),--}}
+                {{--var_mapoptions);--}}
 
-            var_marker.setMap(var_map);
+            {{--var_marker.setMap(var_map);--}}
 
-        }
+        {{--}--}}
 
-        google.maps.event.addDomListener(window, 'load', init_map);
-    </script>
-    <script>
-        // SideNav Initialization
-        $(".button-collapse").sideNav();
-    </script>
+        {{--google.maps.event.addDomListener(window, 'load', init_map);--}}
+    {{--</script>--}}
+    {{--<script>--}}
+        {{--// SideNav Initialization--}}
+        {{--$(".button-collapse").sideNav();--}}
+    {{--</script>--}}
     </body>
 @endsection
