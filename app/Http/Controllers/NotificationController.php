@@ -50,6 +50,7 @@ class NotificationController extends Controller
             'owner_id' => $gift->account->id,
             'buyer_id' => Auth::user()->id,
             'gift_id' => $gift->id,
+
             'message' => Input::get('message'),
             'status' => 0
         ]);

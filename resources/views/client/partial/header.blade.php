@@ -68,15 +68,21 @@
                                id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
                                aria-expanded="false"><i class="fa fa-user text-white"></i>
                                 {{ Auth::user()->username }}
-                                {{--@level(4)--}}
-                                {{--{{ __('[Admin]') }}--}}
-                                {{--@else--}}
-                                {{--{{ __('[Member]') }}--}}
-                                {{--@endrole--}}
-                                {{--<span class="caret"></span>--}}
+                                @level(4)
+                                {{ __('[Admin]') }}
+                                @else
+                                {{ __('[Member]') }}
+                                @endrole
+                                <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink-4">
+                                @level(4)
+                                <li><a class="dropdown-item waves-effect waves-light" href="/manage/users">
+                                        Admin
+                                    </a></li>
+                                @endrole
+                                <li>
                                 <li><a class="dropdown-item waves-effect waves-light" href="/profile/{{auth()->id()}}">
                                         Trang cá nhân
                                     </a></li>

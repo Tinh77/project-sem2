@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Trang đăng món quà')
 @section("content")
     <div class="container">
         <div class="gitf-form mt-5 font-text">
