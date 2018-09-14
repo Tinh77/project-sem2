@@ -66,7 +66,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 5,
+                'account_id' => 1,
                 'category_id' => 1,
                 'name' => 'Quần dài cá voi xanh',
                 'description' => 'Mình có 15 chiếc quần của trẻ từ trên 12 tháng không bị sờn rách sạch sẽ muốn để lại cho các bé mặc vừa',
@@ -78,7 +78,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 6,
+                'account_id' => 2,
                 'category_id' => 1,
                 'name' => 'Quần nỉ sơ sinh cho bé',
                 'description' => 'Mình có 1 lô quần nỉ của trẻ sơ sinh không bị sờn rách sạch sẽ muốn để lại cho các bé sơ sinh',
@@ -90,7 +90,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 7,
+                'account_id' => 3,
                 'category_id' => 1,
                 'name' => 'Quần đùi sơ sinh bo ống',
                 'description' => 'Mình có 1 lô quần của trẻ sơ sinh không bị sờn rách sạch sẽ muốn để lại cho các bé sơ sinh',
@@ -102,7 +102,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 8,
+                'account_id' => 4,
                 'category_id' => 1,
                 'name' => 'Quần dài kaki',
                 'description' => 'Mình có 2 cái quần màu kaki bé trai màu xanh và cam cho trẻ trên 3 tuổi muốn để lại cho bé nào mặc vừa quần không bị sờn rách và sạch sẽ',
@@ -114,7 +114,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 9,
+                'account_id' => 1,
                 'category_id' => 2,
                 'name' => 'Mũ sơ sinh',
                 'description' => 'Mình có 5 chiếc mũ của trẻ sơ sinh không bị sờn rách sạch sẽ muốn để lại cho các bé sơ sinh',
@@ -126,7 +126,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 10,
+                'account_id' => 2,
                 'category_id' => 2,
                 'name' => 'Mũ phớt chấm bi',
                 'description' => 'Mình được người thân tặng mũ mà con mình không đội vừa nên muốn để lại cho các bé',
@@ -138,7 +138,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 11,
+                'account_id' => 3,
                 'category_id' => 2,
                 'name' => 'Mũ',
                 'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy',
@@ -150,7 +150,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 12,
+                'account_id' => 4,
                 'category_id' => 2,
                 'name' => 'Mũ Bibos',
                 'description' => 'Mình được người thân tặng mũ mà con mình không đội vừa nên muốn để lại cho các bé',
@@ -162,7 +162,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 13,
+                'account_id' => 4,
                 'category_id' => 2,
                 'name' => 'Mũ Bibos',
                 'description' => 'Mình được người thân tặng mũ mà con mình không đội vừa nên muốn để lại cho các bé',
@@ -174,7 +174,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 14,
+                'account_id' => 1,
                 'category_id' => 3,
                 'name' => 'Bitit hồng',
                 'description' => 'Bé nhà mình chân lớn giày mới mua bé k đi vừa tặng lại cho bé nào cần nha',
@@ -186,7 +186,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 15,
+                'account_id' => 3,
                 'category_id' => 3,
                 'name' => 'Giày đỏ chấm bi',
                 'description' => 'Mình được người thân tặng giày cho bé nhà mình nhưng bé không đi vừa nên muốn tặng lại cho bé nào cần',
@@ -198,7 +198,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 16,
+                'account_id' => 1,
                 'category_id' => 3,
                 'name' => 'Giày nhung',
                 'description' => 'Bé nhà mình chóng lớn quá nên giày mới mua không đi vừa nữa, bạn nào quan tâm liên hệ mình tặng lại nha',
@@ -210,7 +210,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 17,
+                'account_id' => 3,
                 'category_id' => 3,
                 'name' => 'Giày thể thao đen',
                 'description' => 'Mình được người thân tặng cho bé nhà mình nhưng bé đi không vừa',
@@ -222,7 +222,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 18,
+                'account_id' => 2,
                 'category_id' => 3,
                 'name' => 'Giày len',
                 'description' => 'Giày mình tự đan muốn tặng cho bé nào cần',
@@ -234,7 +234,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 19,
+                'account_id' => 4,
                 'category_id' => 3,
                 'name' => 'Giày thể thao xanh',
                 'description' => 'Bé nhà mình nhiều giày không đi hết nên muốn tặng lại cho bé nào cần',
@@ -246,7 +246,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 20,
+                'account_id' => 3,
                 'category_id' => 3,
                 'name' => 'Giày thể thao',
                 'description' => 'Giày thể thao cho bé thoải mái và tự tin trên sân bóng',
@@ -258,7 +258,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 21,
+                'account_id' => 1,
                 'category_id' => 5,
                 'name' => 'Đồ chơi phát triển trí não',
                 'description' => 'Bé nhà mình giờ đã lớn lên không còn chơi nữa nên muốn tặng lại cho bé khác',
@@ -270,7 +270,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 22,
+                'account_id' => 2,
                 'category_id' => 4,
                 'name' => 'Bộ cốc thủy tinh in hình logo',
                 'description' => 'Bộ đồ chơi giúp bé phát triển trí não',
@@ -282,7 +282,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 23,
+                'account_id' => 2,
                 'category_id' => 5,
                 'name' => 'Búp bê Tomy',
                 'description' => 'Đồ chơi còn mới lắm nha',
@@ -294,7 +294,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 24,
+                'account_id' => 3,
                 'category_id' => 5,
                 'name' => 'Bộ đồ hàng cho bé',
                 'description' => 'Bộ đồ hàng còn mới lắm nha',
@@ -306,7 +306,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 25,
+                'account_id' => 4,
                 'category_id' => 5,
                 'name' => 'Đồ chơi búp bê Bonnie',
                 'description' => 'Còn mới trông dễ thương lắm nha',
@@ -318,7 +318,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 26,
+                'account_id' => 2,
                 'category_id' => 4,
                 'name' => 'Hai bình đựng sữa',
                 'description' => 'Hai bình đều còn mới nha',
@@ -330,7 +330,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 27,
+                'account_id' => 3,
                 'category_id' => 4,
                 'name' => 'Xe đạp mini',
                 'description' => 'Bé nhà mình lớn lên không dùng nữa',
@@ -342,7 +342,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 28,
+                'account_id' => 3,
                 'category_id' => 4,
                 'name' => 'Cũi gỗ',
                 'description' => 'Cũi còn mới nha',
@@ -354,7 +354,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 29,
+                'account_id' => 4,
                 'category_id' => 4,
                 'name' => 'Chậu nhựa',
                 'description' => 'Bé nhà mình đã lớn không còn dùng nữa',
@@ -366,7 +366,7 @@ class GiftsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'account_id' => 30,
+                'account_id' => 4,
                 'category_id' => 4,
                 'name' => 'Bộ ăn dặm',
                 'description' => 'Còn mới nguyên cả bộ nha',
