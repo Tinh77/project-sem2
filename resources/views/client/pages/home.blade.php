@@ -5,6 +5,41 @@
 
         <div class="container">
 
+            <style>
+                .form-control-borderless {
+                    border: none;
+                }
+
+                .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+                    border: none;
+                    outline: none;
+                    box-shadow: none;
+                }
+            </style>
+            <br/>
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <form class="card card-sm">
+                        <div class="card-body row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <!--end of col-->
+                            <div class="col">
+                                <input id="formSearchName" class="form-control form-control-md form-control-borderless" type="search" placeholder="Nhập để tìm kiếm...">
+                            </div>
+                            <!--end of col-->
+                        </div>
+                    </form>
+                </div>
+                <!--end of col-->
+            </div>
+            <div class="row justify-content-center" style="display: none;">
+                <div class="col-lg-12">
+                <ul class="list-group" id="searchResults">
+                </ul>
+                </div>
+            </div>
             <!--Section: Products v.3-->
             <section class="section pb-3 wow fadeIn" data-wow-delay="0.3s">
 
@@ -366,5 +401,41 @@
         </div>
 
     </main>
-
+    <script>
+        (function ($) {
+            $.fn.delayKeyup = function(callback, ms){
+                var timer = 0;
+                $(this).keyup(function(){
+                    clearTimeout (timer);
+                    timer = setTimeout(callback, ms);
+                });
+                return $(this);
+            };
+        })(jQuery);
+        $('#formSearchName').delayKeyup(() => {
+            let string = $('#formSearchName').val();
+            if (string == '') {
+                $('#searchResults').parent().parent().attr('style', 'display: none;');
+                $('#searchResults').html();
+                return;
+            }
+            $.ajax({
+                url: '/client/gift/search/' + string,
+                type: 'GET',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: (response) => {
+                    if (response.length == 0) return;
+                    else $('#searchResults').parent().parent().attr('style', 'display: block;');
+                    let html = '';
+                    for(let i=0; i<response.length; i++) {
+                        html += '<li class="list-group-item" style="clear: both;"><div style="float: left;"><img alt="quanganh9x" width="50px" height="50px" src="'+response[i].images+'"/></div><div style="float: right; text-align: right;"><p><a href="/client/gift/'+response[i].id+'">'+response[i].name+'</a></p><p>['+response[i].city+']</p></div></li>';
+                    }
+                    $('#searchResults').html(html);
+                },
+                error: (response) => console.log("fail")
+            });
+        }, 250);
+    </script>
 @endsection

@@ -1,7 +1,7 @@
 @extends(config('laravelusers.laravelUsersBladeExtended'))
 
 @section('template_title')
-    @lang('laravelusers.showing-all-users')
+    @lang('laravelusers::laravelusers.showing-all-users')
 @endsection
 
 @section('template_linked_css')
@@ -11,8 +11,8 @@
     @if(config('laravelusers.fontAwesomeEnabled'))
         <link rel="stylesheet" type="text/css" href="{{ config('laravelusers.fontAwesomeCdn') }}">
     @endif
-    @include('vendor.laravelusers.partials.styles')
-    @include('vendor.laravelusers.partials.bs-visibility-css')
+    @include('laravelusers::partials.styles')
+    @include('laravelusers::partials.bs-visibility-css')
 @endsection
 
 @section('content')
@@ -20,7 +20,7 @@
         @if(config('laravelusers.enablePackageBootstapAlerts'))
             <div class="row">
                 <div class="col-sm-12">
-                    @include('vendor.laravelusers.partials.form-status')
+                    @include('laravelusers::partials.form-status')
                 </div>
             </div>
         @endif
@@ -31,7 +31,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                @lang('laravelusers.showing-all-users')
+                                @lang('laravelusers::laravelusers.showing-all-users')
                             </span>
 
                             <div class="btn-group pull-right btn-group-xs">
@@ -39,7 +39,7 @@
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
                                         <span class="sr-only">
-                                            @lang('laravelusers.users-menu-alt')
+                                            @lang('laravelusers::laravelusers.users-menu-alt')
                                         </span>
                                     </button>
                                     <ul class="dropdown-menu">
@@ -48,24 +48,24 @@
                                                 @if(config('laravelusers.fontAwesomeEnabled'))
                                                     <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
                                                 @endif
-                                                {!! trans('laravelusers.buttons.create-new') !!}
+                                                @lang('laravelusers::laravelusers.buttons.create-new')
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/manage/users/deleted">
+                                            <a href="/users/deleted">
                                                 @if(config('laravelusers.fontAwesomeEnabled'))
                                                     <i class="fa fa-fw fa-group" aria-hidden="true"></i>
                                                 @endif
-                                                @lang('laravelusers.show-deleted-users')
+                                                @lang('laravelusers::laravelusers.show-deleted-users')
                                             </a>
                                         </li>
                                     </ul>
                                 @else
-                                    <a href="{{ route('users.create') }}" class="btn btn-default btn-sm pull-right" data-toggle="tooltip" data-placement="left" title="@lang('laravelusers.tooltips.create-new')">
+                                    <a href="{{ route('users.create') }}" class="btn btn-default btn-sm pull-right" data-toggle="tooltip" data-placement="left" title="@lang('laravelusers::laravelusers.tooltips.create-new')">
                                         @if(config('laravelusers.fontAwesomeEnabled'))
                                             <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
                                         @endif
-                                        {!! trans('laravelusers.buttons.create-new') !!}
+                                        @lang('laravelusers::laravelusers.buttons.create-new')
                                     </a>
                                 @endif
                             </div>
@@ -74,24 +74,25 @@
                     <div class="card-body">
 
                         @if(config('laravelusers.enableSearchUsers'))
-                            @include('vendor.laravelusers.partials.search-users-form')
+                            @include('laravelusers::partials.search-users-form')
                         @endif
 
                         <div class="table-responsive users-table">
                             <table class="table table-striped table-sm data-table">
                                 <caption id="user_count">
-                                    {{ trans_choice('laravelusers.users-table.caption', 1, ['userscount' => $users->count()]) }}
+                                    {{ trans_choice('laravelusers::laravelusers.users-table.caption', 1, ['userscount' => $users->count()]) }}
                                 </caption>
                                 <thead class="thead">
                                     <tr>
-                                        <th>@lang('laravelusers.users-table.id')</th>
-                                        <th>@lang('laravelusers.users-table.name')</th>
-                                        <th class="hidden-xs">@lang('laravelusers.users-table.email')</th>
+                                        <th>@lang('laravelusers::laravelusers.users-table.id')</th>
+                                        <th>@lang('laravelusers::laravelusers.users-table.name')</th>
+                                        <th class="hidden-xs">@lang('laravelusers::laravelusers.users-table.email')</th>
                                         @if(config('laravelusers.rolesEnabled'))
-                                            <th class="hidden-sm hidden-xs">@lang('laravelusers.users-table.role')</th>
+                                            <th class="hidden-sm hidden-xs">@lang('laravelusers::laravelusers.users-table.role')</th>
                                         @endif
-                                        <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers.users-table.status')</th>
-                                        <th class="no-search no-sort">@lang('laravelusers.users-table.actions')</th>
+                                        <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers::laravelusers.users-table.created')</th>
+                                        <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers::laravelusers.users-table.updated')</th>
+                                        <th class="no-search no-sort">@lang('laravelusers::laravelusers.users-table.actions')</th>
                                         <th class="no-search no-sort"></th>
                                         <th class="no-search no-sort"></th>
                                     </tr>
@@ -118,21 +119,22 @@
                                                     @endforeach
                                                 </td>
                                             @endif
-                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->status}}</td>
+                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->account->first_name}}</td>
+                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->account->last_name}}</td>
                                             <td>
-                                                {!! Form::open(array('url' => 'manage/users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => trans('laravelusers.tooltips.delete'))) !!}
+                                                {!! Form::open(array('url' => 'users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => trans('laravelusers::laravelusers.tooltips.delete'))) !!}
                                                     {!! Form::hidden('_method', 'DELETE') !!}
-                                                    {!! Form::button(trans('laravelusers.buttons.delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => trans('modals.delete_user_title'), 'data-message' => trans('modals.delete_user_message', ['user' => $user->username]))) !!}
+                                                    {!! Form::button(trans('laravelusers::laravelusers.buttons.delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => trans('laravelusers::modals.delete_user_title'), 'data-message' => trans('laravelusers::modals.delete_user_message', ['user' => $user->username]))) !!}
                                                 {!! Form::close() !!}
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('manage/users/' . $user->id) }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.show')">
-                                                    {!! trans('laravelusers.buttons.show') !!}
+                                                <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('users/' . $user->id) }}" data-toggle="tooltip" title="@lang('laravelusers::laravelusers.tooltips.show')">
+                                                    @lang('laravelusers::laravelusers.buttons.show')
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('manage/users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.edit')">
-                                                    {!! trans('laravelusers.buttons.edit') !!}
+                                                <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="@lang('laravelusers::laravelusers.tooltips.edit')">
+                                                    @lang('laravelusers::laravelusers.buttons.edit')
                                                 </a>
                                             </td>
                                         </tr>
@@ -155,21 +157,21 @@
         </div>
     </div>
 
-    @include('vendor.laravelusers.modals.modal-delete')
+    @include('laravelusers::modals.modal-delete')
 
 @endsection
 
 @section('template_scripts')
     @if ((count($users) > config('laravelusers.datatablesJsStartCount')) && config('laravelusers.enabledDatatablesJs'))
-        @include('vendor.laravelusers.scripts.datatables')
+        @include('laravelusers::scripts.datatables')
     @endif
-    @include('vendor.laravelusers.scripts.delete-modal-script')
-    @include('vendor.laravelusers.scripts.save-modal-script')
+    @include('laravelusers::scripts.delete-modal-script')
+    @include('laravelusers::scripts.save-modal-script')
     @if(config('laravelusers.tooltipsEnabled'))
-        @include('vendor.laravelusers.scripts.tooltips')
+        @include('laravelusers::scripts.tooltips')
     @endif
     @if(config('laravelusers.enableSearchUsers'))
-        @include('vendor.laravelusers.scripts.search-users')
+        @include('laravelusers::scripts.search-users')
     @endif
 
 @endsection

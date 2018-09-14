@@ -16,7 +16,7 @@
                             <div class="carousel-inner text-center text-md-left" role="listbox">
                                 <div class="carousel-item active text-center">
                                     <img src="{{\JD\Cloudder\Facades\Cloudder::show($obj -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
-                                         alt="First slide" class="img-fluid p-4">
+                                         alt="quanganh9x" class="img-fluid p-4">
                                 </div>
                             </div>
                             <!--/.Slides-->

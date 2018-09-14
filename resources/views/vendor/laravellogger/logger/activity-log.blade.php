@@ -23,7 +23,7 @@
 
 @section('content')
 
-    <div class="container-fluid">
+    <div class="container">
 
         @if(config('LaravelLogger.enablePackageFlashMessageBlade'))
             @include('LaravelLogger::partials.form-status')
