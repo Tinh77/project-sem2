@@ -1,5 +1,5 @@
 @extends('client.layout.master')
-@section('page-title', 'Contact_Us-Page')
+@section('page-title', 'Trang liên hệ')
 @section('content')
     <body class="hidden-sn white-skin animated">
     <!-- /.Navigation -->

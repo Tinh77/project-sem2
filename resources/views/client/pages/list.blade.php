@@ -1,5 +1,5 @@
 @extends('client.layout.master')
-@section('page-title', 'List-Page')
+@section('page-title', 'Trang danh sách món quà')
 @section('stylesheet')
     <style>
         .jactive {

@@ -1,5 +1,5 @@
 @extends('client.layout.master')
-@section('page-title', 'Home-Page')
+@section('page-title', 'Trang chủ')
 @section('content')
     @include('client.partial.intro')
     <main>

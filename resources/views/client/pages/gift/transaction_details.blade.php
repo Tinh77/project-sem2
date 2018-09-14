@@ -1,5 +1,5 @@
 @extends('client.pages.gift.list')
-@section('page-title', 'Transaction_Details-Page')
+@section('page-title', 'Trang chi tiết trao đổi')
 @section('content1')
     <div class="col-md-9 personal">
         <div class="row justify-content-center">
