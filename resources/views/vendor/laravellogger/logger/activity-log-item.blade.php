@@ -125,7 +125,7 @@
 @endphp
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
 
     @if(config('LaravelLogger.enablePackageFlashMessageBlade'))
         @include('LaravelLogger::partials.form-status')
@@ -137,7 +137,7 @@
             @lang('LaravelLogger::laravel-logger.drilldown.title', ['id' => $activity->id])
             <a href="@if($isClearedEntry) {{route('cleared')}} @else {{route('activity')}} @endif" class="btn @if($isClearedEntry) btn-default @else btn-info @endif btn-sm pull-right">
                 <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-                @lang('LaravelLogger::laravel-logger.drilldown.buttons.back')
+                {!! trans('LaravelLogger::laravel-logger.drilldown.buttons.back') !!}
             </a>
         </div>
         <div class="{{ $containerBodyClass }}">
