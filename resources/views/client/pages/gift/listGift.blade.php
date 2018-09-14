@@ -1,4 +1,5 @@
 @extends('client.pages.gift.list')
+@section('page-title', 'List_Gift-Page')
 @section('content1')
     <div class="col-md-9">
         <!-- Nav tabs -->

@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Trang chủ')
 @section('content')
     @include('client.partial.intro')
     <main>
@@ -439,3 +440,4 @@
         }, 250);
     </script>
 @endsection
+
