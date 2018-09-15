@@ -61,6 +61,7 @@
 
                     <!-- Section heading -->
                     <h2 class="h1-responsive font-weight-bold my-5">Team</h2>
+                    <h4 class=" my-5">Tôi chỉ là một người nông dân, đang cố công vun trồng cây cối tốt tươi!</h4>
                     <!-- Grid row -->
                     <div class="row">
 
@@ -76,7 +77,7 @@
 
                                 <!-- Avatar -->
                                 <div class="avatar mx-auto white"><img
-                                            src="https://scontent.fhan1-1.fna.fbcdn.net/v/t1.0-9/24312938_731916500335479_1323044612090789828_n.jpg?_nc_cat=0&oh=f9a7d05a0a7918d95cd8155fbde5ec60&oe=5C1EE310"
+                                            src="https://i.pinimg.com/originals/96/43/08/9643089ab7a2ea8c01450a747fdb0885.webp"
                                             class="rounded-circle">
                                 </div>
 
@@ -105,7 +106,7 @@
 
                                 <!-- Avatar -->
                                 <div class="avatar mx-auto white"><img
-                                            src="https://i.pinimg.com/originals/cc/fe/08/ccfe089919957c16bbc34c9f8a185a33.png"
+                                            src="https://pbs.twimg.com/profile_images/2647078074/e092ccb775a9638c1cf01acae710c218_400x400.jpeg"
                                             class="rounded-circle">
                                 </div>
 
@@ -169,7 +170,7 @@
 
                                 <!-- Avatar -->
                                 <div class="avatar mx-auto white"><img
-                                            src="https://orig00.deviantart.net/87d0/f/2012/124/6/8/one_piece_665_colorize___chopper_franky_by_nicktesta-d4yi1sq.png"
+                                            src="http://f1.haiqq.com/allimg/1088677553/3729355578.jpg"
                                             class="rounded-circle">
                                 </div>
 
@@ -228,7 +229,7 @@
 
                                 <!-- Avatar -->
                                 <div class="avatar mx-auto white"><img
-                                            src="http://images4.fanpop.com/image/photos/23500000/chibi-one-piece-one-piece-charaters-23548889-225-225.jpg"
+                                            src="https://i.pinimg.com/originals/06/a1/a7/06a1a73285a1c3451d9ecc632e1be386.jpg"
                                             class="rounded-circle">
                                 </div>
 
