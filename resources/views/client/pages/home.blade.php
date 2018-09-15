@@ -1,10 +1,46 @@
 @extends('client.layout.master')
+@section('page-title', 'Trang chủ')
 @section('content')
     @include('client.partial.intro')
     <main>
 
         <div class="container">
 
+            <style>
+                .form-control-borderless {
+                    border: none;
+                }
+
+                .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+                    border: none;
+                    outline: none;
+                    box-shadow: none;
+                }
+            </style>
+            <br/>
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <form class="card card-sm">
+                        <div class="card-body row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <!--end of col-->
+                            <div class="col">
+                                <input id="formSearchName" class="form-control form-control-md form-control-borderless" type="search" placeholder="Nhập để tìm kiếm...">
+                            </div>
+                            <!--end of col-->
+                        </div>
+                    </form>
+                </div>
+                <!--end of col-->
+            </div>
+            <div class="row justify-content-center" style="display: none;">
+                <div class="col-lg-12">
+                <ul class="list-group" id="searchResults">
+                </ul>
+                </div>
+            </div>
             <!--Section: Products v.3-->
             <section class="section pb-3 wow fadeIn" data-wow-delay="0.3s">
 
@@ -272,10 +308,12 @@
             <section class="text-center pb-5 wow fadeIn">
 
                 <!--Section heading-->
-                <h2 class="font-weight-bold text-center h1 my-5">Chia sẻ kinh nghiệm</h2>
+                <h2 class="font-weight-bold text-center h1 my-5">Cho đi để nhận lại</h2>
                 <!--Section description-->
                 <p class="text-center grey-text mb-5 mx-auto w-responsive">
-                    Luôn tự hào là nguồn thông tin và kiến thức đáng tin cậy dành cho phụ nữ trưởng thành.
+
+
+                    Tình người chẳng phải tìm kiếm ở nơi nào xa xôi mà hiện hữu ngay trong những hành động rất đời thường và bình dị quanh chúng ta mỗi ngày.
                 </p>
 
                 <!--Grid row-->
@@ -291,14 +329,12 @@
                                         <h5>
                                             <i class="fa fa-plane pr-2"></i></h5>
                                     </a>
-                                    <h3 class="mb-4 mt-4">
-                                        <strong>Tất cả vì trẻ nhỏ</strong>
+                                    <h3 class="mb-4 mt-4" style="">
+                                        <strong>Nghĩa cử</strong>
                                     </h3>
-                                    <p>Nuôi con nhỏ phải thật bình tĩnh, nhất là những ai lần đầu làm mẹ và nuôi con
-                                        trong tháng đầu:
-                                        đừng lo lắng quá rồi stress thêm; đừng cuống cuồng lên khi con có biểu hiện lạ,
-                                        hãy bình tĩnh giải quyết.
-                                        Rồi tất cả cũng trôi qua và tốt đẹp cả thôi: bạn sẽ là người mẹ thực sự.</p>
+                                    <p>
+                                        Tình người chẳng phải tìm kiếm ở nơi nào xa xôi mà hiện hữu ngay trong những hành động rất đời thường và bình dị quanh chúng ta mỗi ngày.
+                                    </p>
                                     <a class="btn btn-secondary btn-sm" href="/client/post1">
                                         <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
@@ -318,12 +354,10 @@
                                             <i class="fa fa-eye pr-2"></i></h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
-                                        <strong>Cho bé ngủ đúng cách</strong>
+                                        <strong>Yêu thương</strong>
                                     </h3>
-                                    <p> Không cho trẻ bé sơ sinh nằm nệm quá mềm
-                                        Theo các bác sĩ, hệ xương và cột sống của em bé còn khá mềm yếu vì thế nếu cho
-                                        trẻ nằm ngủ đệm quá mềm sẽ ảnh hưởng đến cột sống của bé.
-                                        Lớn lên trẻ dễ bị cong, xiêu vẹo hoặc các dị tật khác về cột sống.</p>
+                                    <p>“Yêu thương cho đi để nhận lại” cho đi một để nhận lại gấp trăm ngàn lần yêu thương.
+                                        Trao yêu thương sẽ nhận lại yêu thương, cái được nhận lại còn lớn lao gấp bội lần. </p>
                                     <a class="btn btn-pink btn-sm" href="/client/pages/post2">
                                         <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
@@ -343,13 +377,10 @@
                                             <i class="fa fa-camera pr-2"></i></h5>
                                     </a>
                                     <h3 class="mb-4 mt-4">
-                                        <strong>Chụp ảnh cho bé</strong>
+                                        <strong>Cái nắm tay</strong>
                                     </h3>
-                                    <p>Khi chụp ảnh nên tắt đèn flash để tránh làm hại mắt bé
-                                        Vì mắt trẻ sơ sinh chưa hoàn chỉnh các điểm ảnh nên
-                                        đèn flash có thể gây hại cho mắt bé
-                                        . Vì thế, nếu bạn muốn chụp lại những khoảnh khắc đáng yêu của con để lưu niệm
-                                        thì trước khi chụp nhớ tắt đèn flash nhé.</p>
+                                    <p>Mỗi bàn tay từ khi sinh ra đều có kẽ hở không phải là khuyết thiếu mà để chờ được lấp đầy
+                                        để mười ngón tay đan quyện vào nhau đi qua hành trình của chia sẻ và yêu thương.</p>
                                     <a class="btn btn-success btn-sm" href="/client/post3">
                                         <i class="fa fa-clone left"></i>Xem chi tiết</a>
                                 </div>
@@ -367,5 +398,42 @@
         </div>
 
     </main>
-
+    <script>
+        (function ($) {
+            $.fn.delayKeyup = function(callback, ms){
+                var timer = 0;
+                $(this).keyup(function(){
+                    clearTimeout (timer);
+                    timer = setTimeout(callback, ms);
+                });
+                return $(this);
+            };
+        })(jQuery);
+        $('#formSearchName').delayKeyup(() => {
+            let string = $('#formSearchName').val();
+            if (string == '') {
+                $('#searchResults').parent().parent().attr('style', 'display: none;');
+                $('#searchResults').html();
+                return;
+            }
+            $.ajax({
+                url: '/client/gift/search/' + string,
+                type: 'GET',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: (response) => {
+                    if (response.length == 0) return;
+                    else $('#searchResults').parent().parent().attr('style', 'display: block;');
+                    let html = '';
+                    for(let i=0; i<response.length; i++) {
+                        html += '<li class="list-group-item" style="clear: both;"><div style="float: left;"><img alt="quanganh9x" width="50px" height="50px" src="'+response[i].images+'"/></div><div style="float: right; text-align: right;"><p><a href="/client/gift/'+response[i].id+'">'+response[i].name+'</a></p><p>['+response[i].city+']</p></div></li>';
+                    }
+                    $('#searchResults').html(html);
+                },
+                error: (response) => console.log("fail")
+            });
+        }, 250);
+    </script>
 @endsection
+

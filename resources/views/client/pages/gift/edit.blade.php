@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Trang sửa món quà')
 @section("content")
     <div class="container">
         <div class="gitf-form mt-5 font-text">
@@ -79,24 +80,12 @@
                             <td>
                                 <select class="browser-default custom-select mb-4" name="age_range">
                                     <option value="0">--Lựa chọn độ tuổi món quà của bạn--</option>
-                                    <option value="1" {{ ($obj->age_range == 1) ? 'selected' : '' }}>Report a bug</option>
-                                    <option value="2" {{ ($obj->age_range == 2) ? 'selected' : '' }}>Feature request</option>
-                                    <option value="3" {{ ($obj->age_range == 3) ? 'selected' : '' }}>Feature request</option>
+                                    <option value="1" {{ ($obj->age_range == 1) ? 'selected' : '' }}>Dưới 6 tháng</option>
+                                    <option value="2" {{ ($obj->age_range == 2) ? 'selected' : '' }}>6 - 12 tháng</option>
+                                    <option value="3" {{ ($obj->age_range == 3) ? 'selected' : '' }}>12 - 24 tháng</option>
+                                    <option value="3" {{ ($obj->age_range == 4) ? 'selected' : '' }}>Trên 24 tháng</option>
                                 </select>
                             </td>
-                            <tr>
-                                <td>Số điện thoại</td>
-                                <td>
-                                    <input type="numberu" class="form-control mb-4"
-                                           placeholder="Số điện thoại" name="phone_number"
-                                           value="{{$obj->phone_number}}">
-                                    @if($errors->has('phone_number'))
-                                        <label
-                                            class="text-danger float-right">*{{$errors->first('phone_number')}}</label>
-                                    @endif
-
-                                </td>
-                            </tr>
                             <tr>
                                 <td>Giới tính</td>
                                 <td>
@@ -108,12 +97,12 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Địa chỉ</td>
+                                <td>Thành phố</td>
                                 <td>
                                     <input type="text" id="defaultContactFormName" class="form-control mb-4"
-                                           placeholder="Tên sản phẩm" name="address" value="{{$obj->address}}">
-                                    @if($errors->has('address'))
-                                        <label class="text-danger float-right">*{{$errors->first('address')}}</label>
+                                           placeholder="Thành phố" name="address" value="{{$obj->city}}">
+                                    @if($errors->has('city'))
+                                        <label class="text-danger float-right">*{{$errors->first('city')}}</label>
                                     @endif
                                 </td>
                             </tr>

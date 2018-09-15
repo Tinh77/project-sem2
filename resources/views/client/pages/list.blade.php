@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Trang danh sách món quà')
 @section('stylesheet')
     <style>
         .jactive {
@@ -25,14 +26,10 @@
                 </div>
                 <div class="col-sm-6">
                     <form class="search-form" role="search">
-                        {{--@if(\Illuminate\Support\Facades\Session::has('message'))--}}
-                        {{--<div class="alert{{\Illuminate\Support\Facades\Session::get('message-class')}}">{{\Illuminate\Support\Facades\Session::get('message')}}</div>--}}
-                        {{--@endif--}}
                         <div class="form-group md-form my-0 waves-light">
-
-                            {{--<input class="form-control mr-sm-2 w-50" name="key" value="{{$data['key']}}" type="search"--}}
-                            {{--placeholder="Tìm kiếm sản phẩm mà bạn cần..."--}}
-                            {{--aria-label="Search">--}}
+                            <input class="form-control mr-sm-2 w-50" name="key" type="search"
+                            placeholder="Tìm kiếm sản phẩm mà bạn cần..."
+                            aria-label="Search">
                         </div>
                     </form>
                 </div>
@@ -57,14 +54,6 @@
                                     </div>
                                     @endforeach
                                 </form>
-                                <p><a class="dark-grey-text" href="/client/gift">Tất cả</a></p>
-
-                                <div class="jmenu">
-                                    @foreach($list_obj as $key => $item)
-                                        <p><a class="dark-grey-text text-center {{Request::segment(3) == $key ? 'jactive' : ''}}"
-                                              href="/client/category-gift/{{$key}}">{{$item}}</a></p>
-                                    @endforeach
-                                </div>
                             </div>
 
                             <!-- Filter by age-->

@@ -11,11 +11,16 @@
         <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', 'Laravel') }}</title>
 
 
-
-        <script src="{{ asset('js/app.js') }}" defer></script>
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @if(config('laravelusers.enablejQueryCdn'))
+            <script src="{{ asset(config('laravelusers.jQueryCdn')) }}"></script>
+        @endif
+        @if(config('laravelusers.enableBootstrapPopperJsCdn'))
+            <script src="{{ asset(config('laravelusers.bootstrapPopperJsCdn')) }}"></script>
+        @endif
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         @yield('template_linked_css')
 
@@ -102,18 +107,7 @@
         </div>
 
         {{-- Scripts --}}
-        @if(config('laravelusers.enablejQueryCdn'))
-            <script src="{{ asset(config('laravelusers.jQueryCdn')) }}"></script>
-        @endif
-        @if(config('laravelusers.enableBootstrapPopperJsCdn'))
-            <script src="{{ asset(config('laravelusers.bootstrapPopperJsCdn')) }}"></script>
-        @endif
-        @if(config('laravelusers.enableBootstrapJsCdn'))
-            <script src="{{ asset(config('laravelusers.bootstrapJsCdn')) }}"></script>
-        @endif
-        @if(config('laravelusers.enableAppJs'))
-            <script src="{{ asset(config('laravelusers.appJsPublicFile')) }}"></script>
-        @endif
+
         @include('vendor.laravelusers.scripts.toggleText')
 
         @yield('template_scripts')

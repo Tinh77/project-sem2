@@ -27,7 +27,7 @@
                 {{--</li>--}}
                 <li class="nav-item">
 
-                    <a class="nav-link" href="#">Về chúng tôi</a>
+                    <a class="nav-link" href="/client/about">Về chúng tôi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/contact_us">Liên hệ với chúng tôi</a>
@@ -68,15 +68,21 @@
                                id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
                                aria-expanded="false"><i class="fa fa-user text-white"></i>
                                 {{ Auth::user()->username }}
-                                {{--@level(4)--}}
-                                {{--{{ __('[Admin]') }}--}}
-                                {{--@else--}}
-                                {{--{{ __('[Member]') }}--}}
-                                {{--@endrole--}}
-                                {{--<span class="caret"></span>--}}
+                                @level(4)
+                                {{ __('[Admin]') }}
+                                @else
+                                {{ __('[Member]') }}
+                                @endrole
+                                <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink-4">
+                                @level(4)
+                                <li><a class="dropdown-item waves-effect waves-light" href="/manage/users">
+                                        Admin
+                                    </a></li>
+                                @endrole
+                                <li>
                                 <li><a class="dropdown-item waves-effect waves-light" href="/profile/{{auth()->id()}}">
                                         Trang cá nhân
                                     </a></li>

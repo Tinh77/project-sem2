@@ -31,7 +31,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                @lang('laravelusers.showing-all-users')
+                                Showing All Categories
                             </span>
 
                             <div class="btn-group pull-right btn-group-xs">
@@ -48,7 +48,7 @@
                                                 @if(config('laravelusers.fontAwesomeEnabled'))
                                                     <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
                                                 @endif
-                                                @lang('laravelusers.buttons.create-new')
+                                                {!! trans('laravelusers.buttons.create-new') !!}
                                             </a>
                                         </li>
                                         <li>
@@ -65,7 +65,7 @@
                                         @if(config('laravelusers.fontAwesomeEnabled'))
                                             <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
                                         @endif
-                                        @lang('laravelusers.buttons.create-new')
+                                        {!! trans('laravelusers.buttons.create-new') !!}
                                     </a>
                                 @endif
                             </div>
@@ -100,7 +100,8 @@
                                             <td>{{$category->id}}</td>
                                             <td>{{$category->name}}</td>
                                             <td class="hidden-xs">{{$category->description}}</td>
-                                            <td class="hidden-xs">{{$category->thumbnail}}</td>
+                                            <td class="hidden-xs"><img src="{{\JD\Cloudder\Facades\Cloudder::show($category->thumbnail, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
+                                                                       alt="quanganh9x" class="img-fluid" style="height: 50px; width: 50px;"></td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$category->created_at}}</td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$category->updated_at}}</td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$category->status}}</td>
@@ -112,12 +113,12 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('manage/categories/' . $category->id) }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.show')">
-                                                    @lang('laravelusers.buttons.show')
+                                                    {!! trans('laravelusers.buttons.show') !!}
                                                 </a>
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('manage/categories/' . $category->id . '/edit') }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.edit')">
-                                                    @lang('laravelusers.buttons.edit')
+                                                    {!! trans('laravelusers.buttons.edit') !!}
                                                 </a>
                                             </td>
                                         </tr>

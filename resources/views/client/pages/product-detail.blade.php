@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('page-title', 'Trang chi tiết sản phẩm')
 @section('content')
     <!-- Main Container -->
     <div class="container">
@@ -11,7 +12,6 @@
                         <!--Carousel Wrapper-->
                             <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails mb-5 pb-4"
                                  data-ride="carousel">
-
                                 <!--Slides-->
                                 <div class="carousel-inner text-center text-md-left" role="listbox">
                                     @foreach($obj->images as $item)

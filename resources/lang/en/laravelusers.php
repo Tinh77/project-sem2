@@ -31,7 +31,7 @@ return [
     'buttons' => [
         'create-new'    => '<span class="hidden-xs hidden-sm">New</span>',
         'delete'        => '<i class="far fa-trash-alt fa-fw" aria-hidden="true"></i>  <span class="hidden-xs hidden-sm">Delete</span><span class="hidden-xs hidden-sm hidden-md"></span>',
-        'show'          => '<i class="fas fa-eye fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Show</span><span class="hidden-xs hidden-sm hidden-md"></span>',
+        'show'          => '<i class="fas fa-eye fa-fw" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Show</span><span class="hidden-xs hidden-sm hidden-md"></span>',
         'edit'          => '<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Edit</span><span class="hidden-xs hidden-sm hidden-md"></span>',
         'back-to-users' => '<span class="hidden-sm hidden-xs">Back</span><span class="hidden-xs"></span>',
         'back-to-user'  => 'Back  <span class="hidden-xs"></span>',

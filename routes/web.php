@@ -29,8 +29,14 @@ Route::get('/client/home', 'GiftController@indexHome');
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
 });
+Route::get('/client/spin', function () {
+    return view('client.pages.spin.spinner');
+});
 Route::get('/client/404', function () {
     return view('client.404client.404');
+});
+Route::get('/client/about', function () {
+    return view('client.about.about_us');
 });
 Route::get('/admin/404', function () {
     return view('admin.404admin.404');

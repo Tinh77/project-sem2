@@ -13,13 +13,11 @@ class Gift extends Model
     protected $searchable = [
         'columns' => [
             'gifts.name' => 10,
-            'users.username' => 7,
             'categories.name' => 7,
             'gifts.city' => 5,
         ],
         'joins' => [
-            'users' => ['gifts.account_id','users.id'],
-            'categories' => ['gifts.category_id','categories.id'],
+            'categories' => ['gifts.category_id', 'categories.id'],
         ],
     ];
     protected $table = 'gifts';
@@ -38,6 +36,7 @@ class Gift extends Model
     {
         return $this->hasMany('\App\Images');
     }
+
 
     public function getGenderStringAttribute()
     {

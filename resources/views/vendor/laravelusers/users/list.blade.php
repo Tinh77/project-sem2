@@ -48,7 +48,7 @@
                                                 @if(config('laravelusers.fontAwesomeEnabled'))
                                                     <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
                                                 @endif
-                                                @lang('laravelusers.buttons.create-new')
+                                                {!! trans('laravelusers.buttons.create-new') !!}
                                             </a>
                                         </li>
                                         <li>
@@ -65,7 +65,7 @@
                                         @if(config('laravelusers.fontAwesomeEnabled'))
                                             <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
                                         @endif
-                                        @lang('laravelusers.buttons.create-new')
+                                        {!! trans('laravelusers.buttons.create-new') !!}
                                     </a>
                                 @endif
                             </div>
@@ -127,12 +127,12 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('manage/users/' . $user->id) }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.show')">
-                                                    @lang('laravelusers.buttons.show')
+                                                    {!! trans('laravelusers.buttons.show') !!}
                                                 </a>
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('manage/users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="@lang('laravelusers.tooltips.edit')">
-                                                    @lang('laravelusers.buttons.edit')
+                                                    {!! trans('laravelusers.buttons.edit') !!}
                                                 </a>
                                             </td>
                                         </tr>

@@ -6,15 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <title>Trang chủ</title>
+    <title>@yield('page-title')</title>
     <link rel="icon" href="{{asset('/favicon.ico')}}" type="image/x-icon">
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <!-- Jquery -->
-
     <link href="{{asset('MDB/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="{{asset('MDB/css/mdb.min.css')}}" rel="stylesheet">
@@ -58,7 +56,6 @@
 <script type="text/javascript" src="{{asset('MDB/js/mdb.min.js')}}"></script>
 <!-- My js core JavaScript -->
 <script type="text/javascript" src="{{asset('MDB/js/myJs.js')}}"></script>
-<script type="text/javascript" src="{{asset('client-js/client.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
