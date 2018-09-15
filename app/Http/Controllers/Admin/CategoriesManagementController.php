@@ -114,7 +114,7 @@ class CategoriesManagementController extends Controller
     {
         $category = Category::findOrFail($id);
 
-        return view(config('laravelusers.editIndividualCategoryBlade'))->with($category);
+        return view(config('laravelusers.editIndividualCategoryBlade'))->with('category', $category);
     }
 
     /**
@@ -131,7 +131,7 @@ class CategoriesManagementController extends Controller
 
         $category->name = $request->input('name');
         $category->description = $request->input('description');
-        $category->thumbnails = $request->input('thumbnails');
+        $category->thumbnails = $request->input('thumbnail');
 
         $category->save();
 
