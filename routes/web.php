@@ -25,7 +25,6 @@ Route::get('/listposted', 'GiftController@listIndexPosted');
 Route::get('/client/transaction/details/{id}', 'TransactionController@showDetails');
 Route::post('/client/transaction/confirm', 'TransactionController@confirmStatus');
 Route::post('/client/transaction/refresh', 'TransactionController@refreshStatus');
-Route::get('/client/home', 'GiftController@indexHome');
 Route::get('/client/demo-product-detail', function () {
     return view('client.pages.product-detail');
 });
@@ -45,6 +44,7 @@ Auth::routes();
 Route::group(['middleware' => ['twostep']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/client/home', 'GiftController@indexHome');
 });
 Route::get('/profile', 'ProfileController@index')->middleware('role:admin'); // admin
 Route::group(['middleware' => ['auth']], function () {

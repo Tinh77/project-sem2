@@ -3,12 +3,12 @@
 
   "segmentValuesArray" : [
     {"type": "string", "value": "IPHONE XS", "win": false, "resultText": "IPHONE XS!!!!!"},
-    {"type": "image", "value": "/icons/sad.svg", "win": false, "resultText": "Hông có gì hết trơn :v"},
-    {"type": "image", "value": "/icons/snack.svg", "win": false, "resultText": "Đố bạn có cái này :))"},
+    {"type": "image", "value": "/icons/snack.svg", "win": false, "resultText": "1000 credits"},
+    {"type": "image", "value": "/icons/logo.svg", "win": false, "resultText": "Đố bạn có cái này :))"},
     {"type": "image", "value": "/icons/sad.svg", "win": false, "resultText": "Chúc bạn may mắn lần sau"},
-    {"type": "image", "value": "/icons/kiss.svg", "win": false, "resultText": "Hộp quà bí mật"},
+    {"type": "image", "value": "/icons/rose.svg", "win": false, "resultText": "Hoaaaa"},
     {"type": "string", "value": "=))))))))", "win": false, "resultText": "AHIHIDONGOK"},
-    {"type": "image", "value": "/icons/rose.svg", "win": false, "resultText": "<3 Đôi lời từ mình *phùuu xém tiêu*"}
+    {"type": "image", "value": "/icons/kiss.svg", "win": false, "resultText": "Hộp quà bí mật"}
   ],
 
   "svgWidth": 1024,
@@ -31,7 +31,7 @@
   "centerY": 384,
   "hasShadows": false,
   "numSpins": 5,
-  "spinDestinationArray":[5, 7, 2, 1, 6],
+  "spinDestinationArray":[2, 5, 7, 1, 6],
   "minSpinDuration":2,
   "invalidSpinText":"INVALID SPIN. PLEASE SPIN AGAIN.",
   "gameOverText": "Meaning Gift - Project by T1708A (+E ?)",
