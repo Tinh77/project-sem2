@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>@yield('page-title')</title>
-    <link rel="icon" href="{{asset('/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('/MDB/favicon.ico')}}" type="image/x-icon">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
