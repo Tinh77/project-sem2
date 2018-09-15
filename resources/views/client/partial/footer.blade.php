@@ -38,12 +38,12 @@
                 </a>
             </li>
             <li class="list-inline-item">
-                <a class="btn-floating btn-tw">
+                <a target="_blank" href="https://twitter.com/PhiTun1?lang=vi" class="btn-floating btn-tw">
                     <i class="fa fa-twitter"> </i>
                 </a>
             </li>
             <li class="list-inline-item">
-                <a class="btn-floating btn-gplus">
+                <a target="_blank" href="https://plus.google.com/113927897194476709320?hl=vi" class="btn-floating btn-gplus">
                     <i class="fa fa-google-plus"> </i>
                 </a>
             </li>
