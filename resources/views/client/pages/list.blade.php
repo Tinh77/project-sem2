@@ -185,7 +185,7 @@
                             @endforeach
                         </div>
                         <div class="row justify-content-center mb-4">
-                            {{$obj->appends($_GET) -> links()}}
+                            {{--{{$obj-> links()}}--}}
                         </div>
                         <!--Grid row-->
                     </section>

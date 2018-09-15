@@ -61,7 +61,7 @@ class NotificationController extends Controller
         $notification->save();
         // mail đến người cho.
 
-        $data = array('title' => 'quanganh9x', 'username' => Auth::user()->username, 'namegift' => $gift->name, 'transaction' => $notification->transaction->id);
+        $data = array('title' => 'Meaning Gift', 'username' => Auth::user()->username, 'namegift' => $gift->name, 'transaction' => $notification->transaction->id);
         Mail::send('emails.send', $data, function ($message) use ($email) {
             $message->to($email, $email)->subject
             ('Tôi muốn xin món hàng này của bạn! Vui lòng xem chi tiết ở bên dưới');
@@ -102,42 +102,38 @@ class NotificationController extends Controller
     public function edit($id, Request $request) // confirm
     {
         // kiểm tra để xác thực user đang login vs user gửi request
-        if (Auth::user()->id != $request->input('id')) goto out;
+        if (Auth::user()->id != $request->input('id')) {
+            return response()->json(['status' => 'fraud1']);
+        }
         // lấy bản ghi ở trong transaction
         $transaction = Transaction::where('id', $request->input('transaction_id'))
-            ->where('owner_id', Auth::user()->id)->where('created_at', '<=', Carbon::now()->subDays($this->_configs->delayDays)->toDateTimeString())->first();
-        if (!$transaction || $transaction->status) goto out;
+            ->where('owner_id', Auth::user()->id)->first();
         //câu lênh trên phải kiểm tra xem có tồn tại dữ liệu được trả về không (*)
-        if ($id != $transaction->gift_id) goto out;
         //kiểm tra xem user id được gửi lên từ client có giống vs buyer_id đã lấy được từ bản ghi trên.
-        if ($request->input('id') == $transaction->buyer_id) goto out;
+        if ($request->input('id') == $transaction->buyer_id)
+            return response()->json(['status' => 'fraud2']);
         // kiểm tra xem có tự follow sản phẩm của chính mình ko
-        if ($transaction->owner_id == $transaction->buyer_id) goto out;
+        if ($transaction->owner_id == $transaction->buyer_id)
+            return response()->json(['status' => 'fraud3']);
+        // lẽ ra phải kiểm tra caias này đầu tiên ở vị trí (*)
+        if (!$transaction || $transaction->status)
+            return response()->json(['status' => 'fraud4']);
         // cập nhật lại status ở transaction
         $transaction->gift->status = 0;
         $transaction->status = true;
         $transaction->gift->save();
         $transaction->save();
         $email = $transaction->buyer->account->email;
-        // xóa notification với điều kiện ở dưới
-        /*
-        $data = array('title' => 'quanganh9x', 'username' => $transaction->owner->account->last_name,'namegift' => $transaction->gift->name, 'transaction' => $transaction);
+
+        $data = array('title' => 'Meaning Gift', 'username' => $transaction->owner->account->last_name,'namegift' => $transaction->gift->name, 'transaction' => $transaction);
         Mail::send('emails.send2', $data, function ($message) use ($email) {
             $message->to($email, $email)->subject
             ('Tôi muốn xin món hàng này của bạn! Vui lòng xem chi tiết ở bên dưới');
-            $message->from('admin@meaning-gift.com', 'quanganh9x');
+            $message->from('admin@meaning-gift.com', 'MeaningGift');
         });
-        */
+        // xóa notification với điều kiện ở dưới
         Notification::where('account_id', Auth::user()->id)->delete();
-        try {
-            $account = Account::findOrFail($transaction->owner_id);
-            $account->credits += 200;
-            $account->save();
-        } catch (ModelNotFoundException $exception) {
-            return response()->json(['status' => 1, 'message' => 'Credits chưa được thêm vì có lỗi xảy ra']);
-        }
         return response()->json(['status' => 0]);
-        out: return response()->json(['status' => 'fraud']);
     }
 
     /**

@@ -64,7 +64,7 @@ class GiftController extends Controller
         if (isset($age) && Input::get('group100')) {
             $obj = $obj->where('age_range', '=', $age);
         }
-        $obj = $obj->paginate(6)->get();
+        $obj = $obj->take(6)->get();
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
     }
