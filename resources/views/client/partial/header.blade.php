@@ -27,7 +27,7 @@
                 {{--</li>--}}
                 <li class="nav-item">
 
-                    <a class="nav-link" href="#">Về chúng tôi</a>
+                    <a class="nav-link" href="/client/about">Về chúng tôi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/contact_us">Liên hệ với chúng tôi</a>

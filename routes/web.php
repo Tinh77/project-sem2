@@ -35,6 +35,9 @@ Route::get('/client/spin', function () {
 Route::get('/client/404', function () {
     return view('client.404client.404');
 });
+Route::get('/client/about', function () {
+    return view('client.about.about_us');
+});
 Route::get('/admin/404', function () {
     return view('admin.404admin.404');
 });
