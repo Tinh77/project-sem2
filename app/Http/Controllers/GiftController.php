@@ -154,8 +154,6 @@ class GiftController extends Controller
             $obj->category_id = Input::get('category_id');
             $obj->account_id = $account_id;
             $obj->description = Input::get('description');
-//            $obj->phone_number = Input::get('phone_number');
-//            $obj->address = Input::get('address');
             $obj->images = $current_time;
             $obj->age_range = Input::get('age_range');
             $obj->gender = Input::get('gender');
@@ -234,14 +232,12 @@ class GiftController extends Controller
             Cloudder::upload(Input::file('photo')->getRealPath(), $current_time);
             $obj->images = $current_time;
         }
-        $obj->phone_number = $request->get('phone_number');
-        $obj->address = $request->get('address');
         $obj->age_range = $request->get('age_range');
         $obj->gender = $request->get('gender');
         $obj->category_id = $request->get('category_id');
 
         $obj->save();
-        return redirect('/client/gift');
+        return redirect('/listposted');
     }
 
 
