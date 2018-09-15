@@ -133,7 +133,7 @@ class GiftsManagementController extends Controller
     {
         $categories = Category::all();
         $gift = Gift::findOrFail($id);
-        return view(config('laravelusers.editIndividualGiftBlade'))->with($gift)->with($categories);
+        return view(config('laravelusers.editIndividualGiftBlade'))->with('gift', $gift)->with('category', $categories);
     }
 
     /**
