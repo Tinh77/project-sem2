@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesTableSeeder::class);
         $this->call(GiftsTableSeeder::class);
         $this->call(TransactionsTableSeeder::class);
+        $this->call(ImagesTableSeeder::class);
         $this->call(ConfigsTableSeeder::class);
+
         Model::reguard();
     }
 }
