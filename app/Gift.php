@@ -17,7 +17,7 @@ class Gift extends Model
             'gifts.city' => 5,
         ],
         'joins' => [
-            'categories' => ['gifts.category_id','categories.id'],
+            'categories' => ['gifts.category_id', 'categories.id'],
         ],
     ];
     protected $table = 'gifts';
@@ -31,6 +31,12 @@ class Gift extends Model
     {
         return $this->hasOne('\App\Category', 'id', 'category_id');
     }
+
+    public function images()
+    {
+        return $this->hasMany('\App\Images');
+    }
+
 
     public function getGenderStringAttribute()
     {
