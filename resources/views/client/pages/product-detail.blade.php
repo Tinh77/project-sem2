@@ -163,6 +163,11 @@
                         <div class="mt-5">
                             <div class="row mt-3 mb-4">
                                 <div class="col-md-12 text-center text-md-left text-md-right" id="btnShow">
+                                    @if(\Illuminate\Support\Facades\Auth::id() == $obj->account_id)
+                                        <button id="hide" class="btn btn-primary btn-rounded">
+                                            Quan tâm!
+                                        </button>
+                                        @else
                                     <button class="btn btn-primary btn-rounded"
                                             @if(!$follow)
                                             onclick="getInfo()"
@@ -171,6 +176,7 @@
                                             @endif>
                                         Quan tâm!
                                     </button>
+                                        @endif
                                 </div>
                             </div>
                         </div>
@@ -297,6 +303,7 @@
             alert("Sản phẩm này đã được bạn quan tâm!")
             disable
         }
+        $("#hide").hide();
 
         function informSubmit(id, gift_id) {
             $.ajax({
