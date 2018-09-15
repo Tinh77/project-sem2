@@ -23,6 +23,7 @@ class CreateAccountsTable extends Migration
             $table->boolean('gender')->nullable();
             $table->smallInteger('age')->nullable();
             $table->string('intro')->nullable();
+            $table->unsignedInteger('credits')->default(0);
             // $table->json('config')->nullable(); // bị disable vì xampp không hỗ trợ kiểu json, trong khi bản mysql mới nhất đã có kiểu này
             $table->timestamps();
             $table->softDeletes();

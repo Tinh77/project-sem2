@@ -49,11 +49,11 @@ if (Request::is('activity/cleared')) {
                 </th>
                 <th>
                     <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
-                    @lang('LaravelLogger::laravel-logger.dashboard.labels.ipAddress')
+                    {!! trans('LaravelLogger::laravel-logger.dashboard.labels.ipAddress') !!}
                 </th>
                 <th>
                     <i class="fa fa-laptop fa-fw" aria-hidden="true"></i>
-                    @lang('LaravelLogger::laravel-logger.dashboard.labels.agent')
+                    {!! trans('LaravelLogger::laravel-logger.dashboard.labels.agent') !!}
                 </th>
                 @if(Request::is('activity/cleared'))
                     <th>
@@ -249,7 +249,7 @@ if (Request::is('activity/cleared')) {
             {!! $activities->render() !!}
         </div>
         <p>
-            @lang('LaravelLogger::laravel-logger.pagination.countText', ['firstItem' => $activities->firstItem(), 'lastItem' => $activities->lastItem(), 'total' => $activities->total(), 'perPage' => $activities->perPage()])
+            {!! trans('LaravelLogger::laravel-logger.pagination.countText', ['firstItem' => $activities->firstItem(), 'lastItem' => $activities->lastItem(), 'total' => $activities->total(), 'perPage' => $activities->perPage()]) !!}
         </p>
     </div>
 @endif
