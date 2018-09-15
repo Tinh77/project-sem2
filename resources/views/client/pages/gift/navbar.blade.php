@@ -38,12 +38,6 @@
                 <td>
                     <a href="/client/transaction">Lịch sử trao đổi</a></td>
             </tr>
-            <tr>
-                <td>Tổng số bài dang</td>
-            </tr>
-            <tr>
-                <td>Giao dịch thành công</td>
-            </tr>
             </tbody>
         </table>
     </div>

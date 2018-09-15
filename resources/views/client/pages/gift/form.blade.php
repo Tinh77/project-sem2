@@ -86,7 +86,6 @@
                                         <td>Hình ảnh</td>
                                         <td>
                                             <div class="form-group">
-                                                <label>Danh sách item</label>
                                                 <div class="row ml-1">
                                                     <input type="hidden" name="item_urls" id="item_urls">
                                                     <input type="file" style="display: none" id="fileElem" multiple

@@ -50,11 +50,7 @@
                                 <th scope="row">{{$item->id}}</th>
                                 <td>{{$item->name}}</td>
                                 <td>
-                                    <div
-                                            style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images,
-                                        array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;
-                                                    background-repeat: no-repeat;background-position: center;width: 70px;height: 70px">
-                                    </div>
+                                    {{--<div style="background-image: url({{\JD\Cloudder\Facades\Cloudder::show($item->imgaes->link, array('width'=>500, 'height'=>500,'crop'=>'fit'))}});background-size: cover;background-repeat: no-repeat;background-position: center;height: 300px;width: 500px"></div>--}}
                                 </td>
                                 <td>{{str_limit($item->description,30)}}</td>
                                 <td>
