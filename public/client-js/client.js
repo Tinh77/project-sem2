@@ -3,7 +3,7 @@ $(document).ready(function () {
         var user_id = $(this).attr('data-user-id');
         var transaction_id = $(this).attr('data-transaction-id');
         $.ajax({
-            url: '/client/gift/' + transaction_id + '/confirm ',
+            url: '/client/gift/'+transaction_id+'/confirm ',
             type: 'POST',
             data: {
                 'id': user_id,
@@ -14,9 +14,7 @@ $(document).ready(function () {
             },
             success: (response) => {
                 if (response.status == 0) {
-                    setTimeout(function () {
-                        window.location.href = 'http://127.0.0.1:8080/client/transaction';
-                    },2000)
+                    window.location.href= 'http://127.0.0.1:8000/client/transaction' ;
                 } else if (response.status == 'fraud') {
                     console.log("fraud");
                 } else {
@@ -42,7 +40,7 @@ $(document).ready(function () {
                 if (response.status == 1) {
                     $('.btn-action-p[data-transaction-id='+transaction_id+']').hide();
                     setTimeout(function () {
-                        window.location.href = 'http://127.0.0.1:8080/client/transaction';
+                        window.location.href = 'http://127.0.0.1:8000/client/transaction';
                     },2000)
                 } else if (response.status == 'fraud') {
                     console.log("fraud");
@@ -70,7 +68,7 @@ $(document).ready(function () {
                 if (response.status == 1) {
                     $('.btn-action-p[data-transaction-id='+transaction_id+']').hide();
                     setTimeout(function () {
-                        window.location.href = 'http://127.0.0.1:8080/client/transaction';
+                        window.location.href = 'http://127.0.0.1:8000/client/transaction';
                     },2000)
                 } else if (response.status == 'fraud') {
                     console.log("fraud");

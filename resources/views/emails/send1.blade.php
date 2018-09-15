@@ -367,7 +367,7 @@
                                             class="apple-link">Bạn có thể nhận những món quà khác trong Meaning Gift.</span>
                                 <tr>
                                     <td class="content-block powered-by">
-                                        Powered by <a href="http://127.0.0.1:8080/client/home">Meaning Gift</a>.
+                                        Powered by <a href="http://127.0.0.1:8000/client/home">Meaning Gift</a>.
                                     </td>
                                 </tr>
                                 <p>Cảm ơn bạn đã đến với Meaning Gift.</p>
@@ -385,7 +385,7 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td class="content-block powered-by">
-                                Powered by <a href="http://127.0.0.1:8080/client/home">Meaning Gift</a>.
+                                Powered by <a href="http://127.0.0.1:8000/client/home">Meaning Gift</a>.
                             </td>
                         </tr>
                     </table>

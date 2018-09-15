@@ -369,7 +369,7 @@
                                                     <table border="0" cellpadding="0" cellspacing="0">
                                                         <tbody>
                                                         <tr>
-                                                            <td><a href="http://127.0.0.1:8080/client/transaction/{{$transaction}}" target="_blank">Kiểm tra</a>
+                                                            <td><a href="http://127.0.0.1:8000/client/transaction/{{$transaction}}" target="_blank">Kiểm tra</a>
                                                             </td>
                                                         </tr>
                                                         </tbody>
@@ -378,7 +378,7 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <p><a href="http://127.0.0.1:8080/client/transaction/{{$transaction}}">http://127.0.0.1:8080/client/transaction/{{$transaction}}</a></p>
+                                        <p><a href="http://127.0.0.1:8000/client/transaction/{{$transaction}}">http://127.0.0.1:8000/client/transaction/{{$transaction}}</a></p>
                                     </td>
                                 </tr>
                             </table>
@@ -398,7 +398,7 @@
                         </tr>
                         <tr>
                             <td class="content-block powered-by">
-                                Powered by <a href="http://localhost:8080/client/home">Meaning Gift</a>.
+                                Powered by <a href="http://localhost:8000/client/home">Meaning Gift</a>.
                             </td>
                         </tr>
                     </table>
