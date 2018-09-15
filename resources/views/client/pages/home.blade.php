@@ -89,6 +89,7 @@
                     <div class="carousel-inner" role="listbox">
                         <!--First slide-->
                         <div class="carousel-item active row">
+
                             @for($i = 0; $i < 3; $i++)
                                 <div class="col-md-4">
                                     <!--Card-->
@@ -96,7 +97,7 @@
                                         <!--Card image-->
                                         <a href="/client/gift/{{$obj[$i]->id}}">
                                             <div class="view view-cascade overlay"
-                                                 style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($obj[$i] -> images, array('width'=>500, 'height'=>500))}}'); background-size: cover; width: 100%; height: 272px;">
+                                                 style="background-image: url('{{$obj[$i]->images->first()->link}}'); background-size: cover; width: auto; height: 272px;">
                                             </div>
                                         </a>
                                         <!--Card image-->
@@ -147,7 +148,7 @@
                                         <!--Card image-->
                                         <a href="/client/gift/{{$obj[$i]->id}}">
                                             <div class="view view-cascade overlay"
-                                                 style="background-image: url('{{$obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
+                                                 style="background-image: url('{{$obj[$i]->images->first()->link}}'); background-size: cover; width: auto; height: 272px;">
                                             </div>
                                         </a>
                                         <!--Card image-->
@@ -198,7 +199,7 @@
                                         <!--Card image-->
                                         <a href="/client/gift/{{$obj[$i]->id}}">
                                             <div class="view view-cascade overlay"
-                                                 style="background-image: url('{{$obj[$i]->images}}'); background-size: cover; width: auto; height: 272px;">
+                                                 style="background-image: url('{{$obj[$i]->images->first()->link}}'); background-size: cover; width: auto; height: 272px;">
                                             </div>
                                         </a>
                                         <!--Card image-->

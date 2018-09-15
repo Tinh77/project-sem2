@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Gift;
+use App\Images;
 use App\Account;
 use App\Notification;
 use App\Transaction;
@@ -147,20 +148,28 @@ class GiftController extends Controller
         if (Auth::check()) {
             $account_id = Auth::id();
             $request->validated();
-            $current_time = time();
-            Cloudder::upload(Input::file('images')->getRealPath(), $current_time);
             $obj = new Gift();
             $obj->name = Input::get('name');
             $obj->category_id = Input::get('category_id');
             $obj->account_id = $account_id;
             $obj->description = Input::get('description');
-//            $obj->phone_number = Input::get('phone_number');
-//            $obj->address = Input::get('address');
-            $obj->images = $current_time;
             $obj->age_range = Input::get('age_range');
             $obj->gender = Input::get('gender');
             $obj->city = Input::get('city');
-            $obj->save();
+            if ($obj->save()) {
+                $item_urls = $request->item_urls;
+                $item_urls_array = explode("@img@", $item_urls);
+                $arrayItem = array();
+                foreach ($item_urls_array as $link) {
+                    if(strlen($link)>0){
+                        $item = array();
+                        $item['link'] = $link;
+                        $item['gift_id'] = $obj->id;
+                        array_push($arrayItem, $item);
+                    }
+                }
+                Images::insert($arrayItem); // check so luong phan tu truowc khi save.
+            }
             return redirect('/client/home')->with('success', 'Bạn đăng tin thành công');
         } else {
             return redirect('/login');

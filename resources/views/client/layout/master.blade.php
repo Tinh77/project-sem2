@@ -7,27 +7,31 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>Trang chủ</title>
+    <link rel="icon" href="{{asset('/favicon.ico')}}" type="image/x-icon">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <!-- Jquery -->
-    <script type="text/javascript" src="{{asset('MDB/js/jquery-3.3.1.min.js')}}"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="{{asset('MDB/js/popper.min.js')}}"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+
     <link href="{{asset('MDB/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="{{asset('MDB/css/mdb.min.css')}}" rel="stylesheet">
     <!-- Style.css -->
     <link href="{{asset('MDB/css/style.min.css')}}" rel="stylesheet">
 
+
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('client-css/personal.css')}}">
     <link rel="stylesheet" href="{{asset('client-css/navbar.css')}}">
+    <script type="text/javascript" src="{{asset('MDB/js/jquery-3.3.1.min.js')}}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{{asset('MDB/js/popper.min.js')}}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     @yield('stylesheet')
+
 
 </head>
 
@@ -51,13 +55,6 @@
 <!--Footer-->
 @include('client.partial.footer')
 <script type="text/javascript" src="{{asset('client-js/client.js')}}"></script>
-<script src="{{asset('MDB/js/jquery-3.3.1.min.js')}}"></script>
-<!-- Bootstrap tooltips -->
-<script src="{{asset('MDB/js/popper.min.js')}}"></script>
-<script src="{{asset('MDB/js/bootstrap.min.js')}}"></script>
-<!-- Bootstrap core JavaScript -->
-{{--<script type="text/javascript" src="{{asset('js/app.js')}}"></script>--}}
-<!-- MDB core JavaScript -->
 <script type="text/javascript" src="{{asset('MDB/js/mdb.min.js')}}"></script>
 <!-- My js core JavaScript -->
 <script type="text/javascript" src="{{asset('MDB/js/myJs.js')}}"></script>

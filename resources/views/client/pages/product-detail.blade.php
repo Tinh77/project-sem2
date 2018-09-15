@@ -4,73 +4,180 @@
     <div class="container">
         <!-- Section: product details -->
         <section id="productDetails" class="pb-5">
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="row mx-2">
+                    @if($obj->images->count() > 1)
+                        <!--Carousel Wrapper-->
+                            <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails mb-5 pb-4"
+                                 data-ride="carousel">
 
-            <!--News card-->
-            <div class="card mt-5 hoverable">
-                <div class="row mt-5">
-                    <div class="col-lg-6">
-                        <div id="carousel-thumb"
-                             class="carousel slide carousel-fade carousel-thumbnails mb-5 pb-4"
-                             data-ride="carousel">
-                            <!--Slides-->
-                            <div class="carousel-inner text-center text-md-left" role="listbox">
-                                <div class="carousel-item active text-center">
-                                    <img src="{{\JD\Cloudder\Facades\Cloudder::show($obj -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
-                                         alt="First slide" class="img-fluid p-4">
+                                <!--Slides-->
+                                <div class="carousel-inner text-center text-md-left" role="listbox">
+                                    @foreach($obj->images as $item)
+                                        <div class="carousel-item {{$loop->first ? 'active': ''}}">
+                                            <div style="background-image: url({{\JD\Cloudder\Facades\Cloudder::show($item->link, array('width'=>500, 'height'=>500,'crop'=>'fit'))}});background-size: cover;background-repeat: no-repeat;background-position: center;height: 300px;width: 500px"></div>
+                                            {{--<img src="{{\JD\Cloudder\Facades\Cloudder::show($obj->images[2]->link, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"--}}
+                                            {{--alt="First slide" class="img-fluid p-4">--}}
+                                        </div>
+
+                                    @endforeach
                                 </div>
+                                <!--/.Slides-->
+
+                                <!--Thumbnails-->
+                                <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                                <!--/.Thumbnails-->
+
                             </div>
-                            <!--/.Slides-->
-                            <!--Thumbnails-->
-                            <a class="carousel-control-prev" href="#carousel-thumb" role="button"
-                               data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carousel-thumb" role="button"
-                               data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                            <!--/.Thumbnails-->
-                        </div>
+                            <!--/.Carousel Wrapper-->
+
                     </div>
-                    <div class="col-lg-5 mr-3 text-center text-md-left">
-                        <h2 class="
-                            h2-responsive product-name font-weight-bold">
-                            {{$obj->name}}
-                        </h2>
-                        <p class="ml-xl-0 ml-4"><b>Ngày đăng: </b>{{$obj -> created_at -> format('d-m-Y H:i:s')}}</p>
-                        <p class="ml-xl-0 ml-4"><b>Mô tả: </b>{{$obj -> description}}</p>
-                        <p class="ml-xl-0 ml-4">
-                            <b>Giới tính: </b>{{$obj -> genderString}}</p>
-                        <p class="ml-xl-0 ml-4">
-                            <b>Độ tuổi: </b>{{$obj -> ageString}}</p>
-                        <p class="ml-xl-0 ml-4">
-                            <b>Địa điểm: </b>{{$obj->account->account->address}} (<a href="#goole-map-infor">bản đồ</a>)</p>
-                        <p class="ml-xl-0 ml-4">
-                            <b>Thành phố: </b>{{$obj->cityName}}</p>
-                        <!-- Add to Cart -->
-                        <section class="color">
-                            <div class="mt-5">
-                                <div class="row mt-3 mb-4">
-                                    <div class="col-md-12 text-center text-md-left text-md-right" id="btnShow">
-                                        <button class="btn btn-primary btn-rounded"
-                                                @if(!$follow)
-                                                onclick="getInfo()"
-                                                @else
-                                                onclick="subscribed()"
-                                                @endif>
-                                            Quan tâm!
-                                        </button>
+
+                    <!--Grid row-->
+                    <div class="row mb-4">
+
+                        <div class="col-md-12">
+
+                            <div id="mdb-lightbox-ui"><!-- Root element of PhotoSwipe. Must have class pswp. -->
+                                <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+                                    <!-- Background of PhotoSwipe.
+                                                 It's a separate element, as animating opacity is faster than rgba(). -->
+                                    <div class="pswp__bg"></div>
+
+                                    <!-- Slides wrapper with overflow:hidden. -->
+                                    <div class="pswp__scroll-wrap">
+
+                                        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+                                        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+                                        <div class="pswp__container">
+                                            <div class="pswp__item"></div>
+                                            <div class="pswp__item"></div>
+                                            <div class="pswp__item"></div>
+                                        </div>
+
+                                        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                                        <div class="pswp__ui pswp__ui--hidden">
+
+                                            <div class="pswp__top-bar">
+
+                                                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                                                <div class="pswp__counter"></div>
+
+                                                <button class="pswp__button pswp__button--close"
+                                                        title="Close (Esc)"></button>
+
+                                                <!--<button class="pswp__button pswp__button--share" title="Share"></button>-->
+
+                                                <button class="pswp__button pswp__button--fs"
+                                                        title="Toggle fullscreen"></button>
+
+                                                <button class="pswp__button pswp__button--zoom"
+                                                        title="Zoom in/out"></button>
+
+                                                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                                                <!-- element will get class pswp__preloader--active when preloader is running -->
+                                                <div class="pswp__preloader">
+                                                    <div class="pswp__preloader__icn">
+                                                        <div class="pswp__preloader__cut">
+                                                            <div class="pswp__preloader__donut"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--
+                                                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                                                        <div class="pswp__share-tooltip"></div>
+                                                    </div>
+                                                       -->
+
+                                            <button class="pswp__button pswp__button--arrow--left"
+                                                    title="Previous (arrow left)">
+                                            </button>
+
+                                            <button class="pswp__button pswp__button--arrow--right"
+                                                    title="Next (arrow right)">
+                                            </button>
+
+                                            <div class="pswp__caption">
+                                                <div class="pswp__caption__center"></div>
+                                            </div>
+
+                                        </div>
+
                                     </div>
+
                                 </div>
                             </div>
-                        </section>
-                        <!-- /.Add to Cart -->
+
+                            <div class="mdb-lightbox no-margin" data-pswp-uid="1">
+                            @for($i = 0;$i < $obj->images->count(); $i++)
+                                <!--Grid column-->
+                                    <figure class="col-md-4 col-sm-4 col-4">
+                                        <!--Large image-->
+                                        <a href="{{\JD\Cloudder\Facades\Cloudder::show($obj->images[$i]->link, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
+                                           data-size="1440x1440">
+                                            <!-- Thumbnail-->
+                                            <img src="{{\JD\Cloudder\Facades\Cloudder::show($obj->images[$i]->link, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
+                                                 alt="First slide" class="img-fluid p-4">
+                                        </a>
+                                    </figure>
+                                    <!--Grid column-->
+                                @endfor
+
+                            </div>
+                        </div>
+                        @else
+                            <div style="background-image: url({{\JD\Cloudder\Facades\Cloudder::show($obj->images->first()->link, array('width'=>500, 'height'=>500,'crop'=>'fit'))}});background-size: cover;background-repeat: no-repeat;background-position: center;height: 400px;width: 500px"></div>
+                        @endif
                     </div>
+                    <!--Grid row-->
+                </div>
+                <div class="col-lg-5 mr-3 text-center text-md-left">
+                    <h2 class="
+                            h2-responsive product-name font-weight-bold">
+                        {{$obj->name}}
+                    </h2>
+                    <p class="ml-xl-0 ml-4"><b>Ngày đăng: </b>{{$obj -> created_at -> format('d-m-Y H:i:s')}}</p>
+                    <p class="ml-xl-0 ml-4"><b>Mô tả: </b>{{$obj -> description}}</p>
+                    <p class="ml-xl-0 ml-4">
+                        <b>Giới tính: </b>{{$obj -> genderString}}</p>
+                    <p class="ml-xl-0 ml-4">
+                        <b>Độ tuổi: </b>{{$obj -> ageString}}</p>
+                    <p class="ml-xl-0 ml-4">
+                        <b>Địa điểm: </b>{{$obj->account->account->address}} (<a href="#goole-map-infor">bản đồ</a>)</p>
+                    <p class="ml-xl-0 ml-4">
+                        <b>Thành phố: </b>{{$obj->cityName}}</p>
+                    <!-- Add to Cart -->
+                    <section class="color">
+                        <div class="mt-5">
+                            <div class="row mt-3 mb-4">
+                                <div class="col-md-12 text-center text-md-left text-md-right" id="btnShow">
+                                    <button class="btn btn-primary btn-rounded"
+                                            @if(!$follow)
+                                            onclick="getInfo()"
+                                            @else
+                                            onclick="subscribed()"
+                                            @endif>
+                                        Quan tâm!
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
-            <!--News card-->
+
 
         </section>
         <!-- Section: product details -->
@@ -126,7 +233,7 @@
                                     <!--Card image-->
                                     <a href="/client/gift/{{$item->id}}">
                                         <div class="view view-cascade overlay"
-                                             style="background-image: url('{{$item->images}}'); background-size: cover; width: auto; height: 272px;">
+                                             style="background-image: url('{{$item->images->first()->link}}'); background-size: cover; width: auto; height: 272px;">
                                         </div>
                                     </a>
                                     <!--Card image-->
@@ -136,7 +243,7 @@
                                         <h4 class="card-title">
                                             <a href="/client/gift/{{$item->id}}">{{$item->name}}</a>
                                         </h4>
-
+                                        images
                                         <!--Description-->
                                         <p class="card-text">{{$item->description}}
                                         </p>

@@ -97,3 +97,4 @@ Route::get('/client/post3', function () {
 Route::get('/contact_us', function () {
     return view('client.pages.contact_us');
 });
+
