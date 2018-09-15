@@ -259,7 +259,7 @@
                     var tokens = url.split('/');
                     tokens.splice(-2, 0, 'w_150,c_scale');
                     var currentImgs = document.getElementById('gallery').innerHTML;
-                    var imgText = '<img src="' + tokens.join('/') + '">';
+                    var imgText = `<img width="50px" height="50px" src="${tokens.join('/')}">`;
                     // var img = new Image(); // HTML5 Constructor
                     // img.src = tokens.join('/');
                     // img.alt = response.public_id;

@@ -35,7 +35,7 @@
                                     @if(config('laravelusers.fontAwesomeEnabled'))
                                         <i class="fas fa-fw fa-reply-all" aria-hidden="true"></i>
                                     @endif
-                                    @lang('laravelusers.buttons.back-to-users')
+                                        {!! trans('laravelusers.buttons.back-to-users') !!}
                                 </a>
                             </div>
                         </div>

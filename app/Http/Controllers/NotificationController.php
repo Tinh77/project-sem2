@@ -12,7 +12,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Mail;
+use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class NotificationController extends Controller
 {
@@ -104,7 +105,7 @@ class NotificationController extends Controller
         if (Auth::user()->id != $request->input('id')) goto out;
         // lấy bản ghi ở trong transaction
         $transaction = Transaction::where('id', $request->input('transaction_id'))
-            ->where('owner_id', Auth::user()->id)->where('created_at', '>=', Carbon::now()->subDays($this->_configs->delayDays)->toDateTimeString())->first();
+            ->where('owner_id', Auth::user()->id)->where('created_at', '<=', Carbon::now()->subDays($this->_configs->delayDays)->toDateTimeString())->first();
         if (!$transaction || $transaction->status) goto out;
         //câu lênh trên phải kiểm tra xem có tồn tại dữ liệu được trả về không (*)
         if ($id != $transaction->gift_id) goto out;
@@ -129,12 +130,9 @@ class NotificationController extends Controller
         */
         Notification::where('account_id', Auth::user()->id)->delete();
         try {
-            $account1 = Account::findOrFail($transaction->buyer_id);
-            $account1->credits += 200;
-            $account1->save();
-            $account2 = Account::findOrFail($transaction->owner_id);
-            $account2->credits += 200;
-            $account2->save();
+            $account = Account::findOrFail($transaction->owner_id);
+            $account->credits += 200;
+            $account->save();
         } catch (ModelNotFoundException $exception) {
             return response()->json(['status' => 1, 'message' => 'Credits chưa được thêm vì có lỗi xảy ra']);
         }

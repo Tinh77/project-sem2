@@ -87,7 +87,7 @@
                                         <th>@lang('laravelusers.users-table.id')</th>
                                         <th>{{ __('Name') }}</th>
                                         <th class="hidden-xs">{{ __('Category') }}</th>
-                                        <th class="hidden-xs">{{ __('Images') }}</th>
+
                                         <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers.users-table.created')</th>
                                         <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers.users-table.updated')</th>
                                         <th class="hidden-sm hidden-xs hidden-md">@lang('laravelusers.users-table.status')</th>
@@ -102,8 +102,7 @@
                                             <td>{{$gift->id}}</td>
                                             <td>{{$gift->name}}</td>
                                             <td class="hidden-xs">{{$gift->category->name}}</td>
-                                            <td class="hidden-xs"><img src="{{\JD\Cloudder\Facades\Cloudder::show($gift->images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}"
-                                                                       alt="quanganh9x" class="img-fluid" style="height: 50px; width: 50px;"></td>
+
                                             <td class="hidden-sm hidden-xs hidden-md">{{$gift->created_at}}</td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$gift->updated_at}}</td>
                                             <th class="hidden-sm hidden-xs hidden-md">{{$gift->status}}</th>

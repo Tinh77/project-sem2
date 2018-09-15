@@ -33,8 +33,10 @@
                     <tr>
                         <td>Ảnh món quà</td>
                         <th>
-                            <div class="view view-cascade overlay"
-                                 style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($transaction->gift -> images, array('width'=>500, 'height'=>500))}}'); background-size: cover; width: 100%; height: 272px;">
+                            <div class="view view-cascade overlay row">
+                                @foreach($transaction->gift->images as $image)
+                                    <img width="70px" height="70px" src="{{$image->link }}" alt="{{$transaction->gift->name}}" />
+                                @endforeach
                             </div>
                         </th>
                     </tr>

@@ -11,7 +11,7 @@
                 <!--Card image-->
                 <div class="view overlay">
                     <div class="bg-slide-list"
-                         style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 100%;height: 200px"></div>
+                         style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item->images[0]->link, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 100%;height: 200px"></div>
 
                     <a href="/client/gift/{{$item ->id}}">
                         <div class="mask rgba-white-slight"></div>

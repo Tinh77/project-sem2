@@ -35,7 +35,7 @@
                                     @if(config('laravelusers.fontAwesomeEnabled'))
                                         <i class="fas fa-fw fa-reply-all" aria-hidden="true"></i>
                                     @endif
-                                    @lang('laravelusers.buttons.back-to-users')
+                                        {!! trans('laravelusers.buttons.back-to-users') !!}
                                 </a>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                         <div class="row mb-4">
                             <div class="col-3 offset-3 col-sm-4 offset-sm-2 col-md-4 offset-md-2 col-lg-3 offset-lg-3">
                                 <a href="/manage/gifts/{{$gift->id}}/edit" class="btn btn-block btn-md btn-warning">
-                                    @lang('laravelusers.buttons.edit-user')
+                                    {!! trans('laravelusers.buttons.edit-user') !!}
                                 </a>
                             </div>
                             <div class="col-3 col-sm-4 col-md-4 col-lg-3">
@@ -136,20 +136,6 @@
                                         </div>
                                         <div class="col-12 col-sm-9">
                                             {{ $gift->description }}
-                                        </div>
-                                    </div>
-                                </li>
-                            @endif
-                            @if ($gift->images)
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-4 col-sm-3">
-                                            <strong>
-                                                Thumbnail
-                                            </strong>
-                                        </div>
-                                        <div class="col-8 col-sm-9">
-                                            {{ $gift->images }}
                                         </div>
                                     </div>
                                 </li>

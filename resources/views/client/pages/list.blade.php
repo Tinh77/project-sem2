@@ -24,15 +24,7 @@
                 <div class="col-sm-4">
                     <a class="font-weight-bold text-dark mr-4" href="#">Categories</a>
                 </div>
-                <div class="col-sm-6">
-                    <form class="search-form" role="search">
-                        <div class="form-group md-form my-0 waves-light">
-                            <input class="form-control mr-sm-2 w-50" name="key" type="search"
-                            placeholder="Tìm kiếm sản phẩm mà bạn cần..."
-                            aria-label="Search">
-                        </div>
-                    </form>
-                </div>
+
             </nav>
             <!--/.Navbar-->
             <div class="row pt-4">
@@ -99,7 +91,7 @@
                             <!-- /Filter by gender -->
                             <!-- Filter by gender -->
                             <div class="col-md-6 col-lg-12">
-                                <h4 class=" dark-grey-text">Phân biệt vùng miền</h4>
+                                <h4 class=" dark-grey-text">Phân loại theo vùng</h4>
                                 <div class="divider border-top"></div>
                                 <form action="#">
                                     <div class="form-group ">
@@ -110,17 +102,17 @@
                                     <div class="form-group">
                                         <label class="dark-grey-text">
                                             <input name="city" value="1" type="radio">
-                                            Backy</label>
+                                            Hà Nội</label>
                                     </div>
                                     <div class="form-group">
                                         <label class="dark-grey-text">
                                             <input name="city" value="2" type="radio">
-                                            Trungky</label>
+                                            Huế</label>
                                     </div>
                                     <div class="form-group">
                                         <label class="dark-grey-text">
                                             <input name="city" value="3" type="radio">
-                                            Namky</label>
+                                            Hồ Chí Minh</label>
                                     </div>
                                 </form>
                             </div>
@@ -142,6 +134,7 @@
                         @foreach($obj as $item)
                             <!--Grid column-->
 
+
                                 <div class="col-lg-4 col-md-12 mb-4">
 
                                     <!--Card-->
@@ -149,9 +142,10 @@
 
                                         <!--Card image-->
                                         <div class="view overlay">
+                                            @if ($item->images)
                                             <div class="bg-slide-list"
-                                                 style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item -> images, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 100%;height: 200px"></div>
-
+                                                 style="background-image: url('{{\JD\Cloudder\Facades\Cloudder::show($item->images[0]->link, array('width'=>500, 'height'=>500,'crop'=>'fit'))}}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 100%;height: 200px"></div>
+                                            @endif
                                             <a href="/client/gift/{{$item ->id}}">
                                                 <div class="mask rgba-white-slight"></div>
                                             </a>
@@ -226,7 +220,9 @@
                     success: (response) => {
                         $('#showGifts').html(response);
                     },
-                    error: (response) => console.log("fail")
+                    error: (response) => {
+                        toast.error("Thất bại");
+                    }
                 });
             }
         });

@@ -57,9 +57,9 @@
                                     @foreach($notifications as $notification)
                                         <li><a class="waves-effect waves-light"
                                                onclick="confirmSubmit({{Auth::user()->id}}, {{$notification->transaction->gift_id}}, {{ $notification->transaction_id}})">
-                                                Item ID: {{ $notification->transaction->gift_id }}.
+                                                Item: {{ $notification->transaction->gift->name }}
                                                 User {{ $notification->transaction->buyer->username }} đã xin món quà
-                                                của bạn. Hãy vào email để xem thông tin chi tiết
+                                                của bạn. Bấm vào đây để xác nhận!
                                             </a>
                                         </li>
                                     @endforeach
@@ -127,24 +127,31 @@
 </nav>
 <script>
     function confirmSubmit(id, gift_id, transaction_id) {
-        $.ajax({
-            url: '/client/gift/' + gift_id + '/confirm',
-            type: 'POST',
-            data: {
-                'id': id,
-                'gift_id': gift_id,
-                'transaction_id': transaction_id
-            },
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: (response) => {
-                if (response.status == 0) {
-                    console.log("okay");
-                } else if (response.status == 'fraud') console.log("fraud");
-            },
-            error: (response) => console.log("fail")
-        });
+        if (confirm("Bạn chắc chắn xác nhận ?")) {
+            $.ajax({
+                url: '/client/gift/' + gift_id + '/confirm',
+                type: 'POST',
+                data: {
+                    'id': id,
+                    'gift_id': gift_id,
+                    'transaction_id': transaction_id
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: (response) => {
+                    if (response.status == 0) {
+                        toastr.success('Thành công. +200 credits!');
+                    } else if (response.status == 'fraud') toastr.error('Thất bại');
+
+                },
+                error: (response) => {
+                    toastr.error('Thất bại');
+                }
+            });
+            window.location.reload();
+        }
+
     }
 </script>
 

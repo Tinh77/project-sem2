@@ -174,7 +174,12 @@
                                             @else
                                             onclick="subscribed()"
                                             @endif>
-                                        Quan tâm!
+                                        @if(!$follow)
+                                            Quan tâm!
+                                        @else
+                                            {{$obj->account->account->phone}}
+                                        @endif
+
                                     </button>
                                         @endif
                                 </div>
@@ -296,7 +301,7 @@
         }(document, 'script', 'facebook-jssdk'));</script>
     <script>
         function getInfo() {
-            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><button class="btn btn-default">{{$obj->account->account->address}}</button><br> <textarea id="waitingMessage" name="message" rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea> <br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi muốn xin</font></button>');
+            $('#btnShow').html('<button class="btn btn-default"><a href="tel:{{$obj->account->account->phone}}"><font color="white">{{$obj->account->account->phone}}</font></a></button><br><br> <textarea id="waitingMessage" name="message" rows="5" placeholder="Để lại lời nhắn. . ." style="width: 100%"></textarea> <br><button class="btn btn-danger" onclick="informSubmit({{Auth::user()->id}}, {{$obj->id}})"><font color="white">Tôi muốn xin</font></button>');
         }
 
         function subscribed() {
@@ -319,17 +324,19 @@
                 },
                 success: (response) => {
                     if (response.status == 0) {
-                        console.log("okay");
-                        alert('Bạn đã quan tâm món quà.Hãy chờ chủ nhân của món quà xác nhận lại')
+                        toastr.success('Thành công!');
+
                         window.location.reload()
 
                     } else if (response.status == 'fraud') {
-                        console.log("fraud");
+                        toastr.error('Thất bại');
                     } else {
                         console.log(response.status);
                     }
                 },
-                error: (response) => console.log("fail")
+                error: (response) => {
+                toastr.error('Thất bại');
+                }
             });
         }
     </script>

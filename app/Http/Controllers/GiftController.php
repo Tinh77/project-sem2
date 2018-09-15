@@ -64,7 +64,7 @@ class GiftController extends Controller
         if (isset($age) && Input::get('group100')) {
             $obj = $obj->where('age_range', '=', $age);
         }
-        $obj = $obj->paginate(6);
+        $obj = $obj->paginate(6)->get();
         $list_obj = DB::table('categories')->pluck("name", "id");
         return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj)->with('data', $data);
     }
@@ -74,14 +74,16 @@ class GiftController extends Controller
         $searchQueries = json_decode($request->input('search'), true); // array ['category' => 'hey', 'ahi' => 'roam']
         if (!is_array($searchQueries)) return $searchQueries;
         $category_id = $searchQueries['category_id'];
-        $gifts = DB::table('gifts');
+        $gifts = Gift::where('category_id', $category_id);
         foreach ($searchQueries as $query => $string) {
             switch ($query) {
                 case 'category_id':
+                    continue;
                 case 'age_range':
                 case 'gender':
                 case 'city':
                     if (!is_string($string) && !is_int($string)) return response()->json(['status' => 'fraud']); // avoid sql injection
+
                     $gifts = $gifts->where($query, 'like', '%' . $string . '%');
                     break;
                 default:
@@ -106,23 +108,23 @@ class GiftController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function listCategory($id = null)
+    public function listCategory($id)
     {
-        $obj = DB::table('gifts')
-            ->where('category_id', '=', $id)->where(['status' => 1])
+        $obj = Gift
+            ::where('category_id', $id)->where('status', 1)
             ->paginate(6);
         $list_obj = DB::table('categories')->pluck("name", "id");
         if ($obj == null || $list_obj == null) {
             return view('client.404client.404');
         }
-        return view('client.pages.list', compact('obj'), compact('list_obj'));
+        return view('client.pages.list')->with('obj', $obj)->with('list_obj', $list_obj);
     }
 
     public function listIndexPosted()
     {
         if (Auth::check()) {
             $account_id = Auth::id();
-            $obj = DB::table('gifts')->where([
+            $obj = Gift::where([
                 ['account_id', '=', $account_id],
                 ['status', '=', 1]
             ])->get();

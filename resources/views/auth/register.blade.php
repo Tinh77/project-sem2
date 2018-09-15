@@ -142,12 +142,12 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="gender" class="col-md-4 col-form-label text-md-right">Giới tính</label>
+                                <label for="gender" class="col-md-4 col-form-label text-md-right">Giới tính (1 nam 0 nữ)</label>
 
                                 <div class="col-md-6">
                                     <input id="gender" type="text"
                                            class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}"
-                                           name="gender" value="{{ old('gender') }}" required>
+                                           name="gender" value="1" required>
 
                                     @if ($errors->has('gender'))
                                         <span class="invalid-feedback" role="alert">
